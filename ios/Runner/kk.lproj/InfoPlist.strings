@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "Суретке немесе бейнеге түсіру үшін бұл қолданбаға камераға кіруге рұқсат қажет.";
+NSPhotoLibraryUsageDescription = "Деректерді жүктеу үшін бұл қолданбаға фотосурет кітапханасына кіруге рұқсат қажет.";
+NSMicrophoneUsageDescription = "Дыбыс үшін қажет";
+PermissionGroupNotification = "Push хабарландырулары үшін қажет";

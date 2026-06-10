@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "Rasm yoki video olish uchun ushbu ilova kameraga kirish uchun ruxsat talab qiladi.";
+NSPhotoLibraryUsageDescription = "Ma'lumotlarni yuklash uchun ushbu ilovaga foto kutubxonasiga kirish uchun ruxsat kerak.";
+NSMicrophoneUsageDescription = "Ovoz uchun kerak";
+PermissionGroupNotification = "Push-bildirishnomalar uchun kerak";

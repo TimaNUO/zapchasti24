@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "სურათის ან ვიდეოს გადასაღებად, ამ აპლიკაციას კამერაზე წვდომის ნებართვა სჭირდება.";
+NSPhotoLibraryUsageDescription = "მონაცემების ასატვირთად, ამ აპლიკაციას ფოტო ბიბლიოთეკაზე წვდომის ნებართვა სჭირდება.";
+NSMicrophoneUsageDescription = "საჭიროა აუდიოსთვის";
+PermissionGroupNotification = "საჭიროა push-შეტყობინებებისთვის";

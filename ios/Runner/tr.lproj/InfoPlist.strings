@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "Fotoğraf veya video çekmek için bu uygulamanın kameraya erişim iznine ihtiyacı vardır.";
+NSPhotoLibraryUsageDescription = "Veri yüklemek için bu uygulamanın fotoğraf kütüphanesine erişim iznine ihtiyacı vardır.";
+NSMicrophoneUsageDescription = "Ses için gerekli";
+PermissionGroupNotification = "Anlık bildirimler için gerekli";

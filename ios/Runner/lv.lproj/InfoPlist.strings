@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "Lai uzņemtu attēlu vai video, šai lietotnei ir nepieciešama atļauja piekļūt kamerai.";
+NSPhotoLibraryUsageDescription = "Lai augšupielādētu datus, šai lietotnei ir nepieciešama atļauja piekļūt fotoattēlu bibliotēkai.";
+NSMicrophoneUsageDescription = "Nepieciešams audio atskaņošanai";
+PermissionGroupNotification = "Nepieciešams push paziņojumiem";

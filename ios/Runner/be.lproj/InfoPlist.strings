@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "У адпаведнасці з тым, што вы робіце, або відэа, гэта прыкладанне патрабуе прыёму для выкарыстання камеры.";
+NSPhotoLibraryUsageDescription = "У адпаведнасці з дадатковымі звесткамі, гэта прыкладанне патрабуе перамяшчэння ў выкарыстанні фота library.";
+NSMicrophoneUsageDescription = "Needed for audio";
+PermissionGroupNotification = "Needed for PUSH-notifications";

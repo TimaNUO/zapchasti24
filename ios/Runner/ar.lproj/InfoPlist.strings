@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "يتطلب هذا التطبيق إذنًا للوصول إلى الكاميرا لالتقاط صورة أو فيديو.";
+NSPhotoLibraryUsageDescription = "يتطلب هذا التطبيق إذنًا للوصول إلى مكتبة الصور لتحميل البيانات.";
+NSMicrophoneUsageDescription = "مطلوب للصوت";
+PermissionGroupNotification = "مطلوب للإشعارات الفورية";

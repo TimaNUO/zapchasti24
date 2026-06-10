@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "В ордер для отримання зображень або відео, ця функція вимагає застосування для використання камери.";
+NSPhotoLibraryUsageDescription = "У відповідності до завантаження даних, це застосування вимагає використання для використання фото library.";
+NSMicrophoneUsageDescription = "Needed for audio";
+PermissionGroupNotification = "Потрібен для PUSH-notifications";

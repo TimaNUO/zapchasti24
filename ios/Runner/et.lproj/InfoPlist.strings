@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "Pildi või video tegemiseks vajab see rakendus kaamerale juurdepääsu luba.";
+NSPhotoLibraryUsageDescription = "Andmete üleslaadimiseks vajab see rakendus fototeegile juurdepääsu luba.";
+NSMicrophoneUsageDescription = "Vajalik heli jaoks";
+PermissionGroupNotification = "Vajalik tõuketeadete jaoks";

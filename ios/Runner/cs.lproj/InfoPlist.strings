@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "Aby bylo možné pořídit snímek nebo video, tato aplikace vyžaduje povolení k přístupu k fotoaparátu.";
+NSPhotoLibraryUsageDescription = "Aby bylo možné nahrát data, tato aplikace vyžaduje oprávnění k přístupu do knihovny fotografií.";
+NSMicrophoneUsageDescription = "Potřebné pro zvuk";
+PermissionGroupNotification = "Potřebné pro push notifikace";

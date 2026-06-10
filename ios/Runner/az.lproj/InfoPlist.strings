@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "Şəkil və ya video çəkmək üçün bu tətbiqin kameraya daxil olmaq üçün icazəsi tələb olunur.";
+NSPhotoLibraryUsageDescription = "Məlumatları yükləmək üçün bu tətbiq foto kitabxanasına daxil olmaq üçün icazə tələb edir.";
+NSMicrophoneUsageDescription = "Səs üçün lazımdır";
+PermissionGroupNotification = "Push bildirişləri üçün lazımdır";

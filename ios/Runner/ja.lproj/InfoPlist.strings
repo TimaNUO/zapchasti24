@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "写真や動画を撮影するには、このアプリはカメラへのアクセス許可を必要とします。";
+NSPhotoLibraryUsageDescription = "データをアップロードするには、このアプリは写真ライブラリへのアクセス許可を必要とします。";
+NSMicrophoneUsageDescription = "音声に必要";
+PermissionGroupNotification = "プッシュ通知に必要";
