@@ -30,7 +30,7 @@ Future processPendingNotificationNavigation(BuildContext context) async {
     context.pushNamed(
       'pSellerRequestDetail',
       queryParameters: {
-        'requestId': serializeParam(cardId, ParamType.int),
+        'requestID': serializeParam(cardId, ParamType.int),
       }.withoutNulls,
     );
     return;
@@ -41,7 +41,7 @@ Future processPendingNotificationNavigation(BuildContext context) async {
     context.pushNamed(
       'pBuyerRequestActuality',
       queryParameters: {
-        'requestId': serializeParam(cardId, ParamType.int),
+        'requestID': serializeParam(cardId, ParamType.int),
       }.withoutNulls,
     );
     return;
