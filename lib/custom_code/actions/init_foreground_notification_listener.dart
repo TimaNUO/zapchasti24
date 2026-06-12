@@ -34,37 +34,27 @@ void _savePayloadToAppState(Map<String, dynamic> data) {
     FFAppState().isAppOpenedFromPush = true;
     FFAppState().pendingNotificationType = typeNotification;
     FFAppState().pendingRequestId = cardId;
-    FFAppState().pendingRoute = '';
 
     switch (typeNotification) {
       case 'new_request_by_filter':
-        FFAppState().pendingRoute = 'request_detail';
-        break;
-
-      case 'buyer_request_confirm_actuality':
-        FFAppState().pendingRoute = 'buyer_request_actuality';
-        break;
-
-      case 'buyer_request_auto_removed':
-        FFAppState().pendingRoute = 'buyer_requests_history';
-        break;
-
       case 'request_detail':
         FFAppState().pendingRoute = 'request_detail';
         break;
-
+      case 'buyer_request_confirm_actuality':
+        FFAppState().pendingRoute = 'buyer_request_actuality';
+        break;
+      case 'buyer_request_auto_removed':
+        FFAppState().pendingRoute = 'buyer_requests_history';
+        break;
       case 'ad_detail':
         FFAppState().pendingRoute = 'ad_detail';
         break;
-
       case 'seller_profile':
         FFAppState().pendingRoute = 'seller_profile';
         break;
-
       case 'buyer_profile':
         FFAppState().pendingRoute = 'buyer_profile';
         break;
-
       default:
         FFAppState().pendingRoute = '';
         break;
@@ -72,31 +62,19 @@ void _savePayloadToAppState(Map<String, dynamic> data) {
   });
 }
 
-String _getNotificationTitle(RemoteMessage message) {
-  final notificationTitle = message.notification?.title;
-  if (notificationTitle != null && notificationTitle.trim().isNotEmpty) {
-    return notificationTitle.trim();
-  }
-
-  final dataTitle = message.data['title'];
-  if (dataTitle != null && dataTitle.toString().trim().isNotEmpty) {
-    return dataTitle.toString().trim();
-  }
-
+String _getTitle(RemoteMessage message) {
+  final t = message.notification?.title?.trim();
+  if (t != null && t.isNotEmpty) return t;
+  final d = message.data['title']?.toString().trim();
+  if (d != null && d.isNotEmpty) return d;
   return 'Новое уведомление';
 }
 
-String _getNotificationBody(RemoteMessage message) {
-  final notificationBody = message.notification?.body;
-  if (notificationBody != null && notificationBody.trim().isNotEmpty) {
-    return notificationBody.trim();
-  }
-
-  final dataBody = message.data['body'];
-  if (dataBody != null && dataBody.toString().trim().isNotEmpty) {
-    return dataBody.toString().trim();
-  }
-
+String _getBody(RemoteMessage message) {
+  final b = message.notification?.body?.trim();
+  if (b != null && b.isNotEmpty) return b;
+  final d = message.data['body']?.toString().trim();
+  if (d != null && d.isNotEmpty) return d;
   return 'Нажмите, чтобы открыть';
 }
 
@@ -104,30 +82,52 @@ Future initForegroundNotificationListener(BuildContext context) async {
   if (_foregroundNotificationListenerInitialized) return;
   _foregroundNotificationListenerInitialized = true;
 
-  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-    final Map<String, dynamic> data = Map<String, dynamic>.from(message.data);
+  // Показываем уведомления в foreground на iOS
+  await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
+    alert: true,
+    badge: true,
+    sound: true,
+  );
 
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    if (!context.mounted) return;
+
+    final Map<String, dynamic> data = Map<String, dynamic>.from(message.data);
     final String typeNotification = _toStr(data['type_notification']);
     final int cardId = _toIntSafe(data['card_id']);
 
-    // Если в push нет нужных данных для перехода — ничего не делаем
     if (typeNotification.isEmpty) return;
 
-    // Для переходов, где нужен card_id, проверяем что он есть
-    if (typeNotification != 'buyer_request_auto_removed' && cardId <= 0) {
+    // Для маршрутов с card_id — проверяем что он есть
+    if (typeNotification != 'buyer_request_auto_removed' &&
+        typeNotification != 'buyer_profile' &&
+        typeNotification != 'seller_profile' &&
+        cardId <= 0) {
       return;
     }
 
-    final String title = _getNotificationTitle(message);
-    final String body = _getNotificationBody(message);
+    final String title = _getTitle(message);
+    final String body = _getBody(message);
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('$title\n$body'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            if (body.isNotEmpty)
+              Text(body, style: const TextStyle(fontSize: 13)),
+          ],
+        ),
         duration: const Duration(seconds: 8),
         action: SnackBarAction(
           label: 'Открыть',
           onPressed: () {
+            if (!context.mounted) return;
             _savePayloadToAppState(data);
             processPendingNotificationNavigation(context);
           },
@@ -136,5 +136,3 @@ Future initForegroundNotificationListener(BuildContext context) async {
     );
   });
 }
-// Set your action name, define your arguments and return parameter,
-// and then add the boilerplate code using the green button on the right!

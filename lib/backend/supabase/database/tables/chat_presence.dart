@@ -28,4 +28,7 @@ class ChatPresenceRow extends SupabaseDataRow {
 
   bool? get isActive => getField<bool>('is_active');
   set isActive(bool? value) => setField<bool>('is_active', value);
+
+  DateTime? get lastSeenAt => getField<DateTime>('last_seen_at');
+  set lastSeenAt(DateTime? value) => setField<DateTime>('last_seen_at', value);
 }

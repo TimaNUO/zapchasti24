@@ -14,16 +14,17 @@ import 'package:flutter/material.dart';
 import '/custom_code/actions/index.dart';
 import '/flutter_flow/custom_functions.dart';
 
-// ДОПОЛНИТЕЛЬНЫЕ ИМПОРТЫ
 import '/auth/supabase_auth/auth_util.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+
+// флаг чтобы onTokenRefresh не вешался дважды
+bool _tokenRefreshListenerAttached = false;
 
 Future initializeMessagingUniversal() async {
   try {
     debugPrint('[FCM] initializeMessagingUniversal START');
 
-    // 1. Инициализация Firebase (если вдруг не инициализирован)
     if (Firebase.apps.isEmpty) {
       debugPrint('[FCM] Firebase.apps.isEmpty -> initializeApp()');
       await Firebase.initializeApp();
@@ -33,21 +34,24 @@ Future initializeMessagingUniversal() async {
 
     final messaging = FirebaseMessaging.instance;
 
-    // На всякий случай включаем авто-инициализацию
     await messaging.setAutoInitEnabled(true);
 
-    // 2. Смотрим APNs-токен (только iOS)
+    // ✅ ДОБАВЛЕНО: показываем уведомления когда приложение открыто (iOS)
+    await messaging.setForegroundNotificationPresentationOptions(
+      alert: true,
+      badge: true,
+      sound: true,
+    );
+
     final apnsToken = await messaging.getAPNSToken();
     debugPrint('[FCM] APNs token: $apnsToken');
 
-    // 3. Запрос разрешений
     final settings = await messaging.requestPermission(
       alert: true,
       badge: true,
       sound: true,
     );
-    debugPrint(
-        '[FCM] authorizationStatus = ${settings.authorizationStatus.toString()}');
+    debugPrint('[FCM] authorizationStatus = ${settings.authorizationStatus}');
 
     if (settings.authorizationStatus != AuthorizationStatus.authorized &&
         settings.authorizationStatus != AuthorizationStatus.provisional) {
@@ -57,7 +61,6 @@ Future initializeMessagingUniversal() async {
       return;
     }
 
-    // 4. Пробуем получить FCM-токен
     String? token = await messaging.getToken();
     debugPrint('[FCM] FCM token first try: $token');
 
@@ -75,34 +78,41 @@ Future initializeMessagingUniversal() async {
       debugPrint('[FCM] token is still null/empty after retries');
       FFAppState().fcmToken = 'TOKEN_NULL';
     }
+
+    // ✅ ДОБАВЛЕНО: обновляем токен в Supabase когда Firebase его ротирует
+    if (!_tokenRefreshListenerAttached) {
+      _tokenRefreshListenerAttached = true;
+      messaging.onTokenRefresh.listen((newToken) async {
+        debugPrint('[FCM] token refreshed');
+        await _saveFcmTokenToSupabase(newToken);
+      });
+    }
   } catch (e, st) {
-    debugPrint('initializeMessagingUniversal error: $e\n$st');
+    debugPrint('[FCM] initializeMessagingUniversal error: $e\n$st');
     FFAppState().fcmToken = 'ERROR_${e.toString()}';
   }
 }
 
-/// Сохранение токена в data_users
 Future<void> _saveFcmTokenToSupabase(String token) async {
   try {
     FFAppState().fcmToken = token;
 
     final uid = currentUserUid;
     if (uid.isEmpty) {
-      debugPrint('[saveFcmTokenToSupabase] currentUserUid is empty, skip');
+      debugPrint('[FCM] currentUserUid is empty, skip');
       return;
     }
 
-    debugPrint(
-        '[saveFcmTokenToSupabase] saving token for uid=$uid, token=$token');
+    debugPrint('[FCM] saving token for uid=$uid, token=$token');
 
     final response = await DataUsersTable().update(
       data: {'fcm_token': token},
       matchingRows: (rows) => rows.eq('uid', uid),
     );
 
-    debugPrint('[saveFcmTokenToSupabase] Supabase update result: $response');
+    debugPrint('[FCM] Supabase update result: $response');
   } catch (e, st) {
-    debugPrint('saveFcmTokenToSupabase error: $e\n$st');
+    debugPrint('[FCM] saveFcmTokenToSupabase error: $e\n$st');
     FFAppState().fcmToken = 'SAVE_ERROR_${e.toString()}';
   }
 }

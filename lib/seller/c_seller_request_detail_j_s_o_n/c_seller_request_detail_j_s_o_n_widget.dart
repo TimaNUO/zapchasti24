@@ -12,11 +12,11 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'c_seller_request_detail_copy_model.dart';
-export 'c_seller_request_detail_copy_model.dart';
+import 'c_seller_request_detail_j_s_o_n_model.dart';
+export 'c_seller_request_detail_j_s_o_n_model.dart';
 
-class CSellerRequestDetailCopyWidget extends StatefulWidget {
-  const CSellerRequestDetailCopyWidget({
+class CSellerRequestDetailJSONWidget extends StatefulWidget {
+  const CSellerRequestDetailJSONWidget({
     super.key,
     required this.requestBody,
   });
@@ -24,14 +24,14 @@ class CSellerRequestDetailCopyWidget extends StatefulWidget {
   final dynamic requestBody;
 
   @override
-  State<CSellerRequestDetailCopyWidget> createState() =>
-      _CSellerRequestDetailCopyWidgetState();
+  State<CSellerRequestDetailJSONWidget> createState() =>
+      _CSellerRequestDetailJSONWidgetState();
 }
 
-class _CSellerRequestDetailCopyWidgetState
-    extends State<CSellerRequestDetailCopyWidget>
+class _CSellerRequestDetailJSONWidgetState
+    extends State<CSellerRequestDetailJSONWidget>
     with TickerProviderStateMixin {
-  late CSellerRequestDetailCopyModel _model;
+  late CSellerRequestDetailJSONModel _model;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -44,7 +44,7 @@ class _CSellerRequestDetailCopyWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CSellerRequestDetailCopyModel());
+    _model = createModel(context, () => CSellerRequestDetailJSONModel());
 
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(

@@ -12,62 +12,75 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 Future processPendingNotificationNavigation(BuildContext context) async {
+  if (!context.mounted) return;
+
   final bool openedFromPush = FFAppState().isAppOpenedFromPush;
   final String route = FFAppState().pendingRoute;
   final int cardId = FFAppState().pendingRequestId;
 
-  // Если приложение открыто обычным способом — ничего не делаем
   if (!openedFromPush) return;
-
-  // Если нет маршрута — ничего не делаем
   if (route.isEmpty) return;
 
   await Future.delayed(const Duration(milliseconds: 500));
 
-  if (route == 'request_detail' && cardId > 0) {
-    _clearPendingNotificationState();
+  if (!context.mounted) return;
 
+  if (route == 'request_detail' && cardId > 0) {
+    _clearPendingState();
     context.pushNamed(
-      'cBuyerRequestDetail',
+      'pSellerRequestDetail',
       queryParameters: {
-        'requestId': serializeParam(
-          cardId,
-          ParamType.int,
-        ),
+        'requestId': serializeParam(cardId, ParamType.int),
       }.withoutNulls,
     );
-
     return;
   }
 
   if (route == 'buyer_request_actuality' && cardId > 0) {
-    _clearPendingNotificationState();
-
+    _clearPendingState();
     context.pushNamed(
-      'cBuyerRequestActuality',
+      'pBuyerRequestActuality',
       queryParameters: {
-        'requestId': serializeParam(
-          cardId,
-          ParamType.int,
-        ),
+        'requestId': serializeParam(cardId, ParamType.int),
       }.withoutNulls,
     );
-
     return;
   }
 
   if (route == 'buyer_requests_history') {
-    _clearPendingNotificationState();
-
-    context.pushNamed(
-      'pHistoryBuyer',
-    );
-
+    _clearPendingState();
+    context.pushNamed('pHistoryBuyer');
     return;
   }
+
+  if (route == 'ad_detail' && cardId > 0) {
+    _clearPendingState();
+    context.pushNamed(
+      'pAdDetail',
+      queryParameters: {
+        'adId': serializeParam(cardId, ParamType.int),
+      }.withoutNulls,
+    );
+    return;
+  }
+
+  if (route == 'seller_profile') {
+    _clearPendingState();
+    context.pushNamed('pSellerProfile');
+    return;
+  }
+
+  if (route == 'buyer_profile') {
+    _clearPendingState();
+    context.pushNamed('pBuyerProfile');
+    return;
+  }
+
+  // Неизвестный маршрут — сбрасываем, чтобы не зависло
+  _clearPendingState();
 }
 
-void _clearPendingNotificationState() {
+void _clearPendingState() {
   FFAppState().update(() {
     FFAppState().isAppOpenedFromPush = false;
     FFAppState().pendingNotificationType = '';

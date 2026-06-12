@@ -48,4 +48,22 @@ class RequestsRow extends SupabaseDataRow {
 
   bool? get isAlive => getField<bool>('is_alive');
   set isAlive(bool? value) => setField<bool>('is_alive', value);
+
+  DateTime? get actualityConfirmedAt =>
+      getField<DateTime>('actuality_confirmed_at');
+  set actualityConfirmedAt(DateTime? value) =>
+      setField<DateTime>('actuality_confirmed_at', value);
+
+  DateTime? get actualityReminderSentAt =>
+      getField<DateTime>('actuality_reminder_sent_at');
+  set actualityReminderSentAt(DateTime? value) =>
+      setField<DateTime>('actuality_reminder_sent_at', value);
+
+  DateTime? get autoRemovedAt => getField<DateTime>('auto_removed_at');
+  set autoRemovedAt(DateTime? value) =>
+      setField<DateTime>('auto_removed_at', value);
+
+  String? get autoRemoveReason => getField<String>('auto_remove_reason');
+  set autoRemoveReason(String? value) =>
+      setField<String>('auto_remove_reason', value);
 }

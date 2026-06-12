@@ -34,37 +34,27 @@ void _savePayload(Map<String, dynamic> data) {
     FFAppState().isAppOpenedFromPush = true;
     FFAppState().pendingNotificationType = typeNotification;
     FFAppState().pendingRequestId = cardId;
-    FFAppState().pendingRoute = '';
 
     switch (typeNotification) {
       case 'new_request_by_filter':
-        FFAppState().pendingRoute = 'request_detail';
-        break;
-
-      case 'buyer_request_confirm_actuality':
-        FFAppState().pendingRoute = 'buyer_request_actuality';
-        break;
-
-      case 'buyer_request_auto_removed':
-        FFAppState().pendingRoute = 'buyer_requests_history';
-        break;
-
       case 'request_detail':
         FFAppState().pendingRoute = 'request_detail';
         break;
-
+      case 'buyer_request_confirm_actuality':
+        FFAppState().pendingRoute = 'buyer_request_actuality';
+        break;
+      case 'buyer_request_auto_removed':
+        FFAppState().pendingRoute = 'buyer_requests_history';
+        break;
       case 'ad_detail':
         FFAppState().pendingRoute = 'ad_detail';
         break;
-
       case 'seller_profile':
         FFAppState().pendingRoute = 'seller_profile';
         break;
-
       case 'buyer_profile':
         FFAppState().pendingRoute = 'buyer_profile';
         break;
-
       default:
         FFAppState().pendingRoute = '';
         break;
@@ -81,21 +71,19 @@ Future initNotificationOpenListener(BuildContext context) async {
       await FirebaseMessaging.instance.getInitialMessage();
 
   if (initialMessage != null) {
-    final data = Map<String, dynamic>.from(initialMessage.data);
-    _savePayload(data);
-
+    _savePayload(Map<String, dynamic>.from(initialMessage.data));
     await Future.delayed(const Duration(milliseconds: 800));
-    await processPendingNotificationNavigation(context);
+    if (context.mounted) {
+      await processPendingNotificationNavigation(context);
+    }
   }
 
   // 2. Приложение было в фоне, открыли через push
   FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) async {
-    final data = Map<String, dynamic>.from(message.data);
-    _savePayload(data);
-
+    _savePayload(Map<String, dynamic>.from(message.data));
     await Future.delayed(const Duration(milliseconds: 300));
-    await processPendingNotificationNavigation(context);
+    if (context.mounted) {
+      await processPendingNotificationNavigation(context);
+    }
   });
 }
-// Set your action name, define your arguments and return parameter,
-// and then add the boilerplate code using the green button on the right!

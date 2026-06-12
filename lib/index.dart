@@ -30,3 +30,7 @@ export '/buyer/p_history_buyer/p_history_buyer_widget.dart'
 export '/seller/p_history_seller/p_history_seller_widget.dart'
     show PHistorySellerWidget;
 export '/auth/p_start_req/p_start_req_widget.dart' show PStartReqWidget;
+export '/buyer/p_buyer_request_actuality/p_buyer_request_actuality_widget.dart'
+    show PBuyerRequestActualityWidget;
+export '/seller/p_seller_request_detail/p_seller_request_detail_widget.dart'
+    show PSellerRequestDetailWidget;

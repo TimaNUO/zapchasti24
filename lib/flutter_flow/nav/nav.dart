@@ -185,6 +185,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: PStartReqWidget.routeName,
           path: PStartReqWidget.routePath,
           builder: (context, params) => PStartReqWidget(),
+        ),
+        FFRoute(
+          name: PBuyerRequestActualityWidget.routeName,
+          path: PBuyerRequestActualityWidget.routePath,
+          builder: (context, params) => PBuyerRequestActualityWidget(
+            requestID: params.getParam(
+              'requestID',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: PSellerRequestDetailWidget.routeName,
+          path: PSellerRequestDetailWidget.routePath,
+          builder: (context, params) => PSellerRequestDetailWidget(
+            requestID: params.getParam(
+              'requestID',
+              ParamType.int,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

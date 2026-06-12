@@ -16,8 +16,6 @@ export 'subscribe_to_chat_messages.dart' show subscribeToChatMessages;
 export 'unsubscribe_from_chat_messages.dart' show unsubscribeFromChatMessages;
 export 'merge_message_lists_asc.dart' show mergeMessageListsAsc;
 export 'dismiss_keyboard.dart' show dismissKeyboard;
-export 'save_notification_payload_to_app_state.dart'
-    show saveNotificationPayloadToAppState;
 export 'process_pending_notification_navigation.dart'
     show processPendingNotificationNavigation;
 export 'init_notification_open_listener.dart' show initNotificationOpenListener;
