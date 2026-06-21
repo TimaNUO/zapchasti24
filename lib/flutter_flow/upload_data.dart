@@ -82,70 +82,73 @@ Future<List<SelectedFile>?> selectMediaWithSourceBottomSheet({
       context: context,
       backgroundColor: backgroundColor,
       builder: (context) {
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (!kIsWeb) ...[
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                child: ListTile(
-                  title: Text(
-                    FFLocalizations.of(context).getText(
-                      'abv97zxa' /* Выберите источник */,
+        return SafeArea(
+          top: false,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (!kIsWeb) ...[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                  child: ListTile(
+                    title: Text(
+                      FFLocalizations.of(context).getText(
+                        'abv97zxa' /* Выберите источник */,
+                      ),
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.getFont(
+                        pickerFontFamily,
+                        color: textColor.applyAlpha(0.65),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20,
+                      ),
                     ),
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.getFont(
-                      pickerFontFamily,
-                      color: textColor.applyAlpha(0.65),
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20,
-                    ),
+                    tileColor: backgroundColor,
+                    dense: false,
                   ),
-                  tileColor: backgroundColor,
-                  dense: false,
                 ),
-              ),
-              const Divider(),
-            ],
-            if (allowPhoto && allowVideo) ...[
-              createUploadMediaListTile(
-                FFLocalizations.of(context).getText(
-                  'e8k7jplv' /* Галерея (Фото) */,
-                ),
-                MediaSource.photoGallery,
-              ),
-              const Divider(),
-              createUploadMediaListTile(
-                FFLocalizations.of(context).getText(
-                  'gddqljgv' /* Галерея (Видео) */,
-                ),
-                MediaSource.videoGallery,
-              ),
-            ] else if (allowPhoto)
-              createUploadMediaListTile(
-                FFLocalizations.of(context).getText(
-                  '1qato264' /* Галерея */,
-                ),
-                MediaSource.photoGallery,
-              )
-            else
-              createUploadMediaListTile(
-                FFLocalizations.of(context).getText(
-                  '1qato264' /* Галерея */,
-                ),
-                MediaSource.videoGallery,
-              ),
-            if (!kIsWeb) ...[
-              const Divider(),
-              createUploadMediaListTile(
+                const Divider(),
+              ],
+              if (allowPhoto && allowVideo) ...[
+                createUploadMediaListTile(
                   FFLocalizations.of(context).getText(
-                    'gf40dcsj' /* Камера */,
+                    'e8k7jplv' /* Галерея (Фото) */,
                   ),
-                  MediaSource.camera),
-              const Divider(),
+                  MediaSource.photoGallery,
+                ),
+                const Divider(),
+                createUploadMediaListTile(
+                  FFLocalizations.of(context).getText(
+                    'gddqljgv' /* Галерея (Видео) */,
+                  ),
+                  MediaSource.videoGallery,
+                ),
+              ] else if (allowPhoto)
+                createUploadMediaListTile(
+                  FFLocalizations.of(context).getText(
+                    '1qato264' /* Галерея */,
+                  ),
+                  MediaSource.photoGallery,
+                )
+              else
+                createUploadMediaListTile(
+                  FFLocalizations.of(context).getText(
+                    '1qato264' /* Галерея */,
+                  ),
+                  MediaSource.videoGallery,
+                ),
+              if (!kIsWeb) ...[
+                const Divider(),
+                createUploadMediaListTile(
+                    FFLocalizations.of(context).getText(
+                      'gf40dcsj' /* Камера */,
+                    ),
+                    MediaSource.camera),
+                const Divider(),
+              ],
+              const SizedBox(height: 10),
             ],
-            const SizedBox(height: 10),
-          ],
+          ),
         );
       });
   if (mediaSource == null) {

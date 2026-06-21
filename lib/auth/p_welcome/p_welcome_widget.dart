@@ -35,7 +35,6 @@ class _PWelcomeWidgetState extends State<PWelcomeWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.checkAuthOutput = await actions.checkAuth();
       _model.buildNumber = await actions.getInstalledBuildNumber();
       FFAppState().buildNumber = _model.buildNumber!;
       _model.installid = await actions.getOrCreateInstallId();

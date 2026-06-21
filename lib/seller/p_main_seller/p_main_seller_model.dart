@@ -1,6 +1,7 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/seller/c_seller_navigation_bar/c_seller_navigation_bar_widget.dart';
+import '/index.dart';
 import 'p_main_seller_widget.dart' show PMainSellerWidget;
 import 'package:flutter/material.dart';
 

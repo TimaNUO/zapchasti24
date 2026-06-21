@@ -14,8 +14,12 @@ class PBuyerRequestActualityModel
 
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - API (Open Request ONE Info)] action in pBuyerRequestActuality widget.
+  ApiCallResponse? apiResultd2k;
   // Stores action output result for [Backend Call - API (request actuality confirm)] action in ButtonAlive widget.
   ApiCallResponse? apiResultzor;
+  // Stores action output result for [Backend Call - API (notify sellers new request)] action in ButtonAlive widget.
+  ApiCallResponse? notifySellersActReq;
   // Stores action output result for [Backend Call - API (request actuality remove by buyer)] action in ButtonAlive widget.
   ApiCallResponse? apiResultzordel;
   // Model for cBackComponents component.

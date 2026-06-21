@@ -2131,6 +2131,35 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'uz': 'Chatlar',
       'zh_Hant': '聊天',
     },
+    'yi1q8h2y': {
+      'ru': 'заявка',
+      'ar': 'المحادثات',
+      'az': 'Söhbətlər',
+      'be': 'Чаты',
+      'bg': 'Чатове',
+      'cs': 'Chaty',
+      'de': 'Chats',
+      'en': 'Chats',
+      'es': 'Chats',
+      'et': 'Vestlused',
+      'fr': 'Discussions',
+      'hi': 'चैट',
+      'hy': 'Զրույցներ',
+      'ja': 'チャット',
+      'ka': 'ჩეთები',
+      'kk': 'Чаттар',
+      'ko': '채팅',
+      'ky': 'Чаттарды',
+      'lv': 'Tērzēšanas sarunas',
+      'pl': 'Czat',
+      'ro': 'Chat-uri',
+      'sk': 'Čety',
+      'th': 'แชท',
+      'tr': 'Sohbetler',
+      'uk': 'Чати',
+      'uz': 'Chatlar',
+      'zh_Hant': '聊天',
+    },
     '9fdp5ftn': {
       'ru': 'Мой рейтинг',
       'ar': 'تقييمي',
@@ -5679,7 +5708,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'uz': 'KOD:',
       'zh_Hant': '代碼：',
     },
-    'cylor2qk': {
+    'tbesp93c': {
       'ru': 'КОД:',
       'ar': 'شفرة:',
       'az': 'KOD:',
@@ -5708,7 +5737,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'uz': 'KOD:',
       'zh_Hant': '代碼：',
     },
-    'utvvaabp': {
+    '0hxt9ndw': {
       'ru': 'Авто',
       'ar': 'آلي',
       'az': 'Avtomatik',
@@ -5737,7 +5766,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'uz': 'Avtomatik',
       'zh_Hant': '汽車',
     },
-    'nv1p85xp': {
+    '8v951stn': {
       'ru': 'Год',
       'ar': 'سنة',
       'az': 'İl',
@@ -5766,7 +5795,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'uz': 'Yil',
       'zh_Hant': '年',
     },
-    'bgufy3dj': {
+    'gojk77ul': {
       'ru': 'VIN',
       'ar': 'رقم تعريف المركبة',
       'az': 'VIN',
@@ -5795,7 +5824,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'uz': 'VIN',
       'zh_Hant': '車輛識別碼',
     },
-    '669zsuz4': {
+    'jflotmyw': {
       'ru': 'Категория',
       'ar': 'فئة',
       'az': 'Kateqoriya',
@@ -5824,7 +5853,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'uz': 'Kategoriya',
       'zh_Hant': '類別',
     },
-    'u0kek4qq': {
+    'lllyjami': {
       'ru': 'Состояние автозапчастей',
       'ar': 'حالة قطع غيار السيارات',
       'az': 'Avtomobil hissələrinin vəziyyəti',
@@ -5853,7 +5882,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'uz': 'Avtomobil ehtiyot qismlarining holati',
       'zh_Hant': '汽車零件狀況',
     },
-    '7cuebjbe': {
+    'mna7syj4': {
       'ru': 'Б/У',
       'ar': 'مستخدم',
       'az': 'İstifadə olunmuş',
@@ -5882,7 +5911,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'uz': 'Ishlatilgan',
       'zh_Hant': '用過的',
     },
-    'q1xjszak': {
+    'mill092c': {
       'ru': 'Новое',
       'ar': 'جديد',
       'az': 'Yeni',
@@ -5911,7 +5940,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'uz': 'Yangi',
       'zh_Hant': '新的',
     },
-    'm79h901v': {
+    'dycthrgm': {
       'ru': 'Описание покупателя',
       'ar': 'وصف المشتري',
       'az': 'Alıcının təsviri',

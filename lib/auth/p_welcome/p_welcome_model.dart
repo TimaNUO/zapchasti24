@@ -20,8 +20,6 @@ class PWelcomeModel extends FlutterFlowModel<PWelcomeWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Custom Action - checkAuth] action in pWelcome widget.
-  bool? checkAuthOutput;
   // Stores action output result for [Custom Action - getInstalledBuildNumber] action in pWelcome widget.
   int? buildNumber;
   // Stores action output result for [Custom Action - getOrCreateInstallId] action in pWelcome widget.

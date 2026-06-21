@@ -12,6 +12,7 @@ import '/seller/c_seller_navigation_bar/c_seller_navigation_bar_widget.dart';
 import '/seller/c_seller_request_a_l_l_filter/c_seller_request_a_l_l_filter_widget.dart';
 import '/seller/c_seller_request_for_filter/c_seller_request_for_filter_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -223,6 +224,58 @@ class _PMainSellerWidgetState extends State<PMainSellerWidget> {
                             ),
                           ),
                         ),
+                        if (false)
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                context.pushNamed(
+                                  PSellerRequestDetailWidget.routeName,
+                                  queryParameters: {
+                                    'requestID': serializeParam(
+                                      5017,
+                                      ParamType.int,
+                                    ),
+                                  }.withoutNulls,
+                                );
+                              },
+                              text: FFLocalizations.of(context).getText(
+                                'yi1q8h2y' /* заявка */,
+                              ),
+                              options: FFButtonOptions(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    4.0, 0.0, 4.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      font: GoogleFonts.openSans(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
+                                      color: Colors.white,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                elevation: 0.0,
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                          ),
                         FutureBuilder<List<DataUsersRow>>(
                           future: DataUsersTable().queryRows(
                             queryFn: (q) => q.eqOrNull(
