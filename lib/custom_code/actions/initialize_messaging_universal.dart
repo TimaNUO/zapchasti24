@@ -168,6 +168,7 @@ Future initializeMessagingUniversal() async {
   // background. On iOS, getAPNSToken() can hang indefinitely waiting for
   // the APNS registration callback — it must never block runApp().
   unawaited(_initFcmToken());
+  _logEvent('info', 'boot:initCompleted');
 }
 
 Future<void> _initFcmToken() async {
