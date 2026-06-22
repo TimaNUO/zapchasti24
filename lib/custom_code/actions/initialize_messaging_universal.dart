@@ -171,12 +171,13 @@ Future initializeMessagingUniversal() async {
   _logEvent('info', 'boot:initCompleted');
 }
 
+//
 Future<void> _initFcmToken() async {
   try {
     final messaging = FirebaseMessaging.instance;
     await messaging.setAutoInitEnabled(true);
     await messaging.setForegroundNotificationPresentationOptions(
-        alert: true, badge: true, sound: true);
+        alert: false, badge: true, sound: true);
 
     if (defaultTargetPlatform == TargetPlatform.iOS) {
       for (int i = 0; i < 3; i++) {

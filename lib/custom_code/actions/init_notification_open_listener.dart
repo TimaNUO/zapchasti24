@@ -12,11 +12,14 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'dart:async';
+import 'dart:io' show Platform;
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '/auth/supabase_auth/auth_util.dart';
 
 bool _notificationOpenListenerInitialized = false;
 bool _fcmTokenSaved = false;
+bool _notificationPromptShown = false;
 
 // ─── Логирование в Supabase (таблица public.logs) ─────────────────
 // См. аналогичный helper в init_foreground_notification_listener.dart —
@@ -34,6 +37,50 @@ void _logEvent(String level, String message, [Map<String, dynamic>? ctx]) {
       });
     } catch (_) {}
   }());
+}
+
+Future<void> _checkNotificationPermission() async {
+  await Future.delayed(const Duration(seconds: 4));
+  final token = FFAppState().fcmToken;
+  if (!token.startsWith('NO_PERMISSION_')) return;
+  try {
+    final settings = await FirebaseMessaging.instance.getNotificationSettings();
+    if (settings.authorizationStatus != AuthorizationStatus.denied) return;
+  } catch (_) {
+    return;
+  }
+  final ctx = PushNavContext.current;
+  if (ctx == null || !ctx.mounted) return;
+  _showNotificationSettingsDialog(ctx);
+}
+
+void _showNotificationSettingsDialog(BuildContext context) {
+  if (!context.mounted) return;
+  showDialog<void>(
+    context: context,
+    builder: (ctx) => AlertDialog(
+      title: const Text('Уведомления отключены'),
+      content: const Text(
+          'Разрешите уведомления в настройках, чтобы получать информацию о ваших заявках.'),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(ctx).pop(),
+          child: const Text('Позже'),
+        ),
+        TextButton(
+          onPressed: () async {
+            Navigator.of(ctx).pop();
+            try {
+              if (Platform.isIOS) {
+                await launchUrl(Uri.parse('app-settings:'));
+              }
+            } catch (_) {}
+          },
+          child: const Text('Открыть настройки'),
+        ),
+      ],
+    ),
+  );
 }
 
 Future<void> _tryPersistFcmToken() async {
@@ -157,6 +204,11 @@ Future initNotificationOpenListener(BuildContext context) async {
 
   // Сохраняем FCM-токен в Supabase если при старте uid был пустым (новый юзер)
   if (!_fcmTokenSaved) _tryPersistFcmToken();
+
+  if (!_notificationPromptShown) {
+    _notificationPromptShown = true;
+    unawaited(_checkNotificationPermission());
+  }
 
   if (_notificationOpenListenerInitialized) return;
 
