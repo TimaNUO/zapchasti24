@@ -153,35 +153,45 @@ Future initializeMessagingUniversal() async {
     FFAppState().pendingNotificationType = '';
   });
 
+  // Firebase.initializeApp() must finish before runApp() so that
+  // getInitialMessage() in pages can call Firebase APIs safely.
   try {
     if (Firebase.apps.isEmpty) {
-      await Firebase.initializeApp();
+      await Firebase.initializeApp().timeout(const Duration(seconds: 10));
     }
+  } catch (e) {
+    _logEvent('error', 'fcm:firebaseInitError', {'error': e.toString()});
+    return; // app UI still shows — just no FCM
+  }
 
+  // Everything else (APNS token, permission dialog, FCM token) runs in
+  // background. On iOS, getAPNSToken() can hang indefinitely waiting for
+  // the APNS registration callback — it must never block runApp().
+  unawaited(_initFcmToken());
+}
+
+Future<void> _initFcmToken() async {
+  try {
     final messaging = FirebaseMessaging.instance;
-
     await messaging.setAutoInitEnabled(true);
-
     await messaging.setForegroundNotificationPresentationOptions(
-      alert: true,
-      badge: true,
-      sound: true,
-    );
+        alert: true, badge: true, sound: true);
 
-    // iOS: getToken() requires an APNS token. Wait up to 10s for it.
     if (defaultTargetPlatform == TargetPlatform.iOS) {
-      for (int i = 0; i < 5; i++) {
-        if (await messaging.getAPNSToken() != null) break;
-        await Future.delayed(const Duration(seconds: 2));
+      for (int i = 0; i < 3; i++) {
+        try {
+          final apns = await messaging
+              .getAPNSToken()
+              .timeout(const Duration(seconds: 3));
+          if (apns != null) break;
+        } catch (_) {
+          break;
+        }
       }
     }
 
     final settings = await messaging.requestPermission(
-      alert: true,
-      badge: true,
-      sound: true,
-    );
-
+        alert: true, badge: true, sound: true);
     if (settings.authorizationStatus != AuthorizationStatus.authorized &&
         settings.authorizationStatus != AuthorizationStatus.provisional) {
       FFAppState().fcmToken =
@@ -189,9 +199,6 @@ Future initializeMessagingUniversal() async {
       return;
     }
 
-    // One quick attempt before runApp(). On MIUI/Xiaomi, Play Services are
-    // often not ready at cold start — retries run in background so runApp()
-    // is not delayed by the 37-second sequential retry loop.
     String? token;
     try {
       token = await messaging.getToken();
