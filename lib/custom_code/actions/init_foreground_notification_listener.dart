@@ -32,12 +32,12 @@ void _logEvent(String level, String message, [Map<String, dynamic>? ctx]) {
   }());
 }
 
-// ─── Точка входа ────────────────────────────────────────────────
-// Вызывается из FlutterFlow на главном экране (onPageLoad).
-// Инициализирует слушатель FCM foreground-уведомлений.
-// Показывает стопку карточек сверху экрана.
-// Тап по карточке = навигация. Крестик = закрыть.
-// ────────────────────────────────────────────────────────────────
+/// ─── Точка входа ────────────────────────────────────────────────
+/// Вызывается из FlutterFlow на главном экране (onPageLoad).
+///
+/// Инициализирует слушатель FCM foreground-уведомлений. Показывает стопку
+/// карточек сверху экрана. Тап по карточке = навигация. Крестик = закрыть.
+/// ────────────────────────────────────────────────────────────────
 Future initForegroundNotificationListener(BuildContext context) async {
   _logEvent('debug', 'foreground:onPageLoad',
       {'alreadyInitialized': _foregroundListenerInitialized});
@@ -47,7 +47,7 @@ Future initForegroundNotificationListener(BuildContext context) async {
   try {
     await FirebaseMessaging.instance
         .setForegroundNotificationPresentationOptions(
-      alert: true,
+      alert: false,
       badge: true,
       sound: true,
     );

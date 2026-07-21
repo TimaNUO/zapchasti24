@@ -78,212 +78,74 @@ class _CNewCarBuyerWidgetState extends State<CNewCarBuyerWidget> {
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                FFAppState().newFilterBrandName,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.openSans(
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                              ),
+                              Text(
+                                FFAppState().newModelName,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.openSans(
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                              ),
+                            ].divide(SizedBox(width: 8.0)),
+                          ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 20.0, 0.0, 0.0),
-                              child: Material(
-                                color: Colors.transparent,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  0.0, 16.0, 0.0, 0.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  '6amhfz49' /* Год выпуска */,
                                 ),
-                                child: Container(
-                                  width: 100.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context).accent1,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    border: Border.all(
-                                      color:
-                                          FlutterFlowTheme.of(context).accent1,
-                                      width: 0.0,
-                                    ),
-                                  ),
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(4.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'vq47lgar' /* Марка */,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.openSans(
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            font: GoogleFonts.openSans(
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent2,
-                                            letterSpacing: 0.0,
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Text(
-                              FFAppState().newFilterBrandName,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.openSans(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                            ),
-                          ),
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Material(
-                              color: Colors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              child: Container(
-                                width: 100.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).accent1,
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  border: Border.all(
-                                    color: FlutterFlowTheme.of(context).accent1,
-                                    width: 0.0,
-                                  ),
-                                ),
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Padding(
-                                  padding: EdgeInsets.all(4.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'o3x67mnv' /* Модель */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.openSans(
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                          color: FlutterFlowTheme.of(context)
-                                              .accent2,
-                                          letterSpacing: 0.0,
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Text(
-                              FFAppState().newModelName,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.openSans(
-                                      fontWeight: FontWeight.bold,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                            ),
-                          ),
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Material(
-                              color: Colors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              child: Container(
-                                width: 100.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).accent1,
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  border: Border.all(
-                                    color: FlutterFlowTheme.of(context).accent1,
-                                    width: 0.0,
-                                  ),
-                                ),
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Padding(
-                                  padding: EdgeInsets.all(4.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '6amhfz49' /* Год выпуска */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.openSans(
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                          color: FlutterFlowTheme.of(context)
-                                              .accent2,
-                                          letterSpacing: 0.0,
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
-                                  ),
-                                ),
                               ),
                             ),
                           ),
@@ -301,12 +163,12 @@ class _CNewCarBuyerWidgetState extends State<CNewCarBuyerWidget> {
                               if (!snapshot.hasData) {
                                 return Center(
                                   child: SizedBox(
-                                    width: 50.0,
-                                    height: 50.0,
+                                    width: 32.0,
+                                    height: 32.0,
                                     child: SpinKitRipple(
                                       color:
                                           FlutterFlowTheme.of(context).accent1,
-                                      size: 50.0,
+                                      size: 32.0,
                                     ),
                                   ),
                                 );
@@ -377,56 +239,32 @@ class _CNewCarBuyerWidgetState extends State<CNewCarBuyerWidget> {
                             },
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Material(
-                              color: Colors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              child: Container(
-                                width: 100.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).accent1,
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  border: Border.all(
-                                    color: FlutterFlowTheme.of(context).accent1,
-                                    width: 0.0,
-                                  ),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 16.0, 0.0, 0.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  'b7aov4zv' /* VIN-код */,
                                 ),
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Padding(
-                                  padding: EdgeInsets.all(4.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'noto5dn3' /* VIN-код */,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.openSans(
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.openSans(
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                          color: FlutterFlowTheme.of(context)
-                                              .accent2,
-                                          letterSpacing: 0.0,
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
-                                  ),
-                                ),
                               ),
                             ),
                           ),
@@ -570,143 +408,174 @@ class _CNewCarBuyerWidgetState extends State<CNewCarBuyerWidget> {
                               ),
                             ),
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).accent2,
-                              borderRadius: BorderRadius.circular(8.0),
-                              border: Border.all(
-                                color: FlutterFlowTheme.of(context).accent4,
-                              ),
-                            ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 12.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              child: Stack(
-                                children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: SvgPicture.asset(
-                                        'assets/images/empty_photo_.svg',
-                                        width: 100.0,
-                                        height: 100.0,
-                                        fit: BoxFit.contain,
-                                      ),
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).accent2,
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 4.0,
+                                    color: Color(0x33000000),
+                                    offset: Offset(
+                                      0.0,
+                                      2.0,
                                     ),
-                                  ),
-                                  if (_model.uploadedMediaAddCarComp != null &&
-                                      _model.uploadedMediaAddCarComp != '')
+                                  )
+                                ],
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                child: Stack(
+                                  children: [
                                     Align(
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child: ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          _model.uploadedMediaAddCarComp!,
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          fit: BoxFit.cover,
+                                        child: SvgPicture.asset(
+                                          'assets/images/__-_.svg',
+                                          width: 60.0,
+                                          height: 100.0,
+                                          fit: BoxFit.contain,
                                         ),
                                       ),
                                     ),
-                                ],
+                                    if (_model.uploadedMediaAddCarComp !=
+                                            null &&
+                                        _model.uploadedMediaAddCarComp != '')
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.network(
+                                            _model.uploadedMediaAddCarComp!,
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              final selectedMedia =
-                                  await selectMediaWithSourceBottomSheet(
-                                context: context,
-                                storageFolderPath:
-                                    'car/${FFAppState().userPhone}',
-                                maxWidth: 600.00,
-                                imageQuality: 60,
-                                allowPhoto: true,
-                              );
-                              if (selectedMedia != null &&
-                                  selectedMedia.every((m) => validateFileFormat(
-                                      m.storagePath, context))) {
-                                safeSetState(() => _model
-                                    .isDataUploading_uploadDataFhk = true);
-                                var selectedUploadedFiles = <FFUploadedFile>[];
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 8.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                final selectedMedia =
+                                    await selectMediaWithSourceBottomSheet(
+                                  context: context,
+                                  storageFolderPath:
+                                      'car/${FFAppState().userPhone}',
+                                  maxWidth: 600.00,
+                                  imageQuality: 60,
+                                  allowPhoto: true,
+                                );
+                                if (selectedMedia != null &&
+                                    selectedMedia.every((m) =>
+                                        validateFileFormat(
+                                            m.storagePath, context))) {
+                                  safeSetState(() => _model
+                                      .isDataUploading_uploadDataFhk = true);
+                                  var selectedUploadedFiles =
+                                      <FFUploadedFile>[];
 
-                                var downloadUrls = <String>[];
-                                try {
-                                  selectedUploadedFiles = selectedMedia
-                                      .map((m) => FFUploadedFile(
-                                            name: m.storagePath.split('/').last,
-                                            bytes: m.bytes,
-                                            height: m.dimensions?.height,
-                                            width: m.dimensions?.width,
-                                            blurHash: m.blurHash,
-                                            originalFilename:
-                                                m.originalFilename,
-                                          ))
-                                      .toList();
+                                  var downloadUrls = <String>[];
+                                  try {
+                                    selectedUploadedFiles = selectedMedia
+                                        .map((m) => FFUploadedFile(
+                                              name:
+                                                  m.storagePath.split('/').last,
+                                              bytes: m.bytes,
+                                              height: m.dimensions?.height,
+                                              width: m.dimensions?.width,
+                                              blurHash: m.blurHash,
+                                              originalFilename:
+                                                  m.originalFilename,
+                                            ))
+                                        .toList();
 
-                                  downloadUrls =
-                                      await uploadSupabaseStorageFiles(
-                                    bucketName: 'requests',
-                                    selectedFiles: selectedMedia,
-                                  );
-                                } finally {
-                                  _model.isDataUploading_uploadDataFhk = false;
+                                    downloadUrls =
+                                        await uploadSupabaseStorageFiles(
+                                      bucketName: 'requests',
+                                      selectedFiles: selectedMedia,
+                                    );
+                                  } finally {
+                                    _model.isDataUploading_uploadDataFhk =
+                                        false;
+                                  }
+                                  if (selectedUploadedFiles.length ==
+                                          selectedMedia.length &&
+                                      downloadUrls.length ==
+                                          selectedMedia.length) {
+                                    safeSetState(() {
+                                      _model.uploadedLocalFile_uploadDataFhk =
+                                          selectedUploadedFiles.first;
+                                      _model.uploadedFileUrl_uploadDataFhk =
+                                          downloadUrls.first;
+                                    });
+                                  } else {
+                                    safeSetState(() {});
+                                    return;
+                                  }
                                 }
-                                if (selectedUploadedFiles.length ==
-                                        selectedMedia.length &&
-                                    downloadUrls.length ==
-                                        selectedMedia.length) {
-                                  safeSetState(() {
-                                    _model.uploadedLocalFile_uploadDataFhk =
-                                        selectedUploadedFiles.first;
-                                    _model.uploadedFileUrl_uploadDataFhk =
-                                        downloadUrls.first;
-                                  });
-                                } else {
-                                  safeSetState(() {});
-                                  return;
-                                }
-                              }
 
-                              _model.uploadedMediaAddCarComp =
-                                  _model.uploadedFileUrl_uploadDataFhk;
-                              safeSetState(() {});
-                            },
-                            child: Material(
-                              color: Colors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
+                                _model.uploadedMediaAddCarComp =
+                                    _model.uploadedFileUrl_uploadDataFhk;
+                                safeSetState(() {});
+                              },
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 0.5,
+                                height: 40.0,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).accent4,
-                                  borderRadius: BorderRadius.circular(20.0),
-                                  border: Border.all(
-                                    width: 0.0,
-                                  ),
+                                  color: FlutterFlowTheme.of(context).accent2,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 4.0,
+                                      color: Color(0x33000000),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(4.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Text(
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 0.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(0.0),
+                                            child: SvgPicture.asset(
+                                              'assets/images/_____.svg',
+                                              height: 28.0,
+                                              fit: BoxFit.contain,
+                                            ),
+                                          ),
+                                          Text(
                                             FFLocalizations.of(context).getText(
-                                              'q73s50v5' /* Добавить фото */,
+                                              'knl5jvga' /* Добавить фото */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -721,8 +590,8 @@ class _CNewCarBuyerWidgetState extends State<CNewCarBuyerWidget> {
                                                   ),
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .accent2,
-                                                  fontSize: 16.0,
+                                                      .accent4,
+                                                  fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                   fontStyle:
@@ -732,196 +601,178 @@ class _CNewCarBuyerWidgetState extends State<CNewCarBuyerWidget> {
                                                           .fontStyle,
                                                 ),
                                           ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(0.0),
-                                          child: SvgPicture.asset(
-                                            'assets/images/add_photo_.svg',
-                                            width: 20.0,
-                                            height: 20.0,
-                                            fit: BoxFit.contain,
-                                          ),
-                                        ),
-                                      ].divide(SizedBox(width: 12.0)),
+                                        ].divide(SizedBox(width: 12.0)),
+                                      ),
                                     ),
-                                  ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 12.0, 0.0),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                        child: SvgPicture.asset(
+                                          'assets/images/_____.svg',
+                                          height: 28.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 32.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: FFButtonWidget(
-                                    onPressed: (_model.dropDownAddYearValue ==
-                                            null)
-                                        ? null
-                                        : () async {
-                                            _model.apiResult04c =
-                                                await SupabaseInfoGroup
-                                                    .upsertVehicleUserInfoCall
-                                                    .call(
-                                              vin: _model
-                                                  .textFieldVinTextController
-                                                  .text,
-                                              modelId: FFAppState().newModelId,
-                                              userId: FFAppState().userIdApp,
-                                              yearId:
-                                                  _model.dropDownAddYearValue,
-                                              photo: _model
-                                                  .uploadedMediaAddCarComp,
-                                            );
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 16.0, 0.0, 0.0),
+                              child: FFButtonWidget(
+                                onPressed: (_model.dropDownAddYearValue == null)
+                                    ? null
+                                    : () async {
+                                        _model.apiResult04c =
+                                            await SupabaseInfoGroup
+                                                .upsertVehicleUserInfoCall
+                                                .call(
+                                          vin: _model
+                                              .textFieldVinTextController.text,
+                                          modelId: FFAppState().newModelId,
+                                          userId: FFAppState().userIdApp,
+                                          yearId: _model.dropDownAddYearValue,
+                                          photo: _model.uploadedMediaAddCarComp,
+                                        );
 
-                                            if ((_model
-                                                    .apiResult04c?.succeeded ??
-                                                true)) {
-                                              _model.vehicleBody =
-                                                  await SupabaseInfoGroup
-                                                      .vehicleUserByIDInfoCall
-                                                      .call(
-                                                carIdApp: getJsonField(
-                                                  (_model.apiResult04c
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                  r'''$[0].id''',
-                                                ),
-                                              );
-
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('Успешно'),
-                                                    content: Text(
-                                                        'Данные успешно обновлены'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              _model.uploadedMediaAddCarComp =
-                                                  null;
-                                              FFAppState().newModelName = '';
-                                              FFAppState().newModelId = 0;
-                                              FFAppState().newFilterBrand = 0;
-                                              FFAppState().newFilterBrandName =
-                                                  '';
-                                              safeSetState(() {});
-                                              Navigator.pop(context);
-                                              Navigator.pop(context);
-                                              Navigator.pop(context);
-                                              FFAppState().carBuyerBody =
-                                                  getJsonField(
-                                                (_model.vehicleBody?.jsonBody ??
-                                                    ''),
-                                                r'''$[0]''',
-                                              );
-                                              FFAppState().newFilterCategories =
-                                                  [];
-                                              FFAppState().isAllCategories =
-                                                  false;
-                                              safeSetState(() {});
-                                              await showModalBottomSheet(
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                enableDrag: false,
-                                                context: context,
-                                                builder: (context) {
-                                                  return Padding(
-                                                    padding:
-                                                        MediaQuery.viewInsetsOf(
-                                                            context),
-                                                    child: CNewRequestWidget(),
-                                                  );
-                                                },
-                                              ).then((value) =>
-                                                  safeSetState(() {}));
-                                            } else {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('Ошибка'),
-                                                    content: Text((_model
-                                                                .apiResult04c
-                                                                ?.jsonBody ??
-                                                            '')
-                                                        .toString()),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                            }
-
-                                            safeSetState(() {});
-                                          },
-                                    text: FFLocalizations.of(context).getText(
-                                      'mnxqw7gf' /* Добавить автомобиль */,
-                                    ),
-                                    options: FFButtonOptions(
-                                      width: 220.0,
-                                      height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).accent1,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            font: GoogleFonts.openSans(
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .fontStyle,
+                                        if ((_model.apiResult04c?.succeeded ??
+                                            true)) {
+                                          _model.vehicleBody =
+                                              await SupabaseInfoGroup
+                                                  .vehicleUserByIDInfoCall
+                                                  .call(
+                                            carIdApp: getJsonField(
+                                              (_model.apiResult04c?.jsonBody ??
+                                                  ''),
+                                              r'''$[0].id''',
                                             ),
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent2,
-                                            letterSpacing: 0.0,
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .fontStyle,
-                                          ),
-                                      elevation: 0.0,
-                                      borderRadius: BorderRadius.circular(20.0),
-                                      disabledColor:
-                                          FlutterFlowTheme.of(context).accent1,
-                                    ),
-                                  ),
+                                          );
+
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return AlertDialog(
+                                                title: Text('Успешно'),
+                                                content: Text(
+                                                    'Данные успешно обновлены'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                          _model.uploadedMediaAddCarComp = null;
+                                          FFAppState().newModelName = '';
+                                          FFAppState().newModelId = 0;
+                                          FFAppState().newFilterBrand = 0;
+                                          FFAppState().newFilterBrandName = '';
+                                          safeSetState(() {});
+                                          Navigator.pop(context);
+                                          Navigator.pop(context);
+                                          Navigator.pop(context);
+                                          FFAppState().carBuyerBody =
+                                              getJsonField(
+                                            (_model.vehicleBody?.jsonBody ??
+                                                ''),
+                                            r'''$[0]''',
+                                          );
+                                          FFAppState().newFilterCategories = [];
+                                          FFAppState().isAllCategories = false;
+                                          safeSetState(() {});
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            enableDrag: false,
+                                            context: context,
+                                            builder: (context) {
+                                              return Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: CNewRequestWidget(),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+                                        } else {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return AlertDialog(
+                                                title: Text('Ошибка'),
+                                                content: Text((_model
+                                                            .apiResult04c
+                                                            ?.jsonBody ??
+                                                        '')
+                                                    .toString()),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                        }
+
+                                        safeSetState(() {});
+                                      },
+                                text: FFLocalizations.of(context).getText(
+                                  'mnxqw7gf' /* Добавить автомобиль */,
                                 ),
-                              ].divide(SizedBox(width: 10.0)),
+                                options: FFButtonOptions(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).accent1,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        font: GoogleFonts.openSans(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
+                                        ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent2,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
+                                  elevation: 0.0,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  disabledColor:
+                                      FlutterFlowTheme.of(context).accent1,
+                                ),
+                              ),
                             ),
                           ),
                         ]

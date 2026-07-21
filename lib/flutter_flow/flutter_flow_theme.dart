@@ -154,7 +154,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color secondaryBackground = const Color(0xFFF3F3F3);
   late Color accent1 = const Color(0xFFFF1616);
   late Color accent2 = const Color(0xFFFFFFFF);
-  late Color accent3 = const Color(0xFFD9D9D9);
+  late Color accent3 = const Color(0xFFEEEEEE);
   late Color accent4 = const Color(0xFF464242);
   late Color success = const Color(0xFF249689);
   late Color warning = const Color(0xFFF9CF58);
@@ -415,7 +415,7 @@ extension TextStyleHelper on TextStyle {
     List<Shadow>? shadows,
     String? package,
   }) {
-    if (useGoogleFonts && fontFamily != null) {
+    if (useGoogleFonts && fontFamily != null && fontFamily.isNotEmpty) {
       font = GoogleFonts.getFont(fontFamily,
           fontWeight: fontWeight ?? this.fontWeight,
           fontStyle: fontStyle ?? this.fontStyle);

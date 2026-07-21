@@ -104,6 +104,31 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                 fit: BoxFit.cover,
                               ),
                             ),
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                '61x2uozg' /* Вход */,
+                              ),
+                              textAlign: TextAlign.start,
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineLarge
+                                  .override(
+                                    font: GoogleFonts.openSans(
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .headlineLarge
+                                          .fontStyle,
+                                    ),
+                                    fontSize: 30.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .headlineLarge
+                                        .fontStyle,
+                                  ),
+                            ),
+                          ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 0.0, 0.0),
@@ -113,74 +138,36 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                 Align(
                                   alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 16.0),
-                                    child: Material(
-                                      color: Colors.transparent,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                    padding: EdgeInsets.all(4.0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'eptysg5v' /* Выберите страну */,
                                       ),
-                                      child: Container(
-                                        width: 250.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .accent1,
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          border: Border.all(
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent1,
-                                            width: 0.0,
-                                          ),
-                                        ),
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Padding(
-                                          padding: EdgeInsets.all(4.0),
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'eptysg5v' /* Выберите страну */,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            font: GoogleFonts.openSans(
+                                              fontWeight: FontWeight.w500,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  font: GoogleFonts.openSans(
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontStyle,
-                                                  ),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent2,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
+                                            color: FlutterFlowTheme.of(context)
+                                                .accent4,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
                                           ),
-                                        ),
-                                      ),
                                     ),
                                   ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 32.0),
+                                      0.0, 0.0, 0.0, 16.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -283,6 +270,7 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .accent4,
+                                                      fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FlutterFlowTheme.of(
@@ -307,181 +295,365 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                   Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-1.0, 0.0),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(4.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'u709lug5' /* Выберите свою роль */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  font: GoogleFonts.openSans(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .accent4,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 16.0),
+                                            0.0, 0.0, 0.0, 8.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Theme(
-                                              data: ThemeData(
-                                                checkboxTheme:
-                                                    CheckboxThemeData(
-                                                  visualDensity:
-                                                      VisualDensity.compact,
-                                                  materialTapTargetSize:
-                                                      MaterialTapTargetSize
-                                                          .shrinkWrap,
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4.0),
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                _model.isSeller = false;
+                                                safeSetState(() {});
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.45,
+                                                height: 55.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .accent2,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color: !_model.isSeller
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .accent1
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .accent4,
+                                                    width: 1.0,
                                                   ),
                                                 ),
-                                                unselectedWidgetColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent3,
-                                              ),
-                                              child: Checkbox(
-                                                value: _model.checkboxValue ??=
-                                                    false,
-                                                onChanged: (newValue) async {
-                                                  safeSetState(() =>
-                                                      _model.checkboxValue =
-                                                          newValue!);
-                                                  if (newValue!) {
-                                                    safeSetState(() {});
-                                                  } else {
-                                                    safeSetState(() {});
-                                                  }
-                                                },
-                                                side: (FlutterFlowTheme.of(
-                                                                context)
-                                                            .accent3 !=
-                                                        null)
-                                                    ? BorderSide(
-                                                        width: 2,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent3,
-                                                      )
-                                                    : null,
-                                                activeColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent1,
-                                                checkColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent2,
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          4.0, 0.0, 4.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      if (!_model.isSeller)
+                                                        ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      0.0),
+                                                          child:
+                                                              SvgPicture.asset(
+                                                            'assets/images/Shopping_red.svg',
+                                                            width: 23.0,
+                                                            height: 23.0,
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        ),
+                                                      if (_model.isSeller)
+                                                        ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      0.0),
+                                                          child:
+                                                              SvgPicture.asset(
+                                                            'assets/images/Shopping_black.svg',
+                                                            width: 23.0,
+                                                            height: 23.0,
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsets.all(4.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'xqrabv91' /* Покупатель */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .openSans(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: !_model
+                                                                        .isSeller
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent1
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent4,
+                                                                fontSize: !_model
+                                                                        .isSeller
+                                                                    ? 16.0
+                                                                    : 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                      if (!_model.isSeller)
+                                                        Icon(
+                                                          Icons.check_box,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .accent1,
+                                                          size: 28.0,
+                                                        ),
+                                                      if (_model.isSeller)
+                                                        Icon(
+                                                          Icons
+                                                              .check_box_outline_blank_rounded,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .accent4,
+                                                          size: 24.0,
+                                                        ),
+                                                    ],
+                                                  ),
+                                                ),
                                               ),
                                             ),
-                                            Padding(
-                                              padding: EdgeInsets.all(4.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '3ivbrahm' /* Войти как продавец */,
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                _model.isSeller = true;
+                                                safeSetState(() {});
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.45,
+                                                height: 55.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .accent2,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color: _model.isSeller
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .accent1
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .accent4,
+                                                    width: 1.0,
+                                                  ),
                                                 ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.openSans(
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                      color: _model
-                                                              .checkboxValue!
-                                                          ? FlutterFlowTheme.of(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          4.0, 0.0, 4.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      if (_model.isSeller)
+                                                        ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      0.0),
+                                                          child:
+                                                              SvgPicture.asset(
+                                                            'assets/images/store_red.svg',
+                                                            width: 23.0,
+                                                            height: 23.0,
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        ),
+                                                      if (!_model.isSeller)
+                                                        ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      0.0),
+                                                          child:
+                                                              SvgPicture.asset(
+                                                            'assets/images/store_black.svg',
+                                                            width: 23.0,
+                                                            height: 23.0,
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsets.all(4.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
                                                                   context)
-                                                              .accent4
-                                                          : FlutterFlowTheme.of(
-                                                                  context)
-                                                              .accent3,
-                                                      fontSize: 16.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                              .getText(
+                                                            '88lnznqy' /* Продавец */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
                                                               .bodyMedium
-                                                              .fontStyle,
-                                                    ),
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .openSans(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: _model
+                                                                        .isSeller
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent1
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent4,
+                                                                fontSize: _model
+                                                                        .isSeller
+                                                                    ? 16.0
+                                                                    : 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                      if (_model.isSeller)
+                                                        Icon(
+                                                          Icons.check_box,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .accent1,
+                                                          size: 28.0,
+                                                        ),
+                                                      if (!_model.isSeller)
+                                                        Icon(
+                                                          Icons
+                                                              .check_box_outline_blank_rounded,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .accent4,
+                                                          size: 24.0,
+                                                        ),
+                                                    ],
+                                                  ),
+                                                ),
                                               ),
                                             ),
                                           ],
                                         ),
                                       ),
+                                      Divider(
+                                        thickness: 2.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent3,
+                                      ),
                                       Align(
                                         alignment:
                                             AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 16.0),
-                                          child: Material(
-                                            color: Colors.transparent,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                          padding: EdgeInsets.all(4.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'kt6jd169' /* Введите номер телефона */,
                                             ),
-                                            child: Container(
-                                              width: 250.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent1,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                border: Border.all(
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  font: GoogleFonts.openSans(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .accent1,
-                                                  width: 0.0,
+                                                      .accent4,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
-                                              ),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Padding(
-                                                padding: EdgeInsets.all(4.0),
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'kt6jd169' /* Введите номер телефона */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font: GoogleFonts
-                                                            .openSans(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent2,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
                                           ),
                                         ),
                                       ),
@@ -530,6 +702,7 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .accent4,
+                                                    fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
                                                         FlutterFlowTheme.of(
@@ -633,7 +806,7 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                           ),
                                         ),
                                       ),
-                                      if (_model.checkboxValue ?? true)
+                                      if (_model.isSeller)
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -678,6 +851,7 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .accent4,
+                                                      fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FlutterFlowTheme.of(
@@ -858,7 +1032,15 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                                         .getText(
                                                       '6nxhdexd' /* Нет учетной записи?  */,
                                                     ),
-                                                    style: TextStyle(),
+                                                    style: TextStyle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 12.0,
+                                                    ),
                                                   ),
                                                   TextSpan(
                                                     text: FFLocalizations.of(
@@ -873,7 +1055,7 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                                           font: GoogleFonts
                                                               .openSans(
                                                             fontWeight:
-                                                                FontWeight.w600,
+                                                                FontWeight.w500,
                                                             fontStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
@@ -883,9 +1065,10 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .accent1,
+                                                          fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                              FontWeight.w500,
                                                           fontStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -952,7 +1135,7 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                                 FFAppState().yearFrom = 1;
                                                 FFAppState().yearTo = _model
                                                     .yearsL!.firstOrNull!.id;
-                                                if (_model.checkboxValue!) {
+                                                if (_model.isSeller) {
                                                   _model.errorS = await actions
                                                       .signInWithPhone(
                                                     FFAppState().userPhone,
@@ -1363,7 +1546,9 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                           '5hvsvcvn' /* Войти */,
                                         ),
                                         options: FFButtonOptions(
-                                          width: 200.0,
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
                                           height: 52.0,
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1392,6 +1577,7 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent2,
+                                                fontSize: 22.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight:
                                                     FlutterFlowTheme.of(context)
@@ -1404,13 +1590,13 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                               ),
                                           elevation: 0.0,
                                           borderRadius:
-                                              BorderRadius.circular(20.0),
+                                              BorderRadius.circular(12.0),
                                           disabledColor:
                                               FlutterFlowTheme.of(context)
                                                   .accent3,
                                         ),
                                       ),
-                                      if (_model.checkboxValue ?? true)
+                                      if (_model.isSeller)
                                         Padding(
                                           padding: EdgeInsets.all(24.0),
                                           child: InkWell(
@@ -1443,6 +1629,7 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .accent1,
+                                                    fontSize: 12.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                     fontStyle:
@@ -1477,26 +1664,35 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                         },
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: 52.0,
+                          height: 72.0,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).accent3,
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
                             borderRadius: BorderRadius.circular(0.0),
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).accent3,
-                            ),
                           ),
                           child: Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsets.all(2.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: SvgPicture.asset(
-                                  'assets/images/start_home_.svg',
-                                  width: 40.0,
-                                  height: 40.0,
-                                  fit: BoxFit.contain,
-                                  alignment: Alignment(0.0, 0.0),
+                            child: Container(
+                              width: 48.0,
+                              height: 48.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(24.0),
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context).accent4,
+                                  width: 3.0,
+                                ),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.all(2.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: SvgPicture.asset(
+                                    'assets/images/n_home_gray.svg',
+                                    width: 20.0,
+                                    height: 20.0,
+                                    fit: BoxFit.contain,
+                                    alignment: Alignment(0.0, 0.0),
+                                  ),
                                 ),
                               ),
                             ),

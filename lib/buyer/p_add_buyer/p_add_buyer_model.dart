@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 class PAddBuyerModel extends FlutterFlowModel<PAddBuyerWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Backend Call - API (Hide VehicleUser Info)] action in IconButton widget.
-  ApiCallResponse? apiResulto0i2;
+  // Stores action output result for [Backend Call - API (Hide VehicleUser Info)] action in Container widget.
+  ApiCallResponse? apiResulto0i22;
   // Model for cBuyerNavigationBar component.
   late CBuyerNavigationBarModel cBuyerNavigationBarModel;
 

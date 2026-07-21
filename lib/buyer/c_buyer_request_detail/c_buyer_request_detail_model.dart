@@ -8,11 +8,11 @@ class CBuyerRequestDetailModel
     extends FlutterFlowModel<CBuyerRequestDetailWidget> {
   ///  State fields for stateful widgets in this component.
 
-  // Stores action output result for [Backend Call - API (Alive Request Info)] action in ButtonAlive widget.
+  // Stores action output result for [Backend Call - API (Alive Request Info)] action in Container widget.
   ApiCallResponse? apiResultfad;
-  // Stores action output result for [Backend Call - API (restore request from profile)] action in ButtonAlive widget.
+  // Stores action output result for [Backend Call - API (restore request from profile)] action in Container widget.
   ApiCallResponse? outputRestore;
-  // Stores action output result for [Backend Call - API (rebuild links for request)] action in ButtonAlive widget.
+  // Stores action output result for [Backend Call - API (rebuild links for request)] action in Container widget.
   ApiCallResponse? outputRebuild;
   // Model for cBackComponents component.
   late CBackComponentsModel cBackComponentsModel;

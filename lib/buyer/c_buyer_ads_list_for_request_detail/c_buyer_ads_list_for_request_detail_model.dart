@@ -2,18 +2,16 @@ import '/backend/api_requests/api_calls.dart';
 import '/buyer/c_buyer_navigation_bar/c_buyer_navigation_bar_widget.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'c_buyer_ads_list_for_request_widget.dart'
-    show CBuyerAdsListForRequestWidget;
+import 'c_buyer_ads_list_for_request_detail_widget.dart'
+    show CBuyerAdsListForRequestDetailWidget;
 import 'package:flutter/material.dart';
 
-class CBuyerAdsListForRequestModel
-    extends FlutterFlowModel<CBuyerAdsListForRequestWidget> {
+class CBuyerAdsListForRequestDetailModel
+    extends FlutterFlowModel<CBuyerAdsListForRequestDetailWidget> {
   ///  State fields for stateful widgets in this component.
 
-  // Stores action output result for [Custom Action - getUserRoleIDByPhone] action in ButtonAlive widget.
-  int? role;
-  // Stores action output result for [Backend Call - API (ads add unique view)] action in ButtonAlive widget.
-  ApiCallResponse? addViewAd;
+  // Stores action output result for [Backend Call - API (ch get or create chat)] action in Container widget.
+  ApiCallResponse? chatReq;
   // Model for cBackComponents component.
   late CBackComponentsModel cBackComponentsModel;
   // Model for cBuyerNavigationBar component.

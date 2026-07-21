@@ -109,17 +109,16 @@ class _CBackComponentsWidgetState extends State<CBackComponentsWidget>
                       width: 36.0,
                       height: 36.0,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).accent3,
-                        borderRadius: BorderRadius.circular(18.0),
+                        borderRadius: BorderRadius.circular(0.0),
                       ),
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(0.0),
                         child: SvgPicture.asset(
-                          'assets/images/back_.svg',
-                          width: 27.0,
-                          height: 19.0,
-                          fit: BoxFit.contain,
+                          'assets/images/____.svg',
+                          width: 36.0,
+                          height: 36.0,
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
@@ -151,14 +150,15 @@ class _CBackComponentsWidgetState extends State<CBackComponentsWidget>
                               width: 36.0,
                               height: 36.0,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).secondary,
-                                borderRadius: BorderRadius.circular(18.0),
+                                borderRadius: BorderRadius.circular(0.0),
                               ),
                               alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Icon(
-                                Icons.support_agent,
-                                color: FlutterFlowTheme.of(context).accent2,
-                                size: 32.0,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(0.0),
+                                child: SvgPicture.asset(
+                                  'assets/images/z_telegram.svg',
+                                  fit: BoxFit.fill,
+                                ),
                               ),
                             ),
                           ),
@@ -182,14 +182,15 @@ class _CBackComponentsWidgetState extends State<CBackComponentsWidget>
                               width: 36.0,
                               height: 36.0,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).tertiary,
-                                borderRadius: BorderRadius.circular(18.0),
+                                borderRadius: BorderRadius.circular(0.0),
                               ),
                               alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Icon(
-                                Icons.support_agent,
-                                color: FlutterFlowTheme.of(context).accent2,
-                                size: 32.0,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(0.0),
+                                child: SvgPicture.asset(
+                                  'assets/images/z_whatsapp.svg',
+                                  fit: BoxFit.fill,
+                                ),
                               ),
                             ),
                           ),

@@ -355,14 +355,14 @@ class _CSellerRequestDetailJSONWidgetState
                                                 if (!snapshot.hasData) {
                                                   return Center(
                                                     child: SizedBox(
-                                                      width: 50.0,
-                                                      height: 50.0,
+                                                      width: 32.0,
+                                                      height: 32.0,
                                                       child: SpinKitRipple(
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .accent1,
-                                                        size: 50.0,
+                                                        size: 32.0,
                                                       ),
                                                     ),
                                                   );
@@ -1057,11 +1057,11 @@ class _CSellerRequestDetailJSONWidgetState
                                                                               .hasData) {
                                                                             return Center(
                                                                               child: SizedBox(
-                                                                                width: 50.0,
-                                                                                height: 50.0,
+                                                                                width: 32.0,
+                                                                                height: 32.0,
                                                                                 child: SpinKitRipple(
                                                                                   color: FlutterFlowTheme.of(context).accent1,
-                                                                                  size: 50.0,
+                                                                                  size: 32.0,
                                                                                 ),
                                                                               ),
                                                                             );

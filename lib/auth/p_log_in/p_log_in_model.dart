@@ -11,10 +11,10 @@ class PLogInModel extends FlutterFlowModel<PLogInWidget> {
 
   bool blockButton = false;
 
+  bool isSeller = true;
+
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue;
   // State field(s) for phoneNumber_Log widget.
   FocusNode? phoneNumberLogFocusNode;
   TextEditingController? phoneNumberLogTextController;

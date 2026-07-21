@@ -1,6 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
-import '/buyer/c_about_seller_card_ads/c_about_seller_card_ads_widget.dart';
 import '/buyer/c_buyer_navigation_bar/c_buyer_navigation_bar_widget.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -9,7 +8,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/seller/c_empty_seller_offer/c_empty_seller_offer_widget.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -17,11 +15,11 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'c_buyer_ads_list_for_request_model.dart';
-export 'c_buyer_ads_list_for_request_model.dart';
+import 'cc_buyer_ads_list_for_request_model.dart';
+export 'cc_buyer_ads_list_for_request_model.dart';
 
-class CBuyerAdsListForRequestWidget extends StatefulWidget {
-  const CBuyerAdsListForRequestWidget({
+class CcBuyerAdsListForRequestWidget extends StatefulWidget {
+  const CcBuyerAdsListForRequestWidget({
     super.key,
     required this.requestID,
   });
@@ -29,13 +27,14 @@ class CBuyerAdsListForRequestWidget extends StatefulWidget {
   final int? requestID;
 
   @override
-  State<CBuyerAdsListForRequestWidget> createState() =>
-      _CBuyerAdsListForRequestWidgetState();
+  State<CcBuyerAdsListForRequestWidget> createState() =>
+      _CcBuyerAdsListForRequestWidgetState();
 }
 
-class _CBuyerAdsListForRequestWidgetState
-    extends State<CBuyerAdsListForRequestWidget> with TickerProviderStateMixin {
-  late CBuyerAdsListForRequestModel _model;
+class _CcBuyerAdsListForRequestWidgetState
+    extends State<CcBuyerAdsListForRequestWidget>
+    with TickerProviderStateMixin {
+  late CcBuyerAdsListForRequestModel _model;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -48,7 +47,7 @@ class _CBuyerAdsListForRequestWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CBuyerAdsListForRequestModel());
+    _model = createModel(context, () => CcBuyerAdsListForRequestModel());
 
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(
@@ -120,11 +119,11 @@ class _CBuyerAdsListForRequestWidgetState
                             if (!snapshot.hasData) {
                               return Center(
                                 child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
+                                  width: 32.0,
+                                  height: 32.0,
                                   child: SpinKitRipple(
                                     color: FlutterFlowTheme.of(context).accent1,
-                                    size: 50.0,
+                                    size: 32.0,
                                   ),
                                 ),
                               );
@@ -391,7 +390,156 @@ class _CBuyerAdsListForRequestWidgetState
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  '86rhw6rk' /* Марка */,
+                                                                  '86rhw6rk' /* Страна и город */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .openSans(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .accent2,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          getJsonField(
+                                                            buyerAdsBodyItem,
+                                                            r'''$.owner_country''',
+                                                          ).toString(),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .openSans(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .accent4,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                        ),
+                                                        Text(
+                                                          getJsonField(
+                                                            buyerAdsBodyItem,
+                                                            r'''$.owner_city''',
+                                                          ).toString(),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .openSans(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .accent4,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                        ),
+                                                      ].divide(SizedBox(
+                                                          width: 10.0)),
+                                                    ),
+                                                    Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Material(
+                                                          color: Colors
+                                                              .transparent,
+                                                          shape:
+                                                              RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .accent1,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                              border:
+                                                                  Border.all(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .accent1,
+                                                                width: 0.0,
+                                                              ),
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(4.0),
+                                                              child: Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'hbe4ka3s' /* Марка */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -586,11 +734,11 @@ class _CBuyerAdsListForRequestWidgetState
                                                                           return Center(
                                                                             child:
                                                                                 SizedBox(
-                                                                              width: 50.0,
-                                                                              height: 50.0,
+                                                                              width: 32.0,
+                                                                              height: 32.0,
                                                                               child: SpinKitRipple(
                                                                                 color: FlutterFlowTheme.of(context).accent1,
-                                                                                size: 50.0,
+                                                                                size: 32.0,
                                                                               ),
                                                                             ),
                                                                           );
@@ -762,14 +910,14 @@ class _CBuyerAdsListForRequestWidgetState
                                                                 .hasData) {
                                                               return Center(
                                                                 child: SizedBox(
-                                                                  width: 50.0,
-                                                                  height: 50.0,
+                                                                  width: 32.0,
+                                                                  height: 32.0,
                                                                   child:
                                                                       SpinKitRipple(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .accent1,
-                                                                    size: 50.0,
+                                                                    size: 32.0,
                                                                   ),
                                                                 ),
                                                               );
@@ -881,14 +1029,14 @@ class _CBuyerAdsListForRequestWidgetState
                                                                 .hasData) {
                                                               return Center(
                                                                 child: SizedBox(
-                                                                  width: 50.0,
-                                                                  height: 50.0,
+                                                                  width: 32.0,
+                                                                  height: 32.0,
                                                                   child:
                                                                       SpinKitRipple(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .accent1,
-                                                                    size: 50.0,
+                                                                    size: 32.0,
                                                                   ),
                                                                 ),
                                                               );
@@ -1071,11 +1219,11 @@ class _CBuyerAdsListForRequestWidgetState
                                                                           return Center(
                                                                             child:
                                                                                 SizedBox(
-                                                                              width: 50.0,
-                                                                              height: 50.0,
+                                                                              width: 32.0,
+                                                                              height: 32.0,
                                                                               child: SpinKitRipple(
                                                                                 color: FlutterFlowTheme.of(context).accent1,
-                                                                                size: 50.0,
+                                                                                size: 32.0,
                                                                               ),
                                                                             ),
                                                                           );
@@ -1851,14 +1999,6 @@ class _CBuyerAdsListForRequestWidgetState
                                                                     FFButtonWidget(
                                                                   onPressed:
                                                                       () async {
-                                                                    _model.role =
-                                                                        await actions
-                                                                            .getUserRoleIDByPhone(
-                                                                      getJsonField(
-                                                                        buyerAdsBodyItem,
-                                                                        r'''$.owner_phone''',
-                                                                      ).toString(),
-                                                                    );
                                                                     _model.addViewAd =
                                                                         await RPCChatsGroup
                                                                             .adsAddUniqueViewCall
@@ -1873,64 +2013,13 @@ class _CBuyerAdsListForRequestWidgetState
                                                                       ),
                                                                     );
 
-                                                                    await showModalBottomSheet(
-                                                                      isScrollControlled:
-                                                                          true,
-                                                                      backgroundColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      enableDrag:
-                                                                          false,
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (context) {
-                                                                        return Padding(
-                                                                          padding:
-                                                                              MediaQuery.viewInsetsOf(context),
-                                                                          child:
-                                                                              CAboutSellerCardAdsWidget(
-                                                                            ownerPhone:
-                                                                                getJsonField(
-                                                                              buyerAdsBodyItem,
-                                                                              r'''$.owner_phone''',
-                                                                            ).toString(),
-                                                                            ownerID:
-                                                                                getJsonField(
-                                                                              buyerAdsBodyItem,
-                                                                              r'''$.owner_id''',
-                                                                            ),
-                                                                            ownerCity:
-                                                                                getJsonField(
-                                                                              buyerAdsBodyItem,
-                                                                              r'''$.owner_city''',
-                                                                            ).toString(),
-                                                                            ownerCountry:
-                                                                                getJsonField(
-                                                                              buyerAdsBodyItem,
-                                                                              r'''$.owner_country''',
-                                                                            ).toString(),
-                                                                            ownerName:
-                                                                                getJsonField(
-                                                                              buyerAdsBodyItem,
-                                                                              r'''$.owner_name''',
-                                                                            ).toString(),
-                                                                            ownerRole:
-                                                                                _model.role!,
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    ).then((value) =>
-                                                                        safeSetState(
-                                                                            () {}));
-
                                                                     safeSetState(
                                                                         () {});
                                                                   },
                                                                   text: FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'njgvxwsh' /* О продавце */,
+                                                                    'njgvxwsh' /* Подробнее */,
                                                                   ),
                                                                   options:
                                                                       FFButtonOptions(
@@ -2030,6 +2119,9 @@ class _CBuyerAdsListForRequestWidgetState
                     model: _model.cBuyerNavigationBarModel,
                     updateCallback: () => safeSetState(() {}),
                     child: CBuyerNavigationBarWidget(
+                      selectedBuyerPageIndex: 2,
+                      hidden: false,
+                      showButton: false,
                       onTapButton: () async {},
                     ),
                   ),

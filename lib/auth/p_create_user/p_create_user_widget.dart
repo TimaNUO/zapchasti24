@@ -108,6 +108,31 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                               ),
                             ),
                           Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                '4idoff1h' /* Регистрация */,
+                              ),
+                              textAlign: TextAlign.start,
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineLarge
+                                  .override(
+                                    font: GoogleFonts.openSans(
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .headlineLarge
+                                          .fontStyle,
+                                    ),
+                                    fontSize: 30.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .headlineLarge
+                                        .fontStyle,
+                                  ),
+                            ),
+                          ),
+                          Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -117,80 +142,36 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 16.0),
-                                      child: Material(
-                                        color: Colors.transparent,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        child: Container(
-                                          width: 250.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent1,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            border: Border.all(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent1,
-                                              width: 0.0,
-                                            ),
-                                          ),
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(4.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'tktro6or' /* Выберите страну и город */,
-                                              ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.openSans(
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .fontStyle,
-                                                    ),
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .accent2,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontStyle,
-                                                  ),
-                                            ),
-                                          ),
-                                        ),
+                                  Padding(
+                                    padding: EdgeInsets.all(4.0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'tktro6or' /* Выберите страну и город */,
                                       ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            font: GoogleFonts.openSans(
+                                              fontWeight: FontWeight.w500,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                            color: FlutterFlowTheme.of(context)
+                                                .accent4,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                     ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 16.0),
+                                        0.0, 0.0, 0.0, 8.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -299,6 +280,7 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .accent4,
+                                                        fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FlutterFlowTheme.of(
@@ -415,6 +397,7 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .accent4,
+                                                          fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FlutterFlowTheme.of(
@@ -435,81 +418,40 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                         ),
                                       ),
                                     ),
-                                  Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 16.0),
-                                      child: Material(
-                                        color: Colors.transparent,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        child: Container(
-                                          width: 250.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent1,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            border: Border.all(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent1,
-                                              width: 0.0,
-                                            ),
-                                          ),
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(4.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'nlwrgw5x' /* Выберите свою роль */,
-                                              ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font: GoogleFonts.openSans(
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .fontStyle,
-                                                    ),
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .accent2,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontStyle,
-                                                  ),
-                                            ),
-                                          ),
-                                        ),
+                                  Padding(
+                                    padding: EdgeInsets.all(4.0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'nlwrgw5x' /* Выберите свою роль */,
                                       ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            font: GoogleFonts.openSans(
+                                              fontWeight: FontWeight.w500,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                            color: FlutterFlowTheme.of(context)
+                                                .accent4,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                     ),
                                   ),
-                                  Container(
-                                    decoration: BoxDecoration(),
-                                    child: Column(
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 8.0),
+                                    child: Row(
                                       mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         InkWell(
                                           splashColor: Colors.transparent,
@@ -520,70 +462,127 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                             _model.isSeller = false;
                                             safeSetState(() {});
                                           },
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              if (!_model.isSeller)
-                                                Icon(
-                                                  Icons.check_box,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent1,
-                                                  size: 28.0,
-                                                ),
-                                              if (_model.isSeller)
-                                                Icon(
-                                                  Icons
-                                                      .check_box_outline_blank_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent4,
-                                                  size: 24.0,
-                                                ),
-                                              Padding(
-                                                padding: EdgeInsets.all(4.0),
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'yt43u4k4' /* Я покупатель */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font: GoogleFonts
-                                                            .openSans(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        color: !_model.isSeller
-                                                            ? FlutterFlowTheme
-                                                                    .of(context)
-                                                                .accent4
-                                                            : FlutterFlowTheme
-                                                                    .of(context)
-                                                                .accent4,
-                                                        fontSize:
-                                                            !_model.isSeller
-                                                                ? 18.0
-                                                                : 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                ),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.45,
+                                            height: 55.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent2,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              border: Border.all(
+                                                color: !_model.isSeller
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .accent1
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .accent4,
+                                                width: 1.0,
                                               ),
-                                            ],
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  if (!_model.isSeller)
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              0.0),
+                                                      child: SvgPicture.asset(
+                                                        'assets/images/Shopping_red.svg',
+                                                        width: 23.0,
+                                                        height: 23.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                  if (_model.isSeller)
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              0.0),
+                                                      child: SvgPicture.asset(
+                                                        'assets/images/Shopping_black.svg',
+                                                        width: 23.0,
+                                                        height: 23.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.all(4.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'yt43u4k4' /* Покупатель */,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .openSans(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
+                                                            color: !_model
+                                                                    .isSeller
+                                                                ? FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .accent1
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .accent4,
+                                                            fontSize:
+                                                                !_model.isSeller
+                                                                    ? 16.0
+                                                                    : 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  if (!_model.isSeller)
+                                                    Icon(
+                                                      Icons.check_box,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .accent1,
+                                                      size: 28.0,
+                                                    ),
+                                                  if (_model.isSeller)
+                                                    Icon(
+                                                      Icons
+                                                          .check_box_outline_blank_rounded,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .accent4,
+                                                      size: 24.0,
+                                                    ),
+                                                ],
+                                              ),
+                                            ),
                                           ),
                                         ),
                                         InkWell(
@@ -595,74 +594,135 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                             _model.isSeller = true;
                                             safeSetState(() {});
                                           },
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              if (_model.isSeller)
-                                                Icon(
-                                                  Icons.check_box,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent1,
-                                                  size: 28.0,
-                                                ),
-                                              if (!_model.isSeller)
-                                                Icon(
-                                                  Icons
-                                                      .check_box_outline_blank_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent4,
-                                                  size: 24.0,
-                                                ),
-                                              Padding(
-                                                padding: EdgeInsets.all(4.0),
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'et3kkeav' /* Я продавец */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font: GoogleFonts
-                                                            .openSans(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        color: _model.isSeller
-                                                            ? FlutterFlowTheme
-                                                                    .of(context)
-                                                                .accent4
-                                                            : FlutterFlowTheme
-                                                                    .of(context)
-                                                                .accent4,
-                                                        fontSize:
-                                                            _model.isSeller
-                                                                ? 18.0
-                                                                : 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                ),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.45,
+                                            height: 55.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent2,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              border: Border.all(
+                                                color: _model.isSeller
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .accent1
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .accent4,
+                                                width: 1.0,
                                               ),
-                                            ],
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  if (_model.isSeller)
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              0.0),
+                                                      child: SvgPicture.asset(
+                                                        'assets/images/store_red.svg',
+                                                        width: 23.0,
+                                                        height: 23.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                  if (!_model.isSeller)
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              0.0),
+                                                      child: SvgPicture.asset(
+                                                        'assets/images/store_black.svg',
+                                                        width: 23.0,
+                                                        height: 23.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.all(4.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'et3kkeav' /* Продавец */,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .openSans(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
+                                                            color: _model
+                                                                    .isSeller
+                                                                ? FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .accent1
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .accent4,
+                                                            fontSize:
+                                                                _model.isSeller
+                                                                    ? 16.0
+                                                                    : 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  if (_model.isSeller)
+                                                    Icon(
+                                                      Icons.check_box,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .accent1,
+                                                      size: 28.0,
+                                                    ),
+                                                  if (!_model.isSeller)
+                                                    Icon(
+                                                      Icons
+                                                          .check_box_outline_blank_rounded,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .accent4,
+                                                      size: 24.0,
+                                                    ),
+                                                ],
+                                              ),
+                                            ),
                                           ),
                                         ),
                                       ],
                                     ),
+                                  ),
+                                  Divider(
+                                    thickness: 2.0,
+                                    color: FlutterFlowTheme.of(context).accent3,
                                   ),
                                   if ((FFAppState().userCountryApp != '') &&
                                       (FFAppState().userCityApp != ''))
@@ -674,78 +734,39 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                             alignment:
                                                 AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 16.0, 0.0, 16.0),
-                                              child: Material(
-                                                color: Colors.transparent,
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                              padding: EdgeInsets.all(4.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'peogbfuk' /* Введите номер телефона и парол... */,
                                                 ),
-                                                child: Container(
-                                                  width: 300.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .accent1,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                    border: Border.all(
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.openSans(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .accent1,
-                                                      width: 0.0,
-                                                    ),
-                                                  ),
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsets.all(4.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'peogbfuk' /* Введите номер телефона и парол... */,
-                                                      ),
-                                                      style:
+                                                              .accent4,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .bodyMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .openSans(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .accent2,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                              ),
+                                                              .fontStyle,
                                                     ),
-                                                  ),
-                                                ),
                                               ),
                                             ),
                                           ),
@@ -754,78 +775,39 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                             alignment:
                                                 AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 16.0, 0.0, 16.0),
-                                              child: Material(
-                                                color: Colors.transparent,
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                              padding: EdgeInsets.all(4.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'asbtyhmw' /* Введите номер телефона */,
                                                 ),
-                                                child: Container(
-                                                  width: 250.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .accent1,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                    border: Border.all(
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.openSans(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .accent1,
-                                                      width: 0.0,
-                                                    ),
-                                                  ),
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsets.all(4.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'asbtyhmw' /* Введите номер телефона */,
-                                                      ),
-                                                      style:
+                                                              .accent4,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .bodyMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .openSans(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .accent2,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                              ),
+                                                              .fontStyle,
                                                     ),
-                                                  ),
-                                                ),
                                               ),
                                             ),
                                           ),
@@ -877,6 +859,7 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .accent4,
+                                                      fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FlutterFlowTheme.of(
@@ -991,7 +974,7 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 16.0),
+                                                    0.0, 0.0, 0.0, 8.0),
                                             child: Container(
                                               width: double.infinity,
                                               child: TextFormField(
@@ -1032,6 +1015,7 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .accent4,
+                                                        fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FlutterFlowTheme.of(
@@ -1213,6 +1197,7 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .accent4,
+                                                        fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FlutterFlowTheme.of(
@@ -1328,6 +1313,7 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .accent4,
+                                                      fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FlutterFlowTheme.of(
@@ -1352,352 +1338,319 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                         Align(
                                           alignment:
                                               AlignmentDirectional(0.0, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 24.0, 0.0, 24.0),
-                                            child: FFButtonWidget(
-                                              onPressed: _model.blockButton
-                                                  ? null
-                                                  : () async {
-                                                      if (functions
-                                                          .isPhoneMatchesMask(
+                                          child: FFButtonWidget(
+                                            onPressed: _model.blockButton
+                                                ? null
+                                                : () async {
+                                                    if (functions
+                                                        .isPhoneMatchesMask(
+                                                            _model
+                                                                .phoneNumberCreate1TextController
+                                                                .text,
+                                                            FFAppState()
+                                                                .userMaskApp)) {
+                                                      _model.blockButton = true;
+                                                      safeSetState(() {});
+                                                      _model.years =
+                                                          await YearsTable()
+                                                              .queryRows(
+                                                        queryFn: (q) => q
+                                                            .isFilter(
+                                                              'is',
+                                                              true,
+                                                            )
+                                                            .order('year'),
+                                                      );
+                                                      FFAppState().userRoleApp =
+                                                          _model.isSeller
+                                                              ? 'Продавец'
+                                                              : 'Покупатель';
+                                                      FFAppState().userPhone =
+                                                          functions
+                                                              .cleanPhoneNumber(
+                                                                  _model
+                                                                      .phoneNumberCreate1TextController
+                                                                      .text);
+                                                      FFAppState().currencyID =
+                                                          1;
+                                                      FFAppState().dateFrom =
+                                                          dateTimeFormat(
+                                                        "yMMMd",
+                                                        getCurrentTimestamp,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      );
+                                                      FFAppState().dateTo =
+                                                          dateTimeFormat(
+                                                        "yMMMd",
+                                                        getCurrentTimestamp,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      );
+                                                      FFAppState().dateFromDT =
+                                                          getCurrentTimestamp;
+                                                      FFAppState().dateToDT =
+                                                          getCurrentTimestamp;
+                                                      FFAppState().yearFrom = 1;
+                                                      FFAppState().yearTo =
+                                                          _model.years!
+                                                              .firstOrNull!.id;
+                                                      safeSetState(() {});
+                                                      if (FFAppState()
+                                                              .userRoleApp ==
+                                                          'Продавец') {
+                                                        _model.errorS =
+                                                            await actions
+                                                                .signUpWithPhone(
+                                                          FFAppState()
+                                                              .userPhone,
+                                                          _model
+                                                              .passwordCreateTextController
+                                                              .text,
+                                                          _model
+                                                              .passwordCreateConfirmTextController
+                                                              .text,
+                                                          FFAppState()
+                                                              .userRoleApp,
+                                                        );
+                                                        while (_model.errorS ==
+                                                                null ||
+                                                            _model.errorS ==
+                                                                '') {
+                                                          await Future.delayed(
+                                                            Duration(
+                                                              milliseconds: 100,
+                                                            ),
+                                                          );
+                                                        }
+                                                        if (_model.errorS ==
+                                                            'Регистрация прошла успешно') {
+                                                          _model.idByPhoneS =
+                                                              await actions
+                                                                  .getIdByPhone(
+                                                            FFAppState()
+                                                                .userPhone,
+                                                          );
+                                                          while (_model
+                                                                  .idByPhoneS ==
+                                                              null) {
+                                                            await Future
+                                                                .delayed(
+                                                              Duration(
+                                                                milliseconds:
+                                                                    100,
+                                                              ),
+                                                            );
+                                                          }
+                                                          FFAppState()
+                                                                  .userIdApp =
                                                               _model
-                                                                  .phoneNumberCreate1TextController
-                                                                  .text,
+                                                                  .idByPhoneS!;
+                                                          safeSetState(() {});
+                                                          await DataUsersTable()
+                                                              .update(
+                                                            data: {
+                                                              'country_id':
+                                                                  FFAppState()
+                                                                      .userCountryIDApp,
+                                                              'city_id':
+                                                                  FFAppState()
+                                                                      .userCityIDApp,
+                                                            },
+                                                            matchingRows:
+                                                                (rows) => rows
+                                                                    .eqOrNull(
+                                                              'id',
                                                               FFAppState()
-                                                                  .userMaskApp)) {
-                                                        _model.blockButton =
-                                                            true;
-                                                        safeSetState(() {});
-                                                        _model.years =
-                                                            await YearsTable()
-                                                                .queryRows(
-                                                          queryFn: (q) => q
-                                                              .isFilter(
-                                                                'is',
-                                                                true,
-                                                              )
-                                                              .order('year'),
-                                                        );
-                                                        FFAppState()
-                                                                .userRoleApp =
-                                                            _model.isSeller
-                                                                ? 'Продавец'
-                                                                : 'Покупатель';
-                                                        FFAppState().userPhone =
-                                                            functions
-                                                                .cleanPhoneNumber(
-                                                                    _model
-                                                                        .phoneNumberCreate1TextController
-                                                                        .text);
-                                                        FFAppState()
-                                                            .currencyID = 1;
-                                                        FFAppState().dateFrom =
-                                                            dateTimeFormat(
-                                                          "yMMMd",
-                                                          getCurrentTimestamp,
-                                                          locale:
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .languageCode,
-                                                        );
-                                                        FFAppState().dateTo =
-                                                            dateTimeFormat(
-                                                          "yMMMd",
-                                                          getCurrentTimestamp,
-                                                          locale:
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .languageCode,
-                                                        );
-                                                        FFAppState()
-                                                                .dateFromDT =
-                                                            getCurrentTimestamp;
-                                                        FFAppState().dateToDT =
-                                                            getCurrentTimestamp;
-                                                        FFAppState().yearFrom =
-                                                            1;
-                                                        FFAppState().yearTo =
-                                                            _model
-                                                                .years!
-                                                                .firstOrNull!
-                                                                .id;
-                                                        safeSetState(() {});
-                                                        if (FFAppState()
-                                                                .userRoleApp ==
-                                                            'Продавец') {
-                                                          _model.errorS =
-                                                              await actions
-                                                                  .signUpWithPhone(
-                                                            FFAppState()
-                                                                .userPhone,
-                                                            _model
-                                                                .passwordCreateTextController
-                                                                .text,
-                                                            _model
-                                                                .passwordCreateConfirmTextController
-                                                                .text,
-                                                            FFAppState()
-                                                                .userRoleApp,
+                                                                  .userIdApp,
+                                                            ),
                                                           );
-                                                          while (_model
-                                                                      .errorS ==
-                                                                  null ||
-                                                              _model.errorS ==
-                                                                  '') {
-                                                            await Future
-                                                                .delayed(
-                                                              Duration(
-                                                                milliseconds:
-                                                                    100,
-                                                              ),
-                                                            );
-                                                          }
-                                                          if (_model.errorS ==
-                                                              'Регистрация прошла успешно') {
-                                                            _model.idByPhoneS =
-                                                                await actions
-                                                                    .getIdByPhone(
-                                                              FFAppState()
-                                                                  .userPhone,
-                                                            );
-                                                            while (_model
-                                                                    .idByPhoneS ==
-                                                                null) {
-                                                              await Future
-                                                                  .delayed(
-                                                                Duration(
-                                                                  milliseconds:
-                                                                      100,
-                                                                ),
-                                                              );
-                                                            }
-                                                            FFAppState()
-                                                                    .userIdApp =
-                                                                _model
-                                                                    .idByPhoneS!;
-                                                            safeSetState(() {});
-                                                            await DataUsersTable()
-                                                                .update(
-                                                              data: {
-                                                                'country_id':
-                                                                    FFAppState()
-                                                                        .userCountryIDApp,
-                                                                'city_id':
-                                                                    FFAppState()
-                                                                        .userCityIDApp,
-                                                              },
-                                                              matchingRows:
-                                                                  (rows) => rows
-                                                                      .eqOrNull(
-                                                                'id',
-                                                                FFAppState()
-                                                                    .userIdApp,
-                                                              ),
-                                                            );
 
-                                                            context.pushNamed(
-                                                                PWelcomeWidget
-                                                                    .routeName);
+                                                          context.pushNamed(
+                                                              PWelcomeWidget
+                                                                  .routeName);
 
-                                                            _model.blockButton =
-                                                                false;
-                                                            safeSetState(() {});
-                                                          } else {
-                                                            await showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (alertDialogContext) {
-                                                                return AlertDialog(
-                                                                  title: Text(
-                                                                      'Неудачно'),
-                                                                  content: Text(
-                                                                      _model
-                                                                          .errorS!),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: Text(
-                                                                          'Ok'),
-                                                                    ),
-                                                                  ],
-                                                                );
-                                                              },
-                                                            );
-                                                            _model.blockButton =
-                                                                false;
-                                                            safeSetState(() {});
-                                                          }
+                                                          _model.blockButton =
+                                                              false;
+                                                          safeSetState(() {});
                                                         } else {
-                                                          _model.errorB =
-                                                              await actions
-                                                                  .signUpWithPhone(
-                                                            FFAppState()
-                                                                .userPhone,
-                                                            '999999',
-                                                            '999999',
-                                                            FFAppState()
-                                                                .userRoleApp,
-                                                          );
-                                                          while (_model
-                                                                      .errorB ==
-                                                                  null ||
-                                                              _model.errorB ==
-                                                                  '') {
-                                                            await Future
-                                                                .delayed(
-                                                              Duration(
-                                                                milliseconds:
-                                                                    100,
-                                                              ),
-                                                            );
-                                                          }
-                                                          if (_model.errorB ==
-                                                              'Регистрация прошла успешно') {
-                                                            _model.idByPhoneB =
-                                                                await actions
-                                                                    .getIdByPhone(
-                                                              FFAppState()
-                                                                  .userPhone,
-                                                            );
-                                                            while (_model
-                                                                    .idByPhoneB ==
-                                                                null) {
-                                                              await Future
-                                                                  .delayed(
-                                                                Duration(
-                                                                  milliseconds:
-                                                                      100,
-                                                                ),
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return AlertDialog(
+                                                                title: Text(
+                                                                    'Неудачно'),
+                                                                content: Text(
+                                                                    _model
+                                                                        .errorS!),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
                                                               );
-                                                            }
-                                                            FFAppState()
-                                                                    .userIdApp =
-                                                                _model
-                                                                    .idByPhoneB!;
-                                                            safeSetState(() {});
-                                                            await DataUsersTable()
-                                                                .update(
-                                                              data: {
-                                                                'country_id':
-                                                                    FFAppState()
-                                                                        .userCountryIDApp,
-                                                                'city_id':
-                                                                    FFAppState()
-                                                                        .userCityIDApp,
-                                                              },
-                                                              matchingRows:
-                                                                  (rows) => rows
-                                                                      .eqOrNull(
-                                                                'id',
-                                                                FFAppState()
-                                                                    .userIdApp,
-                                                              ),
-                                                            );
-
-                                                            context.pushNamed(
-                                                                PWelcomeWidget
-                                                                    .routeName);
-
-                                                            _model.blockButton =
-                                                                false;
-                                                            safeSetState(() {});
-                                                          } else {
-                                                            await showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (alertDialogContext) {
-                                                                return AlertDialog(
-                                                                  title: Text(
-                                                                      'Неудачно'),
-                                                                  content: Text(
-                                                                      _model
-                                                                          .errorB!),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: Text(
-                                                                          'Ok'),
-                                                                    ),
-                                                                  ],
-                                                                );
-                                                              },
-                                                            );
-                                                            _model.blockButton =
-                                                                false;
-                                                            safeSetState(() {});
-                                                          }
+                                                            },
+                                                          );
+                                                          _model.blockButton =
+                                                              false;
+                                                          safeSetState(() {});
                                                         }
                                                       } else {
-                                                        await showDialog(
-                                                          context: context,
-                                                          builder:
-                                                              (alertDialogContext) {
-                                                            return AlertDialog(
-                                                              title: Text(
-                                                                  'Ошибка'),
-                                                              content: Text(
-                                                                  'Введите корректный номер телефона'),
-                                                              actions: [
-                                                                TextButton(
-                                                                  onPressed: () =>
-                                                                      Navigator.pop(
-                                                                          alertDialogContext),
-                                                                  child: Text(
-                                                                      'Ok'),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          },
+                                                        _model.errorB =
+                                                            await actions
+                                                                .signUpWithPhone(
+                                                          FFAppState()
+                                                              .userPhone,
+                                                          '999999',
+                                                          '999999',
+                                                          FFAppState()
+                                                              .userRoleApp,
                                                         );
-                                                      }
+                                                        while (_model.errorB ==
+                                                                null ||
+                                                            _model.errorB ==
+                                                                '') {
+                                                          await Future.delayed(
+                                                            Duration(
+                                                              milliseconds: 100,
+                                                            ),
+                                                          );
+                                                        }
+                                                        if (_model.errorB ==
+                                                            'Регистрация прошла успешно') {
+                                                          _model.idByPhoneB =
+                                                              await actions
+                                                                  .getIdByPhone(
+                                                            FFAppState()
+                                                                .userPhone,
+                                                          );
+                                                          while (_model
+                                                                  .idByPhoneB ==
+                                                              null) {
+                                                            await Future
+                                                                .delayed(
+                                                              Duration(
+                                                                milliseconds:
+                                                                    100,
+                                                              ),
+                                                            );
+                                                          }
+                                                          FFAppState()
+                                                                  .userIdApp =
+                                                              _model
+                                                                  .idByPhoneB!;
+                                                          safeSetState(() {});
+                                                          await DataUsersTable()
+                                                              .update(
+                                                            data: {
+                                                              'country_id':
+                                                                  FFAppState()
+                                                                      .userCountryIDApp,
+                                                              'city_id':
+                                                                  FFAppState()
+                                                                      .userCityIDApp,
+                                                            },
+                                                            matchingRows:
+                                                                (rows) => rows
+                                                                    .eqOrNull(
+                                                              'id',
+                                                              FFAppState()
+                                                                  .userIdApp,
+                                                            ),
+                                                          );
 
-                                                      safeSetState(() {});
-                                                    },
-                                              text: FFLocalizations.of(context)
-                                                  .getText(
-                                                'zo9vgh4u' /* Зарегистрироваться */,
-                                              ),
-                                              options: FFButtonOptions(
-                                                width: 300.0,
-                                                height: 52.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 16.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent1,
-                                                textStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .headlineSmall
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.openSans(
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .headlineSmall
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .headlineSmall
-                                                                .fontStyle,
-                                                      ),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .accent2,
-                                                      letterSpacing: 0.0,
+                                                          context.pushNamed(
+                                                              PWelcomeWidget
+                                                                  .routeName);
+
+                                                          _model.blockButton =
+                                                              false;
+                                                          safeSetState(() {});
+                                                        } else {
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return AlertDialog(
+                                                                title: Text(
+                                                                    'Неудачно'),
+                                                                content: Text(
+                                                                    _model
+                                                                        .errorB!),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            },
+                                                          );
+                                                          _model.blockButton =
+                                                              false;
+                                                          safeSetState(() {});
+                                                        }
+                                                      }
+                                                    } else {
+                                                      await showDialog(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title:
+                                                                Text('Ошибка'),
+                                                            content: Text(
+                                                                'Введите корректный номер телефона'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      );
+                                                    }
+
+                                                    safeSetState(() {});
+                                                  },
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              'zo9vgh4u' /* Зарегистрироваться */,
+                                            ),
+                                            options: FFButtonOptions(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  1.0,
+                                              height: 52.0,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      16.0, 0.0, 16.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent1,
+                                              textStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .headlineSmall
+                                                  .override(
+                                                    font: GoogleFonts.openSans(
                                                       fontWeight:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1709,13 +1662,28 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                                               .headlineSmall
                                                               .fontStyle,
                                                     ),
-                                                elevation: 0.0,
-                                                borderRadius:
-                                                    BorderRadius.circular(20.0),
-                                                disabledColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent3,
-                                              ),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .accent2,
+                                                    fontSize: 22.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .headlineSmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .headlineSmall
+                                                            .fontStyle,
+                                                  ),
+                                              elevation: 0.0,
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                              disabledColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent3,
                                             ),
                                           ),
                                         ),
@@ -1761,6 +1729,9 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryText,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontSize: 12.0,
                                                       ),
                                                     ),
                                                     TextSpan(
@@ -1778,7 +1749,7 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                                                     .openSans(
                                                                   fontWeight:
                                                                       FontWeight
-                                                                          .w600,
+                                                                          .w500,
                                                                   fontStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -1787,11 +1758,12 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .accent1,
+                                                                fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .w600,
+                                                                        .w500,
                                                                 fontStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1860,26 +1832,35 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                         },
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: 52.0,
+                          height: 72.0,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).accent3,
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
                             borderRadius: BorderRadius.circular(0.0),
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).accent3,
-                            ),
                           ),
                           child: Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsets.all(2.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: SvgPicture.asset(
-                                  'assets/images/start_home_.svg',
-                                  width: 40.0,
-                                  height: 40.0,
-                                  fit: BoxFit.contain,
-                                  alignment: Alignment(0.0, 0.0),
+                            child: Container(
+                              width: 48.0,
+                              height: 48.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(24.0),
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context).accent4,
+                                  width: 3.0,
+                                ),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.all(2.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: SvgPicture.asset(
+                                    'assets/images/n_home_gray.svg',
+                                    width: 20.0,
+                                    height: 20.0,
+                                    fit: BoxFit.contain,
+                                    alignment: Alignment(0.0, 0.0),
+                                  ),
                                 ),
                               ),
                             ),

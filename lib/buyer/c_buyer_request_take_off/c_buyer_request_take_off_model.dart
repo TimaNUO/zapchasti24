@@ -15,15 +15,17 @@ class CBuyerRequestTakeOffModel
 
   int? selectedCityId;
 
+  int tabID = 1;
+
   ///  State fields for stateful widgets in this component.
 
-  // Stores action output result for [Backend Call - API (Buyer Orders By Request Info)] action in ButtonAlive widget.
+  // Stores action output result for [Backend Call - API (Buyer Orders By Request Info)] action in Container widget.
   ApiCallResponse? resultActiveRequestsByOffer;
-  // Stores action output result for [Backend Call - API (Died Request Info)] action in ButtonAlive widget.
+  // Stores action output result for [Backend Call - API (Died Request Info)] action in Container widget.
   ApiCallResponse? apiResultDEAD;
-  // Stores action output result for [Backend Call - API (Complete Offer Info)] action in ButtonAlive widget.
+  // Stores action output result for [Backend Call - API (Complete Offer Info)] action in Container widget.
   ApiCallResponse? apiResultCOMPL;
-  // Stores action output result for [Backend Call - API (deactivate request links)] action in ButtonAlive widget.
+  // Stores action output result for [Backend Call - API (deactivate request links)] action in Container widget.
   ApiCallResponse? outputRebuild;
   // State field(s) for DropDownCountry widget.
   int? dropDownCountryValue;
@@ -31,6 +33,8 @@ class CBuyerRequestTakeOffModel
   // State field(s) for DropDownCity widget.
   int? dropDownCityValue;
   FormFieldController<int>? dropDownCityValueController;
+  // Stores action output result for [Backend Call - API (ads add unique view)] action in Container widget.
+  ApiCallResponse? addViewAd;
   // Model for cBackComponents component.
   late CBackComponentsModel cBackComponentsModel;
 

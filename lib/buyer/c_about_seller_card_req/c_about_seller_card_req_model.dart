@@ -9,7 +9,7 @@ class CAboutSellerCardReqModel
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Backend Call - API (ch get or create chat)] action in Container widget.
-  ApiCallResponse? chatReq;
+  ApiCallResponse? chatReq2;
   // Model for cBackComponents component.
   late CBackComponentsModel cBackComponentsModel;
 

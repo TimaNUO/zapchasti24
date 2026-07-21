@@ -108,7 +108,7 @@ class _CAboutSellerCardAdsWidgetState extends State<CAboutSellerCardAdsWidget>
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: MediaQuery.sizeOf(context).height * 1.0,
             decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondaryBackground,
+              color: FlutterFlowTheme.of(context).tertiary,
             ),
             child: Stack(
               children: [

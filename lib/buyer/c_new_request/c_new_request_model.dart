@@ -34,9 +34,9 @@ class CNewRequestModel extends FlutterFlowModel<CNewRequestWidget> {
   TextEditingController? textFieldDescriptionTextController;
   String? Function(BuildContext, String?)?
       textFieldDescriptionTextControllerValidator;
-  bool isDataUploading_uploadData0j8702 = false;
-  List<FFUploadedFile> uploadedLocalFiles_uploadData0j8702 = [];
-  List<String> uploadedFileUrls_uploadData0j8702 = [];
+  bool isDataUploading_uploadData0j8703 = false;
+  List<FFUploadedFile> uploadedLocalFiles_uploadData0j8703 = [];
+  List<String> uploadedFileUrls_uploadData0j8703 = [];
 
   // State field(s) for CheckboxUsed widget.
   bool? checkboxUsedValue;
