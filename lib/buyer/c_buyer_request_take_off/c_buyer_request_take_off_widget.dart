@@ -2768,18 +2768,11 @@ class _CBuyerRequestTakeOffWidgetState extends State<CBuyerRequestTakeOffWidget>
                                     children: [
                                       Flexible(
                                         child:
-                                            StreamBuilder<List<CountriesRow>>(
-                                          stream: _model
-                                                  .dropDownCountry2SupabaseStream ??=
-                                              SupaFlow.client
-                                                  .from("countries")
-                                                  .stream(primaryKey: ['id'])
-                                                  .order('country',
-                                                      ascending: true)
-                                                  .map((list) => list
-                                                      .map((item) =>
-                                                          CountriesRow(item))
-                                                      .toList()),
+                                            FutureBuilder<List<CountriesRow>>(
+                                          future: CountriesTable().queryRows(
+                                            queryFn: (q) => q.order('country',
+                                                ascending: true),
+                                          ),
                                           builder: (context, snapshot) {
                                             // Customize what your widget looks like when it's loading.
                                             if (!snapshot.hasData) {
@@ -2966,23 +2959,17 @@ class _CBuyerRequestTakeOffWidgetState extends State<CBuyerRequestTakeOffWidget>
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Flexible(
-                                          child: StreamBuilder<List<CitiesRow>>(
-                                            stream: _model
-                                                    .dropDownCity2SupabaseStream ??=
-                                                SupaFlow.client
-                                                    .from("cities")
-                                                    .stream(primaryKey: ['id'])
-                                                    .eqOrNull(
-                                                      'country_id',
-                                                      _model
-                                                          .dropDownCountry2Value,
-                                                    )
-                                                    .order('city',
-                                                        ascending: true)
-                                                    .map((list) => list
-                                                        .map((item) =>
-                                                            CitiesRow(item))
-                                                        .toList()),
+                                          child: FutureBuilder<List<CitiesRow>>(
+                                            future: CitiesTable().queryRows(
+                                              queryFn: (q) => q
+                                                  .eqOrNull(
+                                                    'country_id',
+                                                    _model
+                                                        .dropDownCountry2Value,
+                                                  )
+                                                  .order('city',
+                                                      ascending: true),
+                                            ),
                                             builder: (context, snapshot) {
                                               // Customize what your widget looks like when it's loading.
                                               if (!snapshot.hasData) {
