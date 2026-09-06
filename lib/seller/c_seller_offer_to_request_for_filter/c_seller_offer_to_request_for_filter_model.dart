@@ -1,7 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'c_seller_offer_to_request_for_filter_widget.dart'
     show CSellerOfferToRequestForFilterWidget;
 import 'package:flutter/material.dart';
@@ -32,26 +31,9 @@ class CSellerOfferToRequestForFilterModel
 
   // Stores action output result for [Backend Call - API (Seller BuyerID From RequestsID Info)] action in cSellerOfferToRequestForFilter widget.
   ApiCallResponse? apiResultBuyerID;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  bool isDataUploading_uploadData0j72 = false;
-  List<FFUploadedFile> uploadedLocalFiles_uploadData0j72 = [];
-  List<String> uploadedFileUrls_uploadData0j72 = [];
-
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
-  // State field(s) for DropDown widget.
-  int? dropDownValue;
-  FormFieldController<int>? dropDownValueController;
   // Stores action output result for [Backend Call - API (ch get or create chat)] action in Container widget.
-  ApiCallResponse? chatFilter;
-  // Stores action output result for [Backend Call - API (Upsert Offer Info)] action in ButtonPublic widget.
-  ApiCallResponse? apiResult5in;
-  // Stores action output result for [Backend Call - API (Reject Request Info)] action in ButtonReject widget.
+  ApiCallResponse? chatRequest;
+  // Stores action output result for [Backend Call - API (Reject Request Info)] action in Container widget.
   ApiCallResponse? apiResultebtRES;
   // Model for cBackComponents component.
   late CBackComponentsModel cBackComponentsModel;
@@ -63,12 +45,6 @@ class CSellerOfferToRequestForFilterModel
 
   @override
   void dispose() {
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
-
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
-
     cBackComponentsModel.dispose();
   }
 }

@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/supabase/supabase.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -20,6 +21,8 @@ class CEditAboutBuyerModel extends FlutterFlowModel<CEditAboutBuyerWidget> {
   FormFieldController<int>? dropDownCityValueController;
   // Stores action output result for [Backend Call - API (Update DataUsers Info)] action in Button widget.
   ApiCallResponse? apiResultp16;
+  // Stores action output result for [Backend Call - Update Row(s)] action in Container widget.
+  List<DataUsersRow>? deleted9;
   // Model for cBackComponents component.
   late CBackComponentsModel cBackComponentsModel;
 

@@ -1,6 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/buyer/c_buyer_navigation_bar/c_buyer_navigation_bar_widget.dart';
-import '/buyer/c_edit_car_details/c_edit_car_details_widget.dart';
+import '/buyer/c_edit_car_buyer/c_edit_car_buyer_widget.dart';
 import '/buyer/c_new_request/c_new_request_widget.dart';
 import '/components/c_brands_check_box_list_tile_car/c_brands_check_box_list_tile_car_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
@@ -74,7 +74,7 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 72.0, 16.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -486,7 +486,7 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                                                                                       },
                                                                                       child: Padding(
                                                                                         padding: MediaQuery.viewInsetsOf(context),
-                                                                                        child: CEditCarDetailsWidget(),
+                                                                                        child: CEditCarBuyerWidget(),
                                                                                       ),
                                                                                     );
                                                                                   },
@@ -501,7 +501,7 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                                                                                 child: ClipRRect(
                                                                                   borderRadius: BorderRadius.circular(0.0),
                                                                                   child: SvgPicture.asset(
-                                                                                    'assets/images/________.svg',
+                                                                                    'assets/images/edit_pen.svg',
                                                                                     width: 28.0,
                                                                                     height: 28.0,
                                                                                     fit: BoxFit.none,
@@ -604,7 +604,7 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                                                                                 child: ClipRRect(
                                                                                   borderRadius: BorderRadius.circular(0.0),
                                                                                   child: SvgPicture.asset(
-                                                                                    'assets/images/________.svg',
+                                                                                    'assets/images/red_bucket.svg',
                                                                                     width: 28.0,
                                                                                     height: 28.0,
                                                                                     fit: BoxFit.none,
@@ -643,7 +643,7 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                                                                               BorderRadius.circular(0.0),
                                                                           child:
                                                                               SvgPicture.asset(
-                                                                            'assets/images/_-____.svg',
+                                                                            'assets/images/calendar.svg',
                                                                             width:
                                                                                 12.0,
                                                                             height:
@@ -664,7 +664,7 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                                                                                   fontWeight: FontWeight.w500,
                                                                                   fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
-                                                                                fontSize: 9.0,
+                                                                                fontSize: 12.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w500,
                                                                                 fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
@@ -699,7 +699,7 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                                                                                 BorderRadius.circular(0.0),
                                                                             child:
                                                                                 SvgPicture.asset(
-                                                                              'assets/images/____.svg',
+                                                                              'assets/images/black_car_vin_code.svg',
                                                                               width: 12.0,
                                                                               height: 12.0,
                                                                               fit: BoxFit.contain,
@@ -715,7 +715,7 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                                                                                     fontWeight: FontWeight.w500,
                                                                                     fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                   ),
-                                                                                  fontSize: 9.0,
+                                                                                  fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w500,
                                                                                   fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
@@ -850,7 +850,7 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                                                                             BorderRadius.circular(0.0),
                                                                         child: SvgPicture
                                                                             .asset(
-                                                                          'assets/images/_____.svg',
+                                                                          'assets/images/search_lupa_find_part_in_garage.svg',
                                                                           width:
                                                                               20.0,
                                                                           height:
@@ -877,7 +877,7 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                                                                                   fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
                                                                                 color: FlutterFlowTheme.of(context).accent1,
-                                                                                fontSize: 12.0,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                                 fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
@@ -894,7 +894,7 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                                                                             0.0),
                                                                     child: SvgPicture
                                                                         .asset(
-                                                                      'assets/images/____.svg',
+                                                                      'assets/images/strelka_ukazatel_strasnaya_v_kruge.svg',
                                                                       width:
                                                                           24.0,
                                                                       height:
@@ -925,117 +925,102 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                                 );
                               },
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 12.0, 0.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  await showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    backgroundColor: Colors.transparent,
-                                    enableDrag: false,
-                                    context: context,
-                                    builder: (context) {
-                                      return GestureDetector(
-                                        onTap: () {
-                                          FocusScope.of(context).unfocus();
-                                          FocusManager.instance.primaryFocus
-                                              ?.unfocus();
-                                        },
-                                        child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child:
-                                              CBrandsCheckBoxListTileCarWidget(),
-                                        ),
-                                      );
-                                    },
-                                  ).then((value) => safeSetState(() {}));
+                          ].addToEnd(SizedBox(height: 90.0)),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            enableDrag: false,
+                            context: context,
+                            builder: (context) {
+                              return GestureDetector(
+                                onTap: () {
+                                  FocusScope.of(context).unfocus();
+                                  FocusManager.instance.primaryFocus?.unfocus();
                                 },
-                                child: Material(
-                                  color: Colors.transparent,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 60.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).accent1,
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(6.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(0.0),
-                                              child: SvgPicture.asset(
-                                                'assets/images/plus_in_square_create_request_main_page.svg',
-                                                width: 48.0,
-                                                height: 48.0,
-                                                fit: BoxFit.contain,
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'wrl0b9vl' /* Добавить автомобиль */,
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleSmall
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.openSans(
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontStyle,
-                                                      ),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .accent2,
-                                                      fontSize: 16.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontStyle,
-                                                    ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
+                                child: Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: CBrandsCheckBoxListTileCarWidget(),
+                                ),
+                              );
+                            },
+                          ).then((value) => safeSetState(() {}));
+                        },
+                        child: Material(
+                          color: Colors.transparent,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            height: 60.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).accent1,
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsets.all(6.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(0.0),
+                                      child: SvgPicture.asset(
+                                        'assets/images/plus_in_square_create_request_main_page.svg',
+                                        width: 48.0,
+                                        height: 48.0,
+                                        fit: BoxFit.contain,
                                       ),
                                     ),
-                                  ),
+                                    Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'wrl0b9vl' /* Добавить автомобиль */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              font: GoogleFonts.openSans(
+                                                fontWeight: FontWeight.bold,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontStyle,
+                                              ),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent2,
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.bold,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontStyle,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
-                          ].addToEnd(SizedBox(height: 90.0)),
+                          ),
                         ),
                       ),
                     ),

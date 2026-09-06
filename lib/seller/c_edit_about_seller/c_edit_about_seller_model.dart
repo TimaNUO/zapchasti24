@@ -48,14 +48,16 @@ class CEditAboutSellerModel extends FlutterFlowModel<CEditAboutSellerWidget> {
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
-  bool isDataUploading_uploadData0j8706 = false;
-  List<FFUploadedFile> uploadedLocalFiles_uploadData0j8706 = [];
-  List<String> uploadedFileUrls_uploadData0j8706 = [];
+  bool isDataUploading_uploadData09 = false;
+  List<FFUploadedFile> uploadedLocalFiles_uploadData09 = [];
+  List<String> uploadedFileUrls_uploadData09 = [];
 
   // Stores action output result for [Backend Call - API (Update DataUsers Info)] action in Button widget.
-  ApiCallResponse? apiResultp16;
+  ApiCallResponse? apiResultp19;
   // Stores action output result for [Backend Call - API (upsert seller profile)] action in Button widget.
-  ApiCallResponse? dfg6dfs45df4s6g565sd45;
+  ApiCallResponse? apiResultd19;
+  // Stores action output result for [Backend Call - Update Row(s)] action in Container widget.
+  List<DataUsersRow>? deleted9;
   // Model for cBackComponents component.
   late CBackComponentsModel cBackComponentsModel;
 

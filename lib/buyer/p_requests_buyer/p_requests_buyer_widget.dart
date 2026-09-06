@@ -4,6 +4,7 @@ import '/backend/supabase/supabase.dart';
 import '/buyer/c_buyer_navigation_bar/c_buyer_navigation_bar_widget.dart';
 import '/buyer/c_buyer_request_take_off/c_buyer_request_take_off_widget.dart';
 import '/buyer/c_empty_buyer_request/c_empty_buyer_request_widget.dart';
+import '/buyer/c_new_request/c_new_request_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -91,7 +92,7 @@ class _PRequestsBuyerWidgetState extends State<PRequestsBuyerWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 52.0, 16.0, 0.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -229,7 +230,7 @@ class _PRequestsBuyerWidgetState extends State<PRequestsBuyerWidget> {
                                                                         8.0),
                                                             child: SvgPicture
                                                                 .asset(
-                                                              'assets/images/_-____.svg',
+                                                              'assets/images/calendar.svg',
                                                               width: 16.0,
                                                               height: 16.0,
                                                               fit: BoxFit
@@ -441,7 +442,7 @@ class _PRequestsBuyerWidgetState extends State<PRequestsBuyerWidget> {
                                                               ),
                                                               if (getJsonField(
                                                                     buyerApprovedRequestBodyItem,
-                                                                    r'''$[0].photo_url''',
+                                                                    r'''$.photo_url''',
                                                                   ) !=
                                                                   null)
                                                                 InkWell(
@@ -474,7 +475,7 @@ class _PRequestsBuyerWidgetState extends State<PRequestsBuyerWidget> {
                                                                             imageUrl:
                                                                                 getJsonField(
                                                                               buyerApprovedRequestBodyItem,
-                                                                              r'''$[0].photo_url''',
+                                                                              r'''$.photo_url[0]''',
                                                                             ).toString(),
                                                                             fit:
                                                                                 BoxFit.contain,
@@ -484,7 +485,7 @@ class _PRequestsBuyerWidgetState extends State<PRequestsBuyerWidget> {
                                                                           tag:
                                                                               getJsonField(
                                                                             buyerApprovedRequestBodyItem,
-                                                                            r'''$[0].photo_url''',
+                                                                            r'''$.photo_url[0]''',
                                                                           ).toString(),
                                                                           useHeroAnimation:
                                                                               true,
@@ -496,7 +497,7 @@ class _PRequestsBuyerWidgetState extends State<PRequestsBuyerWidget> {
                                                                     tag:
                                                                         getJsonField(
                                                                       buyerApprovedRequestBodyItem,
-                                                                      r'''$[0].photo_url''',
+                                                                      r'''$.photo_url[0]''',
                                                                     ).toString(),
                                                                     transitionOnUserGestures:
                                                                         true,
@@ -514,7 +515,7 @@ class _PRequestsBuyerWidgetState extends State<PRequestsBuyerWidget> {
                                                                         imageUrl:
                                                                             getJsonField(
                                                                           buyerApprovedRequestBodyItem,
-                                                                          r'''$[0].photo_url''',
+                                                                          r'''$.photo_url[0]''',
                                                                         ).toString(),
                                                                         width:
                                                                             160.0,
@@ -634,7 +635,7 @@ class _PRequestsBuyerWidgetState extends State<PRequestsBuyerWidget> {
                                                                                             fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                             fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                           ),
-                                                                                          fontSize: 10.0,
+                                                                                          fontSize: 12.0,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                                                                                           fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
@@ -797,7 +798,7 @@ class _PRequestsBuyerWidgetState extends State<PRequestsBuyerWidget> {
                                                                           .fontStyle,
                                                                     ),
                                                                     fontSize:
-                                                                        10.0,
+                                                                        12.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
@@ -829,18 +830,16 @@ class _PRequestsBuyerWidgetState extends State<PRequestsBuyerWidget> {
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
-                                                          ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        0.0),
-                                                            child: SvgPicture
-                                                                .asset(
-                                                              'assets/images/_____.svg',
-                                                              width: 8.0,
-                                                              height: 8.0,
-                                                              fit: BoxFit
-                                                                  .contain,
+                                                          Container(
+                                                            width: 8.0,
+                                                            height: 8.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .tertiary,
+                                                              shape: BoxShape
+                                                                  .circle,
                                                             ),
                                                           ),
                                                           Text(
@@ -937,7 +936,7 @@ class _PRequestsBuyerWidgetState extends State<PRequestsBuyerWidget> {
                                                                             0.0),
                                                                     child: SvgPicture
                                                                         .asset(
-                                                                      'assets/images/____.svg',
+                                                                      'assets/images/strelka_ukazatel_strasnaya_v_kruge.svg',
                                                                       width:
                                                                           24.0,
                                                                       height:
@@ -1129,6 +1128,156 @@ class _PRequestsBuyerWidgetState extends State<PRequestsBuyerWidget> {
                         ],
                       ),
                     ),
+                  Align(
+                    alignment: AlignmentDirectional(0.0, -1.0),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.0, -1.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 8.0, 0.0, 0.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  'rr0ia9df' /* Заявки */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.openSans(
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      fontSize: 20.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      FocusScope.of(context).unfocus();
+                                      FocusManager.instance.primaryFocus
+                                          ?.unfocus();
+                                    },
+                                    child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: CNewRequestWidget(),
+                                    ),
+                                  );
+                                },
+                              ).then((value) => safeSetState(() {}));
+                            },
+                            child: Material(
+                              color: Colors.transparent,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 0.55,
+                                height: 32.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).accent1,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context).accent1,
+                                    width: 0.0,
+                                  ),
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(4.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(0.0),
+                                          child: SvgPicture.asset(
+                                            'assets/images/add_photo_.svg',
+                                            width: 16.0,
+                                            height: 16.0,
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'qsckvm7i' /* Создать заявку */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleSmall
+                                                .override(
+                                                  font: GoogleFonts.openSans(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleSmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleSmall
+                                                            .fontStyle,
+                                                  ),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .accent2,
+                                                  fontSize: 14.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                        ),
+                                      ].divide(SizedBox(width: 12.0)),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                   Align(
                     alignment: AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(

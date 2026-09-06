@@ -143,6 +143,18 @@ class _CNewFilterWidgetState extends State<CNewFilterWidget>
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 16.0, 0.0, 0.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(0.0),
+                                child: SvgPicture.asset(
+                                  'assets/images/filter_red.svg',
+                                  height: 80.0,
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
                             Text(
                               FFLocalizations.of(context).getText(
                                 'uocisc4k' /* Добавление ассортимента запчас... */,
@@ -156,7 +168,8 @@ class _CNewFilterWidgetState extends State<CNewFilterWidget>
                                           .titleSmall
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context).accent1,
+                                    color: FlutterFlowTheme.of(context).accent4,
+                                    fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     fontStyle: FlutterFlowTheme.of(context)
@@ -177,6 +190,7 @@ class _CNewFilterWidgetState extends State<CNewFilterWidget>
                                           .titleLarge
                                           .fontStyle,
                                     ),
+                                    color: FlutterFlowTheme.of(context).accent1,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .titleLarge
@@ -186,131 +200,167 @@ class _CNewFilterWidgetState extends State<CNewFilterWidget>
                                         .fontStyle,
                                   ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 12.0, 0.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  FFAppState().modelsIDListApp = FFAppState()
-                                      .newFilterModels
-                                      .toList()
-                                      .cast<int>();
-                                  safeSetState(() {});
-                                  if (FFAppState().isAllModels) {
-                                    await showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      enableDrag: false,
-                                      context: context,
-                                      builder: (context) {
-                                        return Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child:
-                                              CModelsCheckBoxListTileTrueWidget(),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-                                  } else {
-                                    await showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      enableDrag: false,
-                                      context: context,
-                                      builder: (context) {
-                                        return Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child:
-                                              CModelsCheckBoxListTileFalseWidget(),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-                                  }
-                                },
-                                child: Material(
-                                  color: Colors.transparent,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(16.0),
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 12.0, 0.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'o4911a42' /* Модели авто */,
                                   ),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.6,
-                                    height: 32.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).accent4,
-                                      borderRadius: BorderRadius.circular(16.0),
-                                      border: Border.all(
-                                        width: 0.0,
+                                  textAlign: TextAlign.start,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        font: GoogleFonts.openSans(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
+                                        ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent4,
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                FFAppState().modelsIDListApp = FFAppState()
+                                    .newFilterModels
+                                    .toList()
+                                    .cast<int>();
+                                safeSetState(() {});
+                                if (FFAppState().isAllModels) {
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    enableDrag: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child:
+                                            CModelsCheckBoxListTileTrueWidget(),
+                                      );
+                                    },
+                                  ).then((value) => safeSetState(() {}));
+                                } else {
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    enableDrag: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child:
+                                            CModelsCheckBoxListTileFalseWidget(),
+                                      );
+                                    },
+                                  ).then((value) => safeSetState(() {}));
+                                }
+                              },
+                              child: Container(
+                                height: 40.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).accent2,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 4.0,
+                                      color: Color(0x33000000),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 0.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(0.0),
+                                            child: SvgPicture.asset(
+                                              'assets/images/red_car_section_my_garage.svg',
+                                              height: 28.0,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              '821kljdm' /* Выберите модели авто */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  font: GoogleFonts.openSans(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .accent4,
+                                                  fontSize: 12.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                        ].divide(SizedBox(width: 12.0)),
                                       ),
                                     ),
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(4.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'tccyxh6y' /* Выбрать модели авто */,
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.openSans(
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .accent2,
-                                                      fontSize: 16.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .fontStyle,
-                                                    ),
-                                              ),
-                                            ),
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(0.0),
-                                              child: SvgPicture.asset(
-                                                'assets/images/add_photo_.svg',
-                                                width: 20.0,
-                                                height: 20.0,
-                                                fit: BoxFit.contain,
-                                              ),
-                                            ),
-                                          ].divide(SizedBox(width: 12.0)),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 12.0, 0.0),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                        child: SvgPicture.asset(
+                                          'assets/images/black_arrow_bez_khvostika.svg',
+                                          height: 28.0,
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
                                     ),
-                                  ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -321,95 +371,86 @@ class _CNewFilterWidgetState extends State<CNewFilterWidget>
                               ),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8.0),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).accent4,
-                                  width: 1.0,
-                                ),
                               ),
-                              child: Padding(
-                                padding: EdgeInsets.all(2.0),
-                                child: Builder(
-                                  builder: (context) {
-                                    final modelItem =
-                                        FFAppState().newFilterModels.toList();
+                              child: Builder(
+                                builder: (context) {
+                                  final modelItem1 =
+                                      FFAppState().newFilterModels.toList();
 
-                                    return Wrap(
-                                      spacing: 8.0,
-                                      runSpacing: 8.0,
-                                      alignment: WrapAlignment.start,
-                                      crossAxisAlignment:
-                                          WrapCrossAlignment.start,
-                                      direction: Axis.horizontal,
-                                      runAlignment: WrapAlignment.start,
-                                      verticalDirection: VerticalDirection.down,
-                                      clipBehavior: Clip.none,
-                                      children: List.generate(modelItem.length,
-                                          (modelItemIndex) {
-                                        final modelItemItem =
-                                            modelItem[modelItemIndex];
-                                        return Container(
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent3,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(4.0),
-                                            child: FutureBuilder<
-                                                List<CarModelsRow>>(
-                                              future:
-                                                  CarModelsTable().queryRows(
-                                                queryFn: (q) => q.eqOrNull(
-                                                  'id',
-                                                  modelItemItem,
-                                                ),
+                                  return Wrap(
+                                    spacing: 4.0,
+                                    runSpacing: 4.0,
+                                    alignment: WrapAlignment.start,
+                                    crossAxisAlignment:
+                                        WrapCrossAlignment.start,
+                                    direction: Axis.horizontal,
+                                    runAlignment: WrapAlignment.start,
+                                    verticalDirection: VerticalDirection.down,
+                                    clipBehavior: Clip.none,
+                                    children: List.generate(modelItem1.length,
+                                        (modelItem1Index) {
+                                      final modelItem1Item =
+                                          modelItem1[modelItem1Index];
+                                      return Container(
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent2,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 4.0,
+                                              color: Color(0x33000000),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
                                               ),
-                                              builder: (context, snapshot) {
-                                                // Customize what your widget looks like when it's loading.
-                                                if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: SizedBox(
-                                                      width: 32.0,
-                                                      height: 32.0,
-                                                      child: SpinKitRipple(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent1,
-                                                        size: 32.0,
-                                                      ),
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(4.0),
+                                          child:
+                                              FutureBuilder<List<CarModelsRow>>(
+                                            future: CarModelsTable().queryRows(
+                                              queryFn: (q) => q.eqOrNull(
+                                                'id',
+                                                modelItem1Item,
+                                              ),
+                                            ),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 32.0,
+                                                    height: 32.0,
+                                                    child: SpinKitRipple(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .accent1,
+                                                      size: 32.0,
                                                     ),
-                                                  );
-                                                }
-                                                List<CarModelsRow>
-                                                    textCarModelsRowList =
-                                                    snapshot.data!;
-
-                                                return Text(
-                                                  valueOrDefault<String>(
-                                                    textCarModelsRowList
-                                                        .firstOrNull?.model,
-                                                    'Model',
                                                   ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font: GoogleFonts
-                                                            .openSans(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        letterSpacing: 0.0,
+                                                );
+                                              }
+                                              List<CarModelsRow>
+                                                  textCarModelsRowList =
+                                                  snapshot.data!;
+
+                                              return Text(
+                                                valueOrDefault<String>(
+                                                  textCarModelsRowList
+                                                      .firstOrNull?.model,
+                                                  'Model',
+                                                ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.openSans(
                                                         fontWeight:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -421,26 +462,85 @@ class _CNewFilterWidgetState extends State<CNewFilterWidget>
                                                                 .bodyMedium
                                                                 .fontStyle,
                                                       ),
-                                                );
-                                              },
-                                            ),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
+                                              );
+                                            },
                                           ),
-                                        );
-                                      }),
-                                    );
-                                  },
+                                        ),
+                                      );
+                                    }),
+                                  );
+                                },
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 12.0, 0.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    '0k7k2rt9' /* Период выпуска авто */,
+                                  ),
+                                  textAlign: TextAlign.start,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        font: GoogleFonts.openSans(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
+                                        ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent4,
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 12.0, 0.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  FutureBuilder<List<YearsRow>>(
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: Color(0x33000000),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: FutureBuilder<List<YearsRow>>(
                                     future: YearsTable().queryRows(
                                       queryFn: (q) => q
                                           .lteOrNull(
@@ -525,10 +625,8 @@ class _CNewFilterWidgetState extends State<CNewFilterWidget>
                                         fillColor: FlutterFlowTheme.of(context)
                                             .accent2,
                                         elevation: 2.0,
-                                        borderColor:
-                                            FlutterFlowTheme.of(context)
-                                                .accent4,
-                                        borderWidth: 1.0,
+                                        borderColor: Colors.transparent,
+                                        borderWidth: 0.0,
                                         borderRadius: 8.0,
                                         margin: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 12.0, 0.0),
@@ -539,15 +637,29 @@ class _CNewFilterWidgetState extends State<CNewFilterWidget>
                                       );
                                     },
                                   ),
-                                  Container(
-                                    width: 12.0,
-                                    height: 2.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).accent4,
-                                    ),
+                                ),
+                                Container(
+                                  width: 12.0,
+                                  height: 2.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context).accent4,
                                   ),
-                                  FutureBuilder<List<YearsRow>>(
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: Color(0x33000000),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: FutureBuilder<List<YearsRow>>(
                                     future: YearsTable().queryRows(
                                       queryFn: (q) => q
                                           .gteOrNull(
@@ -632,10 +744,8 @@ class _CNewFilterWidgetState extends State<CNewFilterWidget>
                                         fillColor: FlutterFlowTheme.of(context)
                                             .accent2,
                                         elevation: 2.0,
-                                        borderColor:
-                                            FlutterFlowTheme.of(context)
-                                                .accent4,
-                                        borderWidth: 1.0,
+                                        borderColor: Colors.transparent,
+                                        borderWidth: 0.0,
                                         borderRadius: 8.0,
                                         margin: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 12.0, 0.0),
@@ -646,291 +756,128 @@ class _CNewFilterWidgetState extends State<CNewFilterWidget>
                                       );
                                     },
                                   ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 12.0, 0.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  FFAppState().categoriesIDListApp =
-                                      FFAppState()
-                                          .newFilterCategories
-                                          .toList()
-                                          .cast<int>();
-                                  safeSetState(() {});
-                                  if (FFAppState().isAllCategories) {
-                                    await showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      enableDrag: false,
-                                      context: context,
-                                      builder: (context) {
-                                        return Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child:
-                                              CDetailsCheckBoxListTileTrueWidget(),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-                                  } else {
-                                    await showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      enableDrag: false,
-                                      context: context,
-                                      builder: (context) {
-                                        return Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child:
-                                              CDetailsCheckBoxListTileFalseWidget(),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-                                  }
-                                },
-                                child: Material(
-                                  color: Colors.transparent,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(16.0),
-                                  ),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.6,
-                                    height: 32.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).accent4,
-                                      borderRadius: BorderRadius.circular(16.0),
-                                      border: Border.all(
-                                        width: 0.0,
-                                      ),
-                                    ),
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(4.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'ltfh86bv' /* Выбрать категории */,
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.openSans(
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .accent2,
-                                                      fontSize: 16.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .fontStyle,
-                                                    ),
-                                              ),
-                                            ),
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(0.0),
-                                              child: SvgPicture.asset(
-                                                'assets/images/add_photo_.svg',
-                                                width: 20.0,
-                                                height: 20.0,
-                                                fit: BoxFit.contain,
-                                              ),
-                                            ),
-                                          ].divide(SizedBox(width: 12.0)),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
                                 ),
-                              ),
+                              ],
                             ),
-                            Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              constraints: BoxConstraints(
-                                minHeight: 34.0,
-                              ),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8.0),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).accent4,
-                                  width: 1.0,
-                                ),
-                              ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsets.all(2.0),
-                                child: Builder(
-                                  builder: (context) {
-                                    final filterItem = FFAppState()
-                                        .newFilterCategories
-                                        .toList();
-
-                                    return Wrap(
-                                      spacing: 8.0,
-                                      runSpacing: 8.0,
-                                      alignment: WrapAlignment.start,
-                                      crossAxisAlignment:
-                                          WrapCrossAlignment.start,
-                                      direction: Axis.horizontal,
-                                      runAlignment: WrapAlignment.start,
-                                      verticalDirection: VerticalDirection.down,
-                                      clipBehavior: Clip.none,
-                                      children: List.generate(filterItem.length,
-                                          (filterItemIndex) {
-                                        final filterItemItem =
-                                            filterItem[filterItemIndex];
-                                        return Container(
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent3,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(4.0),
-                                            child: FutureBuilder<
-                                                List<PartsCategoryRow>>(
-                                              future: PartsCategoryTable()
-                                                  .queryRows(
-                                                queryFn: (q) => q.eqOrNull(
-                                                  'id',
-                                                  filterItemItem,
-                                                ),
-                                              ),
-                                              builder: (context, snapshot) {
-                                                // Customize what your widget looks like when it's loading.
-                                                if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: SizedBox(
-                                                      width: 32.0,
-                                                      height: 32.0,
-                                                      child: SpinKitRipple(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent1,
-                                                        size: 32.0,
-                                                      ),
-                                                    ),
-                                                  );
-                                                }
-                                                List<PartsCategoryRow>
-                                                    textPartsCategoryRowList =
-                                                    snapshot.data!;
-
-                                                return Text(
-                                                  valueOrDefault<String>(
-                                                    textPartsCategoryRowList
-                                                        .firstOrNull?.category,
-                                                    'Category',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font: GoogleFonts
-                                                            .openSans(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                );
-                                              },
-                                            ),
-                                          ),
-                                        );
-                                      }),
-                                    );
-                                  },
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 12.0, 0.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'izkyl4ji' /* Категория запчасти */,
+                                  ),
+                                  textAlign: TextAlign.start,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        font: GoogleFonts.openSans(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
+                                        ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent4,
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 12.0, 0.0, 0.0),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                FFAppState().categoriesIDListApp = FFAppState()
+                                    .newFilterCategories
+                                    .toList()
+                                    .cast<int>();
+                                safeSetState(() {});
+                                if (FFAppState().isAllCategories) {
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    enableDrag: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child:
+                                            CDetailsCheckBoxListTileTrueWidget(),
+                                      );
+                                    },
+                                  ).then((value) => safeSetState(() {}));
+                                } else {
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    enableDrag: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child:
+                                            CDetailsCheckBoxListTileFalseWidget(),
+                                      );
+                                    },
+                                  ).then((value) => safeSetState(() {}));
+                                }
+                              },
                               child: Container(
+                                height: 40.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context).accent2,
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  border: Border.all(
-                                    color: FlutterFlowTheme.of(context).accent4,
-                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 4.0,
+                                      color: Color(0x33000000),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
-                                child: Column(
+                                child: Row(
                                   mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.6,
-                                        height: 32.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .accent4,
-                                          borderRadius:
-                                              BorderRadius.circular(16.0),
-                                        ),
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Padding(
-                                          padding: EdgeInsets.all(4.0),
-                                          child: Text(
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 0.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(0.0),
+                                            child: SvgPicture.asset(
+                                              'assets/images/category.svg',
+                                              height: 28.0,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                          Text(
                                             FFLocalizations.of(context).getText(
-                                              '539tewku' /* Состояние автозапчастей */,
+                                              'gx4wsjfm' /* Выбрать категорию */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -945,7 +892,8 @@ class _CNewFilterWidgetState extends State<CNewFilterWidget>
                                                   ),
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .accent2,
+                                                      .accent4,
+                                                  fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                   fontStyle:
@@ -955,481 +903,217 @@ class _CNewFilterWidgetState extends State<CNewFilterWidget>
                                                           .fontStyle,
                                                 ),
                                           ),
+                                        ].divide(SizedBox(width: 12.0)),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 12.0, 0.0),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                        child: SvgPicture.asset(
+                                          'assets/images/black_arrow_bez_khvostika.svg',
+                                          height: 28.0,
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
                                     ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FFAppState().autopartsConditionUsed
-                                          ? FlutterFlowTheme.of(context).accent1
-                                          : FlutterFlowTheme.of(context)
-                                              .accent2,
-                                      elevation: 20.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 0.0, 0.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'b3f0h6oe' /* Б/у */,
-                                              ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleSmall
-                                                  .override(
-                                                    font: GoogleFonts.openSans(
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontStyle,
-                                                    ),
-                                                    color: !FFAppState()
-                                                            .autopartsConditionUsed
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .accent4
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .accent2,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 16.0, 0.0),
-                                            child: Theme(
-                                              data: ThemeData(
-                                                checkboxTheme:
-                                                    CheckboxThemeData(
-                                                  visualDensity:
-                                                      VisualDensity.compact,
-                                                  materialTapTargetSize:
-                                                      MaterialTapTargetSize
-                                                          .shrinkWrap,
-                                                  shape: CircleBorder(),
-                                                ),
-                                                unselectedWidgetColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent4,
-                                              ),
-                                              child: Checkbox(
-                                                value: _model
-                                                        .checkboxUsedValue ??=
-                                                    FFAppState()
-                                                        .autopartsConditionUsed,
-                                                onChanged: (newValue) async {
-                                                  safeSetState(() =>
-                                                      _model.checkboxUsedValue =
-                                                          newValue!);
-                                                  if (newValue!) {
-                                                    FFAppState()
-                                                            .autopartsConditionUsed =
-                                                        true;
-                                                    safeSetState(() {});
-                                                  } else {
-                                                    FFAppState()
-                                                            .autopartsConditionUsed =
-                                                        false;
-                                                    safeSetState(() {});
-                                                  }
-                                                },
-                                                side: (FlutterFlowTheme.of(
-                                                                context)
-                                                            .accent4 !=
-                                                        null)
-                                                    ? BorderSide(
-                                                        width: 2,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent4,
-                                                      )
-                                                    : null,
-                                                activeColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent3,
-                                                checkColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent1,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FFAppState().autopartsConditionNew
-                                          ? FlutterFlowTheme.of(context).accent1
-                                          : FlutterFlowTheme.of(context)
-                                              .accent2,
-                                      elevation: 20.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 0.0, 0.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'bpw0swfv' /* Новые */,
-                                              ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleSmall
-                                                  .override(
-                                                    font: GoogleFonts.openSans(
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontStyle,
-                                                    ),
-                                                    color: !FFAppState()
-                                                            .autopartsConditionNew
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .accent4
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .accent2,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 16.0, 0.0),
-                                            child: Theme(
-                                              data: ThemeData(
-                                                checkboxTheme:
-                                                    CheckboxThemeData(
-                                                  visualDensity:
-                                                      VisualDensity.compact,
-                                                  materialTapTargetSize:
-                                                      MaterialTapTargetSize
-                                                          .shrinkWrap,
-                                                  shape: CircleBorder(),
-                                                ),
-                                                unselectedWidgetColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent4,
-                                              ),
-                                              child: Checkbox(
-                                                value: _model
-                                                        .checkboxNewValue ??=
-                                                    FFAppState()
-                                                        .autopartsConditionNew,
-                                                onChanged: (newValue) async {
-                                                  safeSetState(() =>
-                                                      _model.checkboxNewValue =
-                                                          newValue!);
-                                                  if (newValue!) {
-                                                    FFAppState()
-                                                            .autopartsConditionNew =
-                                                        true;
-                                                    safeSetState(() {});
-                                                  } else {
-                                                    FFAppState()
-                                                            .autopartsConditionNew =
-                                                        false;
-                                                    safeSetState(() {});
-                                                  }
-                                                },
-                                                side: (FlutterFlowTheme.of(
-                                                                context)
-                                                            .accent4 !=
-                                                        null)
-                                                    ? BorderSide(
-                                                        width: 2,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent4,
-                                                      )
-                                                    : null,
-                                                activeColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent3,
-                                                checkColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent1,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ]
-                                      .divide(SizedBox(height: 4.0))
-                                      .around(SizedBox(height: 4.0)),
+                                  ],
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 12.0, 0.0, 24.0),
-                              child: SingleChildScrollView(
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    FFButtonWidget(
-                                      onPressed: () async {
-                                        if ((FFAppState()
-                                                .newFilterModels
-                                                .isNotEmpty) &&
-                                            (FFAppState()
-                                                .newFilterCategories
-                                                .isNotEmpty) &&
-                                            (FFAppState()
-                                                    .autopartsConditionUsed ||
-                                                FFAppState()
-                                                    .autopartsConditionNew)) {
-                                          FFAppState().yearFrom =
-                                              _model.dropDownFromValue != null
-                                                  ? _model.dropDownFromValue!
-                                                  : 1;
-                                          FFAppState().yearTo =
-                                              _model.dropDownToValue != null
-                                                  ? _model.dropDownToValue!
-                                                  : 61;
-                                          FFAppState().autopartsConditionUsed =
-                                              _model.checkboxUsedValue!;
-                                          FFAppState().autopartsConditionNew =
-                                              _model.checkboxNewValue!;
-                                          safeSetState(() {});
-                                          _model.apiResultp167 =
-                                              await SupabaseInfoGroup
-                                                  .upsertSellerFilterInfoCall
-                                                  .call(
-                                            sellerId: FFAppState().userIdApp,
-                                            yearFrom: FFAppState().yearFrom,
-                                            yearTo: FFAppState().yearTo,
-                                            autopartsConditionNew: FFAppState()
-                                                .autopartsConditionNew,
-                                            autopartsConditionUsed: FFAppState()
-                                                .autopartsConditionUsed,
-                                            carBrandId:
-                                                FFAppState().newFilterBrand,
-                                            carModelsIdListList:
-                                                FFAppState().newFilterModels,
-                                            partsCategoryIdListList:
-                                                FFAppState()
-                                                    .newFilterCategories,
-                                          );
+                            Container(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              constraints: BoxConstraints(
+                                minHeight: 34.0,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              child: Builder(
+                                builder: (context) {
+                                  final filterItem =
+                                      FFAppState().newFilterCategories.toList();
 
-                                          if ((_model
-                                                  .apiResultp167?.succeeded ??
-                                              true)) {
-                                            while (_model.filterID == null) {
-                                              _model.filterID = getJsonField(
-                                                (_model.apiResultp167
-                                                        ?.jsonBody ??
-                                                    ''),
-                                                r'''$[0].id''',
-                                              );
-                                              safeSetState(() {});
-                                              await Future.delayed(
-                                                Duration(
-                                                  milliseconds: 100,
-                                                ),
-                                              );
-                                            }
-                                            unawaited(
-                                              () async {
-                                                _model.outputRebuild =
-                                                    await RPCRequestsFiltersGroup
-                                                        .rebuildLinksForFilterCall
-                                                        .call(
-                                                  filterID: _model.filterID,
-                                                );
-                                              }(),
-                                            );
-                                            await showModalBottomSheet(
-                                              isScrollControlled: true,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              enableDrag: false,
-                                              context: context,
-                                              builder: (context) {
-                                                return Padding(
-                                                  padding:
-                                                      MediaQuery.viewInsetsOf(
-                                                          context),
-                                                  child: CNewFilterOKWidget(),
-                                                );
-                                              },
-                                            ).then(
-                                                (value) => safeSetState(() {}));
-                                          } else {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return AlertDialog(
-                                                  title: Text('Ошибка'),
-                                                  content: Text((_model
-                                                              .apiResultp167
-                                                              ?.jsonBody ??
-                                                          '')
-                                                      .toString()),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
+                                  return Wrap(
+                                    spacing: 4.0,
+                                    runSpacing: 4.0,
+                                    alignment: WrapAlignment.start,
+                                    crossAxisAlignment:
+                                        WrapCrossAlignment.start,
+                                    direction: Axis.horizontal,
+                                    runAlignment: WrapAlignment.start,
+                                    verticalDirection: VerticalDirection.down,
+                                    clipBehavior: Clip.none,
+                                    children: List.generate(filterItem.length,
+                                        (filterItemIndex) {
+                                      final filterItemItem =
+                                          filterItem[filterItemIndex];
+                                      return Container(
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent2,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 4.0,
+                                              color: Color(0x33000000),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
+                                              ),
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(4.0),
+                                          child: FutureBuilder<
+                                              List<PartsCategoryRow>>(
+                                            future:
+                                                PartsCategoryTable().queryRows(
+                                              queryFn: (q) => q.eqOrNull(
+                                                'id',
+                                                filterItemItem,
+                                              ),
+                                            ),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 32.0,
+                                                    height: 32.0,
+                                                    child: SpinKitRipple(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .accent1,
+                                                      size: 32.0,
                                                     ),
-                                                  ],
-                                                );
-                                              },
-                                            );
-                                          }
-                                        } else {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return AlertDialog(
-                                                title: Text('Ошибка'),
-                                                content: Text(
-                                                    'Заполните корректно параметры фильтра'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
                                                   ),
-                                                ],
+                                                );
+                                              }
+                                              List<PartsCategoryRow>
+                                                  textPartsCategoryRowList =
+                                                  snapshot.data!;
+
+                                              return Text(
+                                                valueOrDefault<String>(
+                                                  textPartsCategoryRowList
+                                                      .firstOrNull?.category,
+                                                  'Category',
+                                                ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.openSans(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               );
                                             },
-                                          );
-                                        }
-
-                                        safeSetState(() {});
-                                      },
-                                      text: FFLocalizations.of(context).getText(
-                                        'akj5awmx' /* Сохранить */,
-                                      ),
-                                      options: FFButtonOptions(
-                                        width: 150.0,
-                                        height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent1,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              font: GoogleFonts.openSans(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .fontStyle,
-                                              ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent2,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .fontStyle,
-                                            ),
-                                        elevation: 0.0,
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
-                                      ),
-                                    ),
-                                    if (false)
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 0.0),
-                                        child: FFButtonWidget(
-                                          onPressed: () async {
-                                            Navigator.pop(context);
-                                          },
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'a6n9ee0w' /* Закрыть */,
                                           ),
-                                          options: FFButtonOptions(
-                                            width: 150.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent3,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
+                                        ),
+                                      );
+                                    }),
+                                  );
+                                },
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 12.0, 0.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'xjkv4b9w' /* Состояние запчасти */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        font: GoogleFonts.openSans(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
+                                        ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent4,
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.45,
+                                  height: 52.0,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(0.0),
+                                  ),
+                                  child: Card(
+                                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                                    color: FFAppState().autopartsConditionUsed
+                                        ? FlutterFlowTheme.of(context).accent1
+                                        : FlutterFlowTheme.of(context).accent2,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'w2qlqnas' /* Б/у */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
                                                 .titleSmall
                                                 .override(
                                                   font: GoogleFonts.openSans(
@@ -1444,9 +1128,15 @@ class _CNewFilterWidgetState extends State<CNewFilterWidget>
                                                             .titleSmall
                                                             .fontStyle,
                                                   ),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent2,
+                                                  color: !FFAppState()
+                                                          .autopartsConditionUsed
+                                                      ? FlutterFlowTheme.of(
+                                                              context)
+                                                          .accent4
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .accent2,
+                                                  fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
@@ -1459,13 +1149,375 @@ class _CNewFilterWidgetState extends State<CNewFilterWidget>
                                                           .titleSmall
                                                           .fontStyle,
                                                 ),
-                                            elevation: 0.0,
-                                            borderRadius:
-                                                BorderRadius.circular(20.0),
                                           ),
                                         ),
-                                      ),
-                                  ],
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 16.0, 0.0),
+                                          child: Theme(
+                                            data: ThemeData(
+                                              checkboxTheme: CheckboxThemeData(
+                                                visualDensity:
+                                                    VisualDensity.compact,
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          0.0),
+                                                ),
+                                              ),
+                                              unselectedWidgetColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent4,
+                                            ),
+                                            child: Checkbox(
+                                              value: _model
+                                                      .checkboxUsedValue ??=
+                                                  FFAppState()
+                                                      .autopartsConditionUsed,
+                                              onChanged: (newValue) async {
+                                                safeSetState(() =>
+                                                    _model.checkboxUsedValue =
+                                                        newValue!);
+                                                if (newValue!) {
+                                                  FFAppState()
+                                                          .autopartsConditionUsed =
+                                                      true;
+                                                  safeSetState(() {});
+                                                } else {
+                                                  FFAppState()
+                                                          .autopartsConditionUsed =
+                                                      false;
+                                                  safeSetState(() {});
+                                                }
+                                              },
+                                              side:
+                                                  (FlutterFlowTheme.of(context)
+                                                              .accent4 !=
+                                                          null)
+                                                      ? BorderSide(
+                                                          width: 2,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .accent4,
+                                                        )
+                                                      : null,
+                                              activeColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent2,
+                                              checkColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent1,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.45,
+                                  height: 52.0,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(0.0),
+                                  ),
+                                  child: Card(
+                                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                                    color: FFAppState().autopartsConditionNew
+                                        ? FlutterFlowTheme.of(context).accent1
+                                        : FlutterFlowTheme.of(context).accent2,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'yxv215h7' /* Новые */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleSmall
+                                                .override(
+                                                  font: GoogleFonts.openSans(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleSmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleSmall
+                                                            .fontStyle,
+                                                  ),
+                                                  color: !FFAppState()
+                                                          .autopartsConditionNew
+                                                      ? FlutterFlowTheme.of(
+                                                              context)
+                                                          .accent4
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .accent2,
+                                                  fontSize: 14.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 16.0, 0.0),
+                                          child: Theme(
+                                            data: ThemeData(
+                                              checkboxTheme: CheckboxThemeData(
+                                                visualDensity:
+                                                    VisualDensity.compact,
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          0.0),
+                                                ),
+                                              ),
+                                              unselectedWidgetColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent4,
+                                            ),
+                                            child: Checkbox(
+                                              value: _model.checkboxNewValue ??=
+                                                  FFAppState()
+                                                      .autopartsConditionNew,
+                                              onChanged: (newValue) async {
+                                                safeSetState(() =>
+                                                    _model.checkboxNewValue =
+                                                        newValue!);
+                                                if (newValue!) {
+                                                  FFAppState()
+                                                          .autopartsConditionNew =
+                                                      true;
+                                                  safeSetState(() {});
+                                                } else {
+                                                  FFAppState()
+                                                          .autopartsConditionNew =
+                                                      false;
+                                                  safeSetState(() {});
+                                                }
+                                              },
+                                              side:
+                                                  (FlutterFlowTheme.of(context)
+                                                              .accent4 !=
+                                                          null)
+                                                      ? BorderSide(
+                                                          width: 2,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .accent4,
+                                                        )
+                                                      : null,
+                                              activeColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent2,
+                                              checkColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent1,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 24.0, 0.0, 24.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    if ((FFAppState()
+                                            .newFilterModels
+                                            .isNotEmpty) &&
+                                        (FFAppState()
+                                            .newFilterCategories
+                                            .isNotEmpty) &&
+                                        (FFAppState().autopartsConditionUsed ||
+                                            FFAppState()
+                                                .autopartsConditionNew)) {
+                                      FFAppState().yearFrom =
+                                          _model.dropDownFromValue != null
+                                              ? _model.dropDownFromValue!
+                                              : 1;
+                                      FFAppState().yearTo =
+                                          _model.dropDownToValue != null
+                                              ? _model.dropDownToValue!
+                                              : 61;
+                                      safeSetState(() {});
+                                      _model.apiResultp18 =
+                                          await SupabaseInfoGroup
+                                              .upsertSellerFilterInfoCall
+                                              .call(
+                                        sellerId: FFAppState().userIdApp,
+                                        yearFrom: FFAppState().yearFrom,
+                                        yearTo: FFAppState().yearTo,
+                                        autopartsConditionNew:
+                                            FFAppState().autopartsConditionNew,
+                                        autopartsConditionUsed:
+                                            FFAppState().autopartsConditionUsed,
+                                        carBrandId: FFAppState().newFilterBrand,
+                                        carModelsIdListList:
+                                            FFAppState().newFilterModels,
+                                        partsCategoryIdListList:
+                                            FFAppState().newFilterCategories,
+                                      );
+
+                                      if ((_model.apiResultp18?.succeeded ??
+                                          true)) {
+                                        while (_model.filterID == null) {
+                                          _model.filterID = getJsonField(
+                                            (_model.apiResultp18?.jsonBody ??
+                                                ''),
+                                            r'''$[0].id''',
+                                          );
+                                          safeSetState(() {});
+                                          await Future.delayed(
+                                            Duration(
+                                              milliseconds: 100,
+                                            ),
+                                          );
+                                        }
+                                        unawaited(
+                                          () async {
+                                            _model.outputRebuild8 =
+                                                await RPCRequestsFiltersGroup
+                                                    .rebuildLinksForFilterCall
+                                                    .call(
+                                              filterID: _model.filterID,
+                                            );
+                                          }(),
+                                        );
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: CNewFilterOKWidget(),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
+                                      } else {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return AlertDialog(
+                                              title: Text('Ошибка'),
+                                              content: Text((_model.apiResultp18
+                                                          ?.jsonBody ??
+                                                      '')
+                                                  .toString()),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      }
+                                    } else {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('Ошибка'),
+                                            content: Text(
+                                                'Заполните корректно параметры фильтра'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    }
+
+                                    safeSetState(() {});
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    'i51zxcul' /* Сохранить фильтр */,
+                                  ),
+                                  options: FFButtonOptions(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    height: 40.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).accent1,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          font: GoogleFonts.openSans(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontStyle,
+                                          ),
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent2,
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
+                                        ),
+                                    elevation: 0.0,
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
                                 ),
                               ),
                             ),

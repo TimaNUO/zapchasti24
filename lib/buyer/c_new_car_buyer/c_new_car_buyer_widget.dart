@@ -436,7 +436,7 @@ class _CNewCarBuyerWidgetState extends State<CNewCarBuyerWidget> {
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                         child: SvgPicture.asset(
-                                          'assets/images/__-_.svg',
+                                          'assets/images/kamera_seraya_-_zayavki.svg',
                                           width: 60.0,
                                           height: 100.0,
                                           fit: BoxFit.contain,
@@ -568,7 +568,7 @@ class _CNewCarBuyerWidgetState extends State<CNewCarBuyerWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(0.0),
                                             child: SvgPicture.asset(
-                                              'assets/images/_____.svg',
+                                              'assets/images/kamera_krasnaya_gde_knopka_dobavit_foto.svg',
                                               height: 28.0,
                                               fit: BoxFit.contain,
                                             ),
@@ -611,7 +611,7 @@ class _CNewCarBuyerWidgetState extends State<CNewCarBuyerWidget> {
                                         borderRadius:
                                             BorderRadius.circular(0.0),
                                         child: SvgPicture.asset(
-                                          'assets/images/_____.svg',
+                                          'assets/images/black_arrow_bez_khvostika.svg',
                                           height: 28.0,
                                           fit: BoxFit.cover,
                                         ),

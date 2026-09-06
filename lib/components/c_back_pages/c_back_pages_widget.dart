@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -104,26 +103,21 @@ class _CBackPagesWidgetState extends State<CBackPagesWidget>
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      context.pushNamed(PStartReqWidget.routeName);
+                      Navigator.pop(context);
                     },
                     child: Container(
-                      width: 44.0,
-                      height: 39.0,
+                      width: 36.0,
+                      height: 36.0,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).accent2,
-                        borderRadius: BorderRadius.circular(11.0),
-                        border: Border.all(
-                          color: FlutterFlowTheme.of(context).accent4,
-                          width: 1.0,
-                        ),
+                        borderRadius: BorderRadius.circular(0.0),
                       ),
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(0.0),
                         child: SvgPicture.asset(
-                          'assets/images/back_.svg',
-                          width: 27.0,
-                          height: 19.0,
+                          'assets/images/arrow_left_in_box.svg',
+                          width: 36.0,
+                          height: 36.0,
                           fit: BoxFit.contain,
                         ),
                       ),

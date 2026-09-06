@@ -323,34 +323,46 @@ class _CDetailsCheckBoxListTileFalseWidgetState
                   ),
                   child: Align(
                     alignment: AlignmentDirectional(0.0, 0.0),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        FFAppState().newFilterCategories = FFAppState()
-                            .categoriesIDListApp
-                            .toList()
-                            .cast<int>();
-                        Navigator.pop(context);
-                        await Future.delayed(
-                          Duration(
-                            milliseconds: 250,
-                          ),
-                        );
-                        _model.updatePage(() {});
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        'pop5pqlk' /* Подтвердить */,
-                      ),
-                      options: FFButtonOptions(
-                        width: 150.0,
-                        height: 40.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).accent1,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  font: GoogleFonts.openSans(
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          FFAppState().newFilterCategories = FFAppState()
+                              .categoriesIDListApp
+                              .toList()
+                              .cast<int>();
+                          Navigator.pop(context);
+                          await Future.delayed(
+                            Duration(
+                              milliseconds: 250,
+                            ),
+                          );
+                          _model.updatePage(() {});
+                        },
+                        text: FFLocalizations.of(context).getText(
+                          'pop5pqlk' /* Подтвердить */,
+                        ),
+                        options: FFButtonOptions(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 40.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).accent1,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    font: GoogleFonts.openSans(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                    color: FlutterFlowTheme.of(context).accent2,
+                                    letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .fontWeight,
@@ -358,17 +370,9 @@ class _CDetailsCheckBoxListTileFalseWidgetState
                                         .titleSmall
                                         .fontStyle,
                                   ),
-                                  color: FlutterFlowTheme.of(context).accent2,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .fontStyle,
-                                ),
-                        elevation: 0.0,
-                        borderRadius: BorderRadius.circular(20.0),
+                          elevation: 0.0,
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
                       ),
                     ),
                   ),

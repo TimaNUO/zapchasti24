@@ -4,6 +4,10 @@ import 'c_open_instr_main_widget.dart' show COpenInstrMainWidget;
 import 'package:flutter/material.dart';
 
 class COpenInstrMainModel extends FlutterFlowModel<COpenInstrMainWidget> {
+  ///  Local state fields for this component.
+
+  int tabID = 1;
+
   ///  State fields for stateful widgets in this component.
 
   // Model for cBackComponents component.

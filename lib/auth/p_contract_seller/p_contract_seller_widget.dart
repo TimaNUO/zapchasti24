@@ -91,6 +91,7 @@ class _PContractSellerWidgetState extends State<PContractSellerWidget> {
                                   .fontStyle,
                             ),
                             color: FlutterFlowTheme.of(context).accent4,
+                            fontSize: 18.0,
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context)
                                 .titleLarge
@@ -114,6 +115,7 @@ class _PContractSellerWidgetState extends State<PContractSellerWidget> {
                                   .fontStyle,
                             ),
                             color: FlutterFlowTheme.of(context).accent4,
+                            fontSize: 18.0,
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context)
                                 .titleLarge
@@ -128,10 +130,18 @@ class _PContractSellerWidgetState extends State<PContractSellerWidget> {
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         height: MediaQuery.sizeOf(context).height * 0.5,
                         decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).accent2,
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 4.0,
+                              color: Color(0x33000000),
+                              offset: Offset(
+                                0.0,
+                                2.0,
+                              ),
+                            )
+                          ],
                           borderRadius: BorderRadius.circular(8.0),
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).accent4,
-                          ),
                         ),
                         child: SingleChildScrollView(
                           child: Column(
@@ -208,40 +218,35 @@ class _PContractSellerWidgetState extends State<PContractSellerWidget> {
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          FFButtonWidget(
-                            onPressed: () async {
-                              await DataUsersTable().update(
-                                data: {
-                                  'is_licensed': true,
-                                },
-                                matchingRows: (rows) => rows.eqOrNull(
-                                  'id',
-                                  FFAppState().userIdApp,
-                                ),
-                              );
-
-                              context.pushNamed(PWelcomeWidget.routeName);
-
-                              safeSetState(() {});
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          await DataUsersTable().update(
+                            data: {
+                              'is_licensed': true,
                             },
-                            text: FFLocalizations.of(context).getText(
-                              'b3v7yb21' /* Принять */,
+                            matchingRows: (rows) => rows.eqOrNull(
+                              'id',
+                              FFAppState().userIdApp,
                             ),
-                            options: FFButtonOptions(
-                              width: 150.0,
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).accent1,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
+                          );
+
+                          context.pushNamed(PWelcomeWidget.routeName);
+
+                          safeSetState(() {});
+                        },
+                        text: FFLocalizations.of(context).getText(
+                          'b3v7yb21' /* Принять */,
+                        ),
+                        options: FFButtonOptions(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 40.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).accent1,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
                                     font: GoogleFonts.openSans(
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .titleSmall
@@ -259,11 +264,9 @@ class _PContractSellerWidgetState extends State<PContractSellerWidget> {
                                         .titleSmall
                                         .fontStyle,
                                   ),
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(20.0),
-                            ),
-                          ),
-                        ],
+                          elevation: 0.0,
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
                       ),
                     ),
                   ].divide(SizedBox(height: 4.0)),

@@ -4,7 +4,9 @@ import '/buyer/c_buyer_ads_list/c_buyer_ads_list_widget.dart';
 import '/buyer/c_buyer_navigation_bar/c_buyer_navigation_bar_widget.dart';
 import '/buyer/c_buyer_specialization_detail/c_buyer_specialization_detail_widget.dart';
 import '/buyer/c_chats_buyer/c_chats_buyer_widget.dart';
+import '/buyer/c_new_request/c_new_request_widget.dart';
 import '/components/c_brands_check_box_list_tile_car/c_brands_check_box_list_tile_car_widget.dart';
+import '/components/c_update_buyer/c_update_buyer_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -52,6 +54,15 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.initNotificationOpenListener(
+        context,
+      );
+      await actions.initForegroundNotificationListener(
+        context,
+      );
+      await actions.processPendingNotificationNavigation(
+        context,
+      );
       _model.apiAppLastBuild = await AppVersionsTable().queryRows(
         queryFn: (q) => q.order('created_at'),
       );
@@ -85,15 +96,26 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
           },
         ).then((value) => safeSetState(() {}));
       }
-      await actions.initNotificationOpenListener(
-        context,
-      );
-      await actions.initForegroundNotificationListener(
-        context,
-      );
-      await actions.processPendingNotificationNavigation(
-        context,
-      );
+      if (_model.appLastBuild! > FFAppState().buildNumber) {
+        await showModalBottomSheet(
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          enableDrag: false,
+          context: context,
+          builder: (context) {
+            return GestureDetector(
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: CUpdateBuyerWidget(),
+              ),
+            );
+          },
+        ).then((value) => safeSetState(() {}));
+      }
     });
 
     if (!isWeb) {
@@ -177,43 +199,54 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          FFButtonWidget(
-                            onPressed: () async {
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                enableDrag: false,
-                                context: context,
-                                builder: (context) {
-                                  return GestureDetector(
-                                    onTap: () {
-                                      FocusScope.of(context).unfocus();
-                                      FocusManager.instance.primaryFocus
-                                          ?.unfocus();
-                                    },
-                                    child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: CChatsBuyerWidget(),
-                                    ),
-                                  );
-                                },
-                              ).then((value) => safeSetState(() {}));
-                            },
-                            text: FFLocalizations.of(context).getText(
-                              '02ifj4j9' /* Чаты */,
-                            ),
-                            options: FFButtonOptions(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    font: GoogleFonts.openSans(
+                          if (false)
+                            FFButtonWidget(
+                              onPressed: () async {
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        FocusScope.of(context).unfocus();
+                                        FocusManager.instance.primaryFocus
+                                            ?.unfocus();
+                                      },
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: CChatsBuyerWidget(),
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => safeSetState(() {}));
+                              },
+                              text: FFLocalizations.of(context).getText(
+                                '02ifj4j9' /* Чаты */,
+                              ),
+                              options: FFButtonOptions(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      font: GoogleFonts.openSans(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
+                                      color: Colors.white,
+                                      letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .fontWeight,
@@ -221,19 +254,64 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                                           .titleSmall
                                           .fontStyle,
                                     ),
-                                    color: Colors.white,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .fontStyle,
-                                  ),
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(8.0),
+                                elevation: 0.0,
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
                             ),
-                          ),
+                          if (false)
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 8.0, 0.0, 0.0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  context.pushNamed(
+                                    PBuyerRequestActualityWidget.routeName,
+                                    queryParameters: {
+                                      'requestID': serializeParam(
+                                        5017,
+                                        ParamType.int,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+                                },
+                                text: FFLocalizations.of(context).getText(
+                                  'me3peifr' /* Актуальность заявки */,
+                                ),
+                                options: FFButtonOptions(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 16.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        font: GoogleFonts.openSans(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
+                                        ),
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
+                                  elevation: 0.0,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                              ),
+                            ),
                           if (false)
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -297,239 +375,6 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                                   elevation: 0.0,
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
-                              ),
-                            ),
-                          if (_model.appLastBuild! > FFAppState().buildNumber)
-                            Container(
-                              decoration: BoxDecoration(),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  FutureBuilder<ApiCallResponse>(
-                                    future: SupabaseInfoGroup
-                                        .adminBannersInfoCall
-                                        .call(
-                                      placeID: 111,
-                                    ),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 32.0,
-                                            height: 32.0,
-                                            child: SpinKitRipple(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent1,
-                                              size: 32.0,
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      final containerUpdateAdminBannersInfoResponse =
-                                          snapshot.data!;
-
-                                      return Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        decoration: BoxDecoration(),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.network(
-                                            getJsonField(
-                                              containerUpdateAdminBannersInfoResponse
-                                                  .jsonBody,
-                                              r'''$[0].photo''',
-                                            ).toString(),
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            fit: BoxFit.contain,
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                  FutureBuilder<List<AppVersionsRow>>(
-                                    future: AppVersionsTable().querySingleRow(
-                                      queryFn: (q) => q.order('created_at'),
-                                    ),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 32.0,
-                                            height: 32.0,
-                                            child: SpinKitRipple(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent1,
-                                              size: 32.0,
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      List<AppVersionsRow>
-                                          rowAppVersionsRowList =
-                                          snapshot.data!;
-
-                                      final rowAppVersionsRow =
-                                          rowAppVersionsRowList.isNotEmpty
-                                              ? rowAppVersionsRowList.first
-                                              : null;
-
-                                      return Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          if (isAndroid || isWeb)
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: FFButtonWidget(
-                                                onPressed: () async {
-                                                  await launchURL(
-                                                      rowAppVersionsRow!
-                                                          .googlePlayUrl!);
-                                                },
-                                                text:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  '89tp9q09' /* Перейти в Google Play */,
-                                                ),
-                                                options: FFButtonOptions(
-                                                  width: 200.0,
-                                                  height: 40.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent1,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        font: GoogleFonts
-                                                            .openSans(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontStyle,
-                                                        ),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent2,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontStyle,
-                                                      ),
-                                                  elevation: 0.0,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          20.0),
-                                                ),
-                                              ),
-                                            ),
-                                          if (isiOS || isWeb)
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: FFButtonWidget(
-                                                onPressed: () async {
-                                                  await launchURL(
-                                                      rowAppVersionsRow!
-                                                          .appStoreUrl!);
-                                                },
-                                                text:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'duw1zswm' /* Перейти в App Store */,
-                                                ),
-                                                options: FFButtonOptions(
-                                                  width: 200.0,
-                                                  height: 40.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent1,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        font: GoogleFonts
-                                                            .openSans(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontStyle,
-                                                        ),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent2,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontStyle,
-                                                      ),
-                                                  elevation: 0.0,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          20.0),
-                                                ),
-                                              ),
-                                            ),
-                                        ],
-                                      );
-                                    },
-                                  ),
-                                ]
-                                    .divide(SizedBox(height: 12.0))
-                                    .addToEnd(SizedBox(height: 12.0)),
                               ),
                             ),
                           FutureBuilder<ApiCallResponse>(
@@ -613,8 +458,29 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       } else {
-                                        context.pushNamed(
-                                            PAddBuyerWidget.routeName);
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: CNewRequestWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
                                       }
                                     },
                                     child: Container(
@@ -862,7 +728,7 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                                                             BorderRadius
                                                                 .circular(0.0),
                                                         child: SvgPicture.asset(
-                                                          'assets/images/____.svg',
+                                                          'assets/images/black_car_vin_code.svg',
                                                           height: 40.0,
                                                           fit: BoxFit.cover,
                                                         ),
@@ -935,194 +801,6 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                                     ),
                                   ),
                                 ),
-                                if (false)
-                                  FutureBuilder<List<SpecializationsRow>>(
-                                    future: SpecializationsTable().queryRows(
-                                      queryFn: (q) => q
-                                          .eqOrNull(
-                                            'is_active',
-                                            true,
-                                          )
-                                          .order('sort', ascending: true),
-                                    ),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 32.0,
-                                            height: 32.0,
-                                            child: SpinKitRipple(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent1,
-                                              size: 32.0,
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      List<SpecializationsRow>
-                                          listViewSpecializationsRowList =
-                                          snapshot.data!;
-
-                                      return ListView.separated(
-                                        padding: EdgeInsets.zero,
-                                        primary: false,
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount:
-                                            listViewSpecializationsRowList
-                                                .length,
-                                        separatorBuilder: (_, __) =>
-                                            SizedBox(height: 8.0),
-                                        itemBuilder: (context, listViewIndex) {
-                                          final listViewSpecializationsRow =
-                                              listViewSpecializationsRowList[
-                                                  listViewIndex];
-                                          return InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              await showModalBottomSheet(
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                enableDrag: false,
-                                                context: context,
-                                                builder: (context) {
-                                                  return GestureDetector(
-                                                    onTap: () {
-                                                      FocusScope.of(context)
-                                                          .unfocus();
-                                                      FocusManager
-                                                          .instance.primaryFocus
-                                                          ?.unfocus();
-                                                    },
-                                                    child: Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
-                                                      child:
-                                                          CBuyerSpecializationDetailWidget(
-                                                        specID:
-                                                            listViewSpecializationsRow
-                                                                .id!,
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then((value) =>
-                                                  safeSetState(() {}));
-                                            },
-                                            child: Container(
-                                              width: 100.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent2,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                border: Border.all(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent2,
-                                                  width: 0.2,
-                                                ),
-                                              ),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsets.all(12.0),
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent3,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                        child:
-                                                            CachedNetworkImage(
-                                                          fadeInDuration:
-                                                              Duration(
-                                                                  milliseconds:
-                                                                      0),
-                                                          fadeOutDuration:
-                                                              Duration(
-                                                                  milliseconds:
-                                                                      0),
-                                                          imageUrl:
-                                                              listViewSpecializationsRow
-                                                                  .iconUrl!,
-                                                          width: 80.0,
-                                                          height: 64.0,
-                                                          fit: BoxFit.contain,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            -1.0, 0.0),
-                                                    child: Text(
-                                                      valueOrDefault<String>(
-                                                        listViewSpecializationsRow
-                                                            .name,
-                                                        'Specialization',
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyLarge
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .openSans(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyLarge
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyLarge
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .accent4,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLarge
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLarge
-                                                                    .fontStyle,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                ].divide(SizedBox(width: 32.0)),
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
-                                  ),
                                 Container(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
@@ -1335,7 +1013,7 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                                                                           context)
                                                                       .accent4,
                                                                   fontSize:
-                                                                      10.0,
+                                                                      12.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1363,9 +1041,7 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                               ].divide(SizedBox(height: 12.0)),
                             ),
                           ),
-                        ]
-                            .addToStart(SizedBox(height: 10.0))
-                            .addToEnd(SizedBox(height: 90.0)),
+                        ].addToEnd(SizedBox(height: 90.0)),
                       ),
                     ),
                   ),
@@ -1417,18 +1093,18 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                                           width: 36.0,
                                           height: 36.0,
                                           decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondary,
                                             borderRadius:
-                                                BorderRadius.circular(18.0),
+                                                BorderRadius.circular(0.0),
                                           ),
                                           alignment:
                                               AlignmentDirectional(0.0, 0.0),
-                                          child: Icon(
-                                            Icons.support_agent,
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent4,
-                                            size: 32.0,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(0.0),
+                                            child: SvgPicture.asset(
+                                              'assets/images/z_telegram.svg',
+                                              fit: BoxFit.fill,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -1452,18 +1128,18 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                                           width: 36.0,
                                           height: 36.0,
                                           decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .tertiary,
                                             borderRadius:
-                                                BorderRadius.circular(18.0),
+                                                BorderRadius.circular(0.0),
                                           ),
                                           alignment:
                                               AlignmentDirectional(0.0, 0.0),
-                                          child: Icon(
-                                            Icons.support_agent,
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent4,
-                                            size: 32.0,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(0.0),
+                                            child: SvgPicture.asset(
+                                              'assets/images/z_whatsapp.svg',
+                                              fit: BoxFit.fill,
+                                            ),
                                           ),
                                         ),
                                       ),

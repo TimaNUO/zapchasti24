@@ -22,12 +22,12 @@ class CLeaveFeedbackModel extends FlutterFlowModel<CLeaveFeedbackWidget> {
 
   ///  State fields for stateful widgets in this component.
 
+  // State field(s) for RatingBar widget.
+  double? ratingBarValue;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // State field(s) for RatingBar widget.
-  double? ratingBarValue;
   // Stores action output result for [Backend Call - API (Buyer Feedback Info)] action in ButtonEdit widget.
   ApiCallResponse? apiResultswp;
   // Stores action output result for [Backend Call - API (Seller Rating Info)] action in ButtonEdit widget.

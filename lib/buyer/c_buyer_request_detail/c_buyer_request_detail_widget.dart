@@ -188,7 +188,7 @@ class _CBuyerRequestDetailWidgetState extends State<CBuyerRequestDetailWidget>
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: SvgPicture.asset(
-                                        'assets/images/_-____.svg',
+                                        'assets/images/calendar.svg',
                                         width: 16.0,
                                         height: 16.0,
                                         fit: BoxFit.contain,
@@ -235,7 +235,7 @@ class _CBuyerRequestDetailWidgetState extends State<CBuyerRequestDetailWidget>
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: SvgPicture.asset(
-                                        'assets/images/___.svg',
+                                        'assets/images/clock_vremya_publikatsii_zayavki.svg',
                                         width: 16.0,
                                         height: 16.0,
                                         fit: BoxFit.contain,
@@ -715,7 +715,7 @@ class _CBuyerRequestDetailWidgetState extends State<CBuyerRequestDetailWidget>
                                                             BorderRadius
                                                                 .circular(0.0),
                                                         child: SvgPicture.asset(
-                                                          'assets/images/____.svg',
+                                                          'assets/images/black_car_vin_code.svg',
                                                           width: 12.0,
                                                           height: 12.0,
                                                           fit: BoxFit.contain,
@@ -726,32 +726,32 @@ class _CBuyerRequestDetailWidgetState extends State<CBuyerRequestDetailWidget>
                                                           widget.requestBody,
                                                           r'''$.vehicle_users.vin''',
                                                         ).toString(),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .openSans(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  fontSize: 9.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  fontStyle: FlutterFlowTheme.of(
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              font: GoogleFonts
+                                                                  .openSans(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                              fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .fontStyle,
-                                                                ),
+                                                            ),
                                                       ),
                                                     ].divide(
                                                         SizedBox(width: 4.0)),
@@ -783,7 +783,7 @@ class _CBuyerRequestDetailWidgetState extends State<CBuyerRequestDetailWidget>
                                                       BorderRadius.circular(
                                                           0.0),
                                                   child: SvgPicture.asset(
-                                                    'assets/images/_____.svg',
+                                                    'assets/images/korobka_kategoriya_zapchastey_v_sozdannoy_zayavke.svg',
                                                     width: 20.0,
                                                     height: 20.0,
                                                     fit: BoxFit.contain,
@@ -959,7 +959,7 @@ class _CBuyerRequestDetailWidgetState extends State<CBuyerRequestDetailWidget>
                                                                               fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                             ),
                                                                             fontSize:
-                                                                                10.0,
+                                                                                12.0,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             fontWeight:
@@ -1095,7 +1095,7 @@ class _CBuyerRequestDetailWidgetState extends State<CBuyerRequestDetailWidget>
                                                                     .bodyMedium
                                                                     .fontStyle,
                                                           ),
-                                                          fontSize: 10.0,
+                                                          fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FlutterFlowTheme.of(
@@ -1159,7 +1159,7 @@ class _CBuyerRequestDetailWidgetState extends State<CBuyerRequestDetailWidget>
                                                                   .bodyMedium
                                                                   .fontStyle,
                                                         ),
-                                                        fontSize: 10.0,
+                                                        fontSize: 12.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FlutterFlowTheme.of(
@@ -1198,7 +1198,7 @@ class _CBuyerRequestDetailWidgetState extends State<CBuyerRequestDetailWidget>
                                                       BorderRadius.circular(
                                                           0.0),
                                                   child: SvgPicture.asset(
-                                                    'assets/images/_____.svg',
+                                                    'assets/images/dogovor_oferty_v_kabinete.svg',
                                                     width: 20.0,
                                                     height: 20.0,
                                                     fit: BoxFit.contain,
@@ -1268,7 +1268,7 @@ class _CBuyerRequestDetailWidgetState extends State<CBuyerRequestDetailWidget>
                                                                     .bodyMedium
                                                                     .fontStyle,
                                                           ),
-                                                          fontSize: 10.0,
+                                                          fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FlutterFlowTheme.of(
@@ -1320,7 +1320,7 @@ class _CBuyerRequestDetailWidgetState extends State<CBuyerRequestDetailWidget>
                                               if (photo.isEmpty) {
                                                 return Center(
                                                   child: SvgPicture.asset(
-                                                    'assets/images/___.svg',
+                                                    'assets/images/add_photo.svg',
                                                     width: 50.0,
                                                     height: 70.0,
                                                     fit: BoxFit.contain,
@@ -1539,7 +1539,7 @@ class _CBuyerRequestDetailWidgetState extends State<CBuyerRequestDetailWidget>
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(0.0),
                                       child: SvgPicture.asset(
-                                        'assets/images/____.svg',
+                                        'assets/images/znak_obnovleniya_pri_sortirovke_gorodov.svg',
                                         width: 20.0,
                                         height: 20.0,
                                         fit: BoxFit.contain,

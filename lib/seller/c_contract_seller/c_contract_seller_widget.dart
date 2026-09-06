@@ -101,56 +101,28 @@ class _CContractSellerWidgetState extends State<CContractSellerWidget>
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 8.0, 0.0),
-                            child: Material(
-                              color: Colors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0),
+                            padding: EdgeInsets.all(4.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                '9yx9frw4' /* Пользовательское соглашение */,
                               ),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).accent1,
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  border: Border.all(
-                                    color: FlutterFlowTheme.of(context).accent1,
-                                    width: 0.0,
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.all(4.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '0kyb5z1f' /* Пользовательское соглашение */,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.openSans(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
-                                    style: FlutterFlowTheme.of(context)
+                                    color: FlutterFlowTheme.of(context).accent4,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.openSans(
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                          color: FlutterFlowTheme.of(context)
-                                              .accent2,
-                                          letterSpacing: 0.0,
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
+                                        .fontStyle,
                                   ),
-                                ),
-                              ),
                             ),
                           ),
                           Material(
@@ -161,10 +133,21 @@ class _CContractSellerWidgetState extends State<CContractSellerWidget>
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 1.0,
                               decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).accent2,
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 4.0,
+                                    color: Color(0x33000000),
+                                    offset: Offset(
+                                      0.0,
+                                      2.0,
+                                    ),
+                                  )
+                                ],
                                 borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
-                                  color: FlutterFlowTheme.of(context).accent4,
-                                  width: 1.0,
+                                  color: FlutterFlowTheme.of(context).accent2,
+                                  width: 0.0,
                                 ),
                               ),
                               child: Padding(

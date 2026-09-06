@@ -1,7 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/buyer/c_about_seller_card_spec/c_about_seller_card_spec_widget.dart';
-import '/buyer/c_empty_buyer_offer/c_empty_buyer_offer_widget.dart';
+import '/buyer/c_empty_buyer_seller/c_empty_buyer_seller_widget.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -107,29 +107,36 @@ class _CBuyerSpecializationDetailWidgetState
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 5.0, 0.0, 32.0),
-                          child: Material(
-                            color: Colors.transparent,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).accent2,
-                                borderRadius: BorderRadius.circular(8.0),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).accent4,
-                                  width: 1.0,
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).accent2,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 4.0,
+                                color: Color(0x33000000),
+                                offset: Offset(
+                                  0.0,
+                                  2.0,
                                 ),
-                              ),
-                              child: Row(
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(8.0),
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context).accent2,
+                              width: 0.2,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsets.all(12.0),
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 4.0, 12.0, 4.0),
                                     child: Container(
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
@@ -137,62 +144,63 @@ class _CBuyerSpecializationDetailWidgetState
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(2.0),
-                                        child: FutureBuilder<
-                                            List<SpecializationsRow>>(
-                                          future: SpecializationsTable()
-                                              .querySingleRow(
-                                            queryFn: (q) => q.eqOrNull(
-                                              'id',
-                                              widget.specID,
-                                            ),
+                                      child: FutureBuilder<
+                                          List<SpecializationsRow>>(
+                                        future: SpecializationsTable()
+                                            .querySingleRow(
+                                          queryFn: (q) => q.eqOrNull(
+                                            'id',
+                                            widget.specID,
                                           ),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 32.0,
-                                                  height: 32.0,
-                                                  child: SpinKitRipple(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .accent1,
-                                                    size: 32.0,
-                                                  ),
+                                        ),
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 32.0,
+                                                height: 32.0,
+                                                child: SpinKitRipple(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .accent1,
+                                                  size: 32.0,
                                                 ),
-                                              );
-                                            }
-                                            List<SpecializationsRow>
-                                                imageSpecializationsRowList =
-                                                snapshot.data!;
-
-                                            final imageSpecializationsRow =
-                                                imageSpecializationsRowList
-                                                        .isNotEmpty
-                                                    ? imageSpecializationsRowList
-                                                        .first
-                                                    : null;
-
-                                            return ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Image.network(
-                                                imageSpecializationsRow!
-                                                    .iconUrl!,
-                                                width: 80.0,
-                                                height: 64.0,
-                                                fit: BoxFit.contain,
                                               ),
                                             );
-                                          },
-                                        ),
+                                          }
+                                          List<SpecializationsRow>
+                                              imageSpecializationsRowList =
+                                              snapshot.data!;
+
+                                          final imageSpecializationsRow =
+                                              imageSpecializationsRowList
+                                                      .isNotEmpty
+                                                  ? imageSpecializationsRowList
+                                                      .first
+                                                  : null;
+
+                                          return ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(0.0),
+                                            child: CachedNetworkImage(
+                                              fadeInDuration:
+                                                  Duration(milliseconds: 0),
+                                              fadeOutDuration:
+                                                  Duration(milliseconds: 0),
+                                              imageUrl: imageSpecializationsRow!
+                                                  .iconUrl!,
+                                              width: 80.0,
+                                              height: 64.0,
+                                              fit: BoxFit.contain,
+                                            ),
+                                          );
+                                        },
                                       ),
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child:
                                         FutureBuilder<List<SpecializationsRow>>(
                                       future:
@@ -235,45 +243,39 @@ class _CBuyerSpecializationDetailWidgetState
                                             'specialization',
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .titleMedium
+                                              .bodyLarge
                                               .override(
                                                 font: GoogleFonts.openSans(
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleMedium
-                                                          .fontWeight,
+                                                  fontWeight: FontWeight.w600,
                                                   fontStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .titleMedium
+                                                          .bodyLarge
                                                           .fontStyle,
                                                 ),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
-                                                fontSize: 16.0,
+                                                fontSize: 18.0,
                                                 letterSpacing: 0.0,
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleMedium
-                                                        .fontWeight,
+                                                fontWeight: FontWeight.w600,
                                                 fontStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .titleMedium
+                                                        .bodyLarge
                                                         .fontStyle,
                                               ),
                                         );
                                       },
                                     ),
                                   ),
-                                ].divide(SizedBox(width: 32.0)),
+                                ],
                               ),
-                            ),
+                            ],
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(4.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 32.0, 0.0, 8.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'lrgiw7po' /* Список продавцов */,
@@ -456,10 +458,14 @@ class _CBuyerSpecializationDetailWidgetState
                                           FlutterFlowTheme.of(context).accent4,
                                     ),
                                   ),
-                                  child: Icon(
-                                    Icons.cleaning_services,
-                                    color: FlutterFlowTheme.of(context).accent4,
-                                    size: 24.0,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    child: SvgPicture.asset(
+                                      'assets/images/Close.svg',
+                                      width: 16.0,
+                                      height: 16.0,
+                                      fit: BoxFit.none,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -606,10 +612,14 @@ class _CBuyerSpecializationDetailWidgetState
                                           FlutterFlowTheme.of(context).accent4,
                                     ),
                                   ),
-                                  child: Icon(
-                                    Icons.cleaning_services,
-                                    color: FlutterFlowTheme.of(context).accent4,
-                                    size: 24.0,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    child: SvgPicture.asset(
+                                      'assets/images/Close.svg',
+                                      width: 16.0,
+                                      height: 16.0,
+                                      fit: BoxFit.none,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -646,121 +656,151 @@ class _CBuyerSpecializationDetailWidgetState
 
                               return Builder(
                                 builder: (context) {
-                                  final sellersSpecBody =
+                                  final sellersSpecBody2 =
                                       listViewApprovedNewGetSellersBySpecializationResponse
                                           .jsonBody
                                           .toList();
-                                  if (sellersSpecBody.isEmpty) {
-                                    return CEmptyBuyerOfferWidget();
+                                  if (sellersSpecBody2.isEmpty) {
+                                    return CEmptyBuyerSellerWidget();
                                   }
 
-                                  return ListView.builder(
+                                  return ListView.separated(
                                     padding: EdgeInsets.zero,
                                     primary: false,
                                     shrinkWrap: true,
                                     scrollDirection: Axis.vertical,
-                                    itemCount: sellersSpecBody.length,
+                                    itemCount: sellersSpecBody2.length,
+                                    separatorBuilder: (_, __) =>
+                                        SizedBox(height: 8.0),
                                     itemBuilder:
-                                        (context, sellersSpecBodyIndex) {
-                                      final sellersSpecBodyItem =
-                                          sellersSpecBody[sellersSpecBodyIndex];
-                                      return Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 5.0),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            await showModalBottomSheet(
-                                              isScrollControlled: true,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              enableDrag: false,
-                                              context: context,
-                                              builder: (context) {
-                                                return Padding(
-                                                  padding:
-                                                      MediaQuery.viewInsetsOf(
-                                                          context),
-                                                  child:
-                                                      CAboutSellerCardSpecWidget(
-                                                    phone: getJsonField(
-                                                      sellersSpecBodyItem,
-                                                      r'''$.phone''',
-                                                    ).toString(),
-                                                    sellerID: getJsonField(
-                                                      sellersSpecBodyItem,
-                                                      r'''$.seller_id''',
-                                                    ),
+                                        (context, sellersSpecBody2Index) {
+                                      final sellersSpecBody2Item =
+                                          sellersSpecBody2[
+                                              sellersSpecBody2Index];
+                                      return InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            enableDrag: false,
+                                            context: context,
+                                            builder: (context) {
+                                              return Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    CAboutSellerCardSpecWidget(
+                                                  phone: getJsonField(
+                                                    sellersSpecBody2Item,
+                                                    r'''$.phone''',
+                                                  ).toString(),
+                                                  sellerID: getJsonField(
+                                                    sellersSpecBody2Item,
+                                                    r'''$.seller_id''',
                                                   ),
-                                                );
-                                              },
-                                            ).then(
-                                                (value) => safeSetState(() {}));
-                                          },
-                                          child: Material(
-                                            color: Colors.transparent,
-                                            shape: RoundedRectangleBorder(
+                                                ),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+                                        },
+                                        child: Material(
+                                          color: Colors.transparent,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent2,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
                                             ),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: 36.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent2,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                border: Border.all(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent4,
-                                                  width: 2.0,
-                                                ),
-                                              ),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Container(
-                                                    width: 72.0,
-                                                    height: MediaQuery.sizeOf(
-                                                                context)
-                                                            .height *
-                                                        1.0,
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .accent4,
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              0.0),
+                                                      child: SvgPicture.asset(
+                                                        'assets/images/ikonka_pustogo_profilya_v_spiske_prodavtsov_seraya.svg',
+                                                        width: 52.0,
+                                                        height: 52.0,
+                                                        fit: BoxFit.contain,
+                                                      ),
                                                     ),
-                                                    child: Row(
+                                                    Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
                                                               .center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
                                                       children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  2.0),
-                                                          child: Text(
-                                                            getJsonField(
-                                                              sellersSpecBodyItem,
-                                                              r'''$.rating''',
-                                                            ).toString(),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .openSans(
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          children: [
+                                                            Text(
+                                                              getJsonField(
+                                                                sellersSpecBody2Item,
+                                                                r'''$.full_name''',
+                                                              ).toString(),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    font: GoogleFonts
+                                                                        .openSans(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent4,
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
@@ -769,65 +809,32 @@ class _CBuyerSpecializationDetailWidgetState
                                                                         .bodyMedium
                                                                         .fontStyle,
                                                                   ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .accent2,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  2.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        0.0),
-                                                            child: SvgPicture
-                                                                .asset(
-                                                              'assets/images/star_.svg',
-                                                              width: 32.0,
-                                                              height: 32.0,
-                                                              fit: BoxFit
-                                                                  .contain,
                                                             ),
-                                                          ),
+                                                          ].divide(SizedBox(
+                                                              width: 8.0)),
                                                         ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Flexible(
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent3,
-                                                      ),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    2.0),
-                                                            child: FutureBuilder<
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          0.0),
+                                                              child: SvgPicture
+                                                                  .asset(
+                                                                'assets/images/location.svg',
+                                                                width: 20.0,
+                                                                height: 20.0,
+                                                                fit: BoxFit
+                                                                    .contain,
+                                                              ),
+                                                            ),
+                                                            FutureBuilder<
                                                                 List<
                                                                     CountriesRow>>(
                                                               future: CountriesTable()
@@ -836,7 +843,7 @@ class _CBuyerSpecializationDetailWidgetState
                                                                     q.eqOrNull(
                                                                   'id',
                                                                   getJsonField(
-                                                                    sellersSpecBodyItem,
+                                                                    sellersSpecBody2Item,
                                                                     r'''$.country_id''',
                                                                   ),
                                                                 ),
@@ -864,205 +871,173 @@ class _CBuyerSpecializationDetailWidgetState
                                                                   );
                                                                 }
                                                                 List<CountriesRow>
-                                                                    imageCountriesRowList =
+                                                                    containerCountriesRowList =
                                                                     snapshot
                                                                         .data!;
 
-                                                                final imageCountriesRow =
-                                                                    imageCountriesRowList
+                                                                final containerCountriesRow =
+                                                                    containerCountriesRowList
                                                                             .isNotEmpty
-                                                                        ? imageCountriesRowList
+                                                                        ? containerCountriesRowList
                                                                             .first
                                                                         : null;
 
-                                                                return ClipRRect(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              0.0),
+                                                                return Container(
+                                                                  decoration:
+                                                                      BoxDecoration(),
                                                                   child:
-                                                                      CachedNetworkImage(
-                                                                    fadeInDuration:
-                                                                        Duration(
-                                                                            milliseconds:
-                                                                                0),
-                                                                    fadeOutDuration:
-                                                                        Duration(
-                                                                            milliseconds:
-                                                                                0),
-                                                                    imageUrl:
-                                                                        imageCountriesRow!
-                                                                            .flagUrl!,
-                                                                    width: 50.0,
-                                                                    height:
-                                                                        36.0,
-                                                                    fit: BoxFit
-                                                                        .contain,
+                                                                      Visibility(
+                                                                    visible: containerCountriesRow?.flagUrl !=
+                                                                            null &&
+                                                                        containerCountriesRow?.flagUrl !=
+                                                                            '',
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              0.0),
+                                                                      child:
+                                                                          CachedNetworkImage(
+                                                                        fadeInDuration:
+                                                                            Duration(milliseconds: 0),
+                                                                        fadeOutDuration:
+                                                                            Duration(milliseconds: 0),
+                                                                        imageUrl:
+                                                                            containerCountriesRow!.flagUrl!,
+                                                                        width:
+                                                                            50.0,
+                                                                        height:
+                                                                            36.0,
+                                                                        fit: BoxFit
+                                                                            .contain,
+                                                                      ),
+                                                                    ),
                                                                   ),
                                                                 );
                                                               },
                                                             ),
-                                                          ),
-                                                          Expanded(
-                                                            child:
-                                                                SingleChildScrollView(
-                                                              scrollDirection:
-                                                                  Axis.horizontal,
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  if (getJsonField(
-                                                                        sellersSpecBodyItem,
+                                                            if (getJsonField(
+                                                                  sellersSpecBody2Item,
+                                                                  r'''$.city_id''',
+                                                                ) !=
+                                                                null)
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0),
+                                                                child: FutureBuilder<
+                                                                    List<
+                                                                        CitiesRow>>(
+                                                                  future: CitiesTable()
+                                                                      .querySingleRow(
+                                                                    queryFn: (q) =>
+                                                                        q.eqOrNull(
+                                                                      'id',
+                                                                      getJsonField(
+                                                                        sellersSpecBody2Item,
                                                                         r'''$.city_id''',
-                                                                      ) !=
-                                                                      null)
-                                                                    Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                      child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            EdgeInsets.all(2.0),
-                                                                        child: FutureBuilder<
-                                                                            List<CitiesRow>>(
-                                                                          future:
-                                                                              CitiesTable().querySingleRow(
-                                                                            queryFn: (q) =>
-                                                                                q.eqOrNull(
-                                                                              'id',
-                                                                              getJsonField(
-                                                                                sellersSpecBodyItem,
-                                                                                r'''$.city_id''',
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                          builder:
-                                                                              (context, snapshot) {
-                                                                            // Customize what your widget looks like when it's loading.
-                                                                            if (!snapshot.hasData) {
-                                                                              return Center(
-                                                                                child: SizedBox(
-                                                                                  width: 32.0,
-                                                                                  height: 32.0,
-                                                                                  child: SpinKitRipple(
-                                                                                    color: FlutterFlowTheme.of(context).accent1,
-                                                                                    size: 32.0,
-                                                                                  ),
-                                                                                ),
-                                                                              );
-                                                                            }
-                                                                            List<CitiesRow>
-                                                                                textCitiesRowList =
-                                                                                snapshot.data!;
-
-                                                                            final textCitiesRow = textCitiesRowList.isNotEmpty
-                                                                                ? textCitiesRowList.first
-                                                                                : null;
-
-                                                                            return Text(
-                                                                              valueOrDefault<String>(
-                                                                                textCitiesRow?.city,
-                                                                                'city',
-                                                                              ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.openSans(
-                                                                                      fontWeight: FontWeight.w600,
-                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                    ),
-                                                                                    color: FlutterFlowTheme.of(context).accent4,
-                                                                                    fontSize: 14.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.w600,
-                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                  ),
-                                                                            );
-                                                                          },
-                                                                        ),
                                                                       ),
                                                                     ),
-                                                                ],
+                                                                  ),
+                                                                  builder: (context,
+                                                                      snapshot) {
+                                                                    // Customize what your widget looks like when it's loading.
+                                                                    if (!snapshot
+                                                                        .hasData) {
+                                                                      return Center(
+                                                                        child:
+                                                                            SizedBox(
+                                                                          width:
+                                                                              32.0,
+                                                                          height:
+                                                                              32.0,
+                                                                          child:
+                                                                              SpinKitRipple(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).accent1,
+                                                                            size:
+                                                                                32.0,
+                                                                          ),
+                                                                        ),
+                                                                      );
+                                                                    }
+                                                                    List<CitiesRow>
+                                                                        textCitiesRowList =
+                                                                        snapshot
+                                                                            .data!;
+
+                                                                    final textCitiesRow = textCitiesRowList
+                                                                            .isNotEmpty
+                                                                        ? textCitiesRowList
+                                                                            .first
+                                                                        : null;
+
+                                                                    return Text(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        textCitiesRow
+                                                                            ?.city,
+                                                                        'city',
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            font:
+                                                                                GoogleFonts.openSans(
+                                                                              fontWeight: FontWeight.w600,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                            ),
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).accent4,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.w600,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                    );
+                                                                  },
+                                                                ),
                                                               ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
+                                                          ].divide(SizedBox(
+                                                              width: 8.0)),
+                                                        ),
+                                                      ],
                                                     ),
-                                                  ),
-                                                  Container(
-                                                    width: 108.0,
-                                                    height: MediaQuery.sizeOf(
-                                                                context)
-                                                            .height *
-                                                        1.0,
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .accent1,
-                                                    ),
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Row(
+                                                  ]
+                                                      .divide(
+                                                          SizedBox(width: 8.0))
+                                                      .addToStart(
+                                                          SizedBox(width: 4.0)),
+                                                ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.end,
+                                                  children: [
+                                                    Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
+                                                          MainAxisAlignment.end,
                                                       children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  2.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        0.0),
-                                                            child: SvgPicture
-                                                                .asset(
-                                                              'assets/images/e3t2j_.svg',
-                                                              width: 30.0,
-                                                              height: 30.0,
-                                                              fit: BoxFit
-                                                                  .contain,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  2.0),
-                                                          child: Text(
-                                                            getJsonField(
-                                                              sellersSpecBodyItem,
-                                                              r'''$.seller_id''',
-                                                            ).toString(),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .openSans(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .accent2,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
+                                                        Text(
+                                                          getJsonField(
+                                                            sellersSpecBody2Item,
+                                                            r'''$.rating''',
+                                                          ).toString(),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .openSans(
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -1071,17 +1046,55 @@ class _CBuyerSpecializationDetailWidgetState
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .accent4,
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                        ),
+                                                        ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      0.0),
+                                                          child:
+                                                              SvgPicture.asset(
+                                                            'assets/images/star_.svg',
+                                                            width: 16.0,
+                                                            height: 16.0,
+                                                            fit: BoxFit.contain,
                                                           ),
                                                         ),
-                                                      ]
-                                                          .addToStart(SizedBox(
-                                                              width: 2.0))
-                                                          .addToEnd(SizedBox(
-                                                              width: 2.0)),
+                                                      ].divide(
+                                                          SizedBox(width: 4.0)),
                                                     ),
-                                                  ),
-                                                ],
-                                              ),
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              0.0),
+                                                      child: SvgPicture.asset(
+                                                        'assets/images/strelka_ukazatel_strasnaya_v_kruge.svg',
+                                                        width: 24.0,
+                                                        height: 24.0,
+                                                        fit: BoxFit.contain,
+                                                      ),
+                                                    ),
+                                                  ]
+                                                      .divide(
+                                                          SizedBox(width: 8.0))
+                                                      .addToEnd(
+                                                          SizedBox(width: 4.0)),
+                                                ),
+                                              ].divide(SizedBox(width: 16.0)),
                                             ),
                                           ),
                                         ),

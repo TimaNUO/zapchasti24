@@ -115,10 +115,10 @@ class _CBackComponentsWidgetState extends State<CBackComponentsWidget>
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(0.0),
                         child: SvgPicture.asset(
-                          'assets/images/____.svg',
+                          'assets/images/arrow_left_in_box.svg',
                           width: 36.0,
                           height: 36.0,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.contain,
                         ),
                       ),
                     ),

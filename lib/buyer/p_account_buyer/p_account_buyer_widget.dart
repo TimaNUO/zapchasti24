@@ -1,9 +1,9 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
-import '/buyer/c_about_buyer/c_about_buyer_widget.dart';
 import '/buyer/c_buyer_navigation_bar/c_buyer_navigation_bar_widget.dart';
 import '/buyer/c_contract_buyer/c_contract_buyer_widget.dart';
+import '/buyer/c_edit_about_buyer/c_edit_about_buyer_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -328,7 +328,7 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                                                         BorderRadius.circular(
                                                             0.0),
                                                     child: SvgPicture.asset(
-                                                      'assets/images/__,___.svg',
+                                                      'assets/images/log_out_inwhitebox.svg',
                                                       fit: BoxFit.fill,
                                                     ),
                                                   ),
@@ -405,7 +405,7 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                                     },
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
-                                      child: CAboutBuyerWidget(),
+                                      child: CEditAboutBuyerWidget(),
                                     ),
                                   );
                                 },
@@ -442,7 +442,7 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                                           borderRadius:
                                               BorderRadius.circular(0.0),
                                           child: SvgPicture.asset(
-                                            'assets/images/____.svg',
+                                            'assets/images/user_razdel_kabinet_lichnyye_dannyye.svg',
                                             height: 32.0,
                                             fit: BoxFit.cover,
                                           ),
@@ -483,7 +483,7 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(0.0),
                                       child: SvgPicture.asset(
-                                        'assets/images/_____.svg',
+                                        'assets/images/black_arrow_bez_khvostika.svg',
                                         height: 32.0,
                                         fit: BoxFit.cover,
                                       ),
@@ -532,7 +532,7 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                                           borderRadius:
                                               BorderRadius.circular(0.0),
                                           child: SvgPicture.asset(
-                                            'assets/images/______.svg',
+                                            'assets/images/red_car_section_my_garage.svg',
                                             height: 32.0,
                                             fit: BoxFit.cover,
                                           ),
@@ -573,7 +573,7 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(0.0),
                                       child: SvgPicture.asset(
-                                        'assets/images/_____.svg',
+                                        'assets/images/black_arrow_bez_khvostika.svg',
                                         height: 32.0,
                                         fit: BoxFit.cover,
                                       ),
@@ -640,7 +640,7 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                                           borderRadius:
                                               BorderRadius.circular(0.0),
                                           child: SvgPicture.asset(
-                                            'assets/images/____.svg',
+                                            'assets/images/dogovor_oferty_v_kabinete.svg',
                                             height: 32.0,
                                             fit: BoxFit.cover,
                                           ),
@@ -681,7 +681,7 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(0.0),
                                       child: SvgPicture.asset(
-                                        'assets/images/_____.svg',
+                                        'assets/images/black_arrow_bez_khvostika.svg',
                                         height: 32.0,
                                         fit: BoxFit.cover,
                                       ),
@@ -691,113 +691,84 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                               ),
                             ),
                           ),
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                enableDrag: false,
-                                context: context,
-                                builder: (context) {
-                                  return GestureDetector(
-                                    onTap: () {
-                                      FocusScope.of(context).unfocus();
-                                      FocusManager.instance.primaryFocus
-                                          ?.unfocus();
-                                    },
-                                    child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: CContractBuyerWidget(),
-                                    ),
-                                  );
-                                },
-                              ).then((value) => safeSetState(() {}));
-                            },
-                            child: Container(
-                              height: 60.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).accent2,
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 4.0,
-                                    color: Color(0x33000000),
-                                    offset: Offset(
-                                      0.0,
-                                      2.0,
-                                    ),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 0.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(0.0),
-                                          child: SvgPicture.asset(
-                                            'assets/images/_____.svg',
-                                            height: 32.0,
-                                            fit: BoxFit.cover,
-                                          ),
+                          Container(
+                            height: 60.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).accent2,
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 4.0,
+                                  color: Color(0x33000000),
+                                  offset: Offset(
+                                    0.0,
+                                    2.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                        child: SvgPicture.asset(
+                                          'assets/images/language.svg',
+                                          height: 32.0,
+                                          fit: BoxFit.cover,
                                         ),
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            'x02grwnf' /* Язык приложения */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.openSans(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent4,
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
+                                      ),
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          'x02grwnf' /* Язык приложения */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.openSans(
                                                 fontWeight: FontWeight.w600,
                                                 fontStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .fontStyle,
                                               ),
-                                        ),
-                                      ].divide(SizedBox(width: 12.0)),
-                                    ),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent4,
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                      ),
+                                    ].divide(SizedBox(width: 12.0)),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 12.0, 0.0),
-                                    child: Container(
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 12.0, 0.0),
+                                  child: Container(
+                                    width: 52.0,
+                                    height: 44.0,
+                                    child:
+                                        custom_widgets.LanguageSelectorWidget(
                                       width: 52.0,
                                       height: 44.0,
-                                      child:
-                                          custom_widgets.LanguageSelectorWidget(
-                                        width: 52.0,
-                                        height: 44.0,
-                                      ),
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                           if (false)
@@ -989,7 +960,7 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(0.0),
                                               child: SvgPicture.asset(
-                                                'assets/images/____.svg',
+                                                'assets/images/insta_for_kabinet.svg',
                                                 height: 32.0,
                                                 fit: BoxFit.cover,
                                               ),
@@ -1035,7 +1006,7 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                                           borderRadius:
                                               BorderRadius.circular(0.0),
                                           child: SvgPicture.asset(
-                                            'assets/images/_____.svg',
+                                            'assets/images/black_arrow_bez_khvostika.svg',
                                             height: 32.0,
                                             fit: BoxFit.cover,
                                           ),
@@ -1087,7 +1058,7 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(0.0),
                                               child: SvgPicture.asset(
-                                                'assets/images/_____.svg',
+                                                'assets/images/whatsapp_red_dlya_razdela_kabinet.svg',
                                                 height: 32.0,
                                                 fit: BoxFit.cover,
                                               ),
@@ -1133,7 +1104,7 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                                           borderRadius:
                                               BorderRadius.circular(0.0),
                                           child: SvgPicture.asset(
-                                            'assets/images/_____.svg',
+                                            'assets/images/black_arrow_bez_khvostika.svg',
                                             height: 32.0,
                                             fit: BoxFit.cover,
                                           ),
@@ -1195,7 +1166,7 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(0.0),
                                             child: SvgPicture.asset(
-                                              'assets/images/__,_.svg',
+                                              'assets/images/log_out_RED.svg',
                                               height: 32.0,
                                               fit: BoxFit.cover,
                                             ),
@@ -1238,7 +1209,7 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                                         borderRadius:
                                             BorderRadius.circular(0.0),
                                         child: SvgPicture.asset(
-                                          'assets/images/_____.svg',
+                                          'assets/images/black_arrow_bez_khvostika.svg',
                                           height: 32.0,
                                           fit: BoxFit.cover,
                                         ),

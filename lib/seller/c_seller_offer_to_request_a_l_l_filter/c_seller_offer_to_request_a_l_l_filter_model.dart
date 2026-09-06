@@ -2,7 +2,6 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'c_seller_offer_to_request_a_l_l_filter_widget.dart'
     show CSellerOfferToRequestALLFilterWidget;
 import 'package:flutter/material.dart';
@@ -35,29 +34,12 @@ class CSellerOfferToRequestALLFilterModel
   List<FiltersRow>? sellerFilters;
   // Stores action output result for [Backend Call - API (Seller BuyerID From RequestsID Info)] action in cSellerOfferToRequestALLFilter widget.
   ApiCallResponse? apiResultBuyerID;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  bool isDataUploading_uploadData0j7 = false;
-  List<FFUploadedFile> uploadedLocalFiles_uploadData0j7 = [];
-  List<String> uploadedFileUrls_uploadData0j7 = [];
-
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
-  // State field(s) for DropDown widget.
-  int? dropDownValue;
-  FormFieldController<int>? dropDownValueController;
   // Stores action output result for [Backend Call - API (ch get or create chat)] action in Container widget.
-  ApiCallResponse? chatAllFilter;
-  // Stores action output result for [Backend Call - API (Upsert Offer Info)] action in ButtonPublic widget.
-  ApiCallResponse? apiResult5in2;
-  // Stores action output result for [Backend Call - API (Reject Request Info)] action in ButtonReject widget.
-  ApiCallResponse? apiResultebtRES2;
-  // Stores action output result for [Backend Call - API (set request filter status for seller)] action in ButtonReject widget.
-  ApiCallResponse? outputRebuild;
+  ApiCallResponse? chatRequest;
+  // Stores action output result for [Backend Call - API (Reject Request Info)] action in Container widget.
+  ApiCallResponse? apiResulte85;
+  // Stores action output result for [Backend Call - API (set request filter status for seller)] action in Container widget.
+  ApiCallResponse? outputRebuild565;
   // Model for cBackComponents component.
   late CBackComponentsModel cBackComponentsModel;
 
@@ -68,12 +50,6 @@ class CSellerOfferToRequestALLFilterModel
 
   @override
   void dispose() {
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
-
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
-
     cBackComponentsModel.dispose();
   }
 }

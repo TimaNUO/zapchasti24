@@ -247,7 +247,7 @@ class _CAboutSellerCardReqWidgetState extends State<CAboutSellerCardReqWidget>
                                                             BorderRadius
                                                                 .circular(0.0),
                                                         child: SvgPicture.asset(
-                                                          'assets/images/ml6uo__.svg',
+                                                          'assets/images/location.svg',
                                                           width: 20.0,
                                                           height: 20.0,
                                                           fit: BoxFit.contain,
@@ -530,7 +530,7 @@ class _CAboutSellerCardReqWidgetState extends State<CAboutSellerCardReqWidget>
                                             if (photo.isEmpty) {
                                               return Center(
                                                 child: SvgPicture.asset(
-                                                  'assets/images/___.svg',
+                                                  'assets/images/add_photo.svg',
                                                   width: 50.0,
                                                   height: 70.0,
                                                   fit: BoxFit.contain,
@@ -685,7 +685,7 @@ class _CAboutSellerCardReqWidgetState extends State<CAboutSellerCardReqWidget>
                                                         BorderRadius.circular(
                                                             8.0),
                                                     child: SvgPicture.asset(
-                                                      'assets/images/___.svg',
+                                                      'assets/images/telefon_svyazatsya_s_prodavtsom.svg',
                                                       width: 28.0,
                                                       height: 28.0,
                                                       fit: BoxFit.contain,
@@ -942,104 +942,127 @@ class _CAboutSellerCardReqWidgetState extends State<CAboutSellerCardReqWidget>
                                       ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 8.0, 0.0, 16.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        _model.chatReq2 = await RPCChatsGroup
-                                            .chGetOrCreateChatCall
-                                            .call(
-                                          buyerID: FFAppState().userIdApp,
-                                          sellerID: widget.sellerID,
-                                          currentJwtToken: currentJwtToken,
-                                        );
+                                  if (false)
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 8.0, 0.0, 16.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          _model.chatReq2 = await RPCChatsGroup
+                                              .chGetOrCreateChatCall
+                                              .call(
+                                            buyerID: FFAppState().userIdApp,
+                                            sellerID: widget.sellerID,
+                                            currentJwtToken: currentJwtToken,
+                                          );
 
-                                        FFAppState().chatMessagesLiveJson = [];
-                                        safeSetState(() {});
-                                        await showModalBottomSheet(
-                                          isScrollControlled: true,
-                                          backgroundColor: Colors.transparent,
-                                          enableDrag: false,
-                                          context: context,
-                                          builder: (context) {
-                                            return Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: CChatsBuyerMesWidget(
-                                                chatID: getJsonField(
-                                                  (_model.chatReq2?.jsonBody ??
-                                                      ''),
-                                                  r'''$.id''',
+                                          FFAppState().chatMessagesLiveJson =
+                                              [];
+                                          safeSetState(() {});
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            enableDrag: false,
+                                            context: context,
+                                            builder: (context) {
+                                              return Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: CChatsBuyerMesWidget(
+                                                  chatID: getJsonField(
+                                                    (_model.chatReq2
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                    r'''$.id''',
+                                                  ),
                                                 ),
-                                              ),
-                                            );
-                                          },
-                                        ).then((value) => safeSetState(() {}));
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
 
-                                        safeSetState(() {});
-                                      },
-                                      child: Material(
-                                        color: Colors.transparent,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        child: Container(
-                                          height: 40.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                          safeSetState(() {});
+                                        },
+                                        child: Material(
+                                          color: Colors.transparent,
+                                          shape: RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(8.0),
-                                            border: Border.all(
+                                          ),
+                                          child: Container(
+                                            height: 40.0,
+                                            decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              width: 0.0,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                width: 0.0,
+                                              ),
                                             ),
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 2.0, 96.0, 2.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Icon(
-                                                    Icons.message,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .accent2,
-                                                    size: 28.0,
-                                                  ),
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'mgqxhj60' /* Связаться в чате */,
-                                                      ),
-                                                      style:
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 2.0, 96.0, 2.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Icon(
+                                                      Icons.message,
+                                                      color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .openSans(
+                                                              .accent2,
+                                                      size: 28.0,
+                                                    ),
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'mgqxhj60' /* Связаться в чате */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .openSans(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .accent2,
+                                                                  fontSize:
+                                                                      12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -1048,30 +1071,17 @@ class _CAboutSellerCardReqWidgetState extends State<CAboutSellerCardReqWidget>
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .accent2,
-                                                                fontSize: 12.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                              ),
+                                                      ),
                                                     ),
-                                                  ),
-                                                ].divide(SizedBox(width: 12.0)),
+                                                  ].divide(
+                                                      SizedBox(width: 12.0)),
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
                                   Container(
                                     height: 40.0,
                                     decoration: BoxDecoration(
@@ -1323,7 +1333,7 @@ class _CAboutSellerCardReqWidgetState extends State<CAboutSellerCardReqWidget>
                                                         BorderRadius.circular(
                                                             8.0),
                                                     child: SvgPicture.asset(
-                                                      'assets/images/__.svg',
+                                                      'assets/images/otklonit_prodavtsa_znachok.svg',
                                                       width: 28.0,
                                                       height: 28.0,
                                                       fit: BoxFit.contain,

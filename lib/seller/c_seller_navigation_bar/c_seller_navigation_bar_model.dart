@@ -1,4 +1,3 @@
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'c_seller_navigation_bar_widget.dart' show CSellerNavigationBarWidget;
 import 'package:flutter/material.dart';
@@ -15,11 +14,6 @@ class CSellerNavigationBarModel
       emptyList.insert(index, item);
   void updateEmptyListAtIndex(int index, Function(int) updateFn) =>
       emptyList[index] = updateFn(emptyList[index]);
-
-  ///  State fields for stateful widgets in this component.
-
-  // Stores action output result for [Backend Call - Query Rows] action in Column widget.
-  List<SellerSpecializationsRow>? apiResultSpecList;
 
   @override
   void initState(BuildContext context) {}

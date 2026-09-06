@@ -22,10 +22,10 @@ class CNewFilterModel extends FlutterFlowModel<CNewFilterWidget> {
   bool? checkboxUsedValue;
   // State field(s) for CheckboxNew widget.
   bool? checkboxNewValue;
-  // Stores action output result for [Backend Call - API (Upsert SellerFilter Info)] action in Button widget.
-  ApiCallResponse? apiResultp167;
-  // Stores action output result for [Backend Call - API (rebuild links for filter)] action in Button widget.
-  ApiCallResponse? outputRebuild;
+  // Stores action output result for [Backend Call - API (Upsert SellerFilter Info)] action in ButtonPublic widget.
+  ApiCallResponse? apiResultp18;
+  // Stores action output result for [Backend Call - API (rebuild links for filter)] action in ButtonPublic widget.
+  ApiCallResponse? outputRebuild8;
   // Model for cBackComponents component.
   late CBackComponentsModel cBackComponentsModel;
 

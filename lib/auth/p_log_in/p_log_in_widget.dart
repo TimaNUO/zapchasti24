@@ -378,81 +378,90 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
-                                                      if (!_model.isSeller)
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child:
-                                                              SvgPicture.asset(
-                                                            'assets/images/Shopping_red.svg',
-                                                            width: 23.0,
-                                                            height: 23.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      if (_model.isSeller)
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child:
-                                                              SvgPicture.asset(
-                                                            'assets/images/Shopping_black.svg',
-                                                            width: 23.0,
-                                                            height: 23.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(4.0),
-                                                        child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'xqrabv91' /* Покупатель */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .openSans(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: !_model
-                                                                        .isSeller
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .accent1
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .accent4,
-                                                                fontSize: !_model
-                                                                        .isSeller
-                                                                    ? 16.0
-                                                                    : 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          if (!_model.isSeller)
+                                                            ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          0.0),
+                                                              child: SvgPicture
+                                                                  .asset(
+                                                                'assets/images/Shopping_red.svg',
+                                                                width: 23.0,
+                                                                height: 23.0,
+                                                                fit: BoxFit
+                                                                    .cover,
                                                               ),
-                                                        ),
+                                                            ),
+                                                          if (_model.isSeller)
+                                                            ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          0.0),
+                                                              child: SvgPicture
+                                                                  .asset(
+                                                                'assets/images/Shopping_black.svg',
+                                                                width: 23.0,
+                                                                height: 23.0,
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
+                                                            ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    4.0),
+                                                            child: Text(
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                'xqrabv91' /* Покупатель */,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    font: GoogleFonts
+                                                                        .openSans(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                                    color: !_model.isSeller
+                                                                        ? FlutterFlowTheme.of(context)
+                                                                            .accent1
+                                                                        : FlutterFlowTheme.of(context)
+                                                                            .accent4,
+                                                                    fontSize: !_model
+                                                                            .isSeller
+                                                                        ? 16.0
+                                                                        : 14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
                                                       ),
                                                       if (!_model.isSeller)
                                                         Icon(
@@ -517,81 +526,90 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
-                                                      if (_model.isSeller)
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child:
-                                                              SvgPicture.asset(
-                                                            'assets/images/store_red.svg',
-                                                            width: 23.0,
-                                                            height: 23.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      if (!_model.isSeller)
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child:
-                                                              SvgPicture.asset(
-                                                            'assets/images/store_black.svg',
-                                                            width: 23.0,
-                                                            height: 23.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(4.0),
-                                                        child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            '88lnznqy' /* Продавец */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .openSans(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: _model
-                                                                        .isSeller
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .accent1
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .accent4,
-                                                                fontSize: _model
-                                                                        .isSeller
-                                                                    ? 16.0
-                                                                    : 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          if (_model.isSeller)
+                                                            ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          0.0),
+                                                              child: SvgPicture
+                                                                  .asset(
+                                                                'assets/images/store_red.svg',
+                                                                width: 23.0,
+                                                                height: 23.0,
+                                                                fit: BoxFit
+                                                                    .cover,
                                                               ),
-                                                        ),
+                                                            ),
+                                                          if (!_model.isSeller)
+                                                            ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          0.0),
+                                                              child: SvgPicture
+                                                                  .asset(
+                                                                'assets/images/store_black.svg',
+                                                                width: 23.0,
+                                                                height: 23.0,
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
+                                                            ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    4.0),
+                                                            child: Text(
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                '88lnznqy' /* Продавец */,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    font: GoogleFonts
+                                                                        .openSans(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                                    color: _model.isSeller
+                                                                        ? FlutterFlowTheme.of(context)
+                                                                            .accent1
+                                                                        : FlutterFlowTheme.of(context)
+                                                                            .accent4,
+                                                                    fontSize: _model
+                                                                            .isSeller
+                                                                        ? 16.0
+                                                                        : 14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
                                                       ),
                                                       if (_model.isSeller)
                                                         Icon(

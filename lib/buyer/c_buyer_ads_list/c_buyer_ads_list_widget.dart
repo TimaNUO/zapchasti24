@@ -8,7 +8,7 @@ import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/seller/c_empty_seller_offer/c_empty_seller_offer_widget.dart';
+import '/seller/c_empty_seller_filter/c_empty_seller_filter_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -227,7 +227,7 @@ class _CBuyerAdsListWidgetState extends State<CBuyerAdsListWidget>
                                     listViewCompletedMyAdsInfoResponse.jsonBody
                                         .toList();
                                 if (buyerAdsBody.isEmpty) {
-                                  return CEmptySellerOfferWidget();
+                                  return CEmptySellerFilterWidget();
                                 }
 
                                 return ListView.builder(

@@ -7,7 +7,7 @@ import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/seller/c_empty_seller_offer/c_empty_seller_offer_widget.dart';
+import '/seller/c_empty_seller_filter/c_empty_seller_filter_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -100,7 +100,7 @@ class _CcBuyerAdsListForRequestWidgetState
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: MediaQuery.sizeOf(context).height * 1.0,
             decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondaryBackground,
+              color: FlutterFlowTheme.of(context).tertiary,
             ),
             child: Stack(
               children: [
@@ -138,7 +138,7 @@ class _CcBuyerAdsListForRequestWidgetState
                                         .jsonBody
                                         .toList();
                                 if (buyerAdsBody.isEmpty) {
-                                  return CEmptySellerOfferWidget();
+                                  return CEmptySellerFilterWidget();
                                 }
 
                                 return ListView.builder(

@@ -3,7 +3,7 @@ import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/seller/c_seller_ad_new/c_seller_ad_new_widget.dart';
+import '/seller/c_new_ad_seller/c_new_ad_seller_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -307,7 +307,7 @@ class _CBrandsCheckBoxListTileAdSellWidgetState
                                           return Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child: CSellerAdNewWidget(),
+                                            child: CNewAdSellerWidget(),
                                           );
                                         },
                                       ).then((value) => safeSetState(() {}));
@@ -449,7 +449,7 @@ class _CBrandsCheckBoxListTileAdSellWidgetState
                                           return Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child: CSellerAdNewWidget(),
+                                            child: CNewAdSellerWidget(),
                                           );
                                         },
                                       ).then((value) => safeSetState(() {}));

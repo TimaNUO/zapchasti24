@@ -103,13 +103,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: PAccountSellerWidget.routeName,
           path: PAccountSellerWidget.routePath,
-          builder: (context, params) => PAccountSellerWidget(
-            selectedSpecIds: params.getParam<int>(
-              'selectedSpecIds',
-              ParamType.int,
-              isList: true,
-            ),
-          ),
+          builder: (context, params) => PAccountSellerWidget(),
         ),
         FFRoute(
           name: PLogInWidget.routeName,
@@ -207,7 +201,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
-      observers: [routeObserver],
+      observers: ffNavigatorObservers,
     );
 
 extension NavParamExtensions on Map<String, String?> {

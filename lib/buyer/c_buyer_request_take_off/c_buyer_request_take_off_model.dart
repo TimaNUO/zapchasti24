@@ -1,7 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/supabase/supabase.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:async';
 import 'c_buyer_request_take_off_widget.dart' show CBuyerRequestTakeOffWidget;
 import 'package:flutter/material.dart';
 
@@ -11,11 +13,15 @@ class CBuyerRequestTakeOffModel
 
   String activeRequestsByOffer = '0-0/0';
 
-  int? selectedCountryId;
+  int? selectedFilCountryId;
 
-  int? selectedCityId;
+  int? selectedFilCityId;
 
   int tabID = 1;
+
+  int? selectedAdCountryId;
+
+  int? selectedAdCityId;
 
   ///  State fields for stateful widgets in this component.
 
@@ -33,6 +39,14 @@ class CBuyerRequestTakeOffModel
   // State field(s) for DropDownCity widget.
   int? dropDownCityValue;
   FormFieldController<int>? dropDownCityValueController;
+  // State field(s) for DropDownCountry2 widget.
+  int? dropDownCountry2Value;
+  FormFieldController<int>? dropDownCountry2ValueController;
+  Stream<List<CountriesRow>>? dropDownCountry2SupabaseStream;
+  // State field(s) for DropDownCity2 widget.
+  int? dropDownCity2Value;
+  FormFieldController<int>? dropDownCity2ValueController;
+  Stream<List<CitiesRow>>? dropDownCity2SupabaseStream;
   // Stores action output result for [Backend Call - API (ads add unique view)] action in Container widget.
   ApiCallResponse? addViewAd;
   // Model for cBackComponents component.

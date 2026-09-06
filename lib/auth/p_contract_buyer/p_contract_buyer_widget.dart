@@ -93,6 +93,7 @@ class _PContractBuyerWidgetState extends State<PContractBuyerWidget> {
                                     .fontStyle,
                               ),
                               color: FlutterFlowTheme.of(context).accent4,
+                              fontSize: 18.0,
                               letterSpacing: 0.0,
                               fontWeight: FlutterFlowTheme.of(context)
                                   .titleLarge
@@ -116,6 +117,7 @@ class _PContractBuyerWidgetState extends State<PContractBuyerWidget> {
                                     .fontStyle,
                               ),
                               color: FlutterFlowTheme.of(context).accent4,
+                              fontSize: 18.0,
                               letterSpacing: 0.0,
                               fontWeight: FlutterFlowTheme.of(context)
                                   .titleLarge
@@ -130,10 +132,18 @@ class _PContractBuyerWidgetState extends State<PContractBuyerWidget> {
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: MediaQuery.sizeOf(context).height * 0.5,
                           decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).accent2,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 4.0,
+                                color: Color(0x33000000),
+                                offset: Offset(
+                                  0.0,
+                                  2.0,
+                                ),
+                              )
+                            ],
                             borderRadius: BorderRadius.circular(8.0),
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).accent4,
-                            ),
                           ),
                           child: SingleChildScrollView(
                             child: Column(
@@ -210,64 +220,57 @@ class _PContractBuyerWidgetState extends State<PContractBuyerWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            FFButtonWidget(
-                              onPressed: () async {
-                                await DataUsersTable().update(
-                                  data: {
-                                    'is_licensed': true,
-                                  },
-                                  matchingRows: (rows) => rows.eqOrNull(
-                                    'id',
-                                    FFAppState().userIdApp,
-                                  ),
-                                );
-
-                                context.pushNamed(PWelcomeWidget.routeName);
-
-                                safeSetState(() {});
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 5.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            await DataUsersTable().update(
+                              data: {
+                                'is_licensed': true,
                               },
-                              text: FFLocalizations.of(context).getText(
-                                'ytztpl30' /* Принять */,
+                              matchingRows: (rows) => rows.eqOrNull(
+                                'id',
+                                FFAppState().userIdApp,
                               ),
-                              options: FFButtonOptions(
-                                width: 150.0,
-                                height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).accent1,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      font: GoogleFonts.openSans(
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontStyle,
-                                      ),
-                                      color:
-                                          FlutterFlowTheme.of(context).accent2,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontStyle,
-                                    ),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                            ),
-                          ],
+                            );
+
+                            context.pushNamed(PWelcomeWidget.routeName);
+
+                            safeSetState(() {});
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            'ytztpl30' /* Принять */,
+                          ),
+                          options: FFButtonOptions(
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).accent1,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  font: GoogleFonts.openSans(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                                  color: FlutterFlowTheme.of(context).accent2,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
                         ),
                       ),
                     ].divide(SizedBox(height: 4.0)),

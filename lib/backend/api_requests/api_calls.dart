@@ -22,11 +22,15 @@ class SupabaseInfoGroup {
   }
 
   static Map<String, String> headers = {
-    'apikey': '[SupabaseAnonKey]',
     'Content-Type': 'application/json',
+    'apikey': '[SupabaseAnonKey]',
+    'Authorization': 'Bearer [SupabaseAnonKey]',
   };
   static BuyerInfoCall buyerInfoCall = BuyerInfoCall();
   static BuyerCardInfoCall buyerCardInfoCall = BuyerCardInfoCall();
+  static NotificationsNewRequestByAllFiltersInfoCall
+      notificationsNewRequestByAllFiltersInfoCall =
+      NotificationsNewRequestByAllFiltersInfoCall();
   static AdminUsersInfoCall adminUsersInfoCall = AdminUsersInfoCall();
   static TestUsersBuildInfoCall testUsersBuildInfoCall =
       TestUsersBuildInfoCall();
@@ -211,8 +215,9 @@ class BuyerInfoCall {
           '${baseUrl}/data_users?select=full_name,roles(role),cities(id,city,countries(id,country)),vehicle_users(vin,years(year),car_models(model,car_brands(brand)))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {
         'id': "eq.${userIdApp}",
@@ -308,8 +313,9 @@ class BuyerCardInfoCall {
           '${baseUrl}/data_users?select=full_name,cities(city,countries(country)),rating,rating_count,seller_profiles(about,photo_urls)',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {
         'id': "eq.${sellerID}",
@@ -386,6 +392,44 @@ class BuyerCardInfoCall {
           .toList();
 }
 
+class NotificationsNewRequestByAllFiltersInfoCall {
+  Future<ApiCallResponse> call({
+    String? recipientID = '',
+    String? supabaseUrl,
+    String? supabaseAnonKey,
+  }) async {
+    supabaseUrl ??= FFDevEnvironmentValues().SupabaseUrl;
+    supabaseAnonKey ??= FFDevEnvironmentValues().SupabaseAnonKey;
+    final baseUrl = SupabaseInfoGroup.getBaseUrl(
+      supabaseUrl: supabaseUrl,
+      supabaseAnonKey: supabaseAnonKey,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'Notifications New Request By All Filters Info',
+      apiUrl:
+          '${baseUrl}/notifications?select=id,created_at,card_id,recipient_id',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
+        'Prefer': 'count=exact',
+      },
+      params: {
+        'recipient_id': "eq.${recipientID}",
+        'order': "created_at.desc",
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class AdminUsersInfoCall {
   Future<ApiCallResponse> call({
     int? roleID,
@@ -404,8 +448,9 @@ class AdminUsersInfoCall {
       apiUrl: '${baseUrl}/data_users?select=id,role_id,created_at,phone',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -443,8 +488,9 @@ class TestUsersBuildInfoCall {
           '${baseUrl}/data_users?select=id,role_id,created_at,phone,is_deleted,user_device_links!inner(id,user_devices!inner(id,build,platform))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -481,8 +527,9 @@ class VehicleUserInfoCall {
           '${baseUrl}/vehicle_users?select=id,vin,photo,years(id,year),car_models(id,model,car_brands(id,brand)),data_users(id,full_name,roles(role))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Range': '0-9',
         'Prefer': 'count=exact',
       },
@@ -584,8 +631,9 @@ class VehicleUserByIDInfoCall {
           '${baseUrl}/vehicle_users?select=id,vin,photo,years(id,year),car_models(id,model,car_brands(id,brand))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {
         'id': "eq.${carIdApp}",
@@ -694,8 +742,9 @@ class UpsertVehicleUserInfoCall {
       apiUrl: '${baseUrl}/vehicle_users?select=id',
       callType: ApiCallType.POST,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'resolution=merge-duplicates, return=representation',
       },
       params: {},
@@ -749,8 +798,9 @@ class UpsertSellerFilterInfoCall {
       apiUrl: '${baseUrl}/filters?select=id',
       callType: ApiCallType.POST,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'resolution=merge-duplicates, return=representation',
       },
       params: {},
@@ -813,8 +863,9 @@ class UpsertAdInfoCall {
       apiUrl: '${baseUrl}/ads?select=id',
       callType: ApiCallType.POST,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'resolution=merge-duplicates, return=representation',
       },
       params: {},
@@ -848,8 +899,9 @@ class DeleteVehicleUserInfoCall {
       apiUrl: '${baseUrl}/vehicle_users',
       callType: ApiCallType.DELETE,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {
         'id': "eq.${carIdApp}",
@@ -889,8 +941,9 @@ class UpdateDataUsersInfoCall {
       apiUrl: '${baseUrl}/data_users?id=eq.${userIdApp}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -941,8 +994,9 @@ class UpdateDataUsersSellerFilterInfoCall {
       apiUrl: '${baseUrl}/data_users?id=eq.${userIdApp}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -978,8 +1032,9 @@ class BuyerApprovedRequestsInfoCall {
           '${baseUrl}/requests?select=id,created_at,is_alive,requested_part_id,requested_details,status,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,photo,is_visible,years(year),car_models(model,car_brands(brand)),data_users!inner(id))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -1158,11 +1213,12 @@ class OpenAllApprovedRequestsInfoCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Open All Approved Requests Info',
       apiUrl:
-          '${baseUrl}/requests?select=id,created_at,is_alive,is_visible,status,vehicle_users!inner(id,is_visible,years(year),car_models(model,car_brands(brand)))',
+          '${baseUrl}/requests?select=id,created_at,is_alive,is_visible,status,requested_details,requested_part_id,photo_url,vehicle_users!inner(id,is_visible,years(year),car_models(model,car_brands(brand)),data_users!inner(cities!inner(city,countries!inner(country))))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -1343,8 +1399,9 @@ class OpenAllApprovedRequestsInfoCountCall {
           '${baseUrl}/requests?select=is_alive,is_visible,status,vehicle_users!inner(is_visible)',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -1523,8 +1580,9 @@ class BuyerDiedRequestsInfoCall {
           '${baseUrl}/requests?select=id,created_at,is_alive,requested_part_id,requested_details,status,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,is_visible,photo,years(year),car_models(model,car_brands(brand)),data_users!inner(id))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -1704,8 +1762,9 @@ class BuyerDeletedRequestsInfoCall {
           '${baseUrl}/requests?select=id,created_at,requested_part_id,requested_details,status,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,photo,years(year),car_models(model,car_brands(brand)),data_users!inner(id))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -1879,8 +1938,9 @@ class BuyerPendingReviewRequestsInfoCall {
           '${baseUrl}/requests?select=id,created_at,requested_part_id,requested_details,status,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,photo,years(year),car_models(model,car_brands(brand)),data_users(id))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -2060,8 +2120,9 @@ class BuyerPendingReviewFeedbacksInfoCall {
           '${baseUrl}/feedbacks?select=id,created_at,order_rating,comment,status,orders!inner(offers!inner(data_users(id,full_name,phone,rating),requests!inner(vehicle_users!inner(data_users!inner(id,full_name,phone)))))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -2117,8 +2178,9 @@ class BuyerRejectedFeedbacksInfoCall {
           '${baseUrl}/feedbacks?select=id,created_at,order_rating,comment,feedbacks_notes(note),status,orders!inner(offers!inner(data_users(id,full_name,phone,rating),requests!inner(vehicle_users!inner(data_users!inner(id,full_name,phone)))))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -2174,8 +2236,9 @@ class BuyerRejectedRequestsInfoCall {
           '${baseUrl}/requests?select=id,created_at,requests_notes(note),requested_part_id,requested_details,status,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,photo,years(year),car_models(model,car_brands(brand)),data_users(id))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -2355,8 +2418,9 @@ class SellerBuyerIDFromRequestsIDInfoCall {
           '${baseUrl}/requests?select=id,vehicle_users!inner(id,data_users!inner(id))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -2531,8 +2595,9 @@ class ModelsWithBrandsInfoCall {
       apiUrl: '${baseUrl}/car_brands?select=id,brand,car_models(id,model)',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {},
       returnBody: true,
@@ -2562,8 +2627,9 @@ class PartsCategoryInfoCall {
       apiUrl: '${baseUrl}/parts_category?select=id,category',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {},
       returnBody: true,
@@ -2595,8 +2661,9 @@ class SellerFiltersInfoCall {
           '${baseUrl}/filters?select=id,seller_id,parts_category_id_list,car_brand_id,car_models_id_list,autoparts_condition_new,autoparts_condition_used,year_from,year_to,is_visible',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -2630,11 +2697,12 @@ class MyAdsInfoCall {
     return ApiManager.instance.makeApiCall(
       callName: 'My Ads Info',
       apiUrl:
-          '${baseUrl}/ads?select=id,owner_id,parts_category_id_list,car_brands(id,brand),car_models_id_list,autoparts_condition_new,autoparts_condition_used,year_from,year_to,description,price,currencies!inner(id,currency),photo_url,is_alive,is_visible',
+          '${baseUrl}/ads?select=id,created_at,owner_id,parts_category_id_list,car_brands(id,brand),car_models_id_list,autoparts_condition_new,autoparts_condition_used,year_from,year_to,description,price,currencies!inner(id,currency),photo_url,is_alive,is_visible',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -2687,8 +2755,9 @@ class UpsertRequestInfoCall {
           '${baseUrl}/requests?select=id,created_at,is_alive,requested_part_id,requested_details,status,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,photo,is_visible,years(year),car_models(model,car_brands(brand)),data_users!inner(id))',
       callType: ApiCallType.POST,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'resolution=merge-duplicates, return=representation',
       },
       params: {},
@@ -2739,8 +2808,9 @@ class UpdateRequestInfoCall {
       apiUrl: '${baseUrl}/requests?id=eq.${reqID}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -2783,8 +2853,9 @@ class UpdateFeedbackInfoCall {
       apiUrl: '${baseUrl}/feedbacks?id=eq.${feedID}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -2833,8 +2904,9 @@ class UpsertOfferInfoCall {
       apiUrl: '${baseUrl}/offers',
       callType: ApiCallType.POST,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'resolution=merge-duplicates',
       },
       params: {},
@@ -2880,8 +2952,9 @@ class UpdateOfferInfoCall {
       apiUrl: '${baseUrl}/offers?id=eq.${offID}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -2921,8 +2994,9 @@ class UpsertOrderInfoCall {
       apiUrl: '${baseUrl}/orders',
       callType: ApiCallType.POST,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'resolution=merge-duplicates',
       },
       params: {},
@@ -2965,8 +3039,9 @@ class SellerRequestsInfoCall {
           '${baseUrl}/requests?select=id,created_at,parts_category!inner(id,category),requested_details,status,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,photo,years!inner(id,year),car_models!inner(id,model,car_brands(id,brand)),data_users(id)),seller_requests(seller_id,request_id,is_rejected)&vehicle_users.years.id=gte.${yearFrom}&vehicle_users.years.id=lte.${yearTo}',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -3065,11 +3140,12 @@ class SellerRequestONEInfoCall {
     return ApiManager.instance.makeApiCall(
       callName: 'SellerRequest ONE Info',
       apiUrl:
-          '${baseUrl}/requests?select=id,created_at,requested_part_id,requested_details,status,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,photo,years!inner(id,year),car_models!inner(id,model,car_brands(id,brand)),data_users!inner(id,phone,cities(id,countries!inner(id)))),seller_requests(seller_id,request_id,is_rejected)',
+          '${baseUrl}/requests?select=id,created_at,requested_part_id,requested_details,status,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,photo,years!inner(id,year),car_models!inner(id,model,car_brands(id,brand)),data_users!inner(id,phone,cities(id,city,countries!inner(id,country)))),seller_requests(seller_id,request_id,is_rejected)',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -3169,11 +3245,12 @@ class OpenRequestONEInfoCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Open Request ONE Info',
       apiUrl:
-          '${baseUrl}/requests?select=id,created_at,requested_part_id,requested_details,condition_used,condition_new,photo_url,vehicle_users!inner(vin,years!inner(year),car_models!inner(model,car_brands(brand)))',
+          '${baseUrl}/requests?select=id,created_at,requested_part_id,requested_details,condition_used,condition_new,photo_url,vehicle_users!inner(vin,photo,years!inner(year),data_users!inner(id,phone),car_models!inner(model,car_brands(brand)))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -3265,11 +3342,12 @@ class SellerRequestRejectedONEInfoCall {
     return ApiManager.instance.makeApiCall(
       callName: 'SellerRequest Rejected ONE Info',
       apiUrl:
-          '${baseUrl}/requests?select=id,vehicle_users!inner(years!inner(year),car_models!inner(model,car_brands(brand)))',
+          '${baseUrl}/requests?select=id,created_at,requested_details,photo_url,requested_part_id,vehicle_users!inner(years!inner(year),car_models!inner(model,car_brands(brand)))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -3361,11 +3439,12 @@ class BuyerFilterONEInfoCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Buyer Filter ONE Info',
       apiUrl:
-          '${baseUrl}/filters?select=id,created_at,data_users!inner(id,phone,rating,cities(id,city,countries(id,country,flag_url)))',
+          '${baseUrl}/filters?select=id,created_at,data_users!inner(id,phone,rating,full_name,cities(id,city,countries(id,country,flag_url)))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -3417,8 +3496,9 @@ class SellerRequestsInfoRESERVCall {
           '${baseUrl}/requests?select=id,created_at,requested_part_id,requested_details,status,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,photo,years!inner(id,year),car_models!inner(id,model,car_brands(id,brand)),data_users(id,phone)),seller_requests!inner(seller_id,request_id,is_rejected)&vehicle_users.years.id=gte.${yearFrom}&vehicle_users.years.id=lte.${yearTo}',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -3521,8 +3601,9 @@ class SellerRequestsInfoALLCall {
           '${baseUrl}/requests?select=id,created_at,requested_part_id,requested_details,status,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,photo,years!inner(id,year),car_models!inner(id,model,car_brands(id,brand)),data_users(id)),seller_requests!inner(seller_id,request_id,is_rejected)',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -3621,8 +3702,9 @@ class SellerRequestsRejectedInfoCall {
           '${baseUrl}/requests?select=id,created_at,requested_part_id,requested_details,status,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,photo,years(year),car_models!inner(id,model,car_brands(brand)),data_users(id)),seller_requests!inner(seller_id,request_id,is_rejected)',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -3737,8 +3819,9 @@ class HideVehicleUserInfoCall {
       apiUrl: '${baseUrl}/vehicle_users?id=eq.${carId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -3784,8 +3867,9 @@ class UpdateVehicleUserInfoCall {
       apiUrl: '${baseUrl}/vehicle_users?id=eq.${carId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -3823,8 +3907,9 @@ class HideRequestInfoCall {
       apiUrl: '${baseUrl}/requests?id=eq.${reqId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -3862,8 +3947,9 @@ class DiedRequestInfoCall {
       apiUrl: '${baseUrl}/requests?id=eq.${reqId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -3902,8 +3988,9 @@ class DiedAdInfoCall {
       apiUrl: '${baseUrl}/ads?id=eq.${adId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -3942,8 +4029,9 @@ class AliveRequestInfoCall {
       apiUrl: '${baseUrl}/requests?id=eq.${reqId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -3984,8 +4072,9 @@ class RejectRequestInfoCall {
       apiUrl: '${baseUrl}/seller_requests',
       callType: ApiCallType.POST,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -4023,8 +4112,9 @@ class HideOfferInfoCall {
       apiUrl: '${baseUrl}/offers?id=eq.${offId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -4062,8 +4152,9 @@ class HideFilterInfoCall {
       apiUrl: '${baseUrl}/filters?id=eq.${filterId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -4101,8 +4192,9 @@ class HideAdInfoCall {
       apiUrl: '${baseUrl}/ads?id=eq.${adId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -4140,8 +4232,9 @@ class CompleteOfferInfoCall {
       apiUrl: '${baseUrl}/offers?request_id=eq.${reqId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -4179,8 +4272,9 @@ class ViewOfferInfoCall {
       apiUrl: '${baseUrl}/offers?id=eq.${offId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -4218,8 +4312,9 @@ class RejectOfferInfoCall {
       apiUrl: '${baseUrl}/offers?id=eq.${offId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -4254,8 +4349,9 @@ class AdminRequestsInfoCall {
           '${baseUrl}/requests?select=id,created_at,requested_part_id,requested_details,status,condition_used,condition_new,photo_url,vehicle_users(id,vin,photo,years(year),car_models(id,model,car_brands(brand)),data_users(id,uid,phone)),requests_notes(request_id,note)',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -4296,8 +4392,9 @@ class ApprovedAdminRequestsInfoCall {
       apiUrl: '${baseUrl}/requests?id=eq.${reqId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -4336,8 +4433,9 @@ class ApprovedAdminOffersInfoCall {
       apiUrl: '${baseUrl}/offers?id=eq.${offId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -4376,8 +4474,9 @@ class ApprovedAdminFeedbackInfoCall {
       apiUrl: '${baseUrl}/feedbacks?id=eq.${feedId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -4416,8 +4515,9 @@ class RejectedAdminRequestsInfoCall {
       apiUrl: '${baseUrl}/requests?id=eq.${reqId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -4456,8 +4556,9 @@ class RejectedAdminOffersInfoCall {
       apiUrl: '${baseUrl}/offers?id=eq.${offId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -4496,8 +4597,9 @@ class RejectedAdminFeedbacksInfoCall {
       apiUrl: '${baseUrl}/feedbacks?id=eq.${feedId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -4539,8 +4641,9 @@ class RejectedAdminRequestsNotesInfoCall {
       apiUrl: '${baseUrl}/requests_notes',
       callType: ApiCallType.POST,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'resolution=merge-duplicates',
       },
       params: {},
@@ -4582,8 +4685,9 @@ class RejectedAdminOffersNotesInfoCall {
       apiUrl: '${baseUrl}/offers_notes',
       callType: ApiCallType.POST,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'resolution=merge-duplicates',
       },
       params: {},
@@ -4625,8 +4729,9 @@ class RejectedAdminFeedbacksNotesInfoCall {
       apiUrl: '${baseUrl}/feedbacks_notes',
       callType: ApiCallType.POST,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'resolution=merge-duplicates',
       },
       params: {},
@@ -4662,8 +4767,9 @@ class SellerPendingReviewOffersInfoCall {
           '${baseUrl}/offers?select=id,created_at,data_users(id,full_name),requests(id,requested_part_id,requested_details,photo_url,condition_used,condition_new,vehicle_users(id,vin,car_models(model,car_brands(brand)),years(year))),price,details,status,currencies(id,currency),photo_url',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -4777,8 +4883,9 @@ class SellerApprovedOffersInfoCall {
           '${baseUrl}/offers?select=id,created_at,data_users(id,full_name),requests!inner(id,is_alive,requested_part_id,requested_details,photo_url,condition_used,condition_new,vehicle_users(id,vin,car_models(model,car_brands(brand)),years(year))),price,details,status,currencies(id,currency),photo_url',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -4893,8 +5000,9 @@ class SellerRejectedOffersInfoCall {
           '${baseUrl}/offers?select=id,created_at,offers_notes(note),data_users(id,full_name),requests(id,requested_part_id,requested_details,photo_url,condition_used,condition_new,vehicle_users(id,vin,car_models(model,car_brands(brand)),years(year))),price,details,status,currencies(id,currency),photo_url',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -5007,8 +5115,9 @@ class SellerDeletedOffersInfoCall {
           '${baseUrl}/offers?select=id,created_at,offers_notes(note),data_users(id,full_name),requests(id,requested_part_id,requested_details,photo_url,vehicle_users(id,vin,car_models(model,car_brands(brand)),years(year))),price,details,status,currencies(id,currency),photo_url',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -5119,8 +5228,9 @@ class SellerCompletedOffersInfoCall {
           '${baseUrl}/offers?select=id,created_at,offers_notes(note),data_users(id,full_name),requests(id,requested_part_id,requested_details,photo_url,vehicle_users(id,vin,car_models(model,car_brands(brand)),years(year))),price,details,status,currencies(id,currency),photo_url',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -5231,8 +5341,9 @@ class SellerNotSoldOffersInfoCall {
           '${baseUrl}/offers?select=id,created_at,offers_notes(note),data_users(id,full_name),requests(id,requested_part_id,requested_details,photo_url,condition_used,condition_new,vehicle_users(id,vin,car_models(model,car_brands(brand)),years(year))),price,details,status,currencies(id,currency),photo_url,orders(id)',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -5346,8 +5457,9 @@ class BuyerOffersInfoCall {
           '${baseUrl}/offers?select=id,created_at,offers_notes(note),data_users!inner(id,full_name,rating,phone),requests!inner(id,is_alive,requested_part_id,requested_details,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,car_models(model,car_brands(brand)),years(year),data_users!inner(id,phone,full_name))),price,details,status,currencies(id,currency),photo_url',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -5464,8 +5576,9 @@ class BuyerOffersViewedInfoCall {
           '${baseUrl}/offers?select=id,created_at,offers_notes(note),data_users!inner(id,full_name,rating,phone),requests!inner(id,is_alive,requested_part_id,requested_details,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,car_models(model,car_brands(brand)),years(year),data_users!inner(id,phone,full_name))),price,details,status,currencies(id,currency),photo_url',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -5582,8 +5695,9 @@ class BuyerOffersRejectedInfoCall {
           '${baseUrl}/offers?select=id,created_at,offers_notes(note),data_users!inner(id,full_name,rating,phone),requests!inner(id,is_alive,requested_part_id,requested_details,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,car_models(model,car_brands(brand)),years(year),data_users!inner(id,phone,full_name))),price,details,status,currencies(id,currency),photo_url',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -5698,8 +5812,9 @@ class AdminOffersInfoCall {
           '${baseUrl}/offers?select=id,created_at,offers_notes(note),data_users(id,uid,full_name),requests(id,requested_part_id,requested_details,photo_url,condition_used,condition_new,vehicle_users(id,vin,car_models(model,car_brands(brand)),years(year),data_users(id,uid))),price,details,status,currencies(id,currency),photo_url',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -5811,8 +5926,9 @@ class AdminOrdersInfoCall {
           '${baseUrl}/orders?select=id,created_at,order_status,offers(id,offers_notes(note),data_users(id,full_name,phone,rating,cities(city,countries(country))),price,details,status,currencies(id,currency),photo_url,requests(id,requested_part_id,requested_details,photo_url,condition_used,condition_new,vehicle_users(id,vin,photo,car_models(model,car_brands(brand)),years(year),data_users(id,full_name,phone,cities(city,countries(country)),rating))))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -5923,8 +6039,9 @@ class AdminFeedbacksInfoCall {
           '${baseUrl}/feedbacks?select=id,created_at,rating,comment,status,seller_id,buyer_id',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -5980,8 +6097,9 @@ class BuyerOrdersInfoCall {
           '${baseUrl}/orders?select=id,created_at,order_status,offers!inner(id,offers_notes(note),data_users(id,full_name,phone,rating,cities(city,countries(country))),price,details,status,currencies(id,currency),photo_url,requests!inner(id,requested_part_id,requested_details,photo_url,condition_used,condition_new,vehicle_users!inner(id,vin,photo,car_models(model,car_brands(brand)),years(year),data_users!inner(id,full_name,phone,cities(city,countries(country)),rating))))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -6094,8 +6212,9 @@ class BuyerOrdersByRequestInfoCall {
           '${baseUrl}/orders?select=id,created_at,order_status,offers!inner(id,offers_notes(note),data_users(id,full_name,phone,rating,cities(city,countries(country))),price,details,status,currencies(id,currency),photo_url,requests!inner(id,requested_part_id,requested_details,photo_url,condition_used,condition_new,vehicle_users!inner(id,vin,photo,car_models(model,car_brands(brand)),years(year),data_users!inner(id,full_name,phone,cities(city,countries(country)),rating))))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -6207,8 +6326,9 @@ class BuyerCompletedOrdersInfoCall {
           '${baseUrl}/orders?select=id,created_at,order_status,offers!inner(id,offers_notes(note),data_users(id,full_name,phone,rating,cities(city,countries(country))),price,details,status,currencies(id,currency),photo_url,requests!inner(id,requested_part_id,requested_details,photo_url,condition_used,condition_new,vehicle_users!inner(id,vin,is_visible,photo,car_models(model,car_brands(brand)),years(year),data_users!inner(id,full_name,phone,cities(city,countries(country)),rating))))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -6321,8 +6441,9 @@ class BuyerCancelledOrdersInfoCall {
           '${baseUrl}/orders?select=id,created_at,order_status,offers!inner(id,offers_notes(note),data_users(id,full_name,phone,rating,cities(city,countries(country))),price,details,status,currencies(id,currency),photo_url,requests!inner(id,requested_part_id,requested_details,photo_url,condition_used,condition_new,vehicle_users!inner(id,vin,is_visible,photo,car_models(model,car_brands(brand)),years(year),data_users!inner(id,full_name,phone,cities(city,countries(country)),rating))))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -6436,8 +6557,9 @@ class SellerOrdersInfoCall {
           '${baseUrl}/orders?select=id,created_at,order_status,offers!inner(id,offers_notes(note),data_users(id,full_name,phone,rating,cities(city,countries(country))),price,details,status,currencies(id,currency),photo_url,requests(id,requested_part_id,requested_details,photo_url,condition_used,condition_new,vehicle_users(id,vin,photo,car_models(model,car_brands(brand)),years(year),data_users(id,full_name,phone,cities(city,countries(country)),rating))))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -6548,8 +6670,9 @@ class SellerCompletedOrdersInfoCall {
           '${baseUrl}/orders?select=id,created_at,order_status,offers!inner(id,offers_notes(note),data_users(id,full_name,phone,rating,cities(city,countries(country))),price,details,status,currencies(id,currency),photo_url,requests(id,requested_part_id,requested_details,photo_url,condition_used,condition_new,vehicle_users(id,vin,photo,car_models(model,car_brands(brand)),years(year),data_users(id,full_name,phone,cities(city,countries(country)),rating))))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {
         'offers.seller_id': "eq.${userID}",
@@ -6661,8 +6784,9 @@ class SellerCancelledOrdersInfoCall {
           '${baseUrl}/orders?select=id,created_at,order_status,offers!inner(id,offers_notes(note),data_users(id,full_name,phone,rating,cities(city,countries(country))),price,details,status,currencies(id,currency),photo_url,requests(id,requested_part_id,requested_details,photo_url,condition_used,condition_new,vehicle_users(id,vin,photo,car_models(model,car_brands(brand)),years(year),data_users(id,full_name,phone,cities(city,countries(country)),rating))))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {
         'offers.seller_id': "eq.${userID}",
@@ -6778,8 +6902,9 @@ class BuyerOrderCloseInfoCall {
       apiUrl: '${baseUrl}/orders?id=eq.${ordId}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -6825,8 +6950,9 @@ class BuyerFeedbackInfoCall {
       apiUrl: '${baseUrl}/feedbacks',
       callType: ApiCallType.POST,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'resolution=merge-duplicates',
       },
       params: {},
@@ -6861,8 +6987,9 @@ class SellerRatingInfoCall {
           '${baseUrl}/feedbacks?select=id,rating,comment,seller_id,buyer_id,status',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {
         'seller_id': "eq.${sellerID}",
@@ -6915,8 +7042,9 @@ class BuyerRatingInfoCall {
           '${baseUrl}/feedbacks?select=order_rating,comment,orders(id,offers(requests(vehicle_users(user_id))))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {
         'orders.offers.requests.vehicle_users.user_id': "eq.${buyerID}",
@@ -6967,8 +7095,9 @@ class UpdateSellerRatingInfoCall {
       apiUrl: '${baseUrl}/data_users?id=eq.${sellerID}',
       callType: ApiCallType.PATCH,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'return=minimal',
       },
       params: {},
@@ -7002,8 +7131,9 @@ class GetRowDataUserCall {
       apiUrl: '${baseUrl}/data_users?select=id,is_licensed,is_blocked',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {
         'id': "eq.${userID}",
@@ -7051,8 +7181,9 @@ class NewOffersForRequestInfoCall {
           '${baseUrl}/offers?select=id,request_id,is_viewed,is_visible,is_completed,is_rejected,requests(is_alive)',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -7098,8 +7229,9 @@ class ViewedOffersForRequestInfoCall {
       apiUrl: '${baseUrl}/offers?select=id,request_id,is_viewed,is_visible',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -7149,8 +7281,9 @@ class AdminBuyerContractsInfoCall {
           '${baseUrl}/contracts?select=id,created_at,role_id,admin_id,content',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -7186,8 +7319,9 @@ class AdminSellerContractsInfoCall {
           '${baseUrl}/contracts?select=id,created_at,role_id,admin_id,content',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -7223,8 +7357,9 @@ class AdminBannersInfoCall {
       apiUrl: '${baseUrl}/banners?select=id,created_at,admin_id,place,photo',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -7259,8 +7394,9 @@ class AdminVehiclesInfoCall {
       apiUrl: '${baseUrl}/vehicle_users?select=id,created_at,is_visible',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -7296,8 +7432,9 @@ class AdminSellerInfoCall {
           '${baseUrl}/data_users?select=id,created_at,full_name,rating,cities(city),filters(id, seller_id,is_visible,autoparts_condition_new,autoparts_condition_used,year_from,year_to,parts_category_id_list,car_brand_id,car_models_id_list),offers(id,seller_id,price,currency_id,orders(id,order_status)),seller_requests(id,seller_id)',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -7332,8 +7469,9 @@ class AdminBuyerInfoCall {
           '${baseUrl}/data_users?select=id,created_at,full_name,cities(city),vehicle_users(id,user_id,vin,years(id,year),photo,car_models(model,car_brands(brand)),requests(id,is_alive,offers(price,currency_id,orders(order_status))))',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
       },
       params: {
@@ -7369,8 +7507,9 @@ class ChatsBuyerInfoCall {
           '${baseUrl}/chats?select=id,created_at,buyer_id,seller_id,last_message,last_message_at',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
         'Authorization': 'Bearer ${currentJwtToken}',
       },
@@ -7414,8 +7553,9 @@ class ChatsSellerInfoCall {
           '${baseUrl}/chats?select=id,created_at,buyer_id,seller_id,last_message,last_message_at',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
         'Authorization': 'Bearer ${currentJwtToken}',
       },
@@ -7461,8 +7601,9 @@ class ChatsMessagesBuyerInfoCall {
           '${baseUrl}/messages?select=id,created_at,chat_id,sender_id,status,is_removed,type,text,media_url,path,thumbnail_url,translated_text,content',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
         'Authorization': 'Bearer ${currentJwtToken}',
       },
@@ -7551,8 +7692,9 @@ class ChatsMessagesSellerInfoCall {
           '${baseUrl}/messages?select=id,created_at,chat_id,sender_id,status,is_removed,type,text,media_url,path,thumbnail_url,translated_text,content',
       callType: ApiCallType.GET,
       headers: {
-        'apikey': '${supabaseAnonKey}',
         'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
         'Authorization': 'Bearer ${currentJwtToken}',
       },
@@ -8727,6 +8869,7 @@ class RPCChatsGroup {
     'Content-Type': 'application/json',
     'Prefer': 'return=representation,count=exact',
     'apikey': '[SupabaseAnonKey]',
+    'Authorization': 'Bearer [SupabaseAnonKey]',
   };
   static ChSendMessageCall chSendMessageCall = ChSendMessageCall();
   static ChChatPreviewCall chChatPreviewCall = ChChatPreviewCall();
@@ -8788,6 +8931,7 @@ class ChSendMessageCall {
         'Content-Type': 'application/json',
         'Prefer': 'return=representation,count=exact',
         'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Authorization': 'Bearer ${currentJwtToken}',
       },
       params: {},
@@ -8832,6 +8976,7 @@ class ChChatPreviewCall {
         'Content-Type': 'application/json',
         'Prefer': 'return=representation,count=exact',
         'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -8872,6 +9017,7 @@ class ChMarkChatReadCall {
         'Content-Type': 'application/json',
         'Prefer': 'return=representation,count=exact',
         'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Authorization': 'Bearer ${currentJwtToken}',
       },
       params: {},
@@ -8913,6 +9059,7 @@ class ChPresenceOpenCall {
         'Content-Type': 'application/json',
         'Prefer': 'return=representation,count=exact',
         'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Authorization': 'Bearer ${currentJwtToken}',
       },
       params: {},
@@ -8954,6 +9101,7 @@ class ChPresenceCloseCall {
         'Content-Type': 'application/json',
         'Prefer': 'return=representation,count=exact',
         'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Authorization': 'Bearer ${currentJwtToken}',
       },
       params: {},
@@ -8997,6 +9145,7 @@ class ChGetOrCreateChatCall {
         'Content-Type': 'application/json',
         'Prefer': 'return=representation,count=exact',
         'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Authorization': 'Bearer ${currentJwtToken}',
       },
       params: {},
@@ -9038,6 +9187,7 @@ class ChDeleteOwnMessageCall {
         'Content-Type': 'application/json',
         'Prefer': 'return=representation,count=exact',
         'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
         'Authorization': 'Bearer ${currentJwtToken}',
       },
       params: {},
@@ -9078,6 +9228,7 @@ class AdsGetForRequestCall {
         'Content-Type': 'application/json',
         'Prefer': 'return=representation,count=exact',
         'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -9119,6 +9270,7 @@ class AdsAddUniqueViewCall {
         'Content-Type': 'application/json',
         'Prefer': 'return=representation,count=exact',
         'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -9160,6 +9312,7 @@ class RequestAddUniqueViewCall {
         'Content-Type': 'application/json',
         'Prefer': 'return=representation,count=exact',
         'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -9199,6 +9352,7 @@ class AdGetViewsCountCall {
         'Content-Type': 'application/json',
         'Prefer': 'return=representation,count=exact',
         'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -9238,6 +9392,7 @@ class RequestGetViewsCountCall {
         'Content-Type': 'application/json',
         'Prefer': 'return=representation,count=exact',
         'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -9277,6 +9432,7 @@ class RequestActualityConfirmCall {
         'Content-Type': 'application/json',
         'Prefer': 'return=representation,count=exact',
         'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -9316,6 +9472,7 @@ class RequestActualityRemoveByBuyerCall {
         'Content-Type': 'application/json',
         'Prefer': 'return=representation,count=exact',
         'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -9357,6 +9514,9 @@ class RPCUsersDeviceAboutGroup {
   static AllRequestsForSellerFilterPaginCall
       allRequestsForSellerFilterPaginCall =
       AllRequestsForSellerFilterPaginCall();
+  static AllRequestsForSellerFilterPaginNewCall
+      allRequestsForSellerFilterPaginNewCall =
+      AllRequestsForSellerFilterPaginNewCall();
   static AllRequestsForSellerCountCall allRequestsForSellerCountCall =
       AllRequestsForSellerCountCall();
   static AllRequestsForSellerFilterCountCall
@@ -9518,6 +9678,54 @@ class AllRequestsForSellerFilterPaginCall {
     return ApiManager.instance.makeApiCall(
       callName: 'All Requests For Seller Filter Pagin',
       apiUrl: '${baseUrl}requests_for_seller_filter_pagin',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Prefer': 'return=representation,count=exact',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class AllRequestsForSellerFilterPaginNewCall {
+  Future<ApiCallResponse> call({
+    int? userID,
+    int? limit,
+    int? offset,
+    int? cityID = 0,
+    int? countryID = 0,
+    String? supabaseUrl,
+    String? supabaseAnonKey,
+  }) async {
+    supabaseUrl ??= FFDevEnvironmentValues().SupabaseUrl;
+    supabaseAnonKey ??= FFDevEnvironmentValues().SupabaseAnonKey;
+    final baseUrl = RPCUsersDeviceAboutGroup.getBaseUrl(
+      supabaseUrl: supabaseUrl,
+      supabaseAnonKey: supabaseAnonKey,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "p_seller_id": ${userID},
+  "p_limit": ${limit},
+  "p_offset": ${offset},
+  "p_country_id": ${countryID},
+  "p_city_id": ${cityID}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'All Requests For Seller Filter Pagin New',
+      apiUrl: '${baseUrl}requests_for_seller_filter_pagin_new',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',

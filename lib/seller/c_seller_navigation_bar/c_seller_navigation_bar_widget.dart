@@ -1,4 +1,3 @@
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -8,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'c_seller_navigation_bar_model.dart';
 export 'c_seller_navigation_bar_model.dart';
 
@@ -136,8 +134,6 @@ class _CSellerNavigationBarWidgetState extends State<CSellerNavigationBarWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Visibility(
       visible: widget.hidden == false,
       child: Align(
@@ -518,30 +514,8 @@ class _CSellerNavigationBarWidgetState extends State<CSellerNavigationBarWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        _model.apiResultSpecList =
-                            await SellerSpecializationsTable().queryRows(
-                          queryFn: (q) => q
-                              .eqOrNull(
-                                'seller_id',
-                                FFAppState().userIdApp,
-                              )
-                              .eqOrNull(
-                                'is_active',
-                                true,
-                              ),
-                        );
-
                         context.goNamed(
                           PAccountSellerWidget.routeName,
-                          queryParameters: {
-                            'selectedSpecIds': serializeParam(
-                              _model.apiResultSpecList
-                                  ?.map((e) => e.specializationId)
-                                  .toList(),
-                              ParamType.int,
-                              isList: true,
-                            ),
-                          }.withoutNulls,
                           extra: <String, dynamic>{
                             '__transition_info__': TransitionInfo(
                               hasTransition: true,
@@ -550,8 +524,6 @@ class _CSellerNavigationBarWidgetState extends State<CSellerNavigationBarWidget>
                             ),
                           },
                         );
-
-                        safeSetState(() {});
                       },
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
