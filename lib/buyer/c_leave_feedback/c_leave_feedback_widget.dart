@@ -301,7 +301,7 @@ class _CLeaveFeedbackWidgetState extends State<CLeaveFeedbackWidget>
                                       .bodyMedium
                                       .fontStyle,
                                 ),
-                            maxLines: 10,
+                            maxLines: 7,
                             cursorColor:
                                 FlutterFlowTheme.of(context).primaryText,
                             validator: _model.textControllerValidator
@@ -313,7 +313,7 @@ class _CLeaveFeedbackWidgetState extends State<CLeaveFeedbackWidget>
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 32.0, 0.0, 0.0),
+                              0.0, 16.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               _model.apiResultswp = await SupabaseInfoGroup

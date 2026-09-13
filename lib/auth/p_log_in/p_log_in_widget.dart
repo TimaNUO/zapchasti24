@@ -177,7 +177,6 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
                                         backgroundColor: Colors.transparent,
-                                        enableDrag: false,
                                         context: context,
                                         builder: (context) {
                                           return GestureDetector(
@@ -1016,7 +1015,6 @@ class _PLogInWidgetState extends State<PLogInWidget> {
                                                 isScrollControlled: true,
                                                 backgroundColor:
                                                     Colors.transparent,
-                                                enableDrag: false,
                                                 context: context,
                                                 builder: (context) {
                                                   return GestureDetector(

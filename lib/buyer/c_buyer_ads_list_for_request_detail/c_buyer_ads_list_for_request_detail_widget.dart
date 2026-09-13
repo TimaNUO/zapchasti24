@@ -1985,7 +1985,6 @@ class _CBuyerAdsListForRequestDetailWidgetState
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
                                   backgroundColor: Colors.transparent,
-                                  enableDrag: false,
                                   context: context,
                                   builder: (context) {
                                     return Padding(

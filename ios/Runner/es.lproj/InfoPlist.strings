@@ -1,4 +1,4 @@
 NSCameraUsageDescription = "Para tomar una foto o grabar un video, esta aplicación requiere permiso para acceder a la cámara.";
-NSPhotoLibraryUsageDescription = "Para subir datos, esta aplicación necesita permiso para acceder a la biblioteca de fotos.";
-NSMicrophoneUsageDescription = "Necesario para audio";
-PermissionGroupNotification = "Necesario para notificaciones push";
+NSPhotoLibraryUsageDescription = "Esta aplicación necesita permiso para acceder a tu biblioteca de fotos y descargar datos.";
+NSMicrophoneUsageDescription = "Necesario para la reproducción de sonido";
+PermissionGroupNotification = "Requerido para notificaciones PUSH";

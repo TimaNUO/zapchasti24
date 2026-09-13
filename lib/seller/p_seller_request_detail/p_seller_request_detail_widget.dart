@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:async';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -1982,7 +1983,6 @@ class _PSellerRequestDetailWidgetState extends State<PSellerRequestDetailWidget>
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
                                         backgroundColor: Colors.transparent,
-                                        enableDrag: false,
                                         context: context,
                                         builder: (context) {
                                           return GestureDetector(
@@ -2094,6 +2094,119 @@ class _PSellerRequestDetailWidgetState extends State<PSellerRequestDetailWidget>
                                     ),
                                   ),
                                 ),
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 16.0, 0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      _model.apiResulte859 =
+                                          await SupabaseInfoGroup
+                                              .rejectRequestInfoCall
+                                              .call(
+                                        reqID: widget.requestID,
+                                        sellerID: FFAppState().userIdApp,
+                                      );
+
+                                      unawaited(
+                                        () async {
+                                          _model.outputRebuild5659 =
+                                              await RPCRequestsFiltersGroup
+                                                  .setRequestFilterStatusForSellerCall
+                                                  .call(
+                                            reqID: widget.requestID,
+                                            sellerID: FFAppState().userIdApp,
+                                            status: 'rejected',
+                                          );
+                                        }(),
+                                      );
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('Отклонено'),
+                                            content: Text('Заявка отклонена'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                      Navigator.pop(context);
+
+                                      safeSetState(() {});
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 40.0,
+                                      decoration: BoxDecoration(
+                                        color: Color(0x1AFF1616),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent1,
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(0.0),
+                                            child: SvgPicture.asset(
+                                              'assets/images/otklonit_prodavtsa_znachok.svg',
+                                              width: 20.0,
+                                              height: 20.0,
+                                              fit: BoxFit.contain,
+                                            ),
+                                          ),
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'oa1j6nnx' /* Отклонить заявку */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  font: GoogleFonts.openSans(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .accent1,
+                                                  fontSize: 12.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                        ].divide(SizedBox(width: 8.0)),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ]
                                 .divide(SizedBox(height: 8.0))
                                 .addToStart(SizedBox(height: 89.0))

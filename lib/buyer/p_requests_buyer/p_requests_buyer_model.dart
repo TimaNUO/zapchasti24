@@ -13,6 +13,8 @@ class PRequestsBuyerModel extends FlutterFlowModel<PRequestsBuyerWidget> {
 
   // Stores action output result for [Backend Call - API (Buyer Approved Requests Info)] action in pRequestsBuyer widget.
   ApiCallResponse? apiResultAPP;
+  // Stores action output result for [Backend Call - API (VehicleUser Info)] action in Container widget.
+  ApiCallResponse? apiResult1l821;
   // Model for cBuyerNavigationBar component.
   late CBuyerNavigationBarModel cBuyerNavigationBarModel;
 

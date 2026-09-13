@@ -390,7 +390,6 @@ class _CBuyerRequestRejectedListWidgetState
                                               isScrollControlled: true,
                                               backgroundColor:
                                                   Colors.transparent,
-                                              enableDrag: false,
                                               context: context,
                                               builder: (context) {
                                                 return Padding(
@@ -472,44 +471,51 @@ class _CBuyerRequestRejectedListWidgetState
                                                         MainAxisAlignment
                                                             .spaceBetween,
                                                     children: [
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        0.0),
-                                                            child: SvgPicture
-                                                                .asset(
-                                                              'assets/images/ikonka_pustogo_profilya_v_spiske_prodavtsov_seraya.svg',
-                                                              width: 52.0,
-                                                              height: 52.0,
-                                                              fit: BoxFit
-                                                                  .contain,
+                                                      Container(
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                0.62,
+                                                        decoration:
+                                                            BoxDecoration(),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          0.0),
+                                                              child: SvgPicture
+                                                                  .asset(
+                                                                'assets/images/ikonka_pustogo_profilya_v_spiske_prodavtsov_seraya.svg',
+                                                                width: 52.0,
+                                                                height: 52.0,
+                                                                fit: BoxFit
+                                                                    .contain,
+                                                              ),
                                                             ),
-                                                          ),
-                                                          Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceBetween,
-                                                                children: [
-                                                                  Text(
+                                                            Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Container(
+                                                                  width: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width *
+                                                                      0.45,
+                                                                  decoration:
+                                                                      BoxDecoration(),
+                                                                  child: Text(
                                                                     getJsonField(
                                                                       containerBuyerFilterONEInfoResponse
                                                                           .jsonBody,
@@ -539,109 +545,103 @@ class _CBuyerRequestRejectedListWidgetState
                                                                               .fontStyle,
                                                                         ),
                                                                   ),
-                                                                ].divide(SizedBox(
-                                                                    width:
-                                                                        8.0)),
-                                                              ),
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  ClipRRect(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            0.0),
-                                                                    child: SvgPicture
-                                                                        .asset(
-                                                                      'assets/images/location.svg',
-                                                                      width:
-                                                                          20.0,
-                                                                      height:
-                                                                          20.0,
-                                                                      fit: BoxFit
-                                                                          .contain,
-                                                                    ),
-                                                                  ),
-                                                                  if (getJsonField(
-                                                                        containerBuyerFilterONEInfoResponse
-                                                                            .jsonBody,
-                                                                        r'''$[0].data_users.cities.countries.flag_url''',
-                                                                      ) !=
-                                                                      null)
+                                                                ),
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .start,
+                                                                  children: [
                                                                     ClipRRect(
                                                                       borderRadius:
                                                                           BorderRadius.circular(
                                                                               0.0),
-                                                                      child:
-                                                                          CachedNetworkImage(
-                                                                        fadeInDuration:
-                                                                            Duration(milliseconds: 0),
-                                                                        fadeOutDuration:
-                                                                            Duration(milliseconds: 0),
-                                                                        imageUrl:
-                                                                            getJsonField(
-                                                                          containerBuyerFilterONEInfoResponse
-                                                                              .jsonBody,
-                                                                          r'''$[0].data_users.cities.countries.flag_url''',
-                                                                        ).toString(),
+                                                                      child: SvgPicture
+                                                                          .asset(
+                                                                        'assets/images/location.svg',
                                                                         width:
-                                                                            50.0,
+                                                                            20.0,
                                                                         height:
-                                                                            36.0,
+                                                                            20.0,
                                                                         fit: BoxFit
                                                                             .contain,
                                                                       ),
                                                                     ),
-                                                                  if (getJsonField(
-                                                                        containerBuyerFilterONEInfoResponse
-                                                                            .jsonBody,
-                                                                        r'''$[0].data_users.cities.city''',
-                                                                      ) !=
-                                                                      null)
-                                                                    Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        getJsonField(
+                                                                    if (getJsonField(
+                                                                          containerBuyerFilterONEInfoResponse
+                                                                              .jsonBody,
+                                                                          r'''$[0].data_users.cities.countries.flag_url''',
+                                                                        ) !=
+                                                                        null)
+                                                                      ClipRRect(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(0.0),
+                                                                        child:
+                                                                            CachedNetworkImage(
+                                                                          fadeInDuration:
+                                                                              Duration(milliseconds: 0),
+                                                                          fadeOutDuration:
+                                                                              Duration(milliseconds: 0),
+                                                                          imageUrl:
+                                                                              getJsonField(
+                                                                            containerBuyerFilterONEInfoResponse.jsonBody,
+                                                                            r'''$[0].data_users.cities.countries.flag_url''',
+                                                                          ).toString(),
+                                                                          width:
+                                                                              50.0,
+                                                                          height:
+                                                                              36.0,
+                                                                          fit: BoxFit
+                                                                              .contain,
+                                                                        ),
+                                                                      ),
+                                                                    if (getJsonField(
                                                                           containerBuyerFilterONEInfoResponse
                                                                               .jsonBody,
                                                                           r'''$[0].data_users.cities.city''',
-                                                                        ).toString(),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              font: GoogleFonts.openSans(
+                                                                        ) !=
+                                                                        null)
+                                                                      Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Text(
+                                                                          getJsonField(
+                                                                            containerBuyerFilterONEInfoResponse.jsonBody,
+                                                                            r'''$[0].data_users.cities.city''',
+                                                                          ).toString(),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                font: GoogleFonts.openSans(
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
+                                                                                color: FlutterFlowTheme.of(context).accent4,
+                                                                                fontSize: 12.0,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                                 fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
-                                                                              color: FlutterFlowTheme.of(context).accent4,
-                                                                              fontSize: 12.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.w600,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
+                                                                        ),
                                                                       ),
-                                                                    ),
-                                                                ].divide(SizedBox(
-                                                                    width:
-                                                                        8.0)),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ]
-                                                            .divide(SizedBox(
-                                                                width: 8.0))
-                                                            .addToStart(
-                                                                SizedBox(
-                                                                    width:
-                                                                        4.0)),
+                                                                  ].divide(SizedBox(
+                                                                      width:
+                                                                          8.0)),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ]
+                                                              .divide(SizedBox(
+                                                                  width: 8.0))
+                                                              .addToStart(
+                                                                  SizedBox(
+                                                                      width:
+                                                                          4.0)),
+                                                        ),
                                                       ),
                                                       if (false)
                                                         Row(
@@ -860,7 +860,7 @@ class _CBuyerRequestRejectedListWidgetState
                                                         ),
                                                       ),
                                                     ].divide(
-                                                        SizedBox(width: 16.0)),
+                                                        SizedBox(width: 2.0)),
                                                   ),
                                                 ),
                                               ),

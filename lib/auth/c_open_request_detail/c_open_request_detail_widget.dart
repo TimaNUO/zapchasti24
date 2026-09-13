@@ -2181,7 +2181,6 @@ class _COpenRequestDetailWidgetState extends State<COpenRequestDetailWidget>
                                                             true,
                                                         backgroundColor:
                                                             Colors.transparent,
-                                                        enableDrag: false,
                                                         context: context,
                                                         builder: (context) {
                                                           return Padding(
@@ -2593,7 +2592,6 @@ class _COpenRequestDetailWidgetState extends State<COpenRequestDetailWidget>
                                                     isScrollControlled: true,
                                                     backgroundColor:
                                                         Colors.transparent,
-                                                    enableDrag: false,
                                                     context: context,
                                                     builder: (context) {
                                                       return Padding(

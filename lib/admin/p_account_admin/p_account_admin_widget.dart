@@ -410,7 +410,6 @@ class _PAccountAdminWidgetState extends State<PAccountAdminWidget> {
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
-                                    enableDrag: false,
                                     context: context,
                                     builder: (context) {
                                       return GestureDetector(
@@ -497,7 +496,6 @@ class _PAccountAdminWidgetState extends State<PAccountAdminWidget> {
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
-                                    enableDrag: false,
                                     context: context,
                                     builder: (context) {
                                       return GestureDetector(
@@ -571,7 +569,6 @@ class _PAccountAdminWidgetState extends State<PAccountAdminWidget> {
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
-                                    enableDrag: false,
                                     context: context,
                                     builder: (context) {
                                       return GestureDetector(
@@ -646,7 +643,6 @@ class _PAccountAdminWidgetState extends State<PAccountAdminWidget> {
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
-                                    enableDrag: false,
                                     context: context,
                                     builder: (context) {
                                       return GestureDetector(
@@ -711,7 +707,6 @@ class _PAccountAdminWidgetState extends State<PAccountAdminWidget> {
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
-                                    enableDrag: false,
                                     context: context,
                                     builder: (context) {
                                       return GestureDetector(
@@ -776,7 +771,6 @@ class _PAccountAdminWidgetState extends State<PAccountAdminWidget> {
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
-                                    enableDrag: false,
                                     context: context,
                                     builder: (context) {
                                       return GestureDetector(
@@ -841,7 +835,6 @@ class _PAccountAdminWidgetState extends State<PAccountAdminWidget> {
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
-                                    enableDrag: false,
                                     context: context,
                                     builder: (context) {
                                       return GestureDetector(
@@ -906,7 +899,6 @@ class _PAccountAdminWidgetState extends State<PAccountAdminWidget> {
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
-                                    enableDrag: false,
                                     context: context,
                                     builder: (context) {
                                       return GestureDetector(

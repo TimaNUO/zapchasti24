@@ -183,8 +183,15 @@ class _CCitiesListCreateWidgetState extends State<CCitiesListCreateWidget> {
                                               .accent4,
                                           size: 24.0,
                                         ),
-                                        onPressed: () {
-                                          print('IconButton pressed ...');
+                                        onPressed: () async {
+                                          FFAppState().userCityIDApp =
+                                              listViewCitiesRow.id;
+                                          FFAppState().userCityApp =
+                                              listViewCitiesRow.city!;
+                                          FFAppState().update(() {});
+
+                                          context.goNamed(
+                                              PCreateUserWidget.routeName);
                                         },
                                       ),
                                     ],

@@ -1,8 +1,8 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
+import '/components/c_photo_viewer/c_photo_viewer_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -184,23 +184,41 @@ class _CAboutSellerCardWidgetState extends State<CAboutSellerCardWidget>
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    getJsonField(
-                                                      columnBuyerCardInfoResponse
-                                                          .jsonBody,
-                                                      r'''$[:].full_name''',
-                                                    ).toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .openSans(
+                                              Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.75,
+                                                decoration: BoxDecoration(),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      getJsonField(
+                                                        columnBuyerCardInfoResponse
+                                                            .jsonBody,
+                                                        r'''$[:].full_name''',
+                                                      ).toString(),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .openSans(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.bold,
                                                             fontStyle:
@@ -209,55 +227,36 @@ class _CAboutSellerCardWidgetState extends State<CAboutSellerCardWidget>
                                                                     .bodyMedium
                                                                     .fontStyle,
                                                           ),
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
+                                                    ),
+                                                    Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      0.0),
+                                                          child:
+                                                              SvgPicture.asset(
+                                                            'assets/images/location.svg',
+                                                            width: 20.0,
+                                                            height: 20.0,
+                                                            fit: BoxFit.contain,
+                                                          ),
                                                         ),
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(0.0),
-                                                        child: SvgPicture.asset(
-                                                          'assets/images/location.svg',
-                                                          width: 20.0,
-                                                          height: 20.0,
-                                                          fit: BoxFit.contain,
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        getJsonField(
-                                                          columnBuyerCardInfoResponse
-                                                              .jsonBody,
-                                                          r'''$[:].cities.countries.country''',
-                                                        ).toString(),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .openSans(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  letterSpacing:
-                                                                      0.0,
+                                                        Text(
+                                                          getJsonField(
+                                                            columnBuyerCardInfoResponse
+                                                                .jsonBody,
+                                                            r'''$[:].cities.countries.country''',
+                                                          ).toString(),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .openSans(
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -266,30 +265,29 @@ class _CAboutSellerCardWidgetState extends State<CAboutSellerCardWidget>
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
-                                                      ),
-                                                      Text(
-                                                        getJsonField(
-                                                          columnBuyerCardInfoResponse
-                                                              .jsonBody,
-                                                          r'''$[:].cities.city''',
-                                                        ).toString(),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .openSans(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  letterSpacing:
-                                                                      0.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                        ),
+                                                        Text(
+                                                          getJsonField(
+                                                            columnBuyerCardInfoResponse
+                                                                .jsonBody,
+                                                            r'''$[:].cities.city''',
+                                                          ).toString(),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .openSans(
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -298,11 +296,23 @@ class _CAboutSellerCardWidgetState extends State<CAboutSellerCardWidget>
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
-                                                      ),
-                                                    ].divide(
-                                                        SizedBox(width: 4.0)),
-                                                  ),
-                                                ].divide(SizedBox(height: 8.0)),
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                        ),
+                                                      ].divide(
+                                                          SizedBox(width: 4.0)),
+                                                    ),
+                                                  ].divide(
+                                                      SizedBox(height: 8.0)),
+                                                ),
                                               ),
                                               FutureBuilder<List<DataUsersRow>>(
                                                 future: DataUsersTable()
@@ -549,64 +559,59 @@ class _CAboutSellerCardWidgetState extends State<CAboutSellerCardWidget>
                                                     highlightColor:
                                                         Colors.transparent,
                                                     onTap: () async {
-                                                      await Navigator.push(
-                                                        context,
-                                                        PageTransition(
-                                                          type:
-                                                              PageTransitionType
-                                                                  .fade,
-                                                          child:
-                                                              FlutterFlowExpandedImageView(
-                                                            image:
-                                                                CachedNetworkImage(
-                                                              fadeInDuration:
-                                                                  Duration(
-                                                                      milliseconds:
-                                                                          500),
-                                                              fadeOutDuration:
-                                                                  Duration(
-                                                                      milliseconds:
-                                                                          500),
-                                                              imageUrl:
-                                                                  photoItem,
-                                                              fit: BoxFit
-                                                                  .contain,
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        enableDrag: false,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child:
+                                                                CPhotoViewerWidget(
+                                                              photoList:
+                                                                  carDetailsSellerProfilesRow
+                                                                      ?.photoUrls,
+                                                              photoIndex:
+                                                                  photoIndex,
+                                                              photoCount:
+                                                                  valueOrDefault<
+                                                                      int>(
+                                                                carDetailsSellerProfilesRow
+                                                                    ?.photoUrls
+                                                                    .length,
+                                                                0,
+                                                              ),
                                                             ),
-                                                            allowRotation:
-                                                                false,
-                                                            tag: photoItem,
-                                                            useHeroAnimation:
-                                                                true,
-                                                          ),
-                                                        ),
-                                                      );
+                                                          );
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
                                                     },
-                                                    child: Hero(
-                                                      tag: photoItem,
-                                                      transitionOnUserGestures:
-                                                          true,
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                        child:
-                                                            CachedNetworkImage(
-                                                          fadeInDuration:
-                                                              Duration(
-                                                                  milliseconds:
-                                                                      500),
-                                                          fadeOutDuration:
-                                                              Duration(
-                                                                  milliseconds:
-                                                                      500),
-                                                          imageUrl: photoItem,
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  1.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                      child: CachedNetworkImage(
+                                                        fadeInDuration:
+                                                            Duration(
+                                                                milliseconds:
+                                                                    500),
+                                                        fadeOutDuration:
+                                                            Duration(
+                                                                milliseconds:
+                                                                    500),
+                                                        imageUrl: photoItem,
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                1.0,
+                                                        fit: BoxFit.cover,
                                                       ),
                                                     ),
                                                   ),

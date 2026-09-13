@@ -1,4 +1,4 @@
 NSCameraUsageDescription = "Pentru a face o fotografie sau un videoclip, această aplicație necesită permisiune de acces la cameră.";
-NSPhotoLibraryUsageDescription = "Pentru a încărca date, această aplicație necesită permisiunea de a accesa biblioteca foto.";
-NSMicrophoneUsageDescription = "Necesar pentru audio";
-PermissionGroupNotification = "Necesar pentru notificări push";
+NSPhotoLibraryUsageDescription = "Această aplicație necesită permisiunea de a accesa biblioteca foto pentru a descărca date.";
+NSMicrophoneUsageDescription = "Necesar pentru redarea sunetului";
+PermissionGroupNotification = "Necesar pentru notificările PUSH";

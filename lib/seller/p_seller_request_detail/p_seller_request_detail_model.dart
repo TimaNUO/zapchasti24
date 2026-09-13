@@ -12,6 +12,10 @@ class PSellerRequestDetailModel
   ApiCallResponse? apiResultb9k;
   // Stores action output result for [Backend Call - API (ch get or create chat)] action in Container widget.
   ApiCallResponse? chatRequest;
+  // Stores action output result for [Backend Call - API (Reject Request Info)] action in Container widget.
+  ApiCallResponse? apiResulte859;
+  // Stores action output result for [Backend Call - API (set request filter status for seller)] action in Container widget.
+  ApiCallResponse? outputRebuild5659;
   // Model for cBackComponents component.
   late CBackComponentsModel cBackComponentsModel;
 

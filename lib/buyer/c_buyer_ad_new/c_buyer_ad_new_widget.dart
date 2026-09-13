@@ -1,10 +1,8 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
-import '/components/c_details_check_box_list_tile_false/c_details_check_box_list_tile_false_widget.dart';
-import '/components/c_details_check_box_list_tile_true/c_details_check_box_list_tile_true_widget.dart';
-import '/components/c_models_check_box_list_tile_false/c_models_check_box_list_tile_false_widget.dart';
-import '/components/c_models_check_box_list_tile_true/c_models_check_box_list_tile_true_widget.dart';
+import '/components/c_details_check_box_list_tile/c_details_check_box_list_tile_widget.dart';
+import '/components/c_models_check_box_list_tile/c_models_check_box_list_tile_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -191,35 +189,17 @@ class _CBuyerAdNewWidgetState extends State<CBuyerAdNewWidget>
                                   .toList()
                                   .cast<int>();
                               safeSetState(() {});
-                              if (FFAppState().isAllModels) {
-                                await showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  enableDrag: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child:
-                                          CModelsCheckBoxListTileTrueWidget(),
-                                    );
-                                  },
-                                ).then((value) => safeSetState(() {}));
-                              } else {
-                                await showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  enableDrag: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child:
-                                          CModelsCheckBoxListTileFalseWidget(),
-                                    );
-                                  },
-                                ).then((value) => safeSetState(() {}));
-                              }
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                context: context,
+                                builder: (context) {
+                                  return Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: CModelsCheckBoxListTileWidget(),
+                                  );
+                                },
+                              ).then((value) => safeSetState(() {}));
                             },
                             child: Material(
                               color: Colors.transparent,
@@ -632,35 +612,17 @@ class _CBuyerAdNewWidgetState extends State<CBuyerAdNewWidget>
                                   .toList()
                                   .cast<int>();
                               safeSetState(() {});
-                              if (FFAppState().isAllCategories) {
-                                await showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  enableDrag: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child:
-                                          CDetailsCheckBoxListTileTrueWidget(),
-                                    );
-                                  },
-                                ).then((value) => safeSetState(() {}));
-                              } else {
-                                await showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  enableDrag: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child:
-                                          CDetailsCheckBoxListTileFalseWidget(),
-                                    );
-                                  },
-                                ).then((value) => safeSetState(() {}));
-                              }
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                context: context,
+                                builder: (context) {
+                                  return Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: CDetailsCheckBoxListTileWidget(),
+                                  );
+                                },
+                              ).then((value) => safeSetState(() {}));
                             },
                             child: Material(
                               color: Colors.transparent,

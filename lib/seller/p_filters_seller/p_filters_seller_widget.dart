@@ -1,6 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
-import '/components/c_brands_check_box_list_tile_filter/c_brands_check_box_list_tile_filter_widget.dart';
+import '/components/c_brands_list_tile_filter/c_brands_list_tile_filter_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/seller/c_empty_seller_filter/c_empty_seller_filter_widget.dart';
@@ -85,7 +85,6 @@ class _PFiltersSellerWidgetState extends State<PFiltersSellerWidget> {
                               await showModalBottomSheet(
                                 isScrollControlled: true,
                                 backgroundColor: Colors.transparent,
-                                enableDrag: false,
                                 context: context,
                                 builder: (context) {
                                   return GestureDetector(
@@ -263,7 +262,6 @@ class _PFiltersSellerWidgetState extends State<PFiltersSellerWidget> {
                                           await showModalBottomSheet(
                                             isScrollControlled: true,
                                             backgroundColor: Colors.transparent,
-                                            enableDrag: false,
                                             context: context,
                                             builder: (context) {
                                               return GestureDetector(
@@ -1212,7 +1210,6 @@ class _PFiltersSellerWidgetState extends State<PFiltersSellerWidget> {
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
                                   backgroundColor: Colors.transparent,
-                                  enableDrag: false,
                                   context: context,
                                   builder: (context) {
                                     return GestureDetector(
@@ -1224,8 +1221,7 @@ class _PFiltersSellerWidgetState extends State<PFiltersSellerWidget> {
                                       child: Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
-                                        child:
-                                            CBrandsCheckBoxListTileFilterWidget(),
+                                        child: CBrandsListTileFilterWidget(),
                                       ),
                                     );
                                   },

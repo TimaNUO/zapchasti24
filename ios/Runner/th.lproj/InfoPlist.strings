@@ -1,4 +1,4 @@
 NSCameraUsageDescription = "เพื่อให้สามารถถ่ายภาพหรือวิดีโอได้ แอปนี้จำเป็นต้องได้รับอนุญาตในการเข้าถึงกล้อง";
-NSPhotoLibraryUsageDescription = "แอปนี้จำเป็นต้องได้รับอนุญาตในการเข้าถึงคลังรูปภาพเพื่ออัปโหลดข้อมูล";
-NSMicrophoneUsageDescription = "จำเป็นสำหรับเสียง";
+NSPhotoLibraryUsageDescription = "แอปนี้จำเป็นต้องได้รับอนุญาตในการเข้าถึงคลังรูปภาพของคุณเพื่อดาวน์โหลดข้อมูล";
+NSMicrophoneUsageDescription = "จำเป็นสำหรับการเล่นเสียง";
 PermissionGroupNotification = "จำเป็นสำหรับการแจ้งเตือนแบบพุช";

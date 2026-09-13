@@ -1,4 +1,4 @@
 NSCameraUsageDescription = "За да направите снимка или видеоклип, това приложение изисква разрешение за достъп до камерата.";
-NSPhotoLibraryUsageDescription = "За да качва данни, това приложение изисква разрешение за достъп до фото библиотеката.";
-NSMicrophoneUsageDescription = "Необходимо за аудио";
-PermissionGroupNotification = "Необходимо за push известия";
+NSPhotoLibraryUsageDescription = "Това приложение изисква разрешение за достъп до вашата фото библиотека, за да изтегли данни.";
+NSMicrophoneUsageDescription = "Необходимо за възпроизвеждане на звук";
+PermissionGroupNotification = "Задължително за PUSH известия";

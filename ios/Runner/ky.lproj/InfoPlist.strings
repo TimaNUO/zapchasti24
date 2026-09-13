@@ -1,4 +1,4 @@
-NSCameraUsageDescription = "Сүрөткө же видеого тартуу үчүн, бул колдонмо камерага кирүүгө уруксат алышы керек.";
-NSPhotoLibraryUsageDescription = "Маалыматтарды жүктөө үчүн, бул колдонмого сүрөт китепканасына кирүүгө уруксат керек.";
-NSMicrophoneUsageDescription = "Аудио үчүн керек";
-PermissionGroupNotification = "Push эскертмелери үчүн керек";
+NSCameraUsageDescription = "Сүрөткө же видеого тартуу үчүн, бул колдонмого камерага кирүүгө уруксат керек.";
+NSPhotoLibraryUsageDescription = "Бул колдонмо маалыматтарды жүктөп алуу үчүн сүрөт китепканаңызга кирүүгө уруксат талап кылат.";
+NSMicrophoneUsageDescription = "Үн ойнотуу үчүн талап кылынат";
+PermissionGroupNotification = "PUSH эскертмелери үчүн талап кылынат";

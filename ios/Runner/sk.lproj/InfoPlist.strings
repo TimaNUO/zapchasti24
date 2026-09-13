@@ -1,4 +1,4 @@
 NSCameraUsageDescription = "Na nasnímanie fotografie alebo videa táto aplikácia vyžaduje povolenie na prístup k fotoaparátu.";
-NSPhotoLibraryUsageDescription = "Na nahrávanie údajov táto aplikácia vyžaduje povolenie na prístup ku knižnici fotografií.";
-NSMicrophoneUsageDescription = "Potrebné pre zvuk";
-PermissionGroupNotification = "Potrebné pre push notifikácie";
+NSPhotoLibraryUsageDescription = "Táto aplikácia vyžaduje povolenie na prístup k vašej knižnici fotografií na sťahovanie údajov.";
+NSMicrophoneUsageDescription = "Vyžaduje sa pre prehrávanie zvuku";
+PermissionGroupNotification = "Vyžaduje sa pre PUSH notifikácie";

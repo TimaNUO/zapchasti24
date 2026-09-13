@@ -174,7 +174,6 @@ class _PStartReqWidgetState extends State<PStartReqWidget> {
                                         await showModalBottomSheet(
                                           isScrollControlled: true,
                                           backgroundColor: Colors.transparent,
-                                          enableDrag: false,
                                           context: context,
                                           builder: (context) {
                                             return GestureDetector(
@@ -1204,6 +1203,27 @@ class _PStartReqWidgetState extends State<PStartReqWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
+                                    FFAppState().deleteUserMaskApp();
+                                    FFAppState().userMaskApp =
+                                        '+### (###) ###-##-##-##';
+
+                                    FFAppState().deleteUserCountryApp();
+                                    FFAppState().userCountryApp = '';
+
+                                    FFAppState().deleteUserCityApp();
+                                    FFAppState().userCityApp = '';
+
+                                    FFAppState().deleteUserFlagApp();
+                                    FFAppState().userFlagApp = '';
+
+                                    FFAppState().deleteUserCountryIDApp();
+                                    FFAppState().userCountryIDApp = 0;
+
+                                    FFAppState().deleteUserCityIDApp();
+                                    FFAppState().userCityIDApp = 0;
+
+                                    safeSetState(() {});
+
                                     context.pushNamed(PLogInWidget.routeName);
                                   },
                                   child: Container(
@@ -1294,6 +1314,27 @@ class _PStartReqWidgetState extends State<PStartReqWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
+                                  FFAppState().deleteUserMaskApp();
+                                  FFAppState().userMaskApp =
+                                      '+### (###) ###-##-##-##';
+
+                                  FFAppState().deleteUserCountryApp();
+                                  FFAppState().userCountryApp = '';
+
+                                  FFAppState().deleteUserCityApp();
+                                  FFAppState().userCityApp = '';
+
+                                  FFAppState().deleteUserFlagApp();
+                                  FFAppState().userFlagApp = '';
+
+                                  FFAppState().deleteUserCountryIDApp();
+                                  FFAppState().userCountryIDApp = 0;
+
+                                  FFAppState().deleteUserCityIDApp();
+                                  FFAppState().userCityIDApp = 0;
+
+                                  safeSetState(() {});
+
                                   context
                                       .pushNamed(PCreateUserWidget.routeName);
                                 },
@@ -1411,7 +1452,6 @@ class _PStartReqWidgetState extends State<PStartReqWidget> {
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
                                   backgroundColor: Colors.transparent,
-                                  enableDrag: false,
                                   context: context,
                                   builder: (context) {
                                     return GestureDetector(

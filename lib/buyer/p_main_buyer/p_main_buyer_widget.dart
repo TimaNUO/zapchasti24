@@ -5,7 +5,7 @@ import '/buyer/c_buyer_navigation_bar/c_buyer_navigation_bar_widget.dart';
 import '/buyer/c_buyer_specialization_detail/c_buyer_specialization_detail_widget.dart';
 import '/buyer/c_chats_buyer/c_chats_buyer_widget.dart';
 import '/buyer/c_new_request/c_new_request_widget.dart';
-import '/components/c_brands_check_box_list_tile_car/c_brands_check_box_list_tile_car_widget.dart';
+import '/components/c_brands_list_tile_car/c_brands_list_tile_car_widget.dart';
 import '/components/c_update_buyer/c_update_buyer_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -80,7 +80,6 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
-          enableDrag: false,
           context: context,
           builder: (context) {
             return GestureDetector(
@@ -90,7 +89,7 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
               },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: CBrandsCheckBoxListTileCarWidget(),
+                child: CBrandsListTileCarWidget(),
               ),
             );
           },
@@ -100,7 +99,6 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
-          enableDrag: false,
           context: context,
           builder: (context) {
             return GestureDetector(
@@ -205,7 +203,6 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
                                   backgroundColor: Colors.transparent,
-                                  enableDrag: false,
                                   context: context,
                                   builder: (context) {
                                     return GestureDetector(
@@ -321,7 +318,6 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
-                                    enableDrag: false,
                                     context: context,
                                     builder: (context) {
                                       return GestureDetector(
@@ -436,7 +432,6 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                                         await showModalBottomSheet(
                                           isScrollControlled: true,
                                           backgroundColor: Colors.transparent,
-                                          enableDrag: false,
                                           context: context,
                                           builder: (context) {
                                             return GestureDetector(
@@ -452,16 +447,32 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                                                     MediaQuery.viewInsetsOf(
                                                         context),
                                                 child:
-                                                    CBrandsCheckBoxListTileCarWidget(),
+                                                    CBrandsListTileCarWidget(),
                                               ),
                                             );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       } else {
+                                        if (!(FFAppState().carBuyerBody !=
+                                            null)) {
+                                          _model.outVehicle546 =
+                                              await SupabaseInfoGroup
+                                                  .vehicleUserInfoCall
+                                                  .call(
+                                            userIdApp: FFAppState().userIdApp,
+                                          );
+
+                                          FFAppState().carBuyerBody =
+                                              getJsonField(
+                                            (_model.outVehicle546?.jsonBody ??
+                                                ''),
+                                            r'''$[0]''',
+                                          );
+                                          safeSetState(() {});
+                                        }
                                         await showModalBottomSheet(
                                           isScrollControlled: true,
                                           backgroundColor: Colors.transparent,
-                                          enableDrag: false,
                                           context: context,
                                           builder: (context) {
                                             return GestureDetector(
@@ -482,6 +493,8 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       }
+
+                                      safeSetState(() {});
                                     },
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
@@ -885,7 +898,6 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                                                       isScrollControlled: true,
                                                       backgroundColor:
                                                           Colors.transparent,
-                                                      enableDrag: false,
                                                       context: context,
                                                       builder: (context) {
                                                         return GestureDetector(

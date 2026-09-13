@@ -5,6 +5,7 @@ import '/buyer/c_buyer_navigation_bar/c_buyer_navigation_bar_widget.dart';
 import '/buyer/c_buyer_request_take_off/c_buyer_request_take_off_widget.dart';
 import '/buyer/c_empty_buyer_request/c_empty_buyer_request_widget.dart';
 import '/buyer/c_new_request/c_new_request_widget.dart';
+import '/components/c_brands_list_tile_car/c_brands_list_tile_car_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -154,7 +155,6 @@ class _PRequestsBuyerWidgetState extends State<PRequestsBuyerWidget> {
                                           await showModalBottomSheet(
                                             isScrollControlled: true,
                                             backgroundColor: Colors.transparent,
-                                            enableDrag: false,
                                             context: context,
                                             builder: (context) {
                                               return GestureDetector(
@@ -1172,25 +1172,62 @@ class _PRequestsBuyerWidgetState extends State<PRequestsBuyerWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                enableDrag: false,
-                                context: context,
-                                builder: (context) {
-                                  return GestureDetector(
-                                    onTap: () {
-                                      FocusScope.of(context).unfocus();
-                                      FocusManager.instance.primaryFocus
-                                          ?.unfocus();
-                                    },
-                                    child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: CNewRequestWidget(),
-                                    ),
+                              _model.apiResult1l821 = await SupabaseInfoGroup
+                                  .vehicleUserInfoCall
+                                  .call(
+                                userIdApp: FFAppState().userIdApp,
+                              );
+
+                              if (_model.apiResult1l821 != null) {
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  context: context,
+                                  builder: (context) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        FocusScope.of(context).unfocus();
+                                        FocusManager.instance.primaryFocus
+                                            ?.unfocus();
+                                      },
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: CBrandsListTileCarWidget(),
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => safeSetState(() {}));
+                              } else {
+                                if (!(FFAppState().carBuyerBody != null)) {
+                                  FFAppState().carBuyerBody = getJsonField(
+                                    (_model.apiResult1l821?.jsonBody ?? ''),
+                                    r'''$[0]''',
                                   );
-                                },
-                              ).then((value) => safeSetState(() {}));
+                                  safeSetState(() {});
+                                }
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  context: context,
+                                  builder: (context) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        FocusScope.of(context).unfocus();
+                                        FocusManager.instance.primaryFocus
+                                            ?.unfocus();
+                                      },
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: CNewRequestWidget(),
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => safeSetState(() {}));
+                              }
+
+                              safeSetState(() {});
                             },
                             child: Material(
                               color: Colors.transparent,

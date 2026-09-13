@@ -2,7 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/buyer/c_buyer_navigation_bar/c_buyer_navigation_bar_widget.dart';
 import '/buyer/c_edit_car_buyer/c_edit_car_buyer_widget.dart';
 import '/buyer/c_new_request/c_new_request_widget.dart';
-import '/components/c_brands_check_box_list_tile_car/c_brands_check_box_list_tile_car_widget.dart';
+import '/components/c_brands_list_tile_car/c_brands_list_tile_car_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -476,7 +476,6 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                                                                                 await showModalBottomSheet(
                                                                                   isScrollControlled: true,
                                                                                   backgroundColor: Colors.transparent,
-                                                                                  enableDrag: false,
                                                                                   context: context,
                                                                                   builder: (context) {
                                                                                     return GestureDetector(
@@ -761,7 +760,6 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                                                           backgroundColor:
                                                               Colors
                                                                   .transparent,
-                                                          enableDrag: false,
                                                           context: context,
                                                           builder: (context) {
                                                             return GestureDetector(
@@ -941,7 +939,6 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                           await showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,
-                            enableDrag: false,
                             context: context,
                             builder: (context) {
                               return GestureDetector(
@@ -951,7 +948,7 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                                 },
                                 child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
-                                  child: CBrandsCheckBoxListTileCarWidget(),
+                                  child: CBrandsListTileCarWidget(),
                                 ),
                               );
                             },

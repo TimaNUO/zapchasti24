@@ -1,7 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
-import '/components/c_brands_check_box_list_tile_ad_sell/c_brands_check_box_list_tile_ad_sell_widget.dart';
+import '/components/c_brands_list_tile_ad_sell/c_brands_list_tile_ad_sell_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -113,12 +113,11 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                             await showModalBottomSheet(
                               isScrollControlled: true,
                               backgroundColor: Colors.transparent,
-                              enableDrag: false,
                               context: context,
                               builder: (context) {
                                 return Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
-                                  child: CBrandsCheckBoxListTileAdSellWidget(),
+                                  child: CBrandsListTileAdSellWidget(),
                                 );
                               },
                             ).then((value) => safeSetState(() {}));

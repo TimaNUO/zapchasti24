@@ -334,7 +334,6 @@ class _CModelsOneCheckBoxListWidgetState
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
-                                    enableDrag: false,
                                     context: context,
                                     builder: (context) {
                                       return Padding(
@@ -407,8 +406,27 @@ class _CModelsOneCheckBoxListWidgetState
                                                 .accent4,
                                             size: 24.0,
                                           ),
-                                          onPressed: () {
-                                            print('IconButton pressed ...');
+                                          onPressed: () async {
+                                            FFAppState().newModelName =
+                                                listViewOneCarModelsRow.model;
+                                            FFAppState().newModelId =
+                                                listViewOneCarModelsRow.id;
+                                            safeSetState(() {});
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              context: context,
+                                              builder: (context) {
+                                                return Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: CNewCarBuyerWidget(),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
                                           },
                                         ),
                                       ],

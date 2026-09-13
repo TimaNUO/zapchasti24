@@ -6947,7 +6947,7 @@ class BuyerFeedbackInfoCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Buyer Feedback Info',
-      apiUrl: '${baseUrl}/feedbacks',
+      apiUrl: '${baseUrl}/feedbacks?on_conflict=seller_id,buyer_id',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',

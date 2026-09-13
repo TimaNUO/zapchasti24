@@ -111,7 +111,7 @@ class _CCountriesListLoginWidgetState extends State<CCountriesListLoginWidget> {
 
                                 _model.updatePage(() {});
 
-                                context.goNamed(PLogInWidget.routeName);
+                                context.pushNamed(PLogInWidget.routeName);
                               },
                               child: Container(
                                 width: 100.0,
@@ -197,8 +197,25 @@ class _CCountriesListLoginWidgetState extends State<CCountriesListLoginWidget> {
                                               .accent4,
                                           size: 24.0,
                                         ),
-                                        onPressed: () {
-                                          print('IconButton pressed ...');
+                                        onPressed: () async {
+                                          FFAppState().userMaskApp =
+                                              listViewCountriesRow.mask!;
+                                          FFAppState().userCountryApp =
+                                              listViewCountriesRow.country!;
+                                          FFAppState().userCountryIDApp =
+                                              listViewCountriesRow.id;
+                                          FFAppState().userFlagApp =
+                                              listViewCountriesRow.flagUrl!;
+                                          FFAppState().deleteUserCityApp();
+                                          FFAppState().userCityApp = '';
+
+                                          FFAppState().deleteUserCityIDApp();
+                                          FFAppState().userCityIDApp = 0;
+
+                                          _model.updatePage(() {});
+
+                                          context.pushNamed(
+                                              PLogInWidget.routeName);
                                         },
                                       ),
                                     ],

@@ -1,7 +1,7 @@
 import '/auth/c_cities_list_create/c_cities_list_create_widget.dart';
 import '/auth/c_countries_list_create/c_countries_list_create_widget.dart';
 import '/backend/supabase/supabase.dart';
-import '/components/c_back_pages/c_back_pages_widget.dart';
+import '/components/c_back_support/c_back_support_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -181,7 +181,6 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                         await showModalBottomSheet(
                                           isScrollControlled: true,
                                           backgroundColor: Colors.transparent,
-                                          enableDrag: false,
                                           context: context,
                                           builder: (context) {
                                             return GestureDetector(
@@ -314,7 +313,6 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                                           await showModalBottomSheet(
                                             isScrollControlled: true,
                                             backgroundColor: Colors.transparent,
-                                            enableDrag: false,
                                             context: context,
                                             builder: (context) {
                                               return GestureDetector(
@@ -1895,9 +1893,9 @@ class _PCreateUserWidgetState extends State<PCreateUserWidget> {
                       ),
                     ),
                   wrapWithModel(
-                    model: _model.cBackPagesModel,
+                    model: _model.cBackSupportModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: CBackPagesWidget(),
+                    child: CBackSupportWidget(),
                   ),
                 ],
               ),

@@ -2,8 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/buyer/c_buyer_request_take_off/c_buyer_request_take_off_widget.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
-import '/components/c_details_check_box_list_tile_false/c_details_check_box_list_tile_false_widget.dart';
-import '/components/c_details_check_box_list_tile_true/c_details_check_box_list_tile_true_widget.dart';
+import '/components/c_details_check_box_list_tile/c_details_check_box_list_tile_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -914,35 +913,17 @@ class _CNewRequestWidgetState extends State<CNewRequestWidget>
                                   .toList()
                                   .cast<int>();
                               safeSetState(() {});
-                              if (FFAppState().isAllCategories) {
-                                await showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  enableDrag: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child:
-                                          CDetailsCheckBoxListTileTrueWidget(),
-                                    );
-                                  },
-                                ).then((value) => safeSetState(() {}));
-                              } else {
-                                await showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  enableDrag: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child:
-                                          CDetailsCheckBoxListTileFalseWidget(),
-                                    );
-                                  },
-                                ).then((value) => safeSetState(() {}));
-                              }
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                context: context,
+                                builder: (context) {
+                                  return Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: CDetailsCheckBoxListTileWidget(),
+                                  );
+                                },
+                              ).then((value) => safeSetState(() {}));
                             },
                             child: Container(
                               height: 40.0,
@@ -1953,7 +1934,6 @@ class _CNewRequestWidgetState extends State<CNewRequestWidget>
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
                                       backgroundColor: Colors.transparent,
-                                      enableDrag: false,
                                       context: context,
                                       builder: (context) {
                                         return Padding(

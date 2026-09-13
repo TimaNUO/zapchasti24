@@ -1676,8 +1676,6 @@ class _PRequestsAdminWidgetState extends State<PRequestsAdminWidget> {
                                                                   backgroundColor:
                                                                       Colors
                                                                           .transparent,
-                                                                  enableDrag:
-                                                                      false,
                                                                   context:
                                                                       context,
                                                                   builder:

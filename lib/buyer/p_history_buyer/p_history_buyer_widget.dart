@@ -167,7 +167,6 @@ class _PHistoryBuyerWidgetState extends State<PHistoryBuyerWidget> {
                                               isScrollControlled: true,
                                               backgroundColor:
                                                   Colors.transparent,
-                                              enableDrag: false,
                                               context: context,
                                               builder: (context) {
                                                 return GestureDetector(

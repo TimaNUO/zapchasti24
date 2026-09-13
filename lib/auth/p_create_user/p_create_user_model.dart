@@ -1,5 +1,5 @@
 import '/backend/supabase/supabase.dart';
-import '/components/c_back_pages/c_back_pages_widget.dart';
+import '/components/c_back_support/c_back_support_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'p_create_user_widget.dart' show PCreateUserWidget;
@@ -43,14 +43,14 @@ class PCreateUserModel extends FlutterFlowModel<PCreateUserWidget> {
   String? errorB;
   // Stores action output result for [Custom Action - getIdByPhone] action in Button widget.
   int? idByPhoneB;
-  // Model for cBackPages component.
-  late CBackPagesModel cBackPagesModel;
+  // Model for cBackSupport component.
+  late CBackSupportModel cBackSupportModel;
 
   @override
   void initState(BuildContext context) {
     passwordCreateVisibility = false;
     passwordCreateConfirmVisibility = false;
-    cBackPagesModel = createModel(context, () => CBackPagesModel());
+    cBackSupportModel = createModel(context, () => CBackSupportModel());
   }
 
   @override
@@ -64,6 +64,6 @@ class PCreateUserModel extends FlutterFlowModel<PCreateUserWidget> {
     passwordCreateConfirmFocusNode?.dispose();
     passwordCreateConfirmTextController?.dispose();
 
-    cBackPagesModel.dispose();
+    cBackSupportModel.dispose();
   }
 }

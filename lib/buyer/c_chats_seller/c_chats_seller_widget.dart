@@ -151,7 +151,6 @@ class _CChatsSellerWidgetState extends State<CChatsSellerWidget> {
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
                                         backgroundColor: Colors.transparent,
-                                        enableDrag: false,
                                         context: context,
                                         builder: (context) {
                                           return Padding(

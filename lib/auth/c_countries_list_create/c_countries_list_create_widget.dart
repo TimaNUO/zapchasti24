@@ -114,7 +114,6 @@ class _CCountriesListCreateWidgetState
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
                                   backgroundColor: Colors.transparent,
-                                  enableDrag: false,
                                   context: context,
                                   builder: (context) {
                                     return Padding(
@@ -208,8 +207,37 @@ class _CCountriesListCreateWidgetState
                                               .accent4,
                                           size: 24.0,
                                         ),
-                                        onPressed: () {
-                                          print('IconButton pressed ...');
+                                        onPressed: () async {
+                                          FFAppState().userMaskApp =
+                                              listViewCountriesRow.mask!;
+                                          FFAppState().userCountryIDApp =
+                                              listViewCountriesRow.id;
+                                          FFAppState().userCountryApp =
+                                              listViewCountriesRow.country!;
+                                          FFAppState().userFlagApp =
+                                              listViewCountriesRow.flagUrl!;
+                                          FFAppState().deleteUserCityApp();
+                                          FFAppState().userCityApp = '';
+
+                                          FFAppState().deleteUserCityIDApp();
+                                          FFAppState().userCityIDApp = 0;
+
+                                          FFAppState().update(() {});
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            context: context,
+                                            builder: (context) {
+                                              return Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    CCitiesListCreateWidget(),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
                                         },
                                       ),
                                     ],

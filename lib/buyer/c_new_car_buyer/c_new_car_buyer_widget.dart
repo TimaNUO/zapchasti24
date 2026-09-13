@@ -387,6 +387,7 @@ class _CNewCarBuyerWidgetState extends State<CNewCarBuyerWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
+                                maxLength: 17,
                                 cursorColor:
                                     FlutterFlowTheme.of(context).primaryText,
                                 validator: _model
@@ -695,7 +696,6 @@ class _CNewCarBuyerWidgetState extends State<CNewCarBuyerWidget> {
                                           await showModalBottomSheet(
                                             isScrollControlled: true,
                                             backgroundColor: Colors.transparent,
-                                            enableDrag: false,
                                             context: context,
                                             builder: (context) {
                                               return Padding(
