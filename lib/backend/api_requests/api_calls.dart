@@ -31,6 +31,9 @@ class SupabaseInfoGroup {
   static NotificationsNewRequestByAllFiltersInfoCall
       notificationsNewRequestByAllFiltersInfoCall =
       NotificationsNewRequestByAllFiltersInfoCall();
+  static NotificationsNewRequestByAllFiltersInfoCountCall
+      notificationsNewRequestByAllFiltersInfoCountCall =
+      NotificationsNewRequestByAllFiltersInfoCountCall();
   static AdminUsersInfoCall adminUsersInfoCall = AdminUsersInfoCall();
   static TestUsersBuildInfoCall testUsersBuildInfoCall =
       TestUsersBuildInfoCall();
@@ -408,7 +411,7 @@ class NotificationsNewRequestByAllFiltersInfoCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Notifications New Request By All Filters Info',
       apiUrl:
-          '${baseUrl}/notifications?select=id,created_at,card_id,recipient_id',
+          '${baseUrl}/notifications?select=id,created_at,card_id,recipient_id,is_read',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
@@ -419,6 +422,45 @@ class NotificationsNewRequestByAllFiltersInfoCall {
       params: {
         'recipient_id': "eq.${recipientID}",
         'order': "created_at.desc",
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class NotificationsNewRequestByAllFiltersInfoCountCall {
+  Future<ApiCallResponse> call({
+    String? recipientID = '',
+    String? supabaseUrl,
+    String? supabaseAnonKey,
+  }) async {
+    supabaseUrl ??= FFDevEnvironmentValues().SupabaseUrl;
+    supabaseAnonKey ??= FFDevEnvironmentValues().SupabaseAnonKey;
+    final baseUrl = SupabaseInfoGroup.getBaseUrl(
+      supabaseUrl: supabaseUrl,
+      supabaseAnonKey: supabaseAnonKey,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'Notifications New Request By All Filters Info Count',
+      apiUrl:
+          '${baseUrl}/notifications?select=id,created_at,card_id,recipient_id,is_read',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': '${supabaseAnonKey}',
+        'Authorization': 'Bearer ${supabaseAnonKey}',
+        'Prefer': 'count=exact',
+      },
+      params: {
+        'recipient_id': "eq.${recipientID}",
+        'order': "created_at.desc",
+        'is_read': "is.false",
       },
       returnBody: true,
       encodeBodyUtf8: false,

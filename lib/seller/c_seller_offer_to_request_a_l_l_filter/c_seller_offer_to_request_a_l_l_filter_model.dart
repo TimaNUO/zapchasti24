@@ -38,6 +38,8 @@ class CSellerOfferToRequestALLFilterModel
   ApiCallResponse? chatRequest;
   // Stores action output result for [Backend Call - API (Reject Request Info)] action in Container widget.
   ApiCallResponse? apiResulte85;
+  // Stores action output result for [Backend Call - Delete Row(s)] action in Container widget.
+  List<NotificationsRow>? deleteRowNotif5548;
   // Stores action output result for [Backend Call - API (set request filter status for seller)] action in Container widget.
   ApiCallResponse? outputRebuild565;
   // Model for cBackComponents component.

@@ -302,6 +302,16 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                                                   FFAppState().carBuyerBody =
                                                       null;
 
+                                                  await DataUsersTable().update(
+                                                    data: {
+                                                      'fcm_token': null,
+                                                    },
+                                                    matchingRows: (rows) =>
+                                                        rows.eqOrNull(
+                                                      'uid',
+                                                      currentUserUid,
+                                                    ),
+                                                  );
                                                   GoRouter.of(context)
                                                       .prepareAuthEvent();
                                                   await authManager.signOut();
@@ -311,6 +321,8 @@ class _PAccountBuyerWidgetState extends State<PAccountBuyerWidget> {
                                                   context.goNamedAuth(
                                                       PStartReqWidget.routeName,
                                                       context.mounted);
+
+                                                  safeSetState(() {});
                                                 },
                                                 child: Container(
                                                   width: 42.0,

@@ -23,6 +23,7 @@ export 'tables/feedbacks.dart';
 export 'tables/feedbacks_notes.dart';
 export 'tables/filters.dart';
 export 'tables/languages.dart';
+export 'tables/logs.dart';
 export 'tables/messages.dart';
 export 'tables/notifications.dart';
 export 'tables/offers.dart';

@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 class PAccountSellerModel extends FlutterFlowModel<PAccountSellerWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - Update Row(s)] action in Container widget.
+  List<DataUsersRow>? updateFCMseller;
   // Stores action output result for [Backend Call - Query Rows] action in Container widget.
   List<SellerSpecializationsRow>? apiResultSpecList;
   // Model for cSellerNavigationBar component.

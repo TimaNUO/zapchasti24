@@ -1,3 +1,4 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
@@ -630,6 +631,27 @@ class _CSellerRequestALLFilterWidgetState
                                         status: 'viewed',
                                       );
 
+                                      await NotificationsTable().update(
+                                        data: {
+                                          'is_read': true,
+                                        },
+                                        matchingRows: (rows) => rows
+                                            .eqOrNull(
+                                              'recipient_id',
+                                              currentUserUid,
+                                            )
+                                            .eqOrNull(
+                                              'type_notification',
+                                              'new_request_by_filter',
+                                            )
+                                            .eqOrNull(
+                                              'card_id',
+                                              getJsonField(
+                                                actualREQItem,
+                                                r'''$.id''',
+                                              ),
+                                            ),
+                                      );
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
                                         backgroundColor: Colors.transparent,

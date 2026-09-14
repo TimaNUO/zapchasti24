@@ -34,6 +34,8 @@ class PMainSellerModel extends FlutterFlowModel<PMainSellerWidget> {
   List<AppVersionsRow>? apiAppLastBuild;
   // Stores action output result for [Backend Call - API (Notifications New Request By All Filters Info)] action in pMainSeller widget.
   ApiCallResponse? apiResultajt;
+  // Stores action output result for [Backend Call - API (Notifications New Request By All Filters Info Count)] action in pMainSeller widget.
+  ApiCallResponse? apiResultaj55;
   // Stores action output result for [Backend Call - API (Hide Ad Info)] action in Container widget.
   ApiCallResponse? apiResultwxc;
   // Stores action output result for [Backend Call - API (Died Ad Info)] action in ButtonAlive widget.

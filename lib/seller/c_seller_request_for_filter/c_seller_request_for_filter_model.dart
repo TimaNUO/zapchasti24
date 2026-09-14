@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/supabase/supabase.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -35,6 +36,8 @@ class CSellerRequestForFilterModel
   FormFieldController<int>? dropDownCityValueController;
   // Stores action output result for [Backend Call - API (request add unique view)] action in Container widget.
   ApiCallResponse? apiResult7hr;
+  // Stores action output result for [Backend Call - Update Row(s)] action in Container widget.
+  List<NotificationsRow>? grg54ere4g6f5d4b6sdgd;
   // Model for cBackComponents component.
   late CBackComponentsModel cBackComponentsModel;
 

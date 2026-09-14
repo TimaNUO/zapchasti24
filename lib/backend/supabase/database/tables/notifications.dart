@@ -21,8 +21,8 @@ class NotificationsRow extends SupabaseDataRow {
   DateTime? get createdAt => getField<DateTime>('created_at');
   set createdAt(DateTime? value) => setField<DateTime>('created_at', value);
 
-  String get senderId => getField<String>('sender_id')!;
-  set senderId(String value) => setField<String>('sender_id', value);
+  String? get senderId => getField<String>('sender_id');
+  set senderId(String? value) => setField<String>('sender_id', value);
 
   String get body => getField<String>('body')!;
   set body(String value) => setField<String>('body', value);
@@ -39,4 +39,7 @@ class NotificationsRow extends SupabaseDataRow {
 
   int? get cardId => getField<int>('card_id');
   set cardId(int? value) => setField<int>('card_id', value);
+
+  bool? get isRead => getField<bool>('is_read');
+  set isRead(bool? value) => setField<bool>('is_read', value);
 }

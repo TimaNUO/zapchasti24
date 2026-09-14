@@ -1,3 +1,4 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
@@ -219,6 +220,27 @@ class _CSellerNotificationsWidgetState extends State<CSellerNotificationsWidget>
                                               ),
                                             );
 
+                                            await NotificationsTable().update(
+                                              data: {
+                                                'is_read': true,
+                                              },
+                                              matchingRows: (rows) => rows
+                                                  .eqOrNull(
+                                                    'recipient_id',
+                                                    currentUserUid,
+                                                  )
+                                                  .eqOrNull(
+                                                    'type_notification',
+                                                    'new_request_by_filter',
+                                                  )
+                                                  .eqOrNull(
+                                                    'card_id',
+                                                    getJsonField(
+                                                      notificationItem,
+                                                      r'''$.card_id''',
+                                                    ),
+                                                  ),
+                                            );
                                             unawaited(
                                               () async {
                                                 _model.apiResult65f =
@@ -268,52 +290,121 @@ class _CSellerNotificationsWidgetState extends State<CSellerNotificationsWidget>
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceBetween,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
                                                 children: [
-                                                  Row(
+                                                  Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: [
-                                                      Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '8bu784s8' /* Код уведомления: */,
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .openSans(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
+                                                      if (!getJsonField(
+                                                        notificationItem,
+                                                        r'''$.is_read''',
+                                                      ))
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Container(
+                                                              width: 8.0,
+                                                              height: 8.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
+                                                                    .accent1,
+                                                                shape: BoxShape
+                                                                    .circle,
                                                               ),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
+                                                            ),
+                                                            Text(
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                '826baqq5' /* Непрочитано */,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    font: GoogleFonts
+                                                                        .openSans(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent1,
+                                                                    fontSize:
+                                                                        12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                            ),
+                                                          ].divide(SizedBox(
+                                                              width: 8.0)),
+                                                        ),
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              '8bu784s8' /* Код уведомления: */,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .openSans(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  fontSize:
+                                                                      12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .fontStyle,
-                                                            ),
-                                                      ),
-                                                      Text(
-                                                        getJsonField(
-                                                          notificationItem,
-                                                          r'''$.id''',
-                                                        ).toString(),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                                ),
+                                                          ),
+                                                          Text(
+                                                            getJsonField(
+                                                              notificationItem,
+                                                              r'''$.id''',
+                                                            ).toString(),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
                                                                 .bodyMedium
                                                                 .override(
                                                                   font: GoogleFonts
@@ -340,9 +431,11 @@ class _CSellerNotificationsWidgetState extends State<CSellerNotificationsWidget>
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
+                                                          ),
+                                                        ].divide(SizedBox(
+                                                            width: 8.0)),
                                                       ),
-                                                    ].divide(
-                                                        SizedBox(width: 8.0)),
+                                                    ],
                                                   ),
                                                   Row(
                                                     mainAxisSize:

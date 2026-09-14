@@ -1969,6 +1969,24 @@ class _CSellerNotifToRequestWidgetState
                                   sellerID: FFAppState().userIdApp,
                                 );
 
+                                await NotificationsTable().delete(
+                                  matchingRows: (rows) => rows
+                                      .eqOrNull(
+                                        'recipient_id',
+                                        currentUserUid,
+                                      )
+                                      .eqOrNull(
+                                        'type_notification',
+                                        'new_request_by_filter',
+                                      )
+                                      .eqOrNull(
+                                        'card_id',
+                                        getJsonField(
+                                          widget.requestBody,
+                                          r'''$.id''',
+                                        ),
+                                      ),
+                                );
                                 unawaited(
                                   () async {
                                     _model.outputRebuild565 =

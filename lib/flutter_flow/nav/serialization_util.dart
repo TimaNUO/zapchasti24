@@ -293,6 +293,8 @@ dynamic deserializeParam<T>(
             return FiltersRow(data);
           case LanguagesRow:
             return LanguagesRow(data);
+          case LogsRow:
+            return LogsRow(data);
           case MessagesRow:
             return MessagesRow(data);
           case NotificationsRow:

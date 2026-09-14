@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/supabase/supabase.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -72,6 +73,8 @@ class CSellerRequestALLFilterModel
   ApiCallResponse? apiResult7hr8;
   // Stores action output result for [Backend Call - API (set request filter status for seller)] action in Container widget.
   ApiCallResponse? apiResult7h8;
+  // Stores action output result for [Backend Call - Update Row(s)] action in Container widget.
+  List<NotificationsRow>? grg54ere4g6f5d4b6542;
   // Stores action output result for [Backend Call - API (All Requests For Seller Filter Pagin New)] action in Row widget.
   ApiCallResponse? apiResult786;
   // Model for cBackComponents component.

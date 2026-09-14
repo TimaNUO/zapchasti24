@@ -2113,6 +2113,26 @@ class _PSellerRequestDetailWidgetState extends State<PSellerRequestDetailWidget>
                                         sellerID: FFAppState().userIdApp,
                                       );
 
+                                      await NotificationsTable().delete(
+                                        matchingRows: (rows) => rows
+                                            .eqOrNull(
+                                              'recipient_id',
+                                              currentUserUid,
+                                            )
+                                            .eqOrNull(
+                                              'type_notification',
+                                              'new_request_by_filter',
+                                            )
+                                            .eqOrNull(
+                                              'card_id',
+                                              getJsonField(
+                                                (_model.apiResultb9k
+                                                        ?.jsonBody ??
+                                                    ''),
+                                                r'''$[0].id''',
+                                              ),
+                                            ),
+                                      );
                                       unawaited(
                                         () async {
                                           _model.outputRebuild5659 =

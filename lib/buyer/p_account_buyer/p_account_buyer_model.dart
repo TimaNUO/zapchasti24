@@ -1,3 +1,4 @@
+import '/backend/supabase/supabase.dart';
 import '/buyer/c_buyer_navigation_bar/c_buyer_navigation_bar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
@@ -17,6 +18,8 @@ class PAccountBuyerModel extends FlutterFlowModel<PAccountBuyerWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - Update Row(s)] action in Container widget.
+  List<DataUsersRow>? updateFCMbuyer;
   // Model for cBuyerNavigationBar component.
   late CBuyerNavigationBarModel cBuyerNavigationBarModel;
 

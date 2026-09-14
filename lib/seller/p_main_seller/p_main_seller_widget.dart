@@ -61,11 +61,17 @@ class _PMainSellerWidgetState extends State<PMainSellerWidget> {
         recipientID: currentUserUid,
       );
 
+      _model.apiResultaj55 = await SupabaseInfoGroup
+          .notificationsNewRequestByAllFiltersInfoCountCall
+          .call(
+        recipientID: currentUserUid,
+      );
+
       _model.appLastBuild = _model.apiAppLastBuild?.firstOrNull?.latestBuild;
       _model.notificationsList =
           (_model.apiResultajt?.jsonBody ?? '').toList().cast<dynamic>();
       _model.notificationsCount = functions.extractTotal(
-          (_model.apiResultajt?.getHeader('content-range') ?? ''));
+          (_model.apiResultaj55?.getHeader('content-range') ?? ''));
       safeSetState(() {});
       await actions.initNotificationOpenListener(
         context,
