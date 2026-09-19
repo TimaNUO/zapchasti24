@@ -208,99 +208,121 @@ class _CDetailsCheckBoxListTileWidgetState
                           itemBuilder: (context, listViewIndex) {
                             final listViewPartsCategoryRow =
                                 listViewPartsCategoryRowList[listViewIndex];
-                            return Container(
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).accent4,
-                                  width: 0.2,
+                            return InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                if (FFAppState()
+                                    .categoriesIDListApp
+                                    .contains(listViewPartsCategoryRow.id)) {
+                                  FFAppState().removeFromCategoriesIDListApp(
+                                      listViewPartsCategoryRow.id);
+                                  safeSetState(() {});
+                                } else {
+                                  FFAppState().addToCategoriesIDListApp(
+                                      listViewPartsCategoryRow.id);
+                                  safeSetState(() {});
+                                }
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context).accent4,
+                                    width: 0.2,
+                                  ),
                                 ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 12.0, 16.0, 12.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      listViewPartsCategoryRow.category,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            font: GoogleFonts.openSans(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 12.0, 16.0, 12.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        listViewPartsCategoryRow.category,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.openSans(
+                                                fontWeight: FontWeight.normal,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent4,
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                               fontStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .fontStyle,
                                             ),
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent4,
-                                            fontSize: 16.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.normal,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                    ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        if (FFAppState()
-                                            .categoriesIDListApp
-                                            .contains(
-                                                listViewPartsCategoryRow.id))
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              FFAppState()
-                                                  .removeFromCategoriesIDListApp(
-                                                      listViewPartsCategoryRow
-                                                          .id);
-                                              safeSetState(() {});
-                                            },
-                                            child: Icon(
-                                              Icons.check_box,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent1,
-                                              size: 24.0,
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          if (FFAppState()
+                                              .categoriesIDListApp
+                                              .contains(
+                                                  listViewPartsCategoryRow.id))
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                FFAppState()
+                                                    .removeFromCategoriesIDListApp(
+                                                        listViewPartsCategoryRow
+                                                            .id);
+                                                safeSetState(() {});
+                                              },
+                                              child: Icon(
+                                                Icons.check_box,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .accent1,
+                                                size: 24.0,
+                                              ),
                                             ),
-                                          ),
-                                        if (!FFAppState()
-                                            .categoriesIDListApp
-                                            .contains(
-                                                listViewPartsCategoryRow.id))
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              FFAppState()
-                                                  .addToCategoriesIDListApp(
-                                                      listViewPartsCategoryRow
-                                                          .id);
-                                              safeSetState(() {});
-                                            },
-                                            child: Icon(
-                                              Icons
-                                                  .check_box_outline_blank_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent4,
-                                              size: 24.0,
+                                          if (!FFAppState()
+                                              .categoriesIDListApp
+                                              .contains(
+                                                  listViewPartsCategoryRow.id))
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                FFAppState()
+                                                    .addToCategoriesIDListApp(
+                                                        listViewPartsCategoryRow
+                                                            .id);
+                                                safeSetState(() {});
+                                              },
+                                              child: Icon(
+                                                Icons
+                                                    .check_box_outline_blank_rounded,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .accent4,
+                                                size: 24.0,
+                                              ),
                                             ),
-                                          ),
-                                      ],
-                                    ),
-                                  ],
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             );

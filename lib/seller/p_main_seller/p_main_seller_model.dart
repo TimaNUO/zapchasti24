@@ -15,33 +15,16 @@ class PMainSellerModel extends FlutterFlowModel<PMainSellerWidget> {
 
   int? tabID = 1;
 
-  List<dynamic> notificationsList = [];
-  void addToNotificationsList(dynamic item) => notificationsList.add(item);
-  void removeFromNotificationsList(dynamic item) =>
-      notificationsList.remove(item);
-  void removeAtIndexFromNotificationsList(int index) =>
-      notificationsList.removeAt(index);
-  void insertAtIndexInNotificationsList(int index, dynamic item) =>
-      notificationsList.insert(index, item);
-  void updateNotificationsListAtIndex(int index, Function(dynamic) updateFn) =>
-      notificationsList[index] = updateFn(notificationsList[index]);
-
   int notificationsCount = 0;
 
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - Upsert Row] action in pMainSeller widget.
+  SellerProfilesRow? upsertSellerProfile2465;
   // Stores action output result for [Backend Call - Query Rows] action in pMainSeller widget.
   List<AppVersionsRow>? apiAppLastBuild;
-  // Stores action output result for [Backend Call - API (Notifications New Request By All Filters Info)] action in pMainSeller widget.
-  ApiCallResponse? apiResultajt;
   // Stores action output result for [Backend Call - API (Notifications New Request By All Filters Info Count)] action in pMainSeller widget.
   ApiCallResponse? apiResultaj55;
-  // Stores action output result for [Backend Call - API (Hide Ad Info)] action in Container widget.
-  ApiCallResponse? apiResultwxc;
-  // Stores action output result for [Backend Call - API (Died Ad Info)] action in ButtonAlive widget.
-  ApiCallResponse? aliveFalse;
-  // Stores action output result for [Backend Call - API (Died Ad Info)] action in Button widget.
-  ApiCallResponse? aliveTrue;
   // Model for cSellerNavigationBar component.
   late CSellerNavigationBarModel cSellerNavigationBarModel;
 

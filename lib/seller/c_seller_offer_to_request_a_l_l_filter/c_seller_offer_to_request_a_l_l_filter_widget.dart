@@ -3,6 +3,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/buyer/c_chats_seller_mes/c_chats_seller_mes_widget.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
+import '/components/c_photo_viewer/c_photo_viewer_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -1502,68 +1503,77 @@ class _CSellerOfferToRequestALLFilterWidgetState
                                                       highlightColor:
                                                           Colors.transparent,
                                                       onTap: () async {
-                                                        await Navigator.push(
-                                                          context,
-                                                          PageTransition(
-                                                            type:
-                                                                PageTransitionType
-                                                                    .fade,
-                                                            child:
-                                                                FlutterFlowExpandedImageView(
-                                                              image:
-                                                                  CachedNetworkImage(
-                                                                fadeInDuration:
-                                                                    Duration(
-                                                                        milliseconds:
-                                                                            500),
-                                                                fadeOutDuration:
-                                                                    Duration(
-                                                                        milliseconds:
-                                                                            500),
-                                                                imageUrl: photoItem
-                                                                    .toString(),
-                                                                fit: BoxFit
-                                                                    .contain,
-                                                              ),
-                                                              allowRotation:
-                                                                  false,
-                                                              tag: photoItem
-                                                                  .toString(),
-                                                              useHeroAnimation:
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  CPhotoViewerWidget(
+                                                                photoList:
+                                                                    (getJsonField(
+                                                                  widget
+                                                                      .requestBody,
+                                                                  r'''$.photo_url''',
                                                                   true,
-                                                            ),
-                                                          ),
-                                                        );
+                                                                ) as List?)
+                                                                        ?.map<String>((e) => e
+                                                                            .toString())
+                                                                        .toList()
+                                                                        .cast<
+                                                                            String>(),
+                                                                photoIndex:
+                                                                    photoIndex,
+                                                                photoCount:
+                                                                    (getJsonField(
+                                                                  widget
+                                                                      .requestBody,
+                                                                  r'''$.photo_url''',
+                                                                  true,
+                                                                ) as List?)!
+                                                                        .map<String>((e) => e
+                                                                            .toString())
+                                                                        .toList()
+                                                                        .cast<
+                                                                            String>()
+                                                                        .length,
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
                                                       },
-                                                      child: Hero(
-                                                        tag: photoItem
-                                                            .toString(),
-                                                        transitionOnUserGestures:
-                                                            true,
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                          child:
-                                                              CachedNetworkImage(
-                                                            fadeInDuration:
-                                                                Duration(
-                                                                    milliseconds:
-                                                                        500),
-                                                            fadeOutDuration:
-                                                                Duration(
-                                                                    milliseconds:
-                                                                        500),
-                                                            imageUrl: photoItem
-                                                                .toString(),
-                                                            width: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .width *
-                                                                1.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child:
+                                                            CachedNetworkImage(
+                                                          fadeInDuration:
+                                                              Duration(
+                                                                  milliseconds:
+                                                                      500),
+                                                          fadeOutDuration:
+                                                              Duration(
+                                                                  milliseconds:
+                                                                      500),
+                                                          imageUrl: photoItem
+                                                              .toString(),
+                                                          width:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width *
+                                                                  1.0,
+                                                          fit: BoxFit.cover,
                                                         ),
                                                       ),
                                                     ),

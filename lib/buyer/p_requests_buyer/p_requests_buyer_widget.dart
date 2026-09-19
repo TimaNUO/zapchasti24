@@ -1178,7 +1178,7 @@ class _PRequestsBuyerWidgetState extends State<PRequestsBuyerWidget> {
                                 userIdApp: FFAppState().userIdApp,
                               );
 
-                              if (_model.apiResult1l821 != null) {
+                              if (_model.apiResult1l821 == null) {
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
                                   backgroundColor: Colors.transparent,

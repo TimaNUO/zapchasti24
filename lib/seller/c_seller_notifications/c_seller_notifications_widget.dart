@@ -13,17 +13,13 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'c_seller_notifications_model.dart';
 export 'c_seller_notifications_model.dart';
 
 class CSellerNotificationsWidget extends StatefulWidget {
-  const CSellerNotificationsWidget({
-    super.key,
-    this.notificationsList,
-  });
-
-  final List<dynamic>? notificationsList;
+  const CSellerNotificationsWidget({super.key});
 
   @override
   State<CSellerNotificationsWidget> createState() =>
@@ -134,22 +130,59 @@ class _CSellerNotificationsWidgetState extends State<CSellerNotificationsWidget>
                                 ),
                           ),
                         ),
-                        Builder(
-                          builder: (context) {
-                            final notification =
-                                widget.notificationsList?.toList() ?? [];
+                        RefreshIndicator(
+                          color: FlutterFlowTheme.of(context).accent1,
+                          strokeWidth: 4.0,
+                          onRefresh: () async {
+                            safeSetState(() =>
+                                _model.listViewPagingController?.refresh());
+                            await _model.waitForOnePageForListView();
+                          },
+                          child:
+                              PagedListView<ApiPagingParams, dynamic>.separated(
+                            pagingController: _model.setListViewController(
+                              (nextPageMarker) => SupabaseInfoGroup
+                                  .notificationsNewRequestByAllFiltersInfoCall
+                                  .call(
+                                recipientID: currentUserUid,
+                                limit: 10,
+                                offset: 0,
+                              ),
+                            ),
+                            padding: EdgeInsets.zero,
+                            primary: false,
+                            shrinkWrap: true,
+                            reverse: false,
+                            scrollDirection: Axis.vertical,
+                            separatorBuilder: (_, __) => SizedBox(height: 8.0),
+                            builderDelegate: PagedChildBuilderDelegate<dynamic>(
+                              // Customize what your widget looks like when it's loading the first page.
+                              firstPageProgressIndicatorBuilder: (_) => Center(
+                                child: SizedBox(
+                                  width: 32.0,
+                                  height: 32.0,
+                                  child: SpinKitRipple(
+                                    color: FlutterFlowTheme.of(context).accent1,
+                                    size: 32.0,
+                                  ),
+                                ),
+                              ),
+                              // Customize what your widget looks like when it's loading another page.
+                              newPageProgressIndicatorBuilder: (_) => Center(
+                                child: SizedBox(
+                                  width: 32.0,
+                                  height: 32.0,
+                                  child: SpinKitRipple(
+                                    color: FlutterFlowTheme.of(context).accent1,
+                                    size: 32.0,
+                                  ),
+                                ),
+                              ),
 
-                            return ListView.separated(
-                              padding: EdgeInsets.zero,
-                              primary: false,
-                              shrinkWrap: true,
-                              scrollDirection: Axis.vertical,
-                              itemCount: notification.length,
-                              separatorBuilder: (_, __) =>
-                                  SizedBox(height: 8.0),
-                              itemBuilder: (context, notificationIndex) {
-                                final notificationItem =
-                                    notification[notificationIndex];
+                              itemBuilder: (context, _, notificationIndex) {
+                                final notificationItem = _model
+                                    .listViewPagingController!
+                                    .itemList![notificationIndex];
                                 return FutureBuilder<ApiCallResponse>(
                                   future: SupabaseInfoGroup
                                       .sellerRequestONEInfoCall
@@ -1148,8 +1181,8 @@ class _CSellerNotificationsWidgetState extends State<CSellerNotificationsWidget>
                                   },
                                 );
                               },
-                            );
-                          },
+                            ),
+                          ),
                         ),
                       ].addToEnd(SizedBox(height: 4.0)),
                     ),

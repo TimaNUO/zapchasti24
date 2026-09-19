@@ -1,6 +1,6 @@
 import '/backend/supabase/supabase.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
-import '/components/c_models_one_check_box_list/c_models_one_check_box_list_widget.dart';
+import '/components/c_models_list/c_models_list_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -305,8 +305,7 @@ class _CBrandsListTileCarWidgetState extends State<CBrandsListTileCarWidget> {
                                           return Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child:
-                                                CModelsOneCheckBoxListWidget(),
+                                            child: CModelsListWidget(),
                                           );
                                         },
                                       ).then((value) => safeSetState(() {}));
@@ -401,7 +400,7 @@ class _CBrandsListTileCarWidgetState extends State<CBrandsListTileCarWidget> {
                                                           .viewInsetsOf(
                                                               context),
                                                       child:
-                                                          CModelsOneCheckBoxListWidget(),
+                                                          CModelsListWidget(),
                                                     );
                                                   },
                                                 ).then((value) =>
@@ -468,8 +467,7 @@ class _CBrandsListTileCarWidgetState extends State<CBrandsListTileCarWidget> {
                                           return Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child:
-                                                CModelsOneCheckBoxListWidget(),
+                                            child: CModelsListWidget(),
                                           );
                                         },
                                       ).then((value) => safeSetState(() {}));
@@ -564,7 +562,7 @@ class _CBrandsListTileCarWidgetState extends State<CBrandsListTileCarWidget> {
                                                           .viewInsetsOf(
                                                               context),
                                                       child:
-                                                          CModelsOneCheckBoxListWidget(),
+                                                          CModelsListWidget(),
                                                     );
                                                   },
                                                 ).then((value) =>

@@ -398,6 +398,8 @@ class BuyerCardInfoCall {
 class NotificationsNewRequestByAllFiltersInfoCall {
   Future<ApiCallResponse> call({
     String? recipientID = '',
+    int? limit,
+    int? offset,
     String? supabaseUrl,
     String? supabaseAnonKey,
   }) async {
@@ -422,6 +424,8 @@ class NotificationsNewRequestByAllFiltersInfoCall {
       params: {
         'recipient_id': "eq.${recipientID}",
         'order': "created_at.desc",
+        'limit': "${limit}",
+        'offset': "${offset}",
       },
       returnBody: true,
       encodeBodyUtf8: false,

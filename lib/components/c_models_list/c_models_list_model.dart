@@ -1,11 +1,9 @@
 import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'c_models_one_check_box_list_widget.dart'
-    show CModelsOneCheckBoxListWidget;
+import 'c_models_list_widget.dart' show CModelsListWidget;
 import 'package:flutter/material.dart';
 
-class CModelsOneCheckBoxListModel
-    extends FlutterFlowModel<CModelsOneCheckBoxListWidget> {
+class CModelsListModel extends FlutterFlowModel<CModelsListWidget> {
   ///  Local state fields for this component.
 
   String? keyWord;

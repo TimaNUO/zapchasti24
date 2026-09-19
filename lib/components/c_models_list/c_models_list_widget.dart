@@ -10,20 +10,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'c_models_one_check_box_list_model.dart';
-export 'c_models_one_check_box_list_model.dart';
+import 'c_models_list_model.dart';
+export 'c_models_list_model.dart';
 
-class CModelsOneCheckBoxListWidget extends StatefulWidget {
-  const CModelsOneCheckBoxListWidget({super.key});
+class CModelsListWidget extends StatefulWidget {
+  const CModelsListWidget({super.key});
 
   @override
-  State<CModelsOneCheckBoxListWidget> createState() =>
-      _CModelsOneCheckBoxListWidgetState();
+  State<CModelsListWidget> createState() => _CModelsListWidgetState();
 }
 
-class _CModelsOneCheckBoxListWidgetState
-    extends State<CModelsOneCheckBoxListWidget> {
-  late CModelsOneCheckBoxListModel _model;
+class _CModelsListWidgetState extends State<CModelsListWidget> {
+  late CModelsListModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -34,7 +32,7 @@ class _CModelsOneCheckBoxListWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CModelsOneCheckBoxListModel());
+    _model = createModel(context, () => CModelsListModel());
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();

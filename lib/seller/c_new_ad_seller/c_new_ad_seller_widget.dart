@@ -97,11 +97,7 @@ class _CNewAdSellerWidgetState extends State<CNewAdSellerWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
-          _model.textController2?.text = FFLocalizations.of(context).getText(
-            'siwm01jg' /* Укажите стоимость */,
-          );
-        }));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -1751,6 +1747,10 @@ class _CNewAdSellerWidgetState extends State<CNewAdSellerWidget>
                                                   .labelMedium
                                                   .fontStyle,
                                         ),
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      '3yovani7' /* Укажите стоимость */,
+                                    ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(

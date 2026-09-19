@@ -192,8 +192,8 @@ class _CPhotoViewerWidgetState extends State<CPhotoViewerWidget>
                         }
                       },
                       child: Container(
-                        width: 72.0,
-                        height: 72.0,
+                        width: 36.0,
+                        height: 36.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).accent2,
                           borderRadius: BorderRadius.circular(8.0),
@@ -202,7 +202,7 @@ class _CPhotoViewerWidgetState extends State<CPhotoViewerWidget>
                         child: Icon(
                           Icons.chevron_right,
                           color: FlutterFlowTheme.of(context).accent4,
-                          size: 72.0,
+                          size: 36.0,
                         ),
                       ),
                     ),
@@ -226,8 +226,8 @@ class _CPhotoViewerWidgetState extends State<CPhotoViewerWidget>
                         }
                       },
                       child: Container(
-                        width: 72.0,
-                        height: 72.0,
+                        width: 36.0,
+                        height: 36.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).accent2,
                           borderRadius: BorderRadius.circular(8.0),
@@ -236,7 +236,7 @@ class _CPhotoViewerWidgetState extends State<CPhotoViewerWidget>
                         child: Icon(
                           Icons.chevron_left,
                           color: FlutterFlowTheme.of(context).accent4,
-                          size: 72.0,
+                          size: 36.0,
                         ),
                       ),
                     ),
