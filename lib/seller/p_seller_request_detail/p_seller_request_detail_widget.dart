@@ -1,8 +1,8 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
-import '/buyer/c_chats_seller_mes/c_chats_seller_mes_widget.dart';
-import '/components/c_back_components/c_back_components_widget.dart';
+import '/chats/c_chats_seller_mes/c_chats_seller_mes_widget.dart';
+import '/components/c_back_components_on_page/c_back_components_on_page_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -53,6 +53,24 @@ class _PSellerRequestDetailWidgetState extends State<PSellerRequestDetailWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await NotificationsTable().update(
+        data: {
+          'is_read': true,
+        },
+        matchingRows: (rows) => rows
+            .eqOrNull(
+              'recipient_id',
+              currentUserUid,
+            )
+            .eqOrNull(
+              'type_notification',
+              'new_request_by_filter',
+            )
+            .eqOrNull(
+              'card_id',
+              widget.requestID,
+            ),
+      );
       _model.apiResultb9k = await SupabaseInfoGroup.openRequestONEInfoCall.call(
         reqID: widget.requestID,
       );
@@ -2229,15 +2247,15 @@ class _PSellerRequestDetailWidgetState extends State<PSellerRequestDetailWidget>
                               ),
                             ]
                                 .divide(SizedBox(height: 8.0))
-                                .addToStart(SizedBox(height: 89.0))
+                                .addToStart(SizedBox(height: 49.0))
                                 .addToEnd(SizedBox(height: 4.0)),
                           ),
                         ),
                       ),
                       wrapWithModel(
-                        model: _model.cBackComponentsModel,
+                        model: _model.cBackComponentsOnPageModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: CBackComponentsWidget(),
+                        child: CBackComponentsOnPageWidget(),
                       ),
                     ],
                   ),

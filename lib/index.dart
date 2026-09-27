@@ -34,3 +34,5 @@ export '/buyer/p_buyer_request_actuality/p_buyer_request_actuality_widget.dart'
     show PBuyerRequestActualityWidget;
 export '/seller/p_seller_request_detail/p_seller_request_detail_widget.dart'
     show PSellerRequestDetailWidget;
+export '/seller/p_seller_notifications/p_seller_notifications_widget.dart'
+    show PSellerNotificationsWidget;

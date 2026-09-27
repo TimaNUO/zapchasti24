@@ -1,3 +1,4 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/enums/enums.dart';
 import '/backend/supabase/supabase.dart';
@@ -1470,6 +1471,24 @@ class _CBuyerRequestTakeOffWidgetState extends State<CBuyerRequestTakeOffWidget>
                                   ),
                                 );
 
+                                await NotificationsTable().delete(
+                                  matchingRows: (rows) => rows
+                                      .eqOrNull(
+                                        'sender_id',
+                                        currentUserUid,
+                                      )
+                                      .eqOrNull(
+                                        'type_notification',
+                                        'new_request_by_filter',
+                                      )
+                                      .eqOrNull(
+                                        'card_id',
+                                        getJsonField(
+                                          widget.requestBody,
+                                          r'''$.id''',
+                                        ),
+                                      ),
+                                );
                                 _model.activeRequestsByOffer = (_model
                                         .resultActiveRequestsByOffer
                                         ?.getHeader('content-range') ??

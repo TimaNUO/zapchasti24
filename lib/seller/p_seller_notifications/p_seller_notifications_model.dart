@@ -1,15 +1,17 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
-import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
-import 'c_seller_notifications_widget.dart' show CSellerNotificationsWidget;
+import '/flutter_flow/request_manager.dart';
+
+import '/index.dart';
+import 'p_seller_notifications_widget.dart' show PSellerNotificationsWidget;
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
-class CSellerNotificationsModel
-    extends FlutterFlowModel<CSellerNotificationsWidget> {
-  ///  State fields for stateful widgets in this component.
+class PSellerNotificationsModel
+    extends FlutterFlowModel<PSellerNotificationsWidget> {
+  ///  State fields for stateful widgets in this page.
 
   // State field(s) for ListView widget.
 
@@ -18,22 +20,38 @@ class CSellerNotificationsModel
 
   // Stores action output result for [Backend Call - API (request add unique view)] action in Column widget.
   ApiCallResponse? apiResult7sf;
-  // Stores action output result for [Backend Call - Update Row(s)] action in Column widget.
-  List<NotificationsRow>? grg54ere4g6f5d4b6xc5v4;
   // Stores action output result for [Backend Call - API (set request filter status for seller)] action in Column widget.
   ApiCallResponse? apiResult65f;
-  // Model for cBackComponents component.
-  late CBackComponentsModel cBackComponentsModel;
+  // Stores action output result for [Backend Call - Update Row(s)] action in Column widget.
+  List<NotificationsRow>? grg54ere4g6f5d4;
+
+  /// Query cache managers for this widget.
+
+  final _sellerRequestManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> sellerRequest({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _sellerRequestManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearSellerRequestCache() => _sellerRequestManager.clear();
+  void clearSellerRequestCacheKey(String? uniqueKey) =>
+      _sellerRequestManager.clearRequest(uniqueKey);
 
   @override
-  void initState(BuildContext context) {
-    cBackComponentsModel = createModel(context, () => CBackComponentsModel());
-  }
+  void initState(BuildContext context) {}
 
   @override
   void dispose() {
     listViewPagingController?.dispose();
-    cBackComponentsModel.dispose();
+
+    /// Dispose query cache managers for this widget.
+
+    clearSellerRequestCache();
   }
 
   /// Additional helper methods.

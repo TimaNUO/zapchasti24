@@ -57,7 +57,7 @@ class CEditAboutSellerModel extends FlutterFlowModel<CEditAboutSellerWidget> {
   // Stores action output result for [Backend Call - API (upsert seller profile)] action in Button widget.
   ApiCallResponse? apiResultd19;
   // Stores action output result for [Backend Call - Update Row(s)] action in Container widget.
-  List<DataUsersRow>? deleted9;
+  List<DataUsersRow>? deleted98;
   // Model for cBackComponents component.
   late CBackComponentsModel cBackComponentsModel;
 

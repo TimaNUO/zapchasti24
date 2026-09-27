@@ -199,6 +199,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.int,
             ),
           ),
+        ),
+        FFRoute(
+          name: PSellerNotificationsWidget.routeName,
+          path: PSellerNotificationsWidget.routePath,
+          builder: (context, params) => PSellerNotificationsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: ffNavigatorObservers,

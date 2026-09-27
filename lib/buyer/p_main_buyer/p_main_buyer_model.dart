@@ -29,6 +29,10 @@ class PMainBuyerModel extends FlutterFlowModel<PMainBuyerWidget> {
   List<AppVersionsRow>? apiAppLastBuild;
   // Stores action output result for [Backend Call - API (VehicleUser Info)] action in pMainBuyer widget.
   ApiCallResponse? apiResult1l8;
+  // Stores action output result for [Backend Call - Query Rows] action in pMainBuyer widget.
+  List<NotificationsRow>? notificationsBuyer;
+  // Stores action output result for [Backend Call - Query Rows] action in pMainBuyer widget.
+  List<RequestsRow>? notifRequests;
   // Stores action output result for [Backend Call - API (VehicleUser Info)] action in Container widget.
   ApiCallResponse? outVehicle546;
   // Model for cBuyerNavigationBar component.

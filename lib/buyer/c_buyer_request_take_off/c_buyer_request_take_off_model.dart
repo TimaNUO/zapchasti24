@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/supabase/supabase.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -25,6 +26,8 @@ class CBuyerRequestTakeOffModel
 
   // Stores action output result for [Backend Call - API (Buyer Orders By Request Info)] action in Container widget.
   ApiCallResponse? resultActiveRequestsByOffer;
+  // Stores action output result for [Backend Call - Delete Row(s)] action in Container widget.
+  List<NotificationsRow>? deleteRowNotif6897;
   // Stores action output result for [Backend Call - API (Died Request Info)] action in Container widget.
   ApiCallResponse? apiResultDEAD;
   // Stores action output result for [Backend Call - API (Complete Offer Info)] action in Container widget.

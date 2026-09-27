@@ -21,19 +21,19 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'c_buyer_ad_new_model.dart';
-export 'c_buyer_ad_new_model.dart';
+import 'cc_buyer_ad_new_model.dart';
+export 'cc_buyer_ad_new_model.dart';
 
-class CBuyerAdNewWidget extends StatefulWidget {
-  const CBuyerAdNewWidget({super.key});
+class CcBuyerAdNewWidget extends StatefulWidget {
+  const CcBuyerAdNewWidget({super.key});
 
   @override
-  State<CBuyerAdNewWidget> createState() => _CBuyerAdNewWidgetState();
+  State<CcBuyerAdNewWidget> createState() => _CcBuyerAdNewWidgetState();
 }
 
-class _CBuyerAdNewWidgetState extends State<CBuyerAdNewWidget>
+class _CcBuyerAdNewWidgetState extends State<CcBuyerAdNewWidget>
     with TickerProviderStateMixin {
-  late CBuyerAdNewModel _model;
+  late CcBuyerAdNewModel _model;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -46,7 +46,7 @@ class _CBuyerAdNewWidgetState extends State<CBuyerAdNewWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CBuyerAdNewModel());
+    _model = createModel(context, () => CcBuyerAdNewModel());
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {

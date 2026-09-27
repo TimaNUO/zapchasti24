@@ -439,24 +439,46 @@ class _CSellerFeedbacksWidgetState extends State<CSellerFeedbacksWidget>
                                                   ),
                                                 ].divide(SizedBox(width: 8.0)),
                                               ),
-                                              Divider(
-                                                thickness: 2.0,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent3,
-                                              ),
-                                              Text(
-                                                getJsonField(
-                                                  sellerRatingBodyItem,
-                                                  r'''$.comment''',
-                                                ).toString(),
-                                                textAlign: TextAlign.justify,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font:
-                                                          GoogleFonts.openSans(
+                                              if (getJsonField(
+                                                    sellerRatingBodyItem,
+                                                    r'''$.comment''',
+                                                  ) !=
+                                                  null)
+                                                Divider(
+                                                  thickness: 2.0,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .accent3,
+                                                ),
+                                              if (getJsonField(
+                                                    sellerRatingBodyItem,
+                                                    r'''$.comment''',
+                                                  ) !=
+                                                  null)
+                                                Text(
+                                                  getJsonField(
+                                                    sellerRatingBodyItem,
+                                                    r'''$.comment''',
+                                                  ).toString(),
+                                                  textAlign: TextAlign.justify,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        font: GoogleFonts
+                                                            .openSans(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -468,19 +490,7 @@ class _CSellerFeedbacksWidgetState extends State<CSellerFeedbacksWidget>
                                                                 .bodyMedium
                                                                 .fontStyle,
                                                       ),
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .fontStyle,
-                                                    ),
-                                              ),
+                                                ),
                                             ],
                                           ),
                                         ),

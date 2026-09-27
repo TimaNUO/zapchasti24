@@ -2,10 +2,10 @@ import '/backend/api_requests/api_calls.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'c_buyer_ad_new_widget.dart' show CBuyerAdNewWidget;
+import 'cc_buyer_ad_new_widget.dart' show CcBuyerAdNewWidget;
 import 'package:flutter/material.dart';
 
-class CBuyerAdNewModel extends FlutterFlowModel<CBuyerAdNewWidget> {
+class CcBuyerAdNewModel extends FlutterFlowModel<CcBuyerAdNewWidget> {
   ///  Local state fields for this component.
 
   List<String> allPhotoList = [];

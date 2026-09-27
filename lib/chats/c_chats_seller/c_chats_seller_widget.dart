@@ -1,6 +1,6 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
-import '/buyer/c_chats_buyer_mes/c_chats_buyer_mes_widget.dart';
+import '/chats/c_chats_seller_mes/c_chats_seller_mes_widget.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -9,18 +9,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'c_chats_buyer_model.dart';
-export 'c_chats_buyer_model.dart';
+import 'c_chats_seller_model.dart';
+export 'c_chats_seller_model.dart';
 
-class CChatsBuyerWidget extends StatefulWidget {
-  const CChatsBuyerWidget({super.key});
+class CChatsSellerWidget extends StatefulWidget {
+  const CChatsSellerWidget({super.key});
 
   @override
-  State<CChatsBuyerWidget> createState() => _CChatsBuyerWidgetState();
+  State<CChatsSellerWidget> createState() => _CChatsSellerWidgetState();
 }
 
-class _CChatsBuyerWidgetState extends State<CChatsBuyerWidget> {
-  late CChatsBuyerModel _model;
+class _CChatsSellerWidgetState extends State<CChatsSellerWidget> {
+  late CChatsSellerModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -31,7 +31,7 @@ class _CChatsBuyerWidgetState extends State<CChatsBuyerWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CChatsBuyerModel());
+    _model = createModel(context, () => CChatsSellerModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -67,7 +67,7 @@ class _CChatsBuyerWidgetState extends State<CChatsBuyerWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 8.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          'q2mq1i93' /* Список чатов */,
+                          'ciiazk1x' /* Список чатов */,
                         ),
                         textAlign: TextAlign.center,
                         style:
@@ -98,8 +98,8 @@ class _CChatsBuyerWidgetState extends State<CChatsBuyerWidget> {
                       color: FlutterFlowTheme.of(context).accent4,
                     ),
                     FutureBuilder<ApiCallResponse>(
-                      future: SupabaseInfoGroup.chatsBuyerInfoCall.call(
-                        buyerID: FFAppState().userIdApp,
+                      future: SupabaseInfoGroup.chatsSellerInfoCall.call(
+                        sellerID: FFAppState().userIdApp,
                         currentJwtToken: currentJwtToken,
                       ),
                       builder: (context, snapshot) {
@@ -116,11 +116,11 @@ class _CChatsBuyerWidgetState extends State<CChatsBuyerWidget> {
                             ),
                           );
                         }
-                        final listViewChatsBuyerInfoResponse = snapshot.data!;
+                        final listViewChatsSellerInfoResponse = snapshot.data!;
 
                         return Builder(
                           builder: (context) {
-                            final chats = listViewChatsBuyerInfoResponse
+                            final chats = listViewChatsSellerInfoResponse
                                 .jsonBody
                                 .toList();
 
@@ -156,7 +156,7 @@ class _CChatsBuyerWidgetState extends State<CChatsBuyerWidget> {
                                           return Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child: CChatsBuyerMesWidget(
+                                            child: CChatsSellerMesWidget(
                                               chatID: getJsonField(
                                                 chatsItem,
                                                 r'''$.id''',
@@ -225,7 +225,7 @@ class _CChatsBuyerWidgetState extends State<CChatsBuyerWidget> {
                                                 Text(
                                                   getJsonField(
                                                     chatsItem,
-                                                    r'''$.seller_id''',
+                                                    r'''$.buyer_id''',
                                                   ).toString(),
                                                   style: FlutterFlowTheme.of(
                                                           context)

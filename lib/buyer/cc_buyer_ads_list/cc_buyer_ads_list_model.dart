@@ -2,21 +2,22 @@ import '/backend/api_requests/api_calls.dart';
 import '/buyer/c_buyer_navigation_bar/c_buyer_navigation_bar_widget.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'cc_seller_ad_detail_copy_widget.dart' show CcSellerAdDetailCopyWidget;
+import 'cc_buyer_ads_list_widget.dart' show CcBuyerAdsListWidget;
 import 'package:flutter/material.dart';
 
-class CcSellerAdDetailCopyModel
-    extends FlutterFlowModel<CcSellerAdDetailCopyWidget> {
+class CcBuyerAdsListModel extends FlutterFlowModel<CcBuyerAdsListWidget> {
   ///  State fields for stateful widgets in this component.
 
-  // Stores action output result for [Backend Call - API (ch get or create chat)] action in Container widget.
-  ApiCallResponse? chatReq;
+  // Stores action output result for [Backend Call - API (Hide Ad Info)] action in Container widget.
+  ApiCallResponse? apiResultwxc;
+  // Stores action output result for [Backend Call - API (Died Ad Info)] action in ButtonAlive widget.
+  ApiCallResponse? aliveFalse;
+  // Stores action output result for [Backend Call - API (Died Ad Info)] action in Button widget.
+  ApiCallResponse? aliveTrue;
   // Model for cBackComponents component.
   late CBackComponentsModel cBackComponentsModel;
   // Model for cBuyerNavigationBar component.
   late CBuyerNavigationBarModel cBuyerNavigationBarModel;
-  // Stores action output result for [Backend Call - API (ch get or create chat)] action in Container widget.
-  ApiCallResponse? chatReqOrig;
 
   @override
   void initState(BuildContext context) {

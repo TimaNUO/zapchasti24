@@ -1,14 +1,14 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
+import '/buyer/c_buyer_navigation_bar/c_buyer_navigation_bar_widget.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
-import '/components/c_brands_list_tile_ad_sell/c_brands_list_tile_ad_sell_widget.dart';
+import '/components/c_brands_list_tile_ad_buy/c_brands_list_tile_ad_buy_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/seller/c_empty_seller_filter/c_empty_seller_filter_widget.dart';
-import '/seller/c_seller_navigation_bar/c_seller_navigation_bar_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -16,19 +16,19 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'cc_seller_ads_list_model.dart';
-export 'cc_seller_ads_list_model.dart';
+import 'cc_buyer_ads_list_model.dart';
+export 'cc_buyer_ads_list_model.dart';
 
-class CcSellerAdsListWidget extends StatefulWidget {
-  const CcSellerAdsListWidget({super.key});
+class CcBuyerAdsListWidget extends StatefulWidget {
+  const CcBuyerAdsListWidget({super.key});
 
   @override
-  State<CcSellerAdsListWidget> createState() => _CcSellerAdsListWidgetState();
+  State<CcBuyerAdsListWidget> createState() => _CcBuyerAdsListWidgetState();
 }
 
-class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
+class _CcBuyerAdsListWidgetState extends State<CcBuyerAdsListWidget>
     with TickerProviderStateMixin {
-  late CcSellerAdsListModel _model;
+  late CcBuyerAdsListModel _model;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -41,7 +41,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CcSellerAdsListModel());
+    _model = createModel(context, () => CcBuyerAdsListModel());
 
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(
@@ -94,7 +94,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: MediaQuery.sizeOf(context).height * 1.0,
             decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).tertiary,
+              color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
             child: Stack(
               children: [
@@ -117,7 +117,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                               builder: (context) {
                                 return Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
-                                  child: CBrandsListTileAdSellWidget(),
+                                  child: CBrandsListTileAdBuyWidget(),
                                 );
                               },
                             ).then((value) => safeSetState(() {}));
@@ -150,7 +150,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                                             AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'dgxx3eto' /* Добавить объявление */,
+                                            '1dijrmxf' /* Добавить объявление */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .titleSmall
@@ -320,7 +320,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                                                                     FFLocalizations.of(
                                                                             context)
                                                                         .getText(
-                                                                      'ruqtkamn' /* Код объявления */,
+                                                                      'kf8pe59g' /* Код объявления */,
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -637,7 +637,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'u6jnl3x8' /* Марка */,
+                                                                  'bm2880si' /* Марка */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -758,7 +758,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'u7q37zyo' /* Модели */,
+                                                                    'qk8wt678' /* Модели */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -955,7 +955,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'ojs22gmz' /* Период выпуска */,
+                                                                  'w4ck7xrm' /* Период выпуска */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -1075,7 +1075,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            '2fx07lzj' /*  -  */,
+                                                            'u8ss7x5u' /*  -  */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1243,7 +1243,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'c9t5i5fm' /* Категории */,
+                                                                    'ln0sgp3h' /* Категории */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -1440,7 +1440,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'jdejqp5g' /* Состояние автозапчастей */,
+                                                                  'g9dnxzev' /* Состояние автозапчастей */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -1481,7 +1481,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'urtw83w5' /* Б/У */,
+                                                              'fwfo8csc' /* Б/У */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -1521,7 +1521,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'rzx7zztq' /* Новые */,
+                                                              '0hk3gpfw' /* Новые */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -1597,7 +1597,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'bfg7c9p0' /* Стоимость */,
+                                                                  'lykckshx' /* Стоимость */,
                                                                 ),
                                                                 textAlign:
                                                                     TextAlign
@@ -1750,7 +1750,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'i28j38ne' /* Описание */,
+                                                                  'f6cknqzu' /* Описание */,
                                                                 ),
                                                                 textAlign:
                                                                     TextAlign
@@ -1899,7 +1899,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'c67rexny' /* Фото */,
+                                                                  'kjephjyx' /* Фото */,
                                                                 ),
                                                                 textAlign:
                                                                     TextAlign
@@ -2122,7 +2122,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                                                                     text: FFLocalizations.of(
                                                                             context)
                                                                         .getText(
-                                                                      '6bp8oprq' /* Снять объявление */,
+                                                                      '6l2gedz6' /* Снять объявление */,
                                                                     ),
                                                                     options:
                                                                         FFButtonOptions(
@@ -2204,7 +2204,7 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                                                                   text: FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    '4fi84n2l' /* Опубликовать */,
+                                                                    'ldzyxlvo' /* Опубликовать */,
                                                                   ),
                                                                   options:
                                                                       FFButtonOptions(
@@ -2293,9 +2293,11 @@ class _CcSellerAdsListWidgetState extends State<CcSellerAdsListWidget>
                 Align(
                   alignment: AlignmentDirectional(0.0, 1.0),
                   child: wrapWithModel(
-                    model: _model.cSellerNavigationBarModel,
+                    model: _model.cBuyerNavigationBarModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: CSellerNavigationBarWidget(),
+                    child: CBuyerNavigationBarWidget(
+                      onTapButton: () async {},
+                    ),
                   ),
                 ),
               ],

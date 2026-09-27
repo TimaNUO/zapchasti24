@@ -3186,7 +3186,7 @@ class SellerRequestONEInfoCall {
     return ApiManager.instance.makeApiCall(
       callName: 'SellerRequest ONE Info',
       apiUrl:
-          '${baseUrl}/requests?select=id,created_at,requested_part_id,requested_details,status,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,photo,years!inner(id,year),car_models!inner(id,model,car_brands(id,brand)),data_users!inner(id,phone,cities(id,city,countries!inner(id,country)))),seller_requests(seller_id,request_id,is_rejected)',
+          '${baseUrl}/requests?select=id,created_at,requested_part_id,requested_details,status,condition_used,condition_new,photo_url,vehicle_users!inner(id,vin,photo,years!inner(id,year),car_models!inner(id,model,car_brands(id,brand)),data_users!inner(id,phone,cities(id,city,countries!inner(id,country)),is_blocked,is_deleted)),seller_requests(seller_id,request_id,is_rejected)',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
@@ -3196,6 +3196,8 @@ class SellerRequestONEInfoCall {
       },
       params: {
         'id': "eq.${reqID}",
+        'vehicle_users.data_users.is_deleted': "eq.false",
+        'vehicle_users.data_users.is_blocked': "eq.false",
       },
       returnBody: true,
       encodeBodyUtf8: false,

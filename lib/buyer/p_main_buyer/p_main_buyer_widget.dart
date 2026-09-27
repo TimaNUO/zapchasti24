@@ -1,10 +1,11 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
-import '/buyer/c_buyer_ads_list/c_buyer_ads_list_widget.dart';
 import '/buyer/c_buyer_navigation_bar/c_buyer_navigation_bar_widget.dart';
 import '/buyer/c_buyer_specialization_detail/c_buyer_specialization_detail_widget.dart';
-import '/buyer/c_chats_buyer/c_chats_buyer_widget.dart';
 import '/buyer/c_new_request/c_new_request_widget.dart';
+import '/buyer/cc_buyer_ads_list/cc_buyer_ads_list_widget.dart';
+import '/chats/c_chats_buyer/c_chats_buyer_widget.dart';
 import '/components/c_brands_list_tile_car/c_brands_list_tile_car_widget.dart';
 import '/components/c_update_buyer/c_update_buyer_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -113,6 +114,52 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
             );
           },
         ).then((value) => safeSetState(() {}));
+      }
+      _model.notificationsBuyer = await NotificationsTable().queryRows(
+        queryFn: (q) => q
+            .eqOrNull(
+              'recipient_id',
+              currentUserUid,
+            )
+            .eqOrNull(
+              'is_read',
+              false,
+            )
+            .eqOrNull(
+              'type_notification',
+              'buyer_request_confirm_actuality',
+            )
+            .order('id', ascending: true),
+      );
+      _model.notifRequests = await RequestsTable().queryRows(
+        queryFn: (q) => q
+            .inFilterOrNull(
+              'id',
+              _model.notificationsBuyer
+                  ?.map((e) => e.cardId)
+                  .withoutNulls
+                  .toList(),
+            )
+            .eqOrNull(
+              'is_alive',
+              false,
+            ),
+      );
+      for (int loop1Index = 0;
+          loop1Index <= _model.notifRequests!.length;
+          loop1Index++) {
+        final currentLoop1Item =
+            _model.notifRequests!.map((e) => e.id).toList()[loop1Index];
+
+        context.pushNamed(
+          PBuyerRequestActualityWidget.routeName,
+          queryParameters: {
+            'requestID': serializeParam(
+              currentLoop1Item,
+              ParamType.int,
+            ),
+          }.withoutNulls,
+        );
       }
     });
 
@@ -329,7 +376,7 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: CBuyerAdsListWidget(),
+                                          child: CcBuyerAdsListWidget(),
                                         ),
                                       );
                                     },

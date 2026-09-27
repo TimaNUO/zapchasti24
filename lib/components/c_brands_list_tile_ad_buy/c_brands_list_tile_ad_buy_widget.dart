@@ -1,5 +1,5 @@
 import '/backend/supabase/supabase.dart';
-import '/buyer/c_buyer_ad_new/c_buyer_ad_new_widget.dart';
+import '/buyer/cc_buyer_ad_new/cc_buyer_ad_new_widget.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -306,7 +306,7 @@ class _CBrandsListTileAdBuyWidgetState
                                           return Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child: CBuyerAdNewWidget(),
+                                            child: CcBuyerAdNewWidget(),
                                           );
                                         },
                                       ).then((value) => safeSetState(() {}));
@@ -401,7 +401,7 @@ class _CBrandsListTileAdBuyWidgetState
                                                           .viewInsetsOf(
                                                               context),
                                                       child:
-                                                          CBuyerAdNewWidget(),
+                                                          CcBuyerAdNewWidget(),
                                                     );
                                                   },
                                                 ).then((value) =>
@@ -468,7 +468,7 @@ class _CBrandsListTileAdBuyWidgetState
                                           return Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child: CBuyerAdNewWidget(),
+                                            child: CcBuyerAdNewWidget(),
                                           );
                                         },
                                       ).then((value) => safeSetState(() {}));
@@ -563,7 +563,7 @@ class _CBrandsListTileAdBuyWidgetState
                                                           .viewInsetsOf(
                                                               context),
                                                       child:
-                                                          CBuyerAdNewWidget(),
+                                                          CcBuyerAdNewWidget(),
                                                     );
                                                   },
                                                 ).then((value) =>

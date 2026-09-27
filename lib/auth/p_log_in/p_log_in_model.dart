@@ -1,5 +1,4 @@
 import '/backend/supabase/supabase.dart';
-import '/components/c_back_pages/c_back_pages_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'p_log_in_widget.dart' show PLogInWidget;
@@ -46,13 +45,10 @@ class PLogInModel extends FlutterFlowModel<PLogInWidget> {
   List<DataUsersRow>? userRowB;
   // Stores action output result for [Custom Action - getUserRoleIDByPhone] action in Button widget.
   int? userRoleIDB;
-  // Model for cBackPages component.
-  late CBackPagesModel cBackPagesModel;
 
   @override
   void initState(BuildContext context) {
     passwordLogVisibility = false;
-    cBackPagesModel = createModel(context, () => CBackPagesModel());
   }
 
   @override
@@ -62,7 +58,5 @@ class PLogInModel extends FlutterFlowModel<PLogInWidget> {
 
     passwordLogFocusNode?.dispose();
     passwordLogTextController?.dispose();
-
-    cBackPagesModel.dispose();
   }
 }

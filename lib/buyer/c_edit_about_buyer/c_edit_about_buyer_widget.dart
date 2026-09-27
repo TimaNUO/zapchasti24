@@ -1246,6 +1246,7 @@ class _CEditAboutBuyerWidgetState extends State<CEditAboutBuyerWidget>
                                       await DataUsersTable().update(
                                         data: {
                                           'is_deleted': true,
+                                          'fcm_token': null,
                                         },
                                         matchingRows: (rows) => rows.eqOrNull(
                                           'id',
@@ -1257,7 +1258,7 @@ class _CEditAboutBuyerWidgetState extends State<CEditAboutBuyerWidget>
                                       GoRouter.of(context)
                                           .clearRedirectLocation();
 
-                                      context.pushNamedAuth(
+                                      context.goNamedAuth(
                                           PStartReqWidget.routeName,
                                           context.mounted);
                                     }

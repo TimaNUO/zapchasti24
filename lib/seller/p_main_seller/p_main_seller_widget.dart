@@ -1,7 +1,7 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
-import '/buyer/c_chats_seller/c_chats_seller_widget.dart';
+import '/chats/c_chats_seller/c_chats_seller_widget.dart';
 import '/components/c_update_seller/c_update_seller_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -13,10 +13,8 @@ import '/seller/c_seller_ad_detail/c_seller_ad_detail_widget.dart';
 import '/seller/c_seller_feedbacks/c_seller_feedbacks_widget.dart';
 import '/seller/c_seller_filter_ad_list_edit/c_seller_filter_ad_list_edit_widget.dart';
 import '/seller/c_seller_navigation_bar/c_seller_navigation_bar_widget.dart';
-import '/seller/c_seller_notifications/c_seller_notifications_widget.dart';
 import '/seller/c_seller_request_a_l_l_filter/c_seller_request_a_l_l_filter_widget.dart';
 import '/seller/c_seller_request_for_filter/c_seller_request_for_filter_widget.dart';
-import '/seller/cc_seller_ads_list/cc_seller_ads_list_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
@@ -211,7 +209,7 @@ class _PMainSellerWidgetState extends State<PMainSellerWidget> {
                                       PSellerRequestDetailWidget.routeName,
                                       queryParameters: {
                                         'requestID': serializeParam(
-                                          5017,
+                                          5047,
                                           ParamType.int,
                                         ),
                                       }.withoutNulls,
@@ -219,73 +217,6 @@ class _PMainSellerWidgetState extends State<PMainSellerWidget> {
                                   },
                                   text: FFLocalizations.of(context).getText(
                                     'yi1q8h2y' /* Уведомления о заявке */,
-                                  ),
-                                  options: FFButtonOptions(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 40.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        4.0, 0.0, 4.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          font: GoogleFonts.openSans(
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .fontStyle,
-                                          ),
-                                          color: Colors.white,
-                                          letterSpacing: 0.0,
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .fontStyle,
-                                        ),
-                                    elevation: 0.0,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                ),
-                              ),
-                            if (false)
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 8.0, 0.0, 0.0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    await showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      context: context,
-                                      builder: (context) {
-                                        return GestureDetector(
-                                          onTap: () {
-                                            FocusScope.of(context).unfocus();
-                                            FocusManager.instance.primaryFocus
-                                                ?.unfocus();
-                                          },
-                                          child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: CcSellerAdsListWidget(),
-                                          ),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-                                  },
-                                  text: FFLocalizations.of(context).getText(
-                                    '413704m8' /* Объявления */,
                                   ),
                                   options: FFButtonOptions(
                                     width:
@@ -2655,31 +2586,9 @@ class _PMainSellerWidgetState extends State<PMainSellerWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                await showModalBottomSheet(
-                                                  isScrollControlled: true,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return GestureDetector(
-                                                      onTap: () {
-                                                        FocusScope.of(context)
-                                                            .unfocus();
-                                                        FocusManager.instance
-                                                            .primaryFocus
-                                                            ?.unfocus();
-                                                      },
-                                                      child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child:
-                                                            CSellerNotificationsWidget(),
-                                                      ),
-                                                    );
-                                                  },
-                                                ).then((value) =>
-                                                    safeSetState(() {}));
+                                                context.pushNamed(
+                                                    PSellerNotificationsWidget
+                                                        .routeName);
                                               },
                                               child: Container(
                                                 width: 36.0,
