@@ -28,6 +28,8 @@ class CSellerOfferToRequestForFilterModel
   void updateAllPhotoAtIndex(int index, Function(String) updateFn) =>
       allPhoto[index] = updateFn(allPhoto[index]);
 
+  bool isBlocked = false;
+
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Backend Call - API (Seller BuyerID From RequestsID Info)] action in cSellerOfferToRequestForFilter widget.

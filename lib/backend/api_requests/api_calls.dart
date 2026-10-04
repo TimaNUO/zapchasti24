@@ -777,11 +777,11 @@ class UpsertVehicleUserInfoCall {
 
     final ffApiRequestBody = '''
 {
-  "vin": "${escapeStringForJson(vin)}",
+  "vin": ${vin == null ? 'null' : '"${escapeStringForJson(vin)}"'},
   "user_id": ${userId},
   "model_id": ${modelId},
   "year_id": ${yearId},
-  "photo": "${escapeStringForJson(photo)}"
+  "photo": ${photo == null ? 'null' : '"${escapeStringForJson(photo)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Upsert VehicleUser Info',
@@ -899,7 +899,7 @@ class UpsertAdInfoCall {
   "autoparts_condition_used": ${autopartsConditionUsed},
   "year_from": ${yearFrom},
   "year_to": ${yearTo},
-  "description": "${escapeStringForJson(description)}",
+  "description": ${description == null ? 'null' : '"${escapeStringForJson(description)}"'},
   "price": ${price},
   "currency_id": ${currencyId},
   "photo_url": ${photoUrl}
@@ -979,8 +979,8 @@ class UpdateDataUsersInfoCall {
 
     final ffApiRequestBody = '''
 {
-  "full_name" : "${escapeStringForJson(fullNameUser)}",
-  "city_id" : "${cityIdUser}"
+  "full_name" : ${fullNameUser == null ? 'null' : '"${escapeStringForJson(fullNameUser)}"'},
+  "city_id" : ${cityIdUser == null ? 'null' : '"${cityIdUser}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Update DataUsers Info',
@@ -2789,7 +2789,7 @@ class UpsertRequestInfoCall {
     final ffApiRequestBody = '''
 {
   "requested_part_id": ${requestedPartId},
-  "requested_details": "${escapeStringForJson(requestedDetails)}",
+  "requested_details": ${requestedDetails == null ? 'null' : '"${escapeStringForJson(requestedDetails)}"'},
   "vehicle_buyer_id": ${vehicleBuyerId},
   "photo_url": ${photoUrl},
   "condition_used": ${conditionUsed},
@@ -2843,11 +2843,11 @@ class UpdateRequestInfoCall {
     final ffApiRequestBody = '''
 {
   "requested_part_id": ${requestedPartId},
-  "requested_details": "${escapeStringForJson(requestedDetails)}",
+  "requested_details": ${requestedDetails == null ? 'null' : '"${escapeStringForJson(requestedDetails)}"'},
   "photo_url": ${photoUrl},
   "condition_used": ${conditionUsed},
   "condition_new": ${conditionNew},
-  "status" : "${escapeStringForJson(status)}"
+  "status" : ${status == null ? 'null' : '"${escapeStringForJson(status)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Update Request Info',
@@ -2891,8 +2891,8 @@ class UpdateFeedbackInfoCall {
     final ffApiRequestBody = '''
 {
   "order_rating": ${orderRating},
-  "comment": "${escapeStringForJson(comment)}",
-  "status": "${escapeStringForJson(status)}"
+  "comment": ${comment == null ? 'null' : '"${escapeStringForJson(comment)}"'},
+  "status": ${status == null ? 'null' : '"${escapeStringForJson(status)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Update Feedback Info',
@@ -2943,7 +2943,7 @@ class UpsertOfferInfoCall {
   "currency_id": ${currencyId},
   "photo_url": ${photoUrl},
   "price": ${price},
-  "details": "${escapeStringForJson(details)}"
+  "details": ${details == null ? 'null' : '"${escapeStringForJson(details)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Upsert Offer Info',
@@ -2990,8 +2990,8 @@ class UpdateOfferInfoCall {
 {
   "photo_url": ${photoUrl},
   "price": ${price},
-  "details": "${escapeStringForJson(details)}",
-  "status": "${escapeStringForJson(status)}"
+  "details": ${details == null ? 'null' : '"${escapeStringForJson(details)}"'},
+  "status": ${status == null ? 'null' : '"${escapeStringForJson(status)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Update Offer Info',
@@ -3033,7 +3033,7 @@ class UpsertOrderInfoCall {
     final ffApiRequestBody = '''
 {
   "offer_id" : ${offerId},
-  "order_status" : "${escapeStringForJson(orderStatus)}"
+  "order_status" : ${orderStatus == null ? 'null' : '"${escapeStringForJson(orderStatus)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Upsert Order Info',
@@ -3906,8 +3906,8 @@ class UpdateVehicleUserInfoCall {
     final ffApiRequestBody = '''
 {
   "model_id": ${carModel},
-  "vin": "${escapeStringForJson(carVin)}",
-  "photo": "${escapeStringForJson(carPhoto)}",
+  "vin": ${carVin == null ? 'null' : '"${escapeStringForJson(carVin)}"'},
+  "photo": ${'"${escapeStringForJson(carPhoto)}"'},
   "year_id": ${carYear}
 }''';
     return ApiManager.instance.makeApiCall(
@@ -4433,7 +4433,7 @@ class ApprovedAdminRequestsInfoCall {
 
     final ffApiRequestBody = '''
 {
-  "status" : "${escapeStringForJson(status)}"
+  "status" : ${status == null ? 'null' : '"${escapeStringForJson(status)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Approved AdminRequests Info',
@@ -4474,7 +4474,7 @@ class ApprovedAdminOffersInfoCall {
 
     final ffApiRequestBody = '''
 {
-  "status" : "${escapeStringForJson(status)}"
+  "status" : ${status == null ? 'null' : '"${escapeStringForJson(status)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Approved AdminOffers Info',
@@ -4515,7 +4515,7 @@ class ApprovedAdminFeedbackInfoCall {
 
     final ffApiRequestBody = '''
 {
-  "status" : "${escapeStringForJson(status)}"
+  "status" : ${status == null ? 'null' : '"${escapeStringForJson(status)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Approved AdminFeedback Info',
@@ -4556,7 +4556,7 @@ class RejectedAdminRequestsInfoCall {
 
     final ffApiRequestBody = '''
 {
-  "status" : "${escapeStringForJson(status)}"
+  "status" : ${status == null ? 'null' : '"${escapeStringForJson(status)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Rejected AdminRequests Info',
@@ -4597,7 +4597,7 @@ class RejectedAdminOffersInfoCall {
 
     final ffApiRequestBody = '''
 {
-  "status" : "${escapeStringForJson(status)}"
+  "status" : ${status == null ? 'null' : '"${escapeStringForJson(status)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Rejected AdminOffers Info',
@@ -4638,7 +4638,7 @@ class RejectedAdminFeedbacksInfoCall {
 
     final ffApiRequestBody = '''
 {
-  "status" : "${escapeStringForJson(status)}"
+  "status" : ${status == null ? 'null' : '"${escapeStringForJson(status)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Rejected AdminFeedbacks Info',
@@ -4682,7 +4682,7 @@ class RejectedAdminRequestsNotesInfoCall {
 {
   "request_id" : ${reqId},
   "admin_id" : ${adminId},
-  "note" : "${escapeStringForJson(note)}"
+  "note" : ${note == null ? 'null' : '"${escapeStringForJson(note)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Rejected AdminRequestsNotes Info',
@@ -4726,7 +4726,7 @@ class RejectedAdminOffersNotesInfoCall {
 {
   "offer_id" : ${offId},
   "admin_id" : ${adminId},
-  "note" : "${escapeStringForJson(note)}"
+  "note" : ${note == null ? 'null' : '"${escapeStringForJson(note)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Rejected AdminOffersNotes Info',
@@ -4770,7 +4770,7 @@ class RejectedAdminFeedbacksNotesInfoCall {
 {
   "feedback_id" : ${feedId},
   "admin_id" : ${adminId},
-  "note" : "${escapeStringForJson(note)}"
+  "note" : ${note == null ? 'null' : '"${escapeStringForJson(note)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Rejected AdminFeedbacksNotes Info',
@@ -6943,7 +6943,7 @@ class BuyerOrderCloseInfoCall {
 
     final ffApiRequestBody = '''
 {
-  "order_status" : "${escapeStringForJson(status)}"
+  "order_status" : ${status == null ? 'null' : '"${escapeStringForJson(status)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Buyer Order Close Info',
@@ -6988,8 +6988,8 @@ class BuyerFeedbackInfoCall {
     final ffApiRequestBody = '''
 {
   "rating": ${orderRating},
-  "comment": "${escapeStringForJson(comment)}",
-  "status": "${escapeStringForJson(status)}",
+  "comment": ${comment == null ? 'null' : '"${escapeStringForJson(comment)}"'},
+  "status": ${status == null ? 'null' : '"${escapeStringForJson(status)}"'},
   "seller_id": ${sellerId},
   "buyer_id": ${buyerId}
 }''';
@@ -8044,7 +8044,7 @@ class SetRequestFilterStatusCall {
 {
   "p_request_id": ${reqID},
   "p_filter_id": ${filterID},
-  "p_status": "${escapeStringForJson(status)}"
+  "p_status": ${status == null ? 'null' : '"${escapeStringForJson(status)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'set request filter status',
@@ -8368,7 +8368,7 @@ class SetRequestFilterStatusForSellerCall {
 {
   "p_seller_id": ${sellerID},
   "p_request_id": ${reqID},
-  "p_status": "${escapeStringForJson(status)}"
+  "p_status": ${status == null ? 'null' : '"${escapeStringForJson(status)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'set request filter status for seller',
@@ -8452,7 +8452,7 @@ class UpsertSellerProfileCall {
     final ffApiRequestBody = '''
 {
   "p_seller_id": ${sellerId},
-  "p_about": "${escapeStringForJson(about)}",
+  "p_about": ${about == null ? 'null' : '"${escapeStringForJson(about)}"'},
   "p_photo_urls": ${photoUrls}
 }''';
     return ApiManager.instance.makeApiCall(
@@ -8965,11 +8965,11 @@ class ChSendMessageCall {
 {
   "p_chat_id": ${chatID},
   "p_content": ${content},
-  "p_text": "${escapeStringForJson(text)}",
-  "p_type": "${escapeStringForJson(type)}",
-  "p_media_url": "${escapeStringForJson(mediaURL)}",
-  "p_path": "${escapeStringForJson(path)}",
-  "p_thumbnail_url": "${escapeStringForJson(thumbnailURL)}"
+  "p_text": ${text == null ? 'null' : '"${escapeStringForJson(text)}"'},
+  "p_type": ${type == null ? 'null' : '"${escapeStringForJson(type)}"'},
+  "p_media_url": ${mediaURL == null ? 'null' : '"${escapeStringForJson(mediaURL)}"'},
+  "p_path": ${path == null ? 'null' : '"${escapeStringForJson(path)}"'},
+  "p_thumbnail_url": ${thumbnailURL == null ? 'null' : '"${escapeStringForJson(thumbnailURL)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ch send message',
@@ -9013,8 +9013,8 @@ class ChChatPreviewCall {
     final ffApiRequestBody = '''
 {
   "p_is_removed": ${isRemoved},
-  "p_type": "${escapeStringForJson(type)}",
-  "p_text": "${escapeStringForJson(text)}"
+  "p_type": ${type == null ? 'null' : '"${escapeStringForJson(type)}"'},
+  "p_text": ${text == null ? 'null' : '"${escapeStringForJson(text)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ch chat preview',
@@ -9897,10 +9897,10 @@ class UpsertDeviceAndStartSessionCall {
 
     final ffApiRequestBody = '''
 {
-  "p_install_id": "${escapeStringForJson(installid)}",
-  "p_platform": "${escapeStringForJson(platform)}",
+  "p_install_id": ${installid == null ? 'null' : '"${escapeStringForJson(installid)}"'},
+  "p_platform": ${platform == null ? 'null' : '"${escapeStringForJson(platform)}"'},
   "p_build": ${build},
-  "p_fcm_token": "${escapeStringForJson(fcmToken)}",
+  "p_fcm_token": ${fcmToken == null ? 'null' : '"${escapeStringForJson(fcmToken)}"'},
   "p_user_id": ${userID}
 }''';
     return ApiManager.instance.makeApiCall(

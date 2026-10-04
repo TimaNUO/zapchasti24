@@ -2001,81 +2001,89 @@ class _CSellerOfferToRequestForFilterWidgetState
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                _model.apiResultebtRES = await SupabaseInfoGroup
-                                    .rejectRequestInfoCall
-                                    .call(
-                                  reqID: getJsonField(
-                                    widget.requestBody,
-                                    r'''$.id''',
-                                  ),
-                                  sellerID: FFAppState().userIdApp,
-                                );
+                                if (!_model.isBlocked) {
+                                  _model.isBlocked = true;
+                                  safeSetState(() {});
+                                  _model.apiResultebtRES =
+                                      await SupabaseInfoGroup
+                                          .rejectRequestInfoCall
+                                          .call(
+                                    reqID: getJsonField(
+                                      widget.requestBody,
+                                      r'''$.id''',
+                                    ),
+                                    sellerID: FFAppState().userIdApp,
+                                  );
 
-                                await NotificationsTable().delete(
-                                  matchingRows: (rows) => rows
-                                      .eqOrNull(
-                                        'recipient_id',
-                                        currentUserUid,
-                                      )
-                                      .eqOrNull(
-                                        'type_notification',
-                                        'new_request_by_filter',
-                                      )
-                                      .eqOrNull(
-                                        'card_id',
-                                        getJsonField(
-                                          widget.requestBody,
-                                          r'''$.id''',
+                                  await NotificationsTable().delete(
+                                    matchingRows: (rows) => rows
+                                        .eqOrNull(
+                                          'recipient_id',
+                                          currentUserUid,
+                                        )
+                                        .eqOrNull(
+                                          'type_notification',
+                                          'new_request_by_filter',
+                                        )
+                                        .eqOrNull(
+                                          'card_id',
+                                          getJsonField(
+                                            widget.requestBody,
+                                            r'''$.id''',
+                                          ),
                                         ),
-                                      ),
-                                );
-                                await RPCRequestsFiltersGroup
-                                    .setRequestFilterStatusCall
-                                    .call(
-                                  reqID: getJsonField(
-                                    widget.requestBody,
-                                    r'''$.id''',
-                                  ),
-                                  filterID: widget.filterID,
-                                  status: 'rejected',
-                                );
+                                  );
+                                  await RPCRequestsFiltersGroup
+                                      .setRequestFilterStatusCall
+                                      .call(
+                                    reqID: getJsonField(
+                                      widget.requestBody,
+                                      r'''$.id''',
+                                    ),
+                                    filterID: widget.filterID,
+                                    status: 'rejected',
+                                  );
 
-                                await Future.delayed(
-                                  Duration(
-                                    milliseconds: 500,
-                                  ),
-                                );
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('Отклонено'),
-                                      content: Text('Заявка отклонена'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
+                                  _model.isBlocked = false;
+                                  safeSetState(() {});
+                                  await Future.delayed(
+                                    Duration(
+                                      milliseconds: 500,
+                                    ),
+                                  );
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        title: Text('Отклонено'),
+                                        content: Text('Заявка отклонена'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    context: context,
+                                    builder: (context) {
+                                      return Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: CSellerRequestForFilterWidget(
+                                          filterBody: widget.filterBody!,
                                         ),
-                                      ],
-                                    );
-                                  },
-                                );
-                                Navigator.pop(context);
-                                Navigator.pop(context);
-                                await showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  context: context,
-                                  builder: (context) {
-                                    return Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: CSellerRequestForFilterWidget(
-                                        filterBody: widget.filterBody!,
-                                      ),
-                                    );
-                                  },
-                                ).then((value) => safeSetState(() {}));
+                                      );
+                                    },
+                                  ).then((value) => safeSetState(() {}));
+                                }
 
                                 safeSetState(() {});
                               },
@@ -2083,7 +2091,9 @@ class _CSellerOfferToRequestForFilterWidgetState
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 height: 40.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0x1AFF1616),
+                                  color: _model.isBlocked
+                                      ? Color(0x1A464242)
+                                      : Color(0x1AFF1616),
                                   borderRadius: BorderRadius.circular(8.0),
                                   border: Border.all(
                                     color: FlutterFlowTheme.of(context).accent1,

@@ -2008,66 +2008,77 @@ class _CSellerOfferToRequestALLFilterWidgetState
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                _model.apiResulte85 = await SupabaseInfoGroup
-                                    .rejectRequestInfoCall
-                                    .call(
-                                  reqID: getJsonField(
-                                    widget.requestBody,
-                                    r'''$.id''',
-                                  ),
-                                  sellerID: FFAppState().userIdApp,
-                                );
+                                if (!_model.isBlocked) {
+                                  _model.isBlocked = true;
+                                  safeSetState(() {});
+                                  _model.apiResulte85 = await SupabaseInfoGroup
+                                      .rejectRequestInfoCall
+                                      .call(
+                                    reqID: getJsonField(
+                                      widget.requestBody,
+                                      r'''$.id''',
+                                    ),
+                                    sellerID: FFAppState().userIdApp,
+                                  );
 
-                                await NotificationsTable().delete(
-                                  matchingRows: (rows) => rows
-                                      .eqOrNull(
-                                        'recipient_id',
-                                        currentUserUid,
-                                      )
-                                      .eqOrNull(
-                                        'type_notification',
-                                        'new_request_by_filter',
-                                      )
-                                      .eqOrNull(
-                                        'card_id',
-                                        getJsonField(
+                                  await NotificationsTable().delete(
+                                    matchingRows: (rows) => rows
+                                        .eqOrNull(
+                                          'recipient_id',
+                                          currentUserUid,
+                                        )
+                                        .eqOrNull(
+                                          'type_notification',
+                                          'new_request_by_filter',
+                                        )
+                                        .eqOrNull(
+                                          'card_id',
+                                          getJsonField(
+                                            widget.requestBody,
+                                            r'''$.id''',
+                                          ),
+                                        ),
+                                  );
+                                  unawaited(
+                                    () async {
+                                      _model.outputRebuild565 =
+                                          await RPCRequestsFiltersGroup
+                                              .setRequestFilterStatusForSellerCall
+                                              .call(
+                                        reqID: getJsonField(
                                           widget.requestBody,
                                           r'''$.id''',
                                         ),
-                                      ),
-                                );
-                                unawaited(
-                                  () async {
-                                    _model.outputRebuild565 =
-                                        await RPCRequestsFiltersGroup
-                                            .setRequestFilterStatusForSellerCall
-                                            .call(
-                                      reqID: getJsonField(
-                                        widget.requestBody,
-                                        r'''$.id''',
-                                      ),
-                                      sellerID: FFAppState().userIdApp,
-                                      status: 'rejected',
-                                    );
-                                  }(),
-                                );
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('Отклонено'),
-                                      content: Text('Заявка отклонена'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                                Navigator.pop(context);
+                                        sellerID: FFAppState().userIdApp,
+                                        status: 'rejected',
+                                      );
+                                    }(),
+                                  );
+                                  _model.isBlocked = false;
+                                  safeSetState(() {});
+                                  await Future.delayed(
+                                    Duration(
+                                      milliseconds: 500,
+                                    ),
+                                  );
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        title: Text('Отклонено'),
+                                        content: Text('Заявка отклонена'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                  Navigator.pop(context);
+                                }
 
                                 safeSetState(() {});
                               },
@@ -2075,7 +2086,9 @@ class _CSellerOfferToRequestALLFilterWidgetState
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 height: 40.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0x1AFF1616),
+                                  color: _model.isBlocked
+                                      ? Color(0x1A464242)
+                                      : Color(0x1AFF1616),
                                   borderRadius: BorderRadius.circular(8.0),
                                   border: Border.all(
                                     color: FlutterFlowTheme.of(context).accent1,

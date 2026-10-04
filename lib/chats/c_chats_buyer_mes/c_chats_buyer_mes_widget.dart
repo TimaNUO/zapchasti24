@@ -23,6 +23,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:provider/provider.dart';
 import 'package:record/record.dart';
 import 'c_chats_buyer_mes_model.dart';
@@ -2552,1028 +2553,92 @@ class _CChatsBuyerMesWidgetState extends State<CChatsBuyerMesWidget>
               ),
               Align(
                 alignment: AlignmentDirectional(0.0, 1.0),
-                child: Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  constraints: BoxConstraints(
-                    maxHeight: 382.0,
-                  ),
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
-                  child: SingleChildScrollView(
-                    controller: _model.columnController1,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        if (_model.videoUrl != null && _model.videoUrl != '')
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 16.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                SingleChildScrollView(
-                                  controller: _model.columnController2,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Container(
-                                        constraints: BoxConstraints(
-                                          maxWidth: 250.0,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: Stack(
-                                          children: [
-                                            FlutterFlowVideoPlayer(
-                                              path: _model.videoUrl!,
-                                              videoType: VideoType.network,
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              autoPlay: false,
-                                              looping: true,
-                                              showControls: true,
-                                              allowFullScreen: true,
-                                              allowPlaybackSpeedMenu: false,
-                                            ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  -1.0, -1.0),
-                                              child: FlutterFlowIconButton(
-                                                borderRadius: 8.0,
-                                                buttonSize: 40.0,
-                                                fillColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent1,
-                                                icon: Icon(
-                                                  Icons.delete_outline,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .info,
-                                                  size: 24.0,
-                                                ),
-                                                onPressed: () async {
-                                                  _model.videoUrl = null;
-                                                  safeSetState(() {});
-                                                },
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                FlutterFlowIconButton(
-                                  borderRadius: 8.0,
-                                  buttonSize: 40.0,
-                                  fillColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  icon: Icon(
-                                    Icons.arrow_forward,
-                                    color: FlutterFlowTheme.of(context).info,
-                                    size: 24.0,
-                                  ),
-                                  onPressed: () async {
-                                    if (_model.uploadedFileUrl_uploadDataVideoS !=
-                                            '') {
-                                      _model.apiResultSendMesVideo =
-                                          await RPCChatsGroup.chSendMessageCall
-                                              .call(
-                                        chatID: widget.chatID,
-                                        currentJwtToken: currentJwtToken,
-                                        contentJson: <String, String?>{
-                                          'bucket': 'chat-media',
-                                        },
-                                        type: MessageType.video.name,
-                                        mediaURL: _model
-                                            .uploadedFileUrl_uploadDataVideoS,
-                                        path: functions.extractStoragePath(_model
-                                            .uploadedFileUrl_uploadDataVideoS),
-                                      );
-
-                                      if (FFAppState()
-                                          .lastRealtimeMessageListJson
-                                          .isNotEmpty) {
-                                        _model.mergeMessageListsAscOut4 =
-                                            await actions.mergeMessageListsAsc(
-                                          FFAppState()
-                                              .chatMessagesLiveJson
-                                              .toList(),
-                                          FFAppState()
-                                              .lastRealtimeMessageListJson
-                                              .toList(),
-                                        );
-                                        FFAppState().chatMessagesLiveJson =
-                                            _model.mergeMessageListsAscOut4!
-                                                .toList()
-                                                .cast<dynamic>();
-                                        safeSetState(() {});
-                                        _model.offset = _model.offset +
-                                            FFAppState()
-                                                .lastRealtimeMessageListJson
-                                                .length;
-                                        safeSetState(() {});
-                                      }
-                                      _model.offset = _model.offset + 1;
-                                      _model.videoUrl = null;
-                                      safeSetState(() {});
-                                      FFAppState().lastRealtimeMessageListJson =
-                                          [];
-                                      FFAppState().addToChatMessagesLiveJson(
-                                          (_model.apiResultSendMesVideo
-                                                  ?.jsonBody ??
-                                              ''));
-                                      safeSetState(() {});
-                                      _model.chatReadOutputV =
-                                          await RPCChatsGroup.chMarkChatReadCall
-                                              .call(
-                                        chatID: widget.chatID,
-                                        currentJwtToken: currentJwtToken,
-                                      );
-                                    }
-
-                                    safeSetState(() {});
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
-                        if (_model.photoUrl != null && _model.photoUrl != '')
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 16.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                SingleChildScrollView(
-                                  controller: _model.columnController3,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Container(
-                                        constraints: BoxConstraints(
-                                          maxWidth: 250.0,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: Stack(
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsets.all(4.0),
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  await Navigator.push(
-                                                    context,
-                                                    PageTransition(
-                                                      type: PageTransitionType
-                                                          .fade,
-                                                      child:
-                                                          FlutterFlowExpandedImageView(
-                                                        image:
-                                                            CachedNetworkImage(
-                                                          fadeInDuration:
-                                                              Duration(
-                                                                  milliseconds:
-                                                                      500),
-                                                          fadeOutDuration:
-                                                              Duration(
-                                                                  milliseconds:
-                                                                      500),
-                                                          imageUrl:
-                                                              _model.photoUrl!,
-                                                          fit: BoxFit.contain,
-                                                        ),
-                                                        allowRotation: true,
-                                                        tag: _model.photoUrl!,
-                                                        useHeroAnimation: true,
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
-                                                child: Hero(
-                                                  tag: _model.photoUrl!,
-                                                  transitionOnUserGestures:
-                                                      true,
-                                                  child: ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                    child: CachedNetworkImage(
-                                                      fadeInDuration: Duration(
-                                                          milliseconds: 500),
-                                                      fadeOutDuration: Duration(
-                                                          milliseconds: 500),
-                                                      imageUrl:
-                                                          _model.photoUrl!,
-                                                      width: MediaQuery.sizeOf(
-                                                                  context)
-                                                              .width *
-                                                          1.0,
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  -1.0, -1.0),
-                                              child: FlutterFlowIconButton(
-                                                borderRadius: 8.0,
-                                                buttonSize: 40.0,
-                                                fillColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent1,
-                                                icon: Icon(
-                                                  Icons.delete_outline,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .info,
-                                                  size: 24.0,
-                                                ),
-                                                onPressed: () async {
-                                                  _model.photoUrl = null;
-                                                  safeSetState(() {});
-                                                },
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                FlutterFlowIconButton(
-                                  borderRadius: 8.0,
-                                  buttonSize: 40.0,
-                                  fillColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  icon: Icon(
-                                    Icons.arrow_forward,
-                                    color: FlutterFlowTheme.of(context).info,
-                                    size: 24.0,
-                                  ),
-                                  onPressed: () async {
-                                    if (_model.uploadedFileUrl_uploadDataPhotoS !=
-                                            '') {
-                                      _model.apiResultSendMesPhoto =
-                                          await RPCChatsGroup.chSendMessageCall
-                                              .call(
-                                        chatID: widget.chatID,
-                                        currentJwtToken: currentJwtToken,
-                                        contentJson: <String, String?>{
-                                          'bucket': 'chat-media',
-                                        },
-                                        mediaURL: _model
-                                            .uploadedFileUrl_uploadDataPhotoS,
-                                        type: MessageType.image.name,
-                                        path: functions.extractStoragePath(_model
-                                            .uploadedFileUrl_uploadDataPhotoS),
-                                      );
-
-                                      if (FFAppState()
-                                          .lastRealtimeMessageListJson
-                                          .isNotEmpty) {
-                                        _model.mergeMessageListsAscOut3 =
-                                            await actions.mergeMessageListsAsc(
-                                          FFAppState()
-                                              .chatMessagesLiveJson
-                                              .toList(),
-                                          FFAppState()
-                                              .lastRealtimeMessageListJson
-                                              .toList(),
-                                        );
-                                        FFAppState().chatMessagesLiveJson =
-                                            _model.mergeMessageListsAscOut3!
-                                                .toList()
-                                                .cast<dynamic>();
-                                        safeSetState(() {});
-                                        _model.offset = _model.offset +
-                                            FFAppState()
-                                                .lastRealtimeMessageListJson
-                                                .length;
-                                        safeSetState(() {});
-                                      }
-                                      _model.offset = _model.offset + 1;
-                                      _model.photoUrl = null;
-                                      safeSetState(() {});
-                                      FFAppState().lastRealtimeMessageListJson =
-                                          [];
-                                      FFAppState().addToChatMessagesLiveJson(
-                                          (_model.apiResultSendMesPhoto
-                                                  ?.jsonBody ??
-                                              ''));
-                                      safeSetState(() {});
-                                      _model.chatReadOutputP =
-                                          await RPCChatsGroup.chMarkChatReadCall
-                                              .call(
-                                        chatID: widget.chatID,
-                                        currentJwtToken: currentJwtToken,
-                                      );
-                                    }
-
-                                    safeSetState(() {});
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
-                        if (_model.audioUrl != null && _model.audioUrl != '')
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 16.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(-1.0, -1.0),
-                                  child: FlutterFlowIconButton(
-                                    borderRadius: 8.0,
-                                    buttonSize: 40.0,
-                                    fillColor:
-                                        FlutterFlowTheme.of(context).accent1,
-                                    icon: Icon(
-                                      Icons.delete_outline,
-                                      color: FlutterFlowTheme.of(context).info,
-                                      size: 24.0,
-                                    ),
-                                    onPressed: () async {
-                                      _model.audioUrl = null;
-                                      safeSetState(() {});
-                                    },
-                                  ),
-                                ),
-                                Container(
-                                  constraints: BoxConstraints(
-                                    maxWidth: 250.0,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: FlutterFlowAudioPlayer(
-                                    audio: Audio.network(
-                                      _model.audioUrl!,
-                                      metas: Metas(),
-                                    ),
-                                    titleTextStyle: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .override(
-                                          font: GoogleFonts.openSans(
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleLarge
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleLarge
-                                                    .fontStyle,
-                                          ),
-                                          letterSpacing: 0.0,
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleLarge
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleLarge
-                                                  .fontStyle,
-                                        ),
-                                    playbackDurationTextStyle:
-                                        FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                              font: GoogleFonts.openSans(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .fontStyle,
-                                              ),
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .fontStyle,
-                                            ),
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    playbackButtonColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    activeTrackColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    inactiveTrackColor:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    elevation: 0.0,
-                                    playInBackground: PlayInBackground
-                                        .disabledRestoreOnForeground,
-                                  ),
-                                ),
-                                FlutterFlowIconButton(
-                                  borderRadius: 8.0,
-                                  buttonSize: 40.0,
-                                  fillColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  icon: Icon(
-                                    Icons.arrow_forward,
-                                    color: FlutterFlowTheme.of(context).info,
-                                    size: 24.0,
-                                  ),
-                                  onPressed: () async {
-                                    _model.filePath =
-                                        'chats/${widget.chatID?.toString()}/audio';
-                                    safeSetState(() {});
-                                    {
-                                      safeSetState(() => _model
-                                              .isDataUploading_uploadDataAudioS =
-                                          true);
-                                      var selectedUploadedFiles =
-                                          <FFUploadedFile>[];
-                                      var selectedMedia = <SelectedFile>[];
-                                      var downloadUrls = <String>[];
-                                      try {
-                                        showUploadMessage(
-                                          context,
-                                          FFLocalizations.of(context).getText(
-                                            'li80hpsn' /* Загрузка файла… */,
-                                          ),
-                                          showLoading: true,
-                                        );
-                                        selectedUploadedFiles = _model
-                                                .recordedFileBytes
-                                                .bytes!
-                                                .isNotEmpty
-                                            ? [_model.recordedFileBytes]
-                                            : <FFUploadedFile>[];
-                                        selectedMedia =
-                                            selectedFilesFromUploadedFiles(
-                                          selectedUploadedFiles,
-                                          storageFolderPath: _model.filePath,
-                                        );
-                                        downloadUrls =
-                                            await uploadSupabaseStorageFiles(
-                                          bucketName: 'chat-media',
-                                          selectedFiles: selectedMedia,
-                                        );
-                                      } finally {
-                                        ScaffoldMessenger.of(context)
-                                            .hideCurrentSnackBar();
-                                        _model.isDataUploading_uploadDataAudioS =
-                                            false;
-                                      }
-                                      if (selectedUploadedFiles.length ==
-                                              selectedMedia.length &&
-                                          downloadUrls.length ==
-                                              selectedMedia.length) {
-                                        safeSetState(() {
-                                          _model.uploadedLocalFile_uploadDataAudioS =
-                                              selectedUploadedFiles.first;
-                                          _model.uploadedFileUrl_uploadDataAudioS =
-                                              downloadUrls.first;
-                                        });
-                                        showUploadMessage(
-                                            context,
-                                            FFLocalizations.of(context).getText(
-                                              '3xghbynm' /* Успех! */,
-                                            ));
-                                      } else {
-                                        safeSetState(() {});
-                                        showUploadMessage(
-                                            context,
-                                            FFLocalizations.of(context).getText(
-                                              'yevi5vx8' /* Не удалось загрузить данные */,
-                                            ));
-                                        return;
-                                      }
-                                    }
-
-                                    if (_model.uploadedFileUrl_uploadDataAudioS !=
-                                            '') {
-                                      _model.apiResultSendMesAudio =
-                                          await RPCChatsGroup.chSendMessageCall
-                                              .call(
-                                        chatID: widget.chatID,
-                                        currentJwtToken: currentJwtToken,
-                                        contentJson: <String, String?>{
-                                          'bucket': 'chat-media',
-                                        },
-                                        mediaURL: _model
-                                            .uploadedFileUrl_uploadDataAudioS,
-                                        path: functions.extractStoragePath(_model
-                                            .uploadedFileUrl_uploadDataAudioS),
-                                        type: MessageType.audio.name,
-                                      );
-
-                                      if (FFAppState()
-                                          .lastRealtimeMessageListJson
-                                          .isNotEmpty) {
-                                        _model.mergeMessageListsAscOut5 =
-                                            await actions.mergeMessageListsAsc(
-                                          FFAppState()
-                                              .chatMessagesLiveJson
-                                              .toList(),
-                                          FFAppState()
-                                              .lastRealtimeMessageListJson
-                                              .toList(),
-                                        );
-                                        FFAppState().chatMessagesLiveJson =
-                                            _model.mergeMessageListsAscOut5!
-                                                .toList()
-                                                .cast<dynamic>();
-                                        safeSetState(() {});
-                                        _model.offset = _model.offset +
-                                            FFAppState()
-                                                .lastRealtimeMessageListJson
-                                                .length;
-                                        safeSetState(() {});
-                                      }
-                                      _model.offset = _model.offset + 1;
-                                      _model.audioUrl = null;
-                                      safeSetState(() {});
-                                      FFAppState().lastRealtimeMessageListJson =
-                                          [];
-                                      FFAppState().addToChatMessagesLiveJson(
-                                          (_model.apiResultSendMesAudio
-                                                  ?.jsonBody ??
-                                              ''));
-                                      safeSetState(() {});
-                                      _model.chatReadOutputA =
-                                          await RPCChatsGroup.chMarkChatReadCall
-                                              .call(
-                                        chatID: widget.chatID,
-                                        currentJwtToken: currentJwtToken,
-                                      );
-                                    }
-
-                                    safeSetState(() {});
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
-                        if ((_model.photoUrl == null ||
-                                _model.photoUrl == '') &&
-                            (_model.videoUrl == null ||
-                                _model.videoUrl == '') &&
-                            (_model.audioUrl == null || _model.audioUrl == ''))
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 8.0, 16.0, 16.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                if (_model
-                                        .textFieldMessageTextController.text ==
-                                    '')
-                                  FlutterFlowIconButton(
-                                    borderRadius: 8.0,
-                                    buttonSize: 40.0,
-                                    fillColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    icon: Icon(
-                                      Icons.play_lesson_rounded,
-                                      color: FlutterFlowTheme.of(context).info,
-                                      size: 24.0,
-                                    ),
-                                    onPressed: () async {
-                                      _model.filePath =
-                                          'chats/${widget.chatID?.toString()}/videos';
-                                      safeSetState(() {});
-                                      final selectedMedia =
-                                          await selectMediaWithSourceBottomSheet(
-                                        context: context,
-                                        storageFolderPath: _model.filePath,
-                                        allowPhoto: false,
-                                        allowVideo: true,
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                        textColor: FlutterFlowTheme.of(context)
-                                            .accent2,
-                                        pickerFontFamily: 'PT Sans',
-                                      );
-                                      if (selectedMedia != null &&
-                                          selectedMedia.every((m) =>
-                                              validateFileFormat(
-                                                  m.storagePath, context))) {
-                                        safeSetState(() => _model
-                                                .isDataUploading_uploadDataVideoS =
-                                            true);
-                                        var selectedUploadedFiles =
-                                            <FFUploadedFile>[];
-
-                                        var downloadUrls = <String>[];
-                                        try {
-                                          selectedUploadedFiles = selectedMedia
-                                              .map((m) => FFUploadedFile(
-                                                    name: m.storagePath
-                                                        .split('/')
-                                                        .last,
-                                                    bytes: m.bytes,
-                                                    height:
-                                                        m.dimensions?.height,
-                                                    width: m.dimensions?.width,
-                                                    blurHash: m.blurHash,
-                                                    originalFilename:
-                                                        m.originalFilename,
-                                                  ))
-                                              .toList();
-
-                                          downloadUrls =
-                                              await uploadSupabaseStorageFiles(
-                                            bucketName: 'chat-media',
-                                            selectedFiles: selectedMedia,
-                                          );
-                                        } finally {
-                                          _model.isDataUploading_uploadDataVideoS =
-                                              false;
-                                        }
-                                        if (selectedUploadedFiles.length ==
-                                                selectedMedia.length &&
-                                            downloadUrls.length ==
-                                                selectedMedia.length) {
-                                          safeSetState(() {
-                                            _model.uploadedLocalFile_uploadDataVideoS =
-                                                selectedUploadedFiles.first;
-                                            _model.uploadedFileUrl_uploadDataVideoS =
-                                                downloadUrls.first;
-                                          });
-                                        } else {
-                                          safeSetState(() {});
-                                          return;
-                                        }
-                                      }
-
-                                      _model.videoUrl = _model
-                                          .uploadedFileUrl_uploadDataVideoS;
-                                      safeSetState(() {});
-                                    },
-                                  ),
-                                if (_model
-                                        .textFieldMessageTextController.text ==
-                                    '')
-                                  FlutterFlowIconButton(
-                                    borderRadius: 8.0,
-                                    buttonSize: 40.0,
-                                    fillColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    icon: Icon(
-                                      Icons.add_a_photo,
-                                      color: FlutterFlowTheme.of(context).info,
-                                      size: 24.0,
-                                    ),
-                                    onPressed: () async {
-                                      _model.filePath =
-                                          'chats/${widget.chatID?.toString()}/images';
-                                      safeSetState(() {});
-                                      final selectedMedia =
-                                          await selectMediaWithSourceBottomSheet(
-                                        context: context,
-                                        storageFolderPath: _model.filePath,
-                                        allowPhoto: true,
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                        textColor: FlutterFlowTheme.of(context)
-                                            .accent2,
-                                        pickerFontFamily: 'PT Sans',
-                                      );
-                                      if (selectedMedia != null &&
-                                          selectedMedia.every((m) =>
-                                              validateFileFormat(
-                                                  m.storagePath, context))) {
-                                        safeSetState(() => _model
-                                                .isDataUploading_uploadDataPhotoS =
-                                            true);
-                                        var selectedUploadedFiles =
-                                            <FFUploadedFile>[];
-
-                                        var downloadUrls = <String>[];
-                                        try {
-                                          selectedUploadedFiles = selectedMedia
-                                              .map((m) => FFUploadedFile(
-                                                    name: m.storagePath
-                                                        .split('/')
-                                                        .last,
-                                                    bytes: m.bytes,
-                                                    height:
-                                                        m.dimensions?.height,
-                                                    width: m.dimensions?.width,
-                                                    blurHash: m.blurHash,
-                                                    originalFilename:
-                                                        m.originalFilename,
-                                                  ))
-                                              .toList();
-
-                                          downloadUrls =
-                                              await uploadSupabaseStorageFiles(
-                                            bucketName: 'chat-media',
-                                            selectedFiles: selectedMedia,
-                                          );
-                                        } finally {
-                                          _model.isDataUploading_uploadDataPhotoS =
-                                              false;
-                                        }
-                                        if (selectedUploadedFiles.length ==
-                                                selectedMedia.length &&
-                                            downloadUrls.length ==
-                                                selectedMedia.length) {
-                                          safeSetState(() {
-                                            _model.uploadedLocalFile_uploadDataPhotoS =
-                                                selectedUploadedFiles.first;
-                                            _model.uploadedFileUrl_uploadDataPhotoS =
-                                                downloadUrls.first;
-                                          });
-                                        } else {
-                                          safeSetState(() {});
-                                          return;
-                                        }
-                                      }
-
-                                      _model.photoUrl = _model
-                                          .uploadedFileUrl_uploadDataPhotoS;
-                                      safeSetState(() {});
-                                    },
-                                  ),
-                                Expanded(
-                                  child: SingleChildScrollView(
-                                    controller: _model.columnController4,
+                child: PointerInterceptor(
+                  intercepting: isWeb,
+                  child: Container(
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    constraints: BoxConstraints(
+                      maxHeight: 382.0,
+                    ),
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                    child: SingleChildScrollView(
+                      controller: _model.columnController1,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          if (_model.videoUrl != null && _model.videoUrl != '')
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 16.0, 16.0, 16.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  SingleChildScrollView(
+                                    controller: _model.columnController2,
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
                                         Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          child: TextFormField(
-                                            controller: _model
-                                                .textFieldMessageTextController,
-                                            focusNode: _model
-                                                .textFieldMessageFocusNode,
-                                            onChanged: (_) =>
-                                                EasyDebounce.debounce(
-                                              '_model.textFieldMessageTextController',
-                                              Duration(milliseconds: 2000),
-                                              () => safeSetState(() {}),
-                                            ),
-                                            autofocus: false,
-                                            enabled: true,
-                                            obscureText: false,
-                                            decoration: InputDecoration(
-                                              isDense: true,
-                                              labelStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .labelMedium
-                                                  .override(
-                                                    font: GoogleFonts.openSans(
-                                                      fontWeight:
+                                          constraints: BoxConstraints(
+                                            maxWidth: 250.0,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                          ),
+                                          child: Stack(
+                                            children: [
+                                              FlutterFlowVideoPlayer(
+                                                path: _model.videoUrl!,
+                                                videoType: VideoType.network,
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                autoPlay: false,
+                                                looping: true,
+                                                showControls: true,
+                                                allowFullScreen: true,
+                                                allowPlaybackSpeedMenu: false,
+                                              ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    -1.0, -1.0),
+                                                child: PointerInterceptor(
+                                                  intercepting: isWeb,
+                                                  child: FlutterFlowIconButton(
+                                                    borderRadius: 8.0,
+                                                    buttonSize: 40.0,
+                                                    fillColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .accent1,
+                                                    icon: Icon(
+                                                      Icons.delete_outline,
+                                                      color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .fontStyle,
+                                                              .info,
+                                                      size: 24.0,
                                                     ),
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium
-                                                            .fontStyle,
+                                                    onPressed: () async {
+                                                      _model.videoUrl = null;
+                                                      safeSetState(() {});
+                                                    },
                                                   ),
-                                              hintText:
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                'thq5vvkt' /* Введите текст */,
-                                              ),
-                                              hintStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .labelMedium
-                                                  .override(
-                                                    font: GoogleFonts.openSans(
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .fontStyle,
-                                                    ),
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium
-                                                            .fontStyle,
-                                                  ),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent4,
-                                                  width: 1.0,
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
                                               ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              focusedErrorBorder:
-                                                  OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              filled: true,
-                                              fillColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent2,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  font: GoogleFonts.openSans(
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontStyle,
-                                                  ),
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                            maxLines: null,
-                                            cursorColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryText,
-                                            enableInteractiveSelection: true,
-                                            validator: _model
-                                                .textFieldMessageTextControllerValidator
-                                                .asValidator(context),
+                                            ],
                                           ),
                                         ),
                                       ],
                                     ),
                                   ),
-                                ),
-                                if (_model
-                                        .textFieldMessageTextController.text ==
-                                    '')
-                                  InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onLongPress: () async {
-                                      if (!_model.isRecording) {
-                                        _model.isRecording = true;
-                                        safeSetState(() {});
-                                        await startAudioRecording(
-                                          context,
-                                          audioRecorder:
-                                              _model.audioRecorder ??=
-                                                  AudioRecorder(),
-                                        );
-
-                                        if (animationsMap[
-                                                'iconButtonOnActionTriggerAnimation'] !=
-                                            null) {
-                                          await animationsMap[
-                                                  'iconButtonOnActionTriggerAnimation']!
-                                              .controller
-                                              .forward(from: 0.0);
-                                        }
-                                      }
-                                    },
-                                    child: FlutterFlowIconButton(
-                                      borderRadius: 8.0,
-                                      buttonSize: 40.0,
-                                      fillColor: _model.isRecording
-                                          ? FlutterFlowTheme.of(context).accent1
-                                          : FlutterFlowTheme.of(context)
-                                              .primary,
-                                      icon: Icon(
-                                        Icons.keyboard_voice,
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
-                                        size: 24.0,
-                                      ),
-                                      onPressed: () async {
-                                        if (_model.isRecording) {
-                                          await stopAudioRecording(
-                                            audioRecorder: _model.audioRecorder,
-                                            audioName: 'recordedFileBytes',
-                                            onRecordingComplete:
-                                                (audioFilePath, audioBytes) {
-                                              _model.audioRecordOutput =
-                                                  audioFilePath;
-                                              _model.recordedFileBytes =
-                                                  audioBytes;
-                                            },
-                                          );
-
-                                          if (animationsMap[
-                                                  'iconButtonOnActionTriggerAnimation'] !=
-                                              null) {
-                                            animationsMap[
-                                                    'iconButtonOnActionTriggerAnimation']!
-                                                .controller
-                                                .stop();
-                                          }
-                                          _model.audioUrl =
-                                              _model.audioRecordOutput;
-                                          safeSetState(() {});
-                                          _model.isRecording = false;
-                                          safeSetState(() {});
-                                        }
-
-                                        safeSetState(() {});
-                                      },
-                                    ),
-                                  ).animateOnActionTrigger(
-                                    animationsMap[
-                                        'iconButtonOnActionTriggerAnimation']!,
-                                  ),
-                                if (_model
-                                        .textFieldMessageTextController.text !=
-                                    '')
                                   FlutterFlowIconButton(
                                     borderRadius: 8.0,
                                     buttonSize: 40.0,
@@ -3585,26 +2650,28 @@ class _CChatsBuyerMesWidgetState extends State<CChatsBuyerMesWidget>
                                       size: 24.0,
                                     ),
                                     onPressed: () async {
-                                      if (_model.textFieldMessageTextController
-                                                  .text !=
+                                      if (_model.uploadedFileUrl_uploadDataVideoS !=
                                               '') {
-                                        _model.apiResultSendMesText =
+                                        _model.apiResultSendMesVideo =
                                             await RPCChatsGroup
                                                 .chSendMessageCall
                                                 .call(
                                           chatID: widget.chatID,
                                           currentJwtToken: currentJwtToken,
-                                          contentJson: <String, String?>{},
-                                          type: MessageType.text.name,
-                                          text: _model
-                                              .textFieldMessageTextController
-                                              .text,
+                                          contentJson: <String, String?>{
+                                            'bucket': 'chat-media',
+                                          },
+                                          type: MessageType.video.name,
+                                          mediaURL: _model
+                                              .uploadedFileUrl_uploadDataVideoS,
+                                          path: functions.extractStoragePath(_model
+                                              .uploadedFileUrl_uploadDataVideoS),
                                         );
 
                                         if (FFAppState()
                                             .lastRealtimeMessageListJson
                                             .isNotEmpty) {
-                                          _model.mergeMessageListsAscOut2 =
+                                          _model.mergeMessageListsAscOut4 =
                                               await actions
                                                   .mergeMessageListsAsc(
                                             FFAppState()
@@ -3615,7 +2682,7 @@ class _CChatsBuyerMesWidgetState extends State<CChatsBuyerMesWidget>
                                                 .toList(),
                                           );
                                           FFAppState().chatMessagesLiveJson =
-                                              _model.mergeMessageListsAscOut2!
+                                              _model.mergeMessageListsAscOut4!
                                                   .toList()
                                                   .cast<dynamic>();
                                           safeSetState(() {});
@@ -3626,19 +2693,16 @@ class _CChatsBuyerMesWidgetState extends State<CChatsBuyerMesWidget>
                                           safeSetState(() {});
                                         }
                                         _model.offset = _model.offset + 1;
+                                        _model.videoUrl = null;
                                         safeSetState(() {});
                                         FFAppState()
                                             .lastRealtimeMessageListJson = [];
                                         FFAppState().addToChatMessagesLiveJson(
-                                            (_model.apiResultSendMesText
+                                            (_model.apiResultSendMesVideo
                                                     ?.jsonBody ??
                                                 ''));
                                         safeSetState(() {});
-                                        safeSetState(() {
-                                          _model.textFieldMessageTextController
-                                              ?.clear();
-                                        });
-                                        _model.chatReadOutputT =
+                                        _model.chatReadOutputV =
                                             await RPCChatsGroup
                                                 .chMarkChatReadCall
                                                 .call(
@@ -3650,18 +2714,1020 @@ class _CChatsBuyerMesWidgetState extends State<CChatsBuyerMesWidget>
                                       safeSetState(() {});
                                     },
                                   ),
-                              ].divide(SizedBox(width: 8.0)),
+                                ],
+                              ),
                             ),
-                          ),
-                      ],
+                          if (_model.photoUrl != null && _model.photoUrl != '')
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 16.0, 16.0, 16.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  SingleChildScrollView(
+                                    controller: _model.columnController3,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Container(
+                                          constraints: BoxConstraints(
+                                            maxWidth: 250.0,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                          ),
+                                          child: Stack(
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsets.all(4.0),
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    await Navigator.push(
+                                                      context,
+                                                      PageTransition(
+                                                        type: PageTransitionType
+                                                            .fade,
+                                                        child:
+                                                            FlutterFlowExpandedImageView(
+                                                          image:
+                                                              CachedNetworkImage(
+                                                            fadeInDuration:
+                                                                Duration(
+                                                                    milliseconds:
+                                                                        500),
+                                                            fadeOutDuration:
+                                                                Duration(
+                                                                    milliseconds:
+                                                                        500),
+                                                            imageUrl: _model
+                                                                .photoUrl!,
+                                                            fit: BoxFit.contain,
+                                                          ),
+                                                          allowRotation: true,
+                                                          tag: _model.photoUrl!,
+                                                          useHeroAnimation:
+                                                              true,
+                                                        ),
+                                                      ),
+                                                    );
+                                                  },
+                                                  child: Hero(
+                                                    tag: _model.photoUrl!,
+                                                    transitionOnUserGestures:
+                                                        true,
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                      child: CachedNetworkImage(
+                                                        fadeInDuration:
+                                                            Duration(
+                                                                milliseconds:
+                                                                    500),
+                                                        fadeOutDuration:
+                                                            Duration(
+                                                                milliseconds:
+                                                                    500),
+                                                        imageUrl:
+                                                            _model.photoUrl!,
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                1.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    -1.0, -1.0),
+                                                child: FlutterFlowIconButton(
+                                                  borderRadius: 8.0,
+                                                  buttonSize: 40.0,
+                                                  fillColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .accent1,
+                                                  icon: Icon(
+                                                    Icons.delete_outline,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .info,
+                                                    size: 24.0,
+                                                  ),
+                                                  onPressed: () async {
+                                                    _model.photoUrl = null;
+                                                    safeSetState(() {});
+                                                  },
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  FlutterFlowIconButton(
+                                    borderRadius: 8.0,
+                                    buttonSize: 40.0,
+                                    fillColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    icon: Icon(
+                                      Icons.arrow_forward,
+                                      color: FlutterFlowTheme.of(context).info,
+                                      size: 24.0,
+                                    ),
+                                    onPressed: () async {
+                                      if (_model.uploadedFileUrl_uploadDataPhotoS !=
+                                              '') {
+                                        _model.apiResultSendMesPhoto =
+                                            await RPCChatsGroup
+                                                .chSendMessageCall
+                                                .call(
+                                          chatID: widget.chatID,
+                                          currentJwtToken: currentJwtToken,
+                                          contentJson: <String, String?>{
+                                            'bucket': 'chat-media',
+                                          },
+                                          mediaURL: _model
+                                              .uploadedFileUrl_uploadDataPhotoS,
+                                          type: MessageType.image.name,
+                                          path: functions.extractStoragePath(_model
+                                              .uploadedFileUrl_uploadDataPhotoS),
+                                        );
+
+                                        if (FFAppState()
+                                            .lastRealtimeMessageListJson
+                                            .isNotEmpty) {
+                                          _model.mergeMessageListsAscOut3 =
+                                              await actions
+                                                  .mergeMessageListsAsc(
+                                            FFAppState()
+                                                .chatMessagesLiveJson
+                                                .toList(),
+                                            FFAppState()
+                                                .lastRealtimeMessageListJson
+                                                .toList(),
+                                          );
+                                          FFAppState().chatMessagesLiveJson =
+                                              _model.mergeMessageListsAscOut3!
+                                                  .toList()
+                                                  .cast<dynamic>();
+                                          safeSetState(() {});
+                                          _model.offset = _model.offset +
+                                              FFAppState()
+                                                  .lastRealtimeMessageListJson
+                                                  .length;
+                                          safeSetState(() {});
+                                        }
+                                        _model.offset = _model.offset + 1;
+                                        _model.photoUrl = null;
+                                        safeSetState(() {});
+                                        FFAppState()
+                                            .lastRealtimeMessageListJson = [];
+                                        FFAppState().addToChatMessagesLiveJson(
+                                            (_model.apiResultSendMesPhoto
+                                                    ?.jsonBody ??
+                                                ''));
+                                        safeSetState(() {});
+                                        _model.chatReadOutputP =
+                                            await RPCChatsGroup
+                                                .chMarkChatReadCall
+                                                .call(
+                                          chatID: widget.chatID,
+                                          currentJwtToken: currentJwtToken,
+                                        );
+                                      }
+
+                                      safeSetState(() {});
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          if (_model.audioUrl != null && _model.audioUrl != '')
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 16.0, 16.0, 16.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(-1.0, -1.0),
+                                    child: FlutterFlowIconButton(
+                                      borderRadius: 8.0,
+                                      buttonSize: 40.0,
+                                      fillColor:
+                                          FlutterFlowTheme.of(context).accent1,
+                                      icon: Icon(
+                                        Icons.delete_outline,
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
+                                        size: 24.0,
+                                      ),
+                                      onPressed: () async {
+                                        _model.audioUrl = null;
+                                        safeSetState(() {});
+                                      },
+                                    ),
+                                  ),
+                                  Container(
+                                    constraints: BoxConstraints(
+                                      maxWidth: 250.0,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: FlutterFlowAudioPlayer(
+                                      audio: Audio.network(
+                                        _model.audioUrl!,
+                                        metas: Metas(),
+                                      ),
+                                      titleTextStyle: FlutterFlowTheme.of(
+                                              context)
+                                          .titleLarge
+                                          .override(
+                                            font: GoogleFonts.openSans(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleLarge
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleLarge
+                                                      .fontStyle,
+                                            ),
+                                            letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleLarge
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleLarge
+                                                    .fontStyle,
+                                          ),
+                                      playbackDurationTextStyle:
+                                          FlutterFlowTheme.of(context)
+                                              .labelMedium
+                                              .override(
+                                                font: GoogleFonts.openSans(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      playbackButtonColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      activeTrackColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      inactiveTrackColor:
+                                          FlutterFlowTheme.of(context)
+                                              .alternate,
+                                      elevation: 0.0,
+                                      playInBackground: PlayInBackground
+                                          .disabledRestoreOnForeground,
+                                    ),
+                                  ),
+                                  FlutterFlowIconButton(
+                                    borderRadius: 8.0,
+                                    buttonSize: 40.0,
+                                    fillColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    icon: Icon(
+                                      Icons.arrow_forward,
+                                      color: FlutterFlowTheme.of(context).info,
+                                      size: 24.0,
+                                    ),
+                                    onPressed: () async {
+                                      _model.filePath =
+                                          'chats/${widget.chatID?.toString()}/audio';
+                                      safeSetState(() {});
+                                      {
+                                        safeSetState(() => _model
+                                                .isDataUploading_uploadDataAudioS =
+                                            true);
+                                        var selectedUploadedFiles =
+                                            <FFUploadedFile>[];
+                                        var selectedMedia = <SelectedFile>[];
+                                        var downloadUrls = <String>[];
+                                        try {
+                                          showUploadMessage(
+                                            context,
+                                            FFLocalizations.of(context).getText(
+                                              'li80hpsn' /* Загрузка файла… */,
+                                            ),
+                                            showLoading: true,
+                                          );
+                                          selectedUploadedFiles = _model
+                                                  .recordedFileBytes
+                                                  .bytes!
+                                                  .isNotEmpty
+                                              ? [_model.recordedFileBytes]
+                                              : <FFUploadedFile>[];
+                                          selectedMedia =
+                                              selectedFilesFromUploadedFiles(
+                                            selectedUploadedFiles,
+                                            storageFolderPath: _model.filePath,
+                                          );
+                                          downloadUrls =
+                                              await uploadSupabaseStorageFiles(
+                                            bucketName: 'chat-media',
+                                            selectedFiles: selectedMedia,
+                                          );
+                                        } finally {
+                                          ScaffoldMessenger.of(context)
+                                              .hideCurrentSnackBar();
+                                          _model.isDataUploading_uploadDataAudioS =
+                                              false;
+                                        }
+                                        if (selectedUploadedFiles.length ==
+                                                selectedMedia.length &&
+                                            downloadUrls.length ==
+                                                selectedMedia.length) {
+                                          safeSetState(() {
+                                            _model.uploadedLocalFile_uploadDataAudioS =
+                                                selectedUploadedFiles.first;
+                                            _model.uploadedFileUrl_uploadDataAudioS =
+                                                downloadUrls.first;
+                                          });
+                                          showUploadMessage(
+                                              context,
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '3xghbynm' /* Успех! */,
+                                              ));
+                                        } else {
+                                          safeSetState(() {});
+                                          showUploadMessage(
+                                              context,
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'yevi5vx8' /* Не удалось загрузить данные */,
+                                              ));
+                                          return;
+                                        }
+                                      }
+
+                                      if (_model.uploadedFileUrl_uploadDataAudioS !=
+                                              '') {
+                                        _model.apiResultSendMesAudio =
+                                            await RPCChatsGroup
+                                                .chSendMessageCall
+                                                .call(
+                                          chatID: widget.chatID,
+                                          currentJwtToken: currentJwtToken,
+                                          contentJson: <String, String?>{
+                                            'bucket': 'chat-media',
+                                          },
+                                          mediaURL: _model
+                                              .uploadedFileUrl_uploadDataAudioS,
+                                          path: functions.extractStoragePath(_model
+                                              .uploadedFileUrl_uploadDataAudioS),
+                                          type: MessageType.audio.name,
+                                        );
+
+                                        if (FFAppState()
+                                            .lastRealtimeMessageListJson
+                                            .isNotEmpty) {
+                                          _model.mergeMessageListsAscOut5 =
+                                              await actions
+                                                  .mergeMessageListsAsc(
+                                            FFAppState()
+                                                .chatMessagesLiveJson
+                                                .toList(),
+                                            FFAppState()
+                                                .lastRealtimeMessageListJson
+                                                .toList(),
+                                          );
+                                          FFAppState().chatMessagesLiveJson =
+                                              _model.mergeMessageListsAscOut5!
+                                                  .toList()
+                                                  .cast<dynamic>();
+                                          safeSetState(() {});
+                                          _model.offset = _model.offset +
+                                              FFAppState()
+                                                  .lastRealtimeMessageListJson
+                                                  .length;
+                                          safeSetState(() {});
+                                        }
+                                        _model.offset = _model.offset + 1;
+                                        _model.audioUrl = null;
+                                        safeSetState(() {});
+                                        FFAppState()
+                                            .lastRealtimeMessageListJson = [];
+                                        FFAppState().addToChatMessagesLiveJson(
+                                            (_model.apiResultSendMesAudio
+                                                    ?.jsonBody ??
+                                                ''));
+                                        safeSetState(() {});
+                                        _model.chatReadOutputA =
+                                            await RPCChatsGroup
+                                                .chMarkChatReadCall
+                                                .call(
+                                          chatID: widget.chatID,
+                                          currentJwtToken: currentJwtToken,
+                                        );
+                                      }
+
+                                      safeSetState(() {});
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          if ((_model.photoUrl == null ||
+                                  _model.photoUrl == '') &&
+                              (_model.videoUrl == null ||
+                                  _model.videoUrl == '') &&
+                              (_model.audioUrl == null ||
+                                  _model.audioUrl == ''))
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 8.0, 16.0, 16.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  if (_model.textFieldMessageTextController
+                                          .text ==
+                                      '')
+                                    FlutterFlowIconButton(
+                                      borderRadius: 8.0,
+                                      buttonSize: 40.0,
+                                      fillColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      icon: Icon(
+                                        Icons.play_lesson_rounded,
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
+                                        size: 24.0,
+                                      ),
+                                      onPressed: () async {
+                                        _model.filePath =
+                                            'chats/${widget.chatID?.toString()}/videos';
+                                        safeSetState(() {});
+                                        final selectedMedia =
+                                            await selectMediaWithSourceBottomSheet(
+                                          context: context,
+                                          storageFolderPath: _model.filePath,
+                                          allowPhoto: false,
+                                          allowVideo: true,
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                          textColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .accent2,
+                                          pickerFontFamily: 'PT Sans',
+                                        );
+                                        if (selectedMedia != null &&
+                                            selectedMedia.every((m) =>
+                                                validateFileFormat(
+                                                    m.storagePath, context))) {
+                                          safeSetState(() => _model
+                                                  .isDataUploading_uploadDataVideoS =
+                                              true);
+                                          var selectedUploadedFiles =
+                                              <FFUploadedFile>[];
+
+                                          var downloadUrls = <String>[];
+                                          try {
+                                            selectedUploadedFiles =
+                                                selectedMedia
+                                                    .map((m) => FFUploadedFile(
+                                                          name: m.storagePath
+                                                              .split('/')
+                                                              .last,
+                                                          bytes: m.bytes,
+                                                          height: m.dimensions
+                                                              ?.height,
+                                                          width: m.dimensions
+                                                              ?.width,
+                                                          blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
+                                                        ))
+                                                    .toList();
+
+                                            downloadUrls =
+                                                await uploadSupabaseStorageFiles(
+                                              bucketName: 'chat-media',
+                                              selectedFiles: selectedMedia,
+                                            );
+                                          } finally {
+                                            _model.isDataUploading_uploadDataVideoS =
+                                                false;
+                                          }
+                                          if (selectedUploadedFiles.length ==
+                                                  selectedMedia.length &&
+                                              downloadUrls.length ==
+                                                  selectedMedia.length) {
+                                            safeSetState(() {
+                                              _model.uploadedLocalFile_uploadDataVideoS =
+                                                  selectedUploadedFiles.first;
+                                              _model.uploadedFileUrl_uploadDataVideoS =
+                                                  downloadUrls.first;
+                                            });
+                                          } else {
+                                            safeSetState(() {});
+                                            return;
+                                          }
+                                        }
+
+                                        _model.videoUrl = _model
+                                            .uploadedFileUrl_uploadDataVideoS;
+                                        safeSetState(() {});
+                                      },
+                                    ),
+                                  if (_model.textFieldMessageTextController
+                                          .text ==
+                                      '')
+                                    FlutterFlowIconButton(
+                                      borderRadius: 8.0,
+                                      buttonSize: 40.0,
+                                      fillColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      icon: Icon(
+                                        Icons.add_a_photo,
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
+                                        size: 24.0,
+                                      ),
+                                      onPressed: () async {
+                                        _model.filePath =
+                                            'chats/${widget.chatID?.toString()}/images';
+                                        safeSetState(() {});
+                                        final selectedMedia =
+                                            await selectMediaWithSourceBottomSheet(
+                                          context: context,
+                                          storageFolderPath: _model.filePath,
+                                          allowPhoto: true,
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                          textColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .accent2,
+                                          pickerFontFamily: 'PT Sans',
+                                        );
+                                        if (selectedMedia != null &&
+                                            selectedMedia.every((m) =>
+                                                validateFileFormat(
+                                                    m.storagePath, context))) {
+                                          safeSetState(() => _model
+                                                  .isDataUploading_uploadDataPhotoS =
+                                              true);
+                                          var selectedUploadedFiles =
+                                              <FFUploadedFile>[];
+
+                                          var downloadUrls = <String>[];
+                                          try {
+                                            selectedUploadedFiles =
+                                                selectedMedia
+                                                    .map((m) => FFUploadedFile(
+                                                          name: m.storagePath
+                                                              .split('/')
+                                                              .last,
+                                                          bytes: m.bytes,
+                                                          height: m.dimensions
+                                                              ?.height,
+                                                          width: m.dimensions
+                                                              ?.width,
+                                                          blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
+                                                        ))
+                                                    .toList();
+
+                                            downloadUrls =
+                                                await uploadSupabaseStorageFiles(
+                                              bucketName: 'chat-media',
+                                              selectedFiles: selectedMedia,
+                                            );
+                                          } finally {
+                                            _model.isDataUploading_uploadDataPhotoS =
+                                                false;
+                                          }
+                                          if (selectedUploadedFiles.length ==
+                                                  selectedMedia.length &&
+                                              downloadUrls.length ==
+                                                  selectedMedia.length) {
+                                            safeSetState(() {
+                                              _model.uploadedLocalFile_uploadDataPhotoS =
+                                                  selectedUploadedFiles.first;
+                                              _model.uploadedFileUrl_uploadDataPhotoS =
+                                                  downloadUrls.first;
+                                            });
+                                          } else {
+                                            safeSetState(() {});
+                                            return;
+                                          }
+                                        }
+
+                                        _model.photoUrl = _model
+                                            .uploadedFileUrl_uploadDataPhotoS;
+                                        safeSetState(() {});
+                                      },
+                                    ),
+                                  Expanded(
+                                    child: SingleChildScrollView(
+                                      controller: _model.columnController4,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            child: TextFormField(
+                                              controller: _model
+                                                  .textFieldMessageTextController,
+                                              focusNode: _model
+                                                  .textFieldMessageFocusNode,
+                                              onChanged: (_) =>
+                                                  EasyDebounce.debounce(
+                                                '_model.textFieldMessageTextController',
+                                                Duration(milliseconds: 2000),
+                                                () => safeSetState(() {}),
+                                              ),
+                                              autofocus: false,
+                                              enabled: true,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                isDense: true,
+                                                labelStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.openSans(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
+                                                    ),
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'thq5vvkt' /* Введите текст */,
+                                                ),
+                                                hintStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.openSans(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
+                                                    ),
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .accent4,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                errorBorder: OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .error,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                focusedErrorBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .error,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                filled: true,
+                                                fillColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .accent2,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font: GoogleFonts.openSans(
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
+                                              maxLines: null,
+                                              cursorColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              enableInteractiveSelection: true,
+                                              validator: _model
+                                                  .textFieldMessageTextControllerValidator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  if (_model.textFieldMessageTextController
+                                          .text ==
+                                      '')
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onLongPress: () async {
+                                        if (!_model.isRecording) {
+                                          _model.isRecording = true;
+                                          safeSetState(() {});
+                                          await startAudioRecording(
+                                            context,
+                                            audioRecorder:
+                                                _model.audioRecorder ??=
+                                                    AudioRecorder(),
+                                          );
+
+                                          if (animationsMap[
+                                                  'iconButtonOnActionTriggerAnimation'] !=
+                                              null) {
+                                            await animationsMap[
+                                                    'iconButtonOnActionTriggerAnimation']!
+                                                .controller
+                                                .forward(from: 0.0);
+                                          }
+                                        }
+                                      },
+                                      child: FlutterFlowIconButton(
+                                        borderRadius: 8.0,
+                                        buttonSize: 40.0,
+                                        fillColor: _model.isRecording
+                                            ? FlutterFlowTheme.of(context)
+                                                .accent1
+                                            : FlutterFlowTheme.of(context)
+                                                .primary,
+                                        icon: Icon(
+                                          Icons.keyboard_voice,
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
+                                          size: 24.0,
+                                        ),
+                                        onPressed: () async {
+                                          if (_model.isRecording) {
+                                            await stopAudioRecording(
+                                              audioRecorder:
+                                                  _model.audioRecorder,
+                                              audioName: 'recordedFileBytes',
+                                              onRecordingComplete:
+                                                  (audioFilePath, audioBytes) {
+                                                _model.audioRecordOutput =
+                                                    audioFilePath;
+                                                _model.recordedFileBytes =
+                                                    audioBytes;
+                                              },
+                                            );
+
+                                            if (animationsMap[
+                                                    'iconButtonOnActionTriggerAnimation'] !=
+                                                null) {
+                                              animationsMap[
+                                                      'iconButtonOnActionTriggerAnimation']!
+                                                  .controller
+                                                  .stop();
+                                            }
+                                            _model.audioUrl =
+                                                _model.audioRecordOutput;
+                                            safeSetState(() {});
+                                            _model.isRecording = false;
+                                            safeSetState(() {});
+                                          }
+
+                                          safeSetState(() {});
+                                        },
+                                      ),
+                                    ).animateOnActionTrigger(
+                                      animationsMap[
+                                          'iconButtonOnActionTriggerAnimation']!,
+                                    ),
+                                  if (_model.textFieldMessageTextController
+                                          .text !=
+                                      '')
+                                    FlutterFlowIconButton(
+                                      borderRadius: 8.0,
+                                      buttonSize: 40.0,
+                                      fillColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      icon: Icon(
+                                        Icons.arrow_forward,
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
+                                        size: 24.0,
+                                      ),
+                                      onPressed: () async {
+                                        if (_model.textFieldMessageTextController
+                                                    .text !=
+                                                '') {
+                                          _model.apiResultSendMesText =
+                                              await RPCChatsGroup
+                                                  .chSendMessageCall
+                                                  .call(
+                                            chatID: widget.chatID,
+                                            currentJwtToken: currentJwtToken,
+                                            contentJson: <String, String?>{},
+                                            type: MessageType.text.name,
+                                            text: _model
+                                                .textFieldMessageTextController
+                                                .text,
+                                          );
+
+                                          if (FFAppState()
+                                              .lastRealtimeMessageListJson
+                                              .isNotEmpty) {
+                                            _model.mergeMessageListsAscOut2 =
+                                                await actions
+                                                    .mergeMessageListsAsc(
+                                              FFAppState()
+                                                  .chatMessagesLiveJson
+                                                  .toList(),
+                                              FFAppState()
+                                                  .lastRealtimeMessageListJson
+                                                  .toList(),
+                                            );
+                                            FFAppState().chatMessagesLiveJson =
+                                                _model.mergeMessageListsAscOut2!
+                                                    .toList()
+                                                    .cast<dynamic>();
+                                            safeSetState(() {});
+                                            _model.offset = _model.offset +
+                                                FFAppState()
+                                                    .lastRealtimeMessageListJson
+                                                    .length;
+                                            safeSetState(() {});
+                                          }
+                                          _model.offset = _model.offset + 1;
+                                          safeSetState(() {});
+                                          FFAppState()
+                                              .lastRealtimeMessageListJson = [];
+                                          FFAppState()
+                                              .addToChatMessagesLiveJson((_model
+                                                      .apiResultSendMesText
+                                                      ?.jsonBody ??
+                                                  ''));
+                                          safeSetState(() {});
+                                          safeSetState(() {
+                                            _model
+                                                .textFieldMessageTextController
+                                                ?.clear();
+                                          });
+                                          _model.chatReadOutputT =
+                                              await RPCChatsGroup
+                                                  .chMarkChatReadCall
+                                                  .call(
+                                            chatID: widget.chatID,
+                                            currentJwtToken: currentJwtToken,
+                                          );
+                                        }
+
+                                        safeSetState(() {});
+                                      },
+                                    ),
+                                ].divide(SizedBox(width: 8.0)),
+                              ),
+                            ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-              wrapWithModel(
-                model: _model.cBackComponentsModel,
-                updateCallback: () => safeSetState(() {}),
-                child: CBackComponentsWidget(),
+              PointerInterceptor(
+                intercepting: isWeb,
+                child: wrapWithModel(
+                  model: _model.cBackComponentsModel,
+                  updateCallback: () => safeSetState(() {}),
+                  child: CBackComponentsWidget(),
+                ),
               ),
             ],
           ),

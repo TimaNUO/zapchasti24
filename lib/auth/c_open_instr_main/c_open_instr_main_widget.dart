@@ -9,6 +9,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:provider/provider.dart';
 import 'c_open_instr_main_model.dart';
 export 'c_open_instr_main_model.dart';
@@ -1880,10 +1881,13 @@ class _COpenInstrMainWidgetState extends State<COpenInstrMainWidget>
                     },
                   ),
                 ),
-                wrapWithModel(
-                  model: _model.cBackComponentsModel,
-                  updateCallback: () => safeSetState(() {}),
-                  child: CBackComponentsWidget(),
+                PointerInterceptor(
+                  intercepting: isWeb,
+                  child: wrapWithModel(
+                    model: _model.cBackComponentsModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: CBackComponentsWidget(),
+                  ),
                 ),
               ],
             ),
