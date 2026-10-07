@@ -362,380 +362,347 @@ class _PAddBuyerWidgetState extends State<PAddBuyerWidget> {
                                                             ),
                                                           ),
                                                         ),
-                                                        Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Row(
+                                                        Flexible(
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(),
+                                                            child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
                                                               children: [
-                                                                Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          -1.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Container(
-                                                                    width: MediaQuery.sizeOf(context)
-                                                                            .width *
-                                                                        0.25,
-                                                                    decoration:
-                                                                        BoxDecoration(),
-                                                                    child: Text(
-                                                                      '${getJsonField(
-                                                                        vehicleUserBodyItem,
-                                                                        r'''$.car_models.car_brands.brand''',
-                                                                      ).toString()}  ${getJsonField(
-                                                                        vehicleUserBodyItem,
-                                                                        r'''$.car_models.model''',
-                                                                      ).toString()}',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            font:
-                                                                                GoogleFonts.openSans(
-                                                                              fontWeight: FontWeight.w600,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w600,
-                                                                            fontStyle:
-                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .end,
-                                                                      children:
-                                                                          [
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
                                                                               -1.0,
                                                                               0.0),
-                                                                          child:
-                                                                              InkWell(
-                                                                            splashColor:
-                                                                                Colors.transparent,
-                                                                            focusColor:
-                                                                                Colors.transparent,
-                                                                            hoverColor:
-                                                                                Colors.transparent,
-                                                                            highlightColor:
-                                                                                Colors.transparent,
-                                                                            onTap:
-                                                                                () async {
-                                                                              FFAppState().uploadedMediaEditCarApp = getJsonField(
-                                                                                vehicleUserBodyItem,
-                                                                                r'''$.photo''',
-                                                                              ).toString();
-                                                                              FFAppState().carBuyerBody = vehicleUserBodyItem;
-                                                                              safeSetState(() {});
-                                                                              await showModalBottomSheet(
-                                                                                isScrollControlled: true,
-                                                                                backgroundColor: Colors.transparent,
-                                                                                context: context,
-                                                                                builder: (context) {
-                                                                                  return GestureDetector(
-                                                                                    onTap: () {
-                                                                                      FocusScope.of(context).unfocus();
-                                                                                      FocusManager.instance.primaryFocus?.unfocus();
-                                                                                    },
-                                                                                    child: Padding(
-                                                                                      padding: MediaQuery.viewInsetsOf(context),
-                                                                                      child: CEditCarBuyerWidget(),
-                                                                                    ),
-                                                                                  );
-                                                                                },
-                                                                              ).then((value) => safeSetState(() {}));
-                                                                            },
-                                                                            child:
-                                                                                Container(
-                                                                              width: 28.0,
-                                                                              height: 28.0,
-                                                                              decoration: BoxDecoration(
-                                                                                shape: BoxShape.circle,
-                                                                              ),
-                                                                              child: ClipRRect(
-                                                                                borderRadius: BorderRadius.circular(0.0),
-                                                                                child: SvgPicture.asset(
-                                                                                  'assets/images/edit_pen.svg',
-                                                                                  width: 28.0,
-                                                                                  height: 28.0,
-                                                                                  fit: BoxFit.none,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              -1.0,
-                                                                              -1.0),
-                                                                          child:
-                                                                              InkWell(
-                                                                            splashColor:
-                                                                                Colors.transparent,
-                                                                            focusColor:
-                                                                                Colors.transparent,
-                                                                            hoverColor:
-                                                                                Colors.transparent,
-                                                                            highlightColor:
-                                                                                Colors.transparent,
-                                                                            onTap:
-                                                                                () async {
-                                                                              var confirmDialogResponse = await showDialog<bool>(
-                                                                                    context: context,
-                                                                                    builder: (alertDialogContext) {
-                                                                                      return AlertDialog(
-                                                                                        title: Text('Удаление автомобиля'),
-                                                                                        content: Text('Вы действительно хотите удалить автомобиль?'),
-                                                                                        actions: [
-                                                                                          TextButton(
-                                                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                            child: Text('Нет'),
-                                                                                          ),
-                                                                                          TextButton(
-                                                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                            child: Text('Да'),
-                                                                                          ),
-                                                                                        ],
-                                                                                      );
-                                                                                    },
-                                                                                  ) ??
-                                                                                  false;
-                                                                              if (confirmDialogResponse) {
-                                                                                _model.apiResulto0i22 = await SupabaseInfoGroup.hideVehicleUserInfoCall.call(
-                                                                                  carId: getJsonField(
-                                                                                    vehicleUserBodyItem,
-                                                                                    r'''$.id''',
-                                                                                  ),
-                                                                                );
-
-                                                                                if ((_model.apiResulto0i22?.succeeded ?? true)) {
-                                                                                  unawaited(
-                                                                                    () async {
-                                                                                      await RPCRequestsFiltersGroup.hideVehicleRequestsFiltersCall.call(
-                                                                                        vehicleID: getJsonField(
-                                                                                          vehicleUserBodyItem,
-                                                                                          r'''$.id''',
-                                                                                        ),
-                                                                                      );
-                                                                                    }(),
-                                                                                  );
-                                                                                  await showDialog(
-                                                                                    context: context,
-                                                                                    builder: (alertDialogContext) {
-                                                                                      return AlertDialog(
-                                                                                        title: Text('Успех'),
-                                                                                        content: Text('Автомобиль успешно удален'),
-                                                                                        actions: [
-                                                                                          TextButton(
-                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                            child: Text('Ok'),
-                                                                                          ),
-                                                                                        ],
-                                                                                      );
-                                                                                    },
-                                                                                  );
-                                                                                } else {
-                                                                                  await showDialog(
-                                                                                    context: context,
-                                                                                    builder: (alertDialogContext) {
-                                                                                      return AlertDialog(
-                                                                                        title: Text('Ошибка'),
-                                                                                        content: Text((_model.apiResulto0i22?.jsonBody ?? '').toString()),
-                                                                                        actions: [
-                                                                                          TextButton(
-                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                            child: Text('Ok'),
-                                                                                          ),
-                                                                                        ],
-                                                                                      );
-                                                                                    },
-                                                                                  );
-                                                                                }
-                                                                              }
-
-                                                                              safeSetState(() {});
-                                                                            },
-                                                                            child:
-                                                                                Container(
-                                                                              width: 28.0,
-                                                                              height: 28.0,
-                                                                              decoration: BoxDecoration(
-                                                                                shape: BoxShape.circle,
-                                                                              ),
-                                                                              child: ClipRRect(
-                                                                                borderRadius: BorderRadius.circular(0.0),
-                                                                                child: SvgPicture.asset(
-                                                                                  'assets/images/red_bucket.svg',
-                                                                                  width: 28.0,
-                                                                                  height: 28.0,
-                                                                                  fit: BoxFit.none,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      ].divide(SizedBox(
-                                                                              width: 4.0)),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ].divide(SizedBox(
-                                                                  width: 4.0)),
-                                                            ),
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          -1.0,
-                                                                          0.0),
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      ClipRRect(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(0.0),
-                                                                        child: SvgPicture
-                                                                            .asset(
-                                                                          'assets/images/calendar.svg',
-                                                                          width:
-                                                                              12.0,
-                                                                          height:
-                                                                              12.0,
-                                                                          fit: BoxFit
-                                                                              .contain,
-                                                                        ),
-                                                                      ),
-                                                                      Text(
-                                                                        getJsonField(
-                                                                          vehicleUserBodyItem,
-                                                                          r'''$.years.year''',
-                                                                        ).toString(),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              font: GoogleFonts.openSans(
-                                                                                fontWeight: FontWeight.w500,
-                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                              ),
-                                                                              fontSize: 12.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.w500,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
-                                                                      ),
-                                                                    ].divide(SizedBox(
-                                                                        width:
-                                                                            4.0)),
-                                                                  ),
-                                                                ),
-                                                                Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          -1.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            2.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .start,
-                                                                      children:
-                                                                          [
-                                                                        ClipRRect(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(0.0),
-                                                                          child:
-                                                                              SvgPicture.asset(
-                                                                            'assets/images/black_car_vin_code.svg',
-                                                                            width:
-                                                                                12.0,
-                                                                            height:
-                                                                                12.0,
-                                                                            fit:
-                                                                                BoxFit.contain,
-                                                                          ),
-                                                                        ),
-                                                                        Text(
-                                                                          getJsonField(
+                                                                      child:
+                                                                          Container(
+                                                                        width: MediaQuery.sizeOf(context).width *
+                                                                            0.25,
+                                                                        decoration:
+                                                                            BoxDecoration(),
+                                                                        child:
+                                                                            Text(
+                                                                          '${getJsonField(
                                                                             vehicleUserBodyItem,
-                                                                            r'''$.vin''',
-                                                                          ).toString(),
+                                                                            r'''$.car_models.car_brands.brand''',
+                                                                          ).toString()}  ${getJsonField(
+                                                                            vehicleUserBodyItem,
+                                                                            r'''$.car_models.model''',
+                                                                          ).toString()}',
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
                                                                                 font: GoogleFonts.openSans(
-                                                                                  fontWeight: FontWeight.w500,
+                                                                                  fontWeight: FontWeight.w600,
                                                                                   fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                 ),
-                                                                                fontSize: 12.0,
                                                                                 letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.w500,
+                                                                                fontWeight: FontWeight.w600,
                                                                                 fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                               ),
                                                                         ),
-                                                                      ].divide(SizedBox(
-                                                                              width: 4.0)),
+                                                                      ),
                                                                     ),
-                                                                  ),
+                                                                    Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.end,
+                                                                          children:
+                                                                              [
+                                                                            Align(
+                                                                              alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                              child: InkWell(
+                                                                                splashColor: Colors.transparent,
+                                                                                focusColor: Colors.transparent,
+                                                                                hoverColor: Colors.transparent,
+                                                                                highlightColor: Colors.transparent,
+                                                                                onTap: () async {
+                                                                                  FFAppState().uploadedMediaEditCarApp = getJsonField(
+                                                                                    vehicleUserBodyItem,
+                                                                                    r'''$.photo''',
+                                                                                  ).toString();
+                                                                                  FFAppState().carBuyerBody = vehicleUserBodyItem;
+                                                                                  safeSetState(() {});
+                                                                                  await showModalBottomSheet(
+                                                                                    isScrollControlled: true,
+                                                                                    backgroundColor: Colors.transparent,
+                                                                                    context: context,
+                                                                                    builder: (context) {
+                                                                                      return GestureDetector(
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
+                                                                                        child: Padding(
+                                                                                          padding: MediaQuery.viewInsetsOf(context),
+                                                                                          child: CEditCarBuyerWidget(),
+                                                                                        ),
+                                                                                      );
+                                                                                    },
+                                                                                  ).then((value) => safeSetState(() {}));
+                                                                                },
+                                                                                child: Container(
+                                                                                  width: 28.0,
+                                                                                  height: 28.0,
+                                                                                  decoration: BoxDecoration(
+                                                                                    shape: BoxShape.circle,
+                                                                                  ),
+                                                                                  child: ClipRRect(
+                                                                                    borderRadius: BorderRadius.circular(0.0),
+                                                                                    child: SvgPicture.asset(
+                                                                                      'assets/images/edit_pen.svg',
+                                                                                      width: 28.0,
+                                                                                      height: 28.0,
+                                                                                      fit: BoxFit.none,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            Align(
+                                                                              alignment: AlignmentDirectional(-1.0, -1.0),
+                                                                              child: InkWell(
+                                                                                splashColor: Colors.transparent,
+                                                                                focusColor: Colors.transparent,
+                                                                                hoverColor: Colors.transparent,
+                                                                                highlightColor: Colors.transparent,
+                                                                                onTap: () async {
+                                                                                  var confirmDialogResponse = await showDialog<bool>(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return AlertDialog(
+                                                                                            title: Text('Удаление автомобиля'),
+                                                                                            content: Text('Вы действительно хотите удалить автомобиль?'),
+                                                                                            actions: [
+                                                                                              TextButton(
+                                                                                                onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                child: Text('Нет'),
+                                                                                              ),
+                                                                                              TextButton(
+                                                                                                onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                child: Text('Да'),
+                                                                                              ),
+                                                                                            ],
+                                                                                          );
+                                                                                        },
+                                                                                      ) ??
+                                                                                      false;
+                                                                                  if (confirmDialogResponse) {
+                                                                                    _model.apiResulto0i22 = await SupabaseInfoGroup.hideVehicleUserInfoCall.call(
+                                                                                      carId: getJsonField(
+                                                                                        vehicleUserBodyItem,
+                                                                                        r'''$.id''',
+                                                                                      ),
+                                                                                    );
+
+                                                                                    if ((_model.apiResulto0i22?.succeeded ?? true)) {
+                                                                                      unawaited(
+                                                                                        () async {
+                                                                                          await RPCRequestsFiltersGroup.hideVehicleRequestsFiltersCall.call(
+                                                                                            vehicleID: getJsonField(
+                                                                                              vehicleUserBodyItem,
+                                                                                              r'''$.id''',
+                                                                                            ),
+                                                                                          );
+                                                                                        }(),
+                                                                                      );
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return AlertDialog(
+                                                                                            title: Text('Успех'),
+                                                                                            content: Text('Автомобиль успешно удален'),
+                                                                                            actions: [
+                                                                                              TextButton(
+                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                child: Text('Ok'),
+                                                                                              ),
+                                                                                            ],
+                                                                                          );
+                                                                                        },
+                                                                                      );
+                                                                                    } else {
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (alertDialogContext) {
+                                                                                          return AlertDialog(
+                                                                                            title: Text('Ошибка'),
+                                                                                            content: Text((_model.apiResulto0i22?.jsonBody ?? '').toString()),
+                                                                                            actions: [
+                                                                                              TextButton(
+                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                child: Text('Ok'),
+                                                                                              ),
+                                                                                            ],
+                                                                                          );
+                                                                                        },
+                                                                                      );
+                                                                                    }
+                                                                                  }
+
+                                                                                  safeSetState(() {});
+                                                                                },
+                                                                                child: Container(
+                                                                                  width: 28.0,
+                                                                                  height: 28.0,
+                                                                                  decoration: BoxDecoration(
+                                                                                    shape: BoxShape.circle,
+                                                                                  ),
+                                                                                  child: ClipRRect(
+                                                                                    borderRadius: BorderRadius.circular(0.0),
+                                                                                    child: SvgPicture.asset(
+                                                                                      'assets/images/red_bucket.svg',
+                                                                                      width: 28.0,
+                                                                                      height: 28.0,
+                                                                                      fit: BoxFit.none,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ].divide(SizedBox(width: 4.0)),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ].divide(SizedBox(
+                                                                      width:
+                                                                          4.0)),
+                                                                ),
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              -1.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.start,
+                                                                        children:
+                                                                            [
+                                                                          ClipRRect(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(0.0),
+                                                                            child:
+                                                                                SvgPicture.asset(
+                                                                              'assets/images/calendar.svg',
+                                                                              width: 12.0,
+                                                                              height: 12.0,
+                                                                              fit: BoxFit.contain,
+                                                                            ),
+                                                                          ),
+                                                                          Text(
+                                                                            getJsonField(
+                                                                              vehicleUserBodyItem,
+                                                                              r'''$.years.year''',
+                                                                            ).toString(),
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  font: GoogleFonts.openSans(
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
+                                                                                  fontSize: 12.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.w500,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
+                                                                          ),
+                                                                        ].divide(SizedBox(width: 2.0)),
+                                                                      ),
+                                                                    ),
+                                                                    Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              -1.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            2.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.start,
+                                                                          children:
+                                                                              [
+                                                                            ClipRRect(
+                                                                              borderRadius: BorderRadius.circular(0.0),
+                                                                              child: SvgPicture.asset(
+                                                                                'assets/images/black_car_vin_code.svg',
+                                                                                width: 12.0,
+                                                                                height: 12.0,
+                                                                                fit: BoxFit.contain,
+                                                                              ),
+                                                                            ),
+                                                                            Text(
+                                                                              getJsonField(
+                                                                                vehicleUserBodyItem,
+                                                                                r'''$.vin''',
+                                                                              ).toString(),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    font: GoogleFonts.openSans(
+                                                                                      fontWeight: FontWeight.w500,
+                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                    ),
+                                                                                    fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
+                                                                            ),
+                                                                          ].divide(SizedBox(width: 2.0)),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ].divide(SizedBox(
+                                                                      width:
+                                                                          8.0)),
                                                                 ),
                                                               ].divide(SizedBox(
-                                                                  width: 12.0)),
+                                                                  height: 6.0)),
                                                             ),
-                                                          ].divide(SizedBox(
-                                                              height: 6.0)),
+                                                          ),
                                                         ),
-                                                      ],
+                                                      ].divide(
+                                                          SizedBox(width: 4.0)),
                                                     ),
                                                     InkWell(
                                                       splashColor:

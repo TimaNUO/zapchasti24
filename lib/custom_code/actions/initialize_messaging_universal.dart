@@ -7,7 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
 import '/flutter_flow/custom_functions.dart'; // Imports custom functions
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide RepeatMode;
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
@@ -248,10 +248,7 @@ Future<void> _saveFcmTokenToSupabase(String token) async {
     FFAppState().fcmToken = token;
     final uid = currentUserUid;
     if (uid.isEmpty) return;
-    await DataUsersTable().update(
-      data: {'fcm_token': token},
-      matchingRows: (rows) => rows.eq('uid', uid),
-    );
+    await SupaFlow.client.rpc('claim_fcm_token', params: {'p_token': token});
   } catch (e) {
     _logEvent('error', 'fcm:saveTokenError', {'error': e.toString()});
     FFAppState().fcmToken = 'SAVE_ERROR_${e.toString()}';

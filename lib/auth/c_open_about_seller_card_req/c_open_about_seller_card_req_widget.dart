@@ -804,7 +804,8 @@ class _COpenAboutSellerCardReqWidgetState
                                                         .spaceBetween,
                                                 children: [
                                                   FaIcon(
-                                                    FontAwesomeIcons.whatsapp,
+                                                    FaIconData(FontAwesomeIcons
+                                                        .whatsapp.data),
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .accent2,

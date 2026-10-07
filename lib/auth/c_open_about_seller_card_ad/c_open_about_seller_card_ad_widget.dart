@@ -1845,7 +1845,8 @@ class _COpenAboutSellerCardAdWidgetState
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         FaIcon(
-                                          FontAwesomeIcons.whatsapp,
+                                          FaIconData(
+                                              FontAwesomeIcons.whatsapp.data),
                                           color: FlutterFlowTheme.of(context)
                                               .accent2,
                                           size: 28.0,

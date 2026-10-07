@@ -143,8 +143,8 @@ class DataBuyerTypeStruct extends BaseStruct {
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([fullName, roles, cities, vehicleUsers]);
+  int get hashCode => const ListEquality()
+      .hash([fullName, roles, cities, const ListEquality().hash(vehicleUsers)]);
 }
 
 DataBuyerTypeStruct createDataBuyerTypeStruct({

@@ -7,11 +7,12 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
 import '/flutter_flow/custom_functions.dart'; // Imports custom functions
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide RepeatMode;
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'dart:async';
+import 'index.dart'; // openNextActualityRequest
 import '/auth/supabase_auth/auth_util.dart';
 
 void _logEvent(String level, String message, [Map<String, dynamic>? ctx]) {
@@ -52,6 +53,16 @@ Future processPendingNotificationNavigation(BuildContext context) async {
 
   try {
     if (route == 'request_detail' && cardId > 0) {
+      if (!await _isRequestAlive(cardId)) {
+        _logEvent('info', 'navigate:requestNotAlive', {'cardId': cardId});
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Заявка уже снята')),
+          );
+        }
+        return;
+      }
+      if (!context.mounted) return;
       _navigateTo(
         context,
         'pSellerRequestDetail',
@@ -62,14 +73,9 @@ Future processPendingNotificationNavigation(BuildContext context) async {
       return;
     }
 
-    if (route == 'buyer_request_actuality' && cardId > 0) {
-      _navigateTo(
-        context,
-        'pBuyerRequestActuality',
-        queryParameters: {
-          'requestID': serializeParam(cardId, ParamType.int),
-        }.withoutNulls,
-      );
+    if (route == 'buyer_request_actuality') {
+      // Очередь: откроется самая ранняя живая заявка, ждущая ответа.
+      await openNextActualityRequest(context);
       return;
     }
 
@@ -126,6 +132,19 @@ void _navigateTo(
     context.pushNamed(routeName, queryParameters: queryParameters);
   } else {
     context.pushNamed(routeName);
+  }
+}
+
+Future<bool> _isRequestAlive(int requestId) async {
+  try {
+    final row = await SupaFlow.client
+        .from('requests')
+        .select('is_alive')
+        .eq('id', requestId)
+        .maybeSingle();
+    return row?['is_alive'] == true;
+  } catch (_) {
+    return true;
   }
 }
 

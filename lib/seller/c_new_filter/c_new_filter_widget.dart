@@ -58,7 +58,7 @@ class _CNewFilterWidgetState extends State<CNewFilterWidget>
         FFAppState().yearTo = 57;
         safeSetState(() {});
       }
-        });
+    });
 
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(

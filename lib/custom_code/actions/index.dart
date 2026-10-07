@@ -19,3 +19,7 @@ export 'process_pending_notification_navigation.dart'
 export 'init_notification_open_listener.dart' show initNotificationOpenListener;
 export 'init_foreground_notification_listener.dart'
     show initForegroundNotificationListener;
+export 'sync_fcm_token.dart' show syncFcmToken;
+export 'open_next_actuality_request.dart' show openNextActualityRequest;
+export 'continue_actuality_queue.dart' show continueActualityQueue;
+export 'open_messenger_about_request.dart' show openMessengerAboutRequest;

@@ -7,7 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
 import '/flutter_flow/custom_functions.dart'; // Imports custom functions
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide RepeatMode;
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
@@ -39,6 +39,8 @@ void _logEvent(String level, String message, [Map<String, dynamic>? ctx]) {
 /// карточек сверху экрана. Тап по карточке = навигация. Крестик = закрыть.
 /// ────────────────────────────────────────────────────────────────
 Future initForegroundNotificationListener(BuildContext context) async {
+  // Главная грузится после любого входа: токен устройства переезжает к текущему аккаунту.
+  unawaited(syncFcmToken());
   _logEvent('debug', 'foreground:onPageLoad',
       {'alreadyInitialized': _foregroundListenerInitialized});
 
@@ -61,6 +63,16 @@ Future initForegroundNotificationListener(BuildContext context) async {
 
       if (type.isEmpty) {
         _logEvent('warn', 'foreground:skippedTypeEmpty', data);
+        return;
+      }
+
+      if (type == 'buyer_request_confirm_actuality') {
+        // Не карточка, а экран актуальности поверх текущего; если он уже
+        // открыт, следующая заявка откроется после ответа (continueActualityQueue).
+        final navContext = appNavigatorKey.currentContext;
+        if (navContext != null) {
+          unawaited(openNextActualityRequest(navContext));
+        }
         return;
       }
 

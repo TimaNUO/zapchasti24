@@ -3243,6 +3243,12 @@ class _CBuyerRequestTakeOffWidgetState extends State<CBuyerRequestTakeOffWidget>
                                                               CBuyerAdsListForRequestDetailWidget(
                                                             adBody:
                                                                 buyerAdsBodyItem,
+                                                            requestID:
+                                                                getJsonField(
+                                                              widget
+                                                                  .requestBody,
+                                                              r'''$.id''',
+                                                            ),
                                                           ),
                                                         );
                                                       },

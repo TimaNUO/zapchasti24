@@ -380,7 +380,8 @@ class _COpenInstrMainWidgetState extends State<COpenInstrMainWidget>
                                                         .spaceEvenly,
                                                 children: [
                                                   FaIcon(
-                                                    FontAwesomeIcons.youtube,
+                                                    FaIconData(FontAwesomeIcons
+                                                        .youtube.data),
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .accent1,
@@ -1166,7 +1167,8 @@ class _COpenInstrMainWidgetState extends State<COpenInstrMainWidget>
                                                   MainAxisAlignment.spaceEvenly,
                                               children: [
                                                 FaIcon(
-                                                  FontAwesomeIcons.youtube,
+                                                  FaIconData(FontAwesomeIcons
+                                                      .youtube.data),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .accent1,

@@ -110,7 +110,8 @@ class BrandsTypeStruct extends BaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality().hash([id, brand, carModels]);
+  int get hashCode => const ListEquality()
+      .hash([id, brand, const ListEquality().hash(carModels)]);
 }
 
 BrandsTypeStruct createBrandsTypeStruct({

@@ -1,7 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'p_buyer_request_actuality_widget.dart'
     show PBuyerRequestActualityWidget;
 import 'package:flutter/material.dart';

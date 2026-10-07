@@ -365,6 +365,16 @@ class _PAccountAdminWidgetState extends State<PAccountAdminWidget> {
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
+                                              await DataUsersTable().update(
+                                                data: {
+                                                  'fcm_token': null,
+                                                },
+                                                matchingRows: (rows) =>
+                                                    rows.eqOrNull(
+                                                  'uid',
+                                                  currentUserUid,
+                                                ),
+                                              );
                                               GoRouter.of(context)
                                                   .prepareAuthEvent();
                                               await authManager.signOut();

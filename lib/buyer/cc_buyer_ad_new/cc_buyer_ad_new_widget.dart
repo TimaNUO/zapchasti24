@@ -61,7 +61,7 @@ class _CcBuyerAdNewWidgetState extends State<CcBuyerAdNewWidget>
         FFAppState().yearTo = 57;
         safeSetState(() {});
       }
-        });
+    });
 
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();

@@ -1,4 +1,3 @@
-import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/buyer/c_buyer_navigation_bar/c_buyer_navigation_bar_widget.dart';
@@ -115,52 +114,9 @@ class _PMainBuyerWidgetState extends State<PMainBuyerWidget>
           },
         ).then((value) => safeSetState(() {}));
       }
-      _model.notificationsBuyer = await NotificationsTable().queryRows(
-        queryFn: (q) => q
-            .eqOrNull(
-              'recipient_id',
-              currentUserUid,
-            )
-            .eqOrNull(
-              'is_read',
-              false,
-            )
-            .eqOrNull(
-              'type_notification',
-              'buyer_request_confirm_actuality',
-            )
-            .order('id', ascending: true),
+      await actions.openNextActualityRequest(
+        context,
       );
-      _model.notifRequests = await RequestsTable().queryRows(
-        queryFn: (q) => q
-            .inFilterOrNull(
-              'id',
-              _model.notificationsBuyer
-                  ?.map((e) => e.cardId)
-                  .withoutNulls
-                  .toList(),
-            )
-            .eqOrNull(
-              'is_alive',
-              false,
-            ),
-      );
-      for (int loop1Index = 0;
-          loop1Index <= _model.notifRequests!.length;
-          loop1Index++) {
-        final currentLoop1Item =
-            _model.notifRequests!.map((e) => e.id).toList()[loop1Index];
-
-        context.pushNamed(
-          PBuyerRequestActualityWidget.routeName,
-          queryParameters: {
-            'requestID': serializeParam(
-              currentLoop1Item,
-              ParamType.int,
-            ),
-          }.withoutNulls,
-        );
-      }
     });
 
     if (!isWeb) {

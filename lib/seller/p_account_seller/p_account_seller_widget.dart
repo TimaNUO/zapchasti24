@@ -1600,6 +1600,15 @@ class _PAccountSellerWidgetState extends State<PAccountSellerWidget> {
                                 FFAppState().deleteCarBuyerBody();
                                 FFAppState().carBuyerBody = null;
 
+                                await DataUsersTable().update(
+                                  data: {
+                                    'fcm_token': null,
+                                  },
+                                  matchingRows: (rows) => rows.eqOrNull(
+                                    'uid',
+                                    currentUserUid,
+                                  ),
+                                );
                                 GoRouter.of(context).prepareAuthEvent();
                                 await authManager.signOut();
                                 GoRouter.of(context).clearRedirectLocation();

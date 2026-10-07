@@ -930,7 +930,7 @@ class _CChatsBuyerMesWidgetState extends State<CChatsBuyerMesWidget>
                                                                             )) ==
                                                                             'sent') {
                                                                           return FaIcon(
-                                                                            FontAwesomeIcons.check,
+                                                                            FaIconData(FontAwesomeIcons.check.data),
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).accent3,
                                                                             size:
@@ -942,7 +942,7 @@ class _CChatsBuyerMesWidgetState extends State<CChatsBuyerMesWidget>
                                                                                 AlignmentDirectional(1.0, 1.0),
                                                                             child:
                                                                                 FaIcon(
-                                                                              FontAwesomeIcons.checkDouble,
+                                                                              FaIconData(FontAwesomeIcons.checkDouble.data),
                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                               size: 16.0,
                                                                             ),
