@@ -2713,7 +2713,7 @@ class _COpenRequestDetailWidgetState extends State<COpenRequestDetailWidget>
                                                                       ),
                                                                       if (getJsonField(
                                                                             buyerAdsBodyItem,
-                                                                            r'''$[0].photo_url''',
+                                                                            r'''$.photo_url[0]''',
                                                                           ) !=
                                                                           null)
                                                                         InkWell(
@@ -2737,14 +2737,14 @@ class _COpenRequestDetailWidgetState extends State<COpenRequestDetailWidget>
                                                                                     fadeOutDuration: Duration(milliseconds: 500),
                                                                                     imageUrl: getJsonField(
                                                                                       buyerAdsBodyItem,
-                                                                                      r'''$[0].photo_url''',
+                                                                                      r'''$.photo_url[0]''',
                                                                                     ).toString(),
                                                                                     fit: BoxFit.contain,
                                                                                   ),
                                                                                   allowRotation: false,
                                                                                   tag: getJsonField(
                                                                                     buyerAdsBodyItem,
-                                                                                    r'''$[0].photo_url''',
+                                                                                    r'''$.photo_url[0]''',
                                                                                   ).toString(),
                                                                                   useHeroAnimation: true,
                                                                                 ),
@@ -2756,7 +2756,7 @@ class _COpenRequestDetailWidgetState extends State<COpenRequestDetailWidget>
                                                                             tag:
                                                                                 getJsonField(
                                                                               buyerAdsBodyItem,
-                                                                              r'''$[0].photo_url''',
+                                                                              r'''$.photo_url[0]''',
                                                                             ).toString(),
                                                                             transitionOnUserGestures:
                                                                                 true,
@@ -2768,7 +2768,7 @@ class _COpenRequestDetailWidgetState extends State<COpenRequestDetailWidget>
                                                                                 fadeOutDuration: Duration(milliseconds: 500),
                                                                                 imageUrl: getJsonField(
                                                                                   buyerAdsBodyItem,
-                                                                                  r'''$[0].photo_url''',
+                                                                                  r'''$.photo_url[0]''',
                                                                                 ).toString(),
                                                                                 width: 160.0,
                                                                                 height: 100.0,

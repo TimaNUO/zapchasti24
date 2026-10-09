@@ -1672,10 +1672,7 @@ class _CEditAboutSellerWidgetState extends State<CEditAboutSellerWidget>
                                           final selectedMedia =
                                               await selectMedia(
                                             storageFolderPath:
-                                                'req/${getJsonField(
-                                              FFAppState().carBuyerBody,
-                                              r'''$.id''',
-                                            ).toString()}',
+                                                'seller/${FFAppState().userIdApp.toString()}',
                                             maxWidth: 1200.00,
                                             imageQuality: 80,
                                             mediaSource:

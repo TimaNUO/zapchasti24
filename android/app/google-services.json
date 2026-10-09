@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "445911693831",
-    "project_id": "zapchasti24-test",
-    "storage_bucket": "zapchasti24-test.firebasestorage.app"
+    "project_number": "535464709451",
+    "project_id": "zapchasti24-ace3au",
+    "storage_bucket": "zapchasti24-ace3au.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:445911693831:android:5e18211907753935c6c8a2",
+        "mobilesdk_app_id": "1:535464709451:android:d3a60657be872f2239acce",
         "android_client_info": {
           "package_name": "com.mycompany.zapchasti24"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA72aYo22qiEMd-xOIfbNsj3c6dlTNwoCU"
+          "current_key": "AIzaSyBRkHP5RnxrDX_W5f9lNJQ7wDOjbKSAMSA"
         }
       ],
       "services": {

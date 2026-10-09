@@ -1513,10 +1513,8 @@ class _CNewAdSellerWidgetState extends State<CNewAdSellerWidget>
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               final selectedMedia = await selectMedia(
-                                storageFolderPath: 'ad/${getJsonField(
-                                  FFAppState().carBuyerBody,
-                                  r'''$.id''',
-                                ).toString()}',
+                                storageFolderPath:
+                                    'ad/${FFAppState().userIdApp.toString()}',
                                 maxWidth: 1200.00,
                                 imageQuality: 80,
                                 mediaSource: MediaSource.photoGallery,

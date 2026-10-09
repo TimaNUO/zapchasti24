@@ -3401,7 +3401,7 @@ class _CBuyerRequestTakeOffWidgetState extends State<CBuyerRequestTakeOffWidget>
                                                                               ),
                                                                               if (getJsonField(
                                                                                     buyerAdsBodyItem,
-                                                                                    r'''$[0].photo_url''',
+                                                                                    r'''$.photo_url[0]''',
                                                                                   ) !=
                                                                                   null)
                                                                                 InkWell(
@@ -3420,14 +3420,14 @@ class _CBuyerRequestTakeOffWidgetState extends State<CBuyerRequestTakeOffWidget>
                                                                                             fadeOutDuration: Duration(milliseconds: 500),
                                                                                             imageUrl: getJsonField(
                                                                                               buyerAdsBodyItem,
-                                                                                              r'''$[0].photo_url''',
+                                                                                              r'''$.photo_url[0]''',
                                                                                             ).toString(),
                                                                                             fit: BoxFit.contain,
                                                                                           ),
                                                                                           allowRotation: false,
                                                                                           tag: getJsonField(
                                                                                             buyerAdsBodyItem,
-                                                                                            r'''$[0].photo_url''',
+                                                                                            r'''$.photo_url[0]''',
                                                                                           ).toString(),
                                                                                           useHeroAnimation: true,
                                                                                         ),
@@ -3437,7 +3437,7 @@ class _CBuyerRequestTakeOffWidgetState extends State<CBuyerRequestTakeOffWidget>
                                                                                   child: Hero(
                                                                                     tag: getJsonField(
                                                                                       buyerAdsBodyItem,
-                                                                                      r'''$[0].photo_url''',
+                                                                                      r'''$.photo_url[0]''',
                                                                                     ).toString(),
                                                                                     transitionOnUserGestures: true,
                                                                                     child: ClipRRect(
@@ -3447,7 +3447,7 @@ class _CBuyerRequestTakeOffWidgetState extends State<CBuyerRequestTakeOffWidget>
                                                                                         fadeOutDuration: Duration(milliseconds: 500),
                                                                                         imageUrl: getJsonField(
                                                                                           buyerAdsBodyItem,
-                                                                                          r'''$[0].photo_url''',
+                                                                                          r'''$.photo_url[0]''',
                                                                                         ).toString(),
                                                                                         width: 160.0,
                                                                                         height: 100.0,

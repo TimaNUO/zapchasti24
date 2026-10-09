@@ -5,12 +5,12 @@ Future initFirebase() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: FirebaseOptions(
-            apiKey: "AIzaSyAm0PydIh0f7CWnB0qwU40pHU5zdqvgCEc",
-            authDomain: "zapchasti24-test.firebaseapp.com",
-            projectId: "zapchasti24-test",
-            storageBucket: "zapchasti24-test.firebasestorage.app",
-            messagingSenderId: "445911693831",
-            appId: "1:445911693831:web:09ec6aff19de9097c6c8a2"));
+            apiKey: "AIzaSyANPxbuH5fkVceXYU_b8gJ7VKQPSkEBk6c",
+            authDomain: "zapchasti24-ace3au.firebaseapp.com",
+            projectId: "zapchasti24-ace3au",
+            storageBucket: "zapchasti24-ace3au.firebasestorage.app",
+            messagingSenderId: "535464709451",
+            appId: "1:535464709451:web:b1788e90bb8d0c0a39acce"));
   } else {
     await Firebase.initializeApp();
   }
