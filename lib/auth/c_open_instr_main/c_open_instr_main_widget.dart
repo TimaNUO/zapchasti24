@@ -380,8 +380,12 @@ class _COpenInstrMainWidgetState extends State<COpenInstrMainWidget>
                                                         .spaceEvenly,
                                                 children: [
                                                   FaIcon(
-                                                    FaIconData(FontAwesomeIcons
-                                                        .youtube.data),
+                                                    FaIconData(const IconData(
+                                                        /* youtube */ 0xf167,
+                                                        fontFamily:
+                                                            'FontAwesomeBrands',
+                                                        fontPackage:
+                                                            'font_awesome_flutter')),
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .accent1,
@@ -1167,8 +1171,12 @@ class _COpenInstrMainWidgetState extends State<COpenInstrMainWidget>
                                                   MainAxisAlignment.spaceEvenly,
                                               children: [
                                                 FaIcon(
-                                                  FaIconData(FontAwesomeIcons
-                                                      .youtube.data),
+                                                  FaIconData(const IconData(
+                                                      /* youtube */ 0xf167,
+                                                      fontFamily:
+                                                          'FontAwesomeBrands',
+                                                      fontPackage:
+                                                          'font_awesome_flutter')),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .accent1,

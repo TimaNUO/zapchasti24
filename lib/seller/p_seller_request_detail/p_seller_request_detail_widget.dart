@@ -1830,8 +1830,12 @@ class _PSellerRequestDetailWidgetState extends State<PSellerRequestDetailWidget>
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               FaIcon(
-                                                FaIconData(FontAwesomeIcons
-                                                    .whatsapp.data),
+                                                FaIconData(const IconData(
+                                                    /* whatsapp */ 0xf232,
+                                                    fontFamily:
+                                                        'FontAwesomeBrands',
+                                                    fontPackage:
+                                                        'font_awesome_flutter')),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent2,

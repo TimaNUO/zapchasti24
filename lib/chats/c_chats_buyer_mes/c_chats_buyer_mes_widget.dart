@@ -930,7 +930,9 @@ class _CChatsBuyerMesWidgetState extends State<CChatsBuyerMesWidget>
                                                                             )) ==
                                                                             'sent') {
                                                                           return FaIcon(
-                                                                            FaIconData(FontAwesomeIcons.check.data),
+                                                                            FaIconData(const IconData(/* check */ 0xf00c,
+                                                                                fontFamily: 'FontAwesomeSolid',
+                                                                                fontPackage: 'font_awesome_flutter')),
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).accent3,
                                                                             size:
@@ -942,7 +944,7 @@ class _CChatsBuyerMesWidgetState extends State<CChatsBuyerMesWidget>
                                                                                 AlignmentDirectional(1.0, 1.0),
                                                                             child:
                                                                                 FaIcon(
-                                                                              FaIconData(FontAwesomeIcons.checkDouble.data),
+                                                                              FaIconData(const IconData(/* checkDouble */ 0xf560, fontFamily: 'FontAwesomeSolid', fontPackage: 'font_awesome_flutter')),
                                                                               color: FlutterFlowTheme.of(context).primary,
                                                                               size: 16.0,
                                                                             ),

@@ -85,13 +85,6 @@ class _PStartReqWidgetState extends State<PStartReqWidget> {
           (_model.apiResultOpenReq1?.jsonBody ?? '').toList().cast<dynamic>();
       _model.countRequests = functions.extractTotal(
           (_model.apiResultOpenReqCount?.getHeader('content-range') ?? ''));
-      while (!(_model.requestsList.isNotEmpty)) {
-        await Future.delayed(
-          Duration(
-            milliseconds: 100,
-          ),
-        );
-      }
       safeSetState(() {});
     });
 
@@ -997,15 +990,9 @@ class _PStartReqWidgetState extends State<PStartReqWidget> {
                                         .toList()
                                         .cast<dynamic>();
                                 safeSetState(() {});
-                                while (!(_model.requestsListTrans.isNotEmpty)) {
-                                  await Future.delayed(
-                                    Duration(
-                                      milliseconds: 100,
-                                    ),
-                                  );
-                                }
                                 for (int loop1Index = 0;
-                                    loop1Index <= _model.offset;
+                                    loop1Index <
+                                        _model.requestsListTrans.length;
                                     loop1Index++) {
                                   final currentLoop1Item =
                                       _model.requestsListTrans[loop1Index];

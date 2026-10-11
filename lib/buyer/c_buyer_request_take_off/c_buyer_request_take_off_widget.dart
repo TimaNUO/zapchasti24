@@ -8,6 +8,7 @@ import '/buyer/c_buyer_request_rejected_list/c_buyer_request_rejected_list_widge
 import '/buyer/c_empty_buyer_ad/c_empty_buyer_ad_widget.dart';
 import '/buyer/c_empty_buyer_seller/c_empty_buyer_seller_widget.dart';
 import '/components/c_back_components/c_back_components_widget.dart';
+import '/flutter_flow/ff_builtin_enums.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
@@ -548,132 +549,45 @@ class _CBuyerRequestTakeOffWidgetState extends State<CBuyerRequestTakeOffWidget>
                                               ),
                                             ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 0.0, 0.0, 0.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Row(
+                                          Flexible(
+                                            child: Container(
+                                              decoration: BoxDecoration(),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        4.0, 0.0, 0.0, 0.0),
+                                                child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
                                                   children: [
-                                                    Text(
-                                                      getJsonField(
-                                                        widget.requestBody,
-                                                        r'''$.vehicle_users.car_models.car_brands.brand''',
-                                                      ).toString(),
-                                                      textAlign:
-                                                          TextAlign.justify,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .openSans(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
+                                                    Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          (FFMainAxisAlignment
+                                                                  .spaceBetween)
+                                                              .flutterValue,
+                                                      children: [
+                                                        Container(
+                                                          width:
+                                                              MediaQuery.sizeOf(
                                                                           context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  16.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        getJsonField(
-                                                          widget.requestBody,
-                                                          r'''$.vehicle_users.car_models.model''',
-                                                        ).toString(),
-                                                        textAlign:
-                                                            TextAlign.justify,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .openSans(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    Material(
-                                                      color: Colors.transparent,
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(16.0),
-                                                      ),
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color:
-                                                              Color(0x1AFF1616),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      16.0),
-                                                          border: Border.all(
-                                                            color: Color(
-                                                                0x4CFF1616),
-                                                            width: 0.0,
-                                                          ),
-                                                        ),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      4.0,
-                                                                      8.0,
-                                                                      4.0),
+                                                                      .width *
+                                                                  0.26,
+                                                          decoration:
+                                                              BoxDecoration(),
                                                           child: Text(
-                                                            getJsonField(
+                                                            '${getJsonField(
                                                               widget
                                                                   .requestBody,
-                                                              r'''$.vehicle_users.years.year''',
-                                                            ).toString(),
+                                                              r'''$.vehicle_users.car_models.car_brands.brand''',
+                                                            ).toString()}  ${getJsonField(
+                                                              widget
+                                                                  .requestBody,
+                                                              r'''$.vehicle_users.car_models.model''',
+                                                            ).toString()}',
                                                             textAlign: TextAlign
                                                                 .justify,
                                                             style: FlutterFlowTheme
@@ -690,11 +604,6 @@ class _CBuyerRequestTakeOffWidgetState extends State<CBuyerRequestTakeOffWidget>
                                                                         .bodyMedium
                                                                         .fontStyle,
                                                                   ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .accent1,
-                                                                  fontSize:
-                                                                      12.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -707,69 +616,149 @@ class _CBuyerRequestTakeOffWidgetState extends State<CBuyerRequestTakeOffWidget>
                                                                 ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    ),
-                                                  ].divide(
-                                                      SizedBox(width: 4.0)),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          -1.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    children: [
-                                                      ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(0.0),
-                                                        child: SvgPicture.asset(
-                                                          'assets/images/black_car_vin_code.svg',
-                                                          width: 12.0,
-                                                          height: 12.0,
-                                                          fit: BoxFit.contain,
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        getJsonField(
-                                                          widget.requestBody,
-                                                          r'''$.vehicle_users.vin''',
-                                                        ).toString(),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .openSans(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                fontStyle: FlutterFlowTheme.of(
+                                                        Material(
+                                                          color: Colors
+                                                              .transparent,
+                                                          shape:
+                                                              RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        16.0),
+                                                          ),
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Color(
+                                                                  0x1AFF1616),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          16.0),
+                                                              border:
+                                                                  Border.all(
+                                                                color: Color(
+                                                                    0x4CFF1616),
+                                                                width: 0.0,
+                                                              ),
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          8.0,
+                                                                          4.0,
+                                                                          8.0,
+                                                                          4.0),
+                                                              child: Text(
+                                                                getJsonField(
+                                                                  widget
+                                                                      .requestBody,
+                                                                  r'''$.vehicle_users.years.year''',
+                                                                ).toString(),
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .justify,
+                                                                style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
-                                                                    .fontStyle,
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .openSans(
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .accent1,
+                                                                      fontSize:
+                                                                          12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
                                                               ),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ].divide(
+                                                          SizedBox(width: 4.0)),
+                                                    ),
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              -1.0, 0.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        0.0),
+                                                            child: SvgPicture
+                                                                .asset(
+                                                              'assets/images/black_car_vin_code.svg',
+                                                              width: 12.0,
+                                                              height: 12.0,
+                                                              fit: BoxFit
+                                                                  .contain,
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                            getJsonField(
+                                                              widget
+                                                                  .requestBody,
+                                                              r'''$.vehicle_users.vin''',
+                                                            ).toString(),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .openSans(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  fontSize:
+                                                                      12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .fontStyle,
-                                                            ),
+                                                                ),
+                                                          ),
+                                                        ].divide(SizedBox(
+                                                            width: 4.0)),
                                                       ),
-                                                    ].divide(
-                                                        SizedBox(width: 4.0)),
-                                                  ),
+                                                    ),
+                                                  ].divide(
+                                                      SizedBox(height: 8.0)),
                                                 ),
-                                              ].divide(SizedBox(height: 8.0)),
+                                              ),
                                             ),
                                           ),
                                         ],

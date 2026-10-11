@@ -1884,18 +1884,11 @@ class _CNewRequestWidgetState extends State<CNewRequestWidget>
 
                                   if ((_model.apiResultz71?.succeeded ??
                                       true)) {
-                                    while (_model.reqIDComp == null) {
-                                      _model.reqIDComp = getJsonField(
-                                        (_model.apiResultz71?.jsonBody ?? ''),
-                                        r'''$[0].id''',
-                                      );
-                                      safeSetState(() {});
-                                      await Future.delayed(
-                                        Duration(
-                                          milliseconds: 100,
-                                        ),
-                                      );
-                                    }
+                                    _model.reqIDComp = getJsonField(
+                                      (_model.apiResultz71?.jsonBody ?? ''),
+                                      r'''$[0].id''',
+                                    );
+                                    safeSetState(() {});
                                     _model.outputRebuild =
                                         await RPCRequestsFiltersGroup
                                             .rebuildLinksForRequestCall

@@ -10,7 +10,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/seller/c_new_filter_o_k/c_new_filter_o_k_widget.dart';
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -1355,29 +1354,18 @@ class _CNewFilterWidgetState extends State<CNewFilterWidget>
 
                                       if ((_model.apiResultp18?.succeeded ??
                                           true)) {
-                                        while (_model.filterID == null) {
-                                          _model.filterID = getJsonField(
-                                            (_model.apiResultp18?.jsonBody ??
-                                                ''),
-                                            r'''$[0].id''',
-                                          );
-                                          safeSetState(() {});
-                                          await Future.delayed(
-                                            Duration(
-                                              milliseconds: 100,
-                                            ),
-                                          );
-                                        }
-                                        unawaited(
-                                          () async {
-                                            _model.outputRebuild8 =
-                                                await RPCRequestsFiltersGroup
-                                                    .rebuildLinksForFilterCall
-                                                    .call(
-                                              filterID: _model.filterID,
-                                            );
-                                          }(),
+                                        _model.filterID = getJsonField(
+                                          (_model.apiResultp18?.jsonBody ?? ''),
+                                          r'''$[0].id''',
                                         );
+                                        safeSetState(() {});
+                                        _model.outputRebuild8 =
+                                            await RPCRequestsFiltersGroup
+                                                .rebuildLinksForFilterCall
+                                                .call(
+                                          filterID: _model.filterID,
+                                        );
+
                                         await showModalBottomSheet(
                                           isScrollControlled: true,
                                           backgroundColor: Colors.transparent,

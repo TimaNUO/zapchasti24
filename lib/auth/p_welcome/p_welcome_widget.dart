@@ -59,15 +59,8 @@ class _PWelcomeWidgetState extends State<PWelcomeWidget> {
         );
       }
       if (_model.userRow != null && (_model.userRow)!.isNotEmpty) {
-        while (_model.roleID == null) {
-          _model.roleID = _model.userRow?.firstOrNull?.roleId;
-          safeSetState(() {});
-          await Future.delayed(
-            Duration(
-              milliseconds: 200,
-            ),
-          );
-        }
+        _model.roleID = _model.userRow?.firstOrNull?.roleId;
+        safeSetState(() {});
         if (_model.roleID != null) {
           if (_model.roleID == 1) {
             while (
@@ -113,12 +106,35 @@ class _PWelcomeWidgetState extends State<PWelcomeWidget> {
 
                 context.goNamed(PStartReqWidget.routeName);
               } else {
-                while (!loggedIn) {
+                while (!loggedIn && (_model.iterWaitID <= 100)) {
+                  _model.iterWaitID = _model.iterWaitID + 1;
                   await Future.delayed(
                     Duration(
                       milliseconds: 100,
                     ),
                   );
+                }
+                if (!loggedIn) {
+                  await showDialog(
+                    context: context,
+                    builder: (alertDialogContext) {
+                      return AlertDialog(
+                        title: Text('Ошибка!'),
+                        content: Text(
+                            'Пожалуйста, выполните вход повторно, проверьте интернет-соединение или очистите данные и кэш на устройстве'),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: Text('Ok'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+
+                  context.goNamed(PLogInWidget.routeName);
+
+                  return;
                 }
                 unawaited(
                   () async {
@@ -214,12 +230,36 @@ class _PWelcomeWidgetState extends State<PWelcomeWidget> {
 
                   context.pushNamed(PStartReqWidget.routeName);
                 } else {
-                  while (!loggedIn) {
+                  while (!loggedIn && (_model.iterWaitID <= 100)) {
+                    _model.iterWaitID = _model.iterWaitID + 1;
                     await Future.delayed(
                       Duration(
                         milliseconds: 100,
                       ),
                     );
+                  }
+                  if (!loggedIn) {
+                    await showDialog(
+                      context: context,
+                      builder: (alertDialogContext) {
+                        return AlertDialog(
+                          title: Text('Ошибка!'),
+                          content: Text(
+                              'Пожалуйста, выполните вход повторно, проверьте интернет-соединение или очистите данные и кэш на устройстве'),
+                          actions: [
+                            TextButton(
+                              onPressed: () =>
+                                  Navigator.pop(alertDialogContext),
+                              child: Text('Ok'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+
+                    context.goNamed(PLogInWidget.routeName);
+
+                    return;
                   }
                   unawaited(
                     () async {
@@ -272,12 +312,35 @@ class _PWelcomeWidgetState extends State<PWelcomeWidget> {
               }
             } else {
               if (_model.roleID == 777) {
-                while (!loggedIn) {
+                while (!loggedIn && (_model.iterWaitID <= 100)) {
+                  _model.iterWaitID = _model.iterWaitID + 1;
                   await Future.delayed(
                     Duration(
                       milliseconds: 100,
                     ),
                   );
+                }
+                if (!loggedIn) {
+                  await showDialog(
+                    context: context,
+                    builder: (alertDialogContext) {
+                      return AlertDialog(
+                        title: Text('Ошибка!'),
+                        content: Text(
+                            'Пожалуйста, выполните вход повторно, проверьте интернет-соединение или очистите данные и кэш на устройстве'),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: Text('Ok'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+
+                  context.goNamed(PLogInWidget.routeName);
+
+                  return;
                 }
 
                 context.pushNamed(PRequestsAdminWidget.routeName);

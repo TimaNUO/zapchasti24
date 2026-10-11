@@ -1247,15 +1247,6 @@ class _PLogInWidgetState extends State<PLogInWidget>
                                                               .getUserRoleIDByPhone(
                                                         FFAppState().userPhone,
                                                       );
-                                                      while (
-                                                          _model.userRoleID ==
-                                                              null) {
-                                                        await Future.delayed(
-                                                          Duration(
-                                                            milliseconds: 100,
-                                                          ),
-                                                        );
-                                                      }
                                                       if (_model.userRoleID ==
                                                           2) {
                                                         while (FFAppState()
@@ -1446,17 +1437,6 @@ class _PLogInWidgetState extends State<PLogInWidget>
                                                             FFAppState()
                                                                 .userPhone,
                                                           );
-                                                          while (_model
-                                                                  .userRoleIDB ==
-                                                              null) {
-                                                            await Future
-                                                                .delayed(
-                                                              Duration(
-                                                                milliseconds:
-                                                                    100,
-                                                              ),
-                                                            );
-                                                          }
                                                           if (_model
                                                                   .userRoleIDB ==
                                                               1) {
