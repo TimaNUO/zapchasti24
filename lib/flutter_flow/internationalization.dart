@@ -23424,6 +23424,38 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '/',
     },
   },
+  // cEmptySellerNotif
+  {
+    'iu719uyt': {
+      'ru': 'Уведомлений нет',
+      'ar': 'لا توجد إشعارات',
+      'az': 'Bildiriş yoxdur',
+      'be': 'Апавяшчэнняў няма',
+      'bg': 'Няма известия',
+      'cs': 'Žádná oznámení',
+      'de': 'Keine Benachrichtigungen',
+      'en': 'No notifications',
+      'es': 'Sin notificaciones',
+      'et': 'Teavitusi pole',
+      'fr': 'Aucune notification',
+      'hi': 'कोई सूचना नहीं',
+      'hy': 'Ծանուցումներ չկան',
+      'ja': '通知なし',
+      'ka': 'შეტყობინებები არ არის',
+      'kk': 'Хабарландырулар жоқ',
+      'ko': '알림 없음',
+      'ky': 'Эскертмелер жок',
+      'lv': 'Nav paziņojumu',
+      'pl': 'Brak powiadomień',
+      'ro': 'Nicio notificare',
+      'sk': 'Žiadne upozornenia',
+      'th': 'ไม่มีการแจ้งเตือน',
+      'tr': 'Bildirim yok',
+      'uk': 'Повідомлень немає',
+      'uz': 'Bildirishnomalar yo\'q',
+      'zh_Hant': '無通知',
+    },
+  },
   // Miscellaneous
   {
     'jul72wav': {

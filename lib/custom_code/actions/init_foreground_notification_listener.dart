@@ -183,7 +183,7 @@ class _NotifItem {
 
 // ─── Менеджер стопки — singleton ─────────────────────────────────
 // Хранит список уведомлений, управляет таймерами и Overlay.
-// add()    — добавить новое (верхнее получает таймер 5 сек)
+// add()    — добавить новое (верхнее получает таймер 15 сек)
 // remove() — полное удаление (крестик / тап)
 // _sink()  — верхняя уходит в конец стопки по таймеру
 
@@ -211,7 +211,7 @@ class _StackManager {
     if (_items.isEmpty) return;
     final top = _items[0];
     top.timer?.cancel();
-    top.timer = Timer(const Duration(seconds: 5), () {
+    top.timer = Timer(const Duration(seconds: 15), () {
       if (_items.length > 1) {
         _sink();
       } else {
@@ -254,9 +254,18 @@ class _StackManager {
     // Overlay.maybeOf(appNavigatorKey.currentContext) всегда возвращал null:
     // currentContext — это контекст самого Navigator, а Overlay создаётся
     // НИЖЕ него, поэтому Overlay-предка у этого контекста нет.
-    if (_overlay != null) return;
-
     final overlayState = appNavigatorKey.currentState?.overlay;
+    // Слой вставлялся один раз: экраны и шторки, открытые позже, ложились
+    // поверх баннера и перехватывали нажатия. Новое уведомление поднимает
+    // слой наверх.
+    if (_overlay != null) {
+      if (overlayState != null) {
+        if (_overlay!.mounted) _overlay!.remove();
+        overlayState.insert(_overlay!);
+        _logEvent('debug', 'foreground:overlayRaised');
+      }
+      return;
+    }
     if (overlayState == null) {
       if (attempt >= 20) {
         _logEvent('error', 'foreground:overlayGaveUp');

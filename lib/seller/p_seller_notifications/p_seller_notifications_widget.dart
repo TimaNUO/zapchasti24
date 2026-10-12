@@ -4,6 +4,7 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/seller/c_empty_seller_notif/c_empty_seller_notif_widget.dart';
 import '/seller/c_seller_notif_to_request/c_seller_notif_to_request_widget.dart';
 import 'dart:async';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -220,7 +221,8 @@ class _PSellerNotificationsWidgetState extends State<PSellerNotificationsWidget>
                                         ),
                                       ),
                                     ),
-
+                                    noItemsFoundIndicatorBuilder: (_) =>
+                                        CEmptySellerNotifWidget(),
                                     itemBuilder:
                                         (context, _, notificationIndex) {
                                       final notificationItem = _model
