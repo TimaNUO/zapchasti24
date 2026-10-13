@@ -327,8 +327,15 @@ class _StackOverlay extends StatelessWidget {
             final data = Map<String, dynamic>.from(item.data);
             _savePayload(data);
             manager.remove(id);
-            if (context.mounted) {
-              processPendingNotificationNavigation(context);
+            // remove() убирает слой вместе с этим context, если баннер был
+            // один, и переход молча прерывался — переходим от навигатора.
+            final navContext = appNavigatorKey.currentContext ?? context;
+            _logEvent('info', 'foreground:bannerTap', {
+              'cardId': data['card_id'],
+              'navContextMounted': navContext.mounted,
+            });
+            if (navContext.mounted) {
+              processPendingNotificationNavigation(navContext);
             }
           },
         );

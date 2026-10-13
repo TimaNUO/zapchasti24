@@ -400,6 +400,7 @@ class NotificationsNewRequestByAllFiltersInfoCall {
     String? recipientID = '',
     int? limit,
     int? offset,
+    String? currentJwtToken = '',
     String? supabaseUrl,
     String? supabaseAnonKey,
   }) async {
@@ -420,6 +421,7 @@ class NotificationsNewRequestByAllFiltersInfoCall {
         'apikey': '${supabaseAnonKey}',
         'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
+        'Authorization': 'Bearer ${currentJwtToken}',
       },
       params: {
         'recipient_id': "eq.${recipientID}",
@@ -440,6 +442,7 @@ class NotificationsNewRequestByAllFiltersInfoCall {
 class NotificationsNewRequestByAllFiltersInfoCountCall {
   Future<ApiCallResponse> call({
     String? recipientID = '',
+    String? currentJwtToken = '',
     String? supabaseUrl,
     String? supabaseAnonKey,
   }) async {
@@ -460,6 +463,7 @@ class NotificationsNewRequestByAllFiltersInfoCountCall {
         'apikey': '${supabaseAnonKey}',
         'Authorization': 'Bearer ${supabaseAnonKey}',
         'Prefer': 'count=exact',
+        'Authorization': 'Bearer ${currentJwtToken}',
       },
       params: {
         'recipient_id': "eq.${recipientID}",

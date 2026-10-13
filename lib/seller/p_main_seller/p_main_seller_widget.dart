@@ -60,6 +60,7 @@ class _PMainSellerWidgetState extends State<PMainSellerWidget> {
           .notificationsNewRequestByAllFiltersInfoCountCall
           .call(
         recipientID: currentUserUid,
+        currentJwtToken: currentJwtToken,
       );
 
       _model.appLastBuild = _model.apiAppLastBuild?.firstOrNull?.latestBuild;

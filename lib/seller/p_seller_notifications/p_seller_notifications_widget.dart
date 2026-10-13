@@ -184,6 +184,7 @@ class _PSellerNotificationsWidgetState extends State<PSellerNotificationsWidget>
                                       recipientID: currentUserUid,
                                       limit: 15,
                                       offset: nextPageMarker.numItems,
+                                      currentJwtToken: currentJwtToken,
                                     ),
                                   ),
                                   padding: EdgeInsets.zero,
